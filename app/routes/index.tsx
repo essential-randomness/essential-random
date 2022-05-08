@@ -3,7 +3,7 @@ import {
   links as ProfileCardsLinks,
 } from "../../components/ProfileCard";
 
-import styles from "./index.css";
+import styles from "../../styles/index.css";
 
 export default function Index() {
   return (
@@ -21,6 +21,5 @@ export default function Index() {
 }
 
 export function links() {
-  console.log(ProfileCardsLinks());
   return [{ rel: "stylesheet", href: styles }, ...ProfileCardsLinks()];
 }
