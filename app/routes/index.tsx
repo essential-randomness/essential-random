@@ -12,8 +12,12 @@ export default function Index() {
       <section>
         <h2>Where to find me on the web</h2>
         <div className="social-links">
-          <a href="https://twitter.com/essentialrandom">Twitter</a>
-          <a href="https://essential-randomness.tumblr.com/">Tumblr</a>
+          <a rel="me" href="https://twitter.com/essentialrandom">
+            Twitter
+          </a>
+          <a rel="me" href="https://essential-randomness.tumblr.com/">
+            Tumblr
+          </a>
         </div>
       </section>
     </div>

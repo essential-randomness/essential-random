@@ -6,7 +6,7 @@ export const ProfileCard = () => {
     <section className="h-card">
       <img className="avatar u-logo" src={avatar} alt="Ms Boba's avatar" />
       <h1 className="p-name">
-        <a className="u-url" href="/">
+        <a rel="me" className="u-url" href="/">
           Essential Randomness
         </a>
       </h1>
