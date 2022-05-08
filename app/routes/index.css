@@ -1,0 +1,12 @@
+.avatar {
+  border-radius: 50%;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+}
+
+.social-links a {
+  margin: 0 10px;
+}
