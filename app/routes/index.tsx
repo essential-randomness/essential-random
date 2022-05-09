@@ -18,6 +18,12 @@ export default function Index() {
           <a rel="me" href="https://essential-randomness.tumblr.com/">
             Tumblr
           </a>
+          <a rel="me" href="https://github.com/essential-randomness">
+            GitHub
+          </a>
+          <a rel="me" href="https://www.twitch.tv/essentialrandomness">
+            Twitch
+          </a>
         </div>
       </section>
     </div>
