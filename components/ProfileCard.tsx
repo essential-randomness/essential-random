@@ -1,11 +1,15 @@
 import React from "react";
 import avatar from "@site/static/img/avatar.png";
-import styles from "./ProfileCard.css";
+import { styled } from "@linaria/react";
+
+const Avatar = styled.img`
+  border-radius: 50%;
+`;
 
 export const ProfileCard = () => {
   return (
     <section className="h-card">
-      <img className="avatar u-logo" src={avatar} alt="Ms Boba's avatar" />
+      <Avatar className="avatar u-logo" src={avatar} alt="Ms Boba's avatar" />
       <h1 className="p-name">
         <a rel="me" className="u-url" href="/">
           Essential Randomness
