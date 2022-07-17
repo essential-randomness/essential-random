@@ -1,4 +1,5 @@
-import avatar from "public/avatar.png";
+import React from "react";
+import avatar from "@site/static/img/avatar.png";
 import styles from "./ProfileCard.css";
 
 export const ProfileCard = () => {
@@ -21,7 +22,3 @@ export const ProfileCard = () => {
     </section>
   );
 };
-
-export function links() {
-  return [{ rel: "stylesheet", href: styles }];
-}
