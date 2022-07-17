@@ -1,8 +1,10 @@
+import { Form, Outlet } from "@remix-run/react";
 import {
   ProfileCard,
   links as ProfileCardsLinks,
-} from "../../components/ProfileCard";
+} from "../components/ProfileCard";
 
+import { SupportMeCard } from "~/components/SupportMeCard";
 import styles from "../../styles/index.css";
 
 export default function Index() {
@@ -25,6 +27,11 @@ export default function Index() {
             Twitch
           </a>
         </div>
+      </section>
+      <section>
+        <Form action="/donate" method="get">
+          <button type="submit">Donate</button>
+        </Form>
       </section>
     </div>
   );
