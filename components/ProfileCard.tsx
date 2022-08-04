@@ -4,6 +4,7 @@ import { styled } from "@linaria/react";
 
 const Avatar = styled.img`
   border-radius: 50%;
+  max-width: 250px;
 `;
 
 export const ProfileCard = () => {
