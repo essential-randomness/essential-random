@@ -13,6 +13,15 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      <nav>
+        <ul>
+          <li>
+            <Link href="/blog">
+              <a>Blog</a>
+            </Link>
+          </li>
+        </ul>
+      </nav>
       <main>
         <ProfileCard />
         <section>
