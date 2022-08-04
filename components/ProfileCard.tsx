@@ -1,14 +1,17 @@
-import avatar from "public/avatar.png";
-import styles from "./ProfileCard.css";
+import Image from "next/image";
+import Link from "next/link";
+import avatar from "../public/avatar.png";
 
 export const ProfileCard = () => {
   return (
     <section className="h-card">
-      <img className="avatar u-logo" src={avatar} alt="Ms Boba's avatar" />
+      <Image className="avatar u-logo" src={avatar} alt="Ms Boba's avatar" />
       <h1 className="p-name">
-        <a rel="me" className="u-url" href="/">
-          Essential Randomness
-        </a>
+        <Link href="/">
+          <a rel="me" className="u-url">
+            Essential Randomness
+          </a>
+        </Link>
       </h1>
       <div>
         a.k.a. <span className="p-nickname">Ms Boba</span>
@@ -21,7 +24,3 @@ export const ProfileCard = () => {
     </section>
   );
 };
-
-export function links() {
-  return [{ rel: "stylesheet", href: styles }];
-}
