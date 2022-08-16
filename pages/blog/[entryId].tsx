@@ -20,7 +20,7 @@ const BlogEntry: NextPage<{ content: string }> = (props) => {
 };
 
 export async function getStaticPaths() {
-  const blogEntries = getBlogEntriesInContentPath();
+  const blogEntries = await getBlogEntriesInContentPath();
   return {
     paths: blogEntries?.map((entry) => ({
       params: {
