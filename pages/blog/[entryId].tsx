@@ -2,13 +2,13 @@ import * as runtime from "react/jsx-runtime";
 
 import type { GetStaticProps, NextPage } from "next";
 import { compile, runSync } from "@mdx-js/mdx";
+import {
+  getBlogEntriesInContentPath,
+  getBlogEntryPath,
+} from "../../utils/path-utils";
 
-import dirTree from "directory-tree";
-import path from "path";
 import { readFile } from "fs/promises";
 import { useMemo } from "react";
-
-const BLOG_CONTENT_PATH = path.join(process.cwd(), "/content/blog/");
 
 const BlogEntry: NextPage<{ content: string }> = (props) => {
   const Content = useMemo(
@@ -20,14 +20,11 @@ const BlogEntry: NextPage<{ content: string }> = (props) => {
 };
 
 export async function getStaticPaths() {
-  const blogEntries = dirTree(BLOG_CONTENT_PATH, {
-    extensions: /\.mdx/,
-    attributes: ["extension"],
-  });
+  const blogEntries = getBlogEntriesInContentPath();
   return {
-    paths: blogEntries.children?.map((blogEntry) => ({
+    paths: blogEntries?.map((entry) => ({
       params: {
-        entryId: blogEntry.name.slice(0, -(blogEntry.extension?.length || 0)),
+        entryId: entry.slug,
       },
     })),
     fallback: "blocking",
@@ -36,24 +33,18 @@ export async function getStaticPaths() {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const mdxFile = await readFile(
-    path.join(
-      BLOG_CONTENT_PATH,
-      // TODO: allow other extensions
-      (params as { entryId: string }).entryId + ".mdx"
-    ),
+    getBlogEntryPath({ slug: params?.entryId as string }),
     { encoding: "utf8" }
-  );
-
-  // TODO: potentially checkout https://github.com/kentcdodds/mdx-bundler
-  const content = String(
-    await compile(mdxFile, {
-      outputFormat: "function-body",
-    })
   );
 
   return {
     props: {
-      content,
+      // TODO: potentially checkout https://github.com/kentcdodds/mdx-bundler
+      content: String(
+        await compile(mdxFile, {
+          outputFormat: "function-body",
+        })
+      ),
     },
     revalidate: 60,
   };
