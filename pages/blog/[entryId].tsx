@@ -30,9 +30,7 @@ export async function getStaticPaths() {
         entryId: blogEntry.name.slice(0, -(blogEntry.extension?.length || 0)),
       },
     })),
-
-    // TODO: find the right value here
-    fallback: false, // can also be true or 'blocking'
+    fallback: "blocking",
   };
 }
 
@@ -57,6 +55,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     props: {
       content,
     },
+    revalidate: 60,
   };
 };
 
