@@ -14,4 +14,7 @@ const withMDX = nextMdx({
 export default withMDX({
   // Append the default value with md extensions
   pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
+  serverRuntimeConfig: {
+    remarkPlugins: [remarkFrontmatter],
+  },
 });

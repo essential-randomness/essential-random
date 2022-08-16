@@ -7,6 +7,7 @@ import {
   getBlogEntryPath,
 } from "../../utils/path-utils";
 
+import getConfig from "next/config";
 import { readFile } from "fs/promises";
 import { useMemo } from "react";
 
@@ -37,12 +38,15 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     { encoding: "utf8" }
   );
 
+  const { serverRuntimeConfig } = getConfig();
+
   return {
     props: {
       // TODO: potentially checkout https://github.com/kentcdodds/mdx-bundler
       content: String(
         await compile(mdxFile, {
           outputFormat: "function-body",
+          remarkPlugins: serverRuntimeConfig.remarkPlugins,
         })
       ),
     },
