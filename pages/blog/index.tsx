@@ -47,19 +47,21 @@ const Blog: NextPage<{
   return (
     <>
       <Nav />
-      <div>
+      <div className="profile">
         <ProfileCard />
         <ProfileNav />
       </div>
-      <ul>
-        {paths.map((path) => (
-          <li key={path.slug}>
-            <Link href={`blog/${path.slug}`}>
-              <a>{path.slug}</a>
-            </Link>
-          </li>
-        ))}
-      </ul>
+      <main>
+        <ol>
+          {paths.map((path) => (
+            <li key={path.slug}>
+              <Link href={`blog/${path.slug}`}>
+                <a>{path.slug}</a>
+              </Link>
+            </li>
+          ))}
+        </ol>
+      </main>
     </>
   );
 };

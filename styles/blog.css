@@ -1,0 +1,29 @@
+nav {
+  background-color: blue;
+}
+header nav {
+  display: flex;
+  background-color: pink;
+}
+header {
+  grid-area: nav;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  grid-area: content;
+}
+
+.profile {
+  grid-area: sidebar;
+}
+
+#__next {
+  display: grid;
+  grid-template-rows: 80px auto;
+  grid-template-columns: 20% auto;
+  grid-template-areas:
+    "nav nav"
+    "sidebar content";
+}
