@@ -5,6 +5,9 @@ import {
 } from "../../utils/path-utils";
 
 import Link from "next/link";
+import { Nav } from "../../components/Nav";
+import { ProfileCard } from "../../components/ProfileCard";
+import { ProfileNav } from "../../components/ProfileNav";
 
 const getAllBlogEntries = async () => {
   const [blogEntries, blogPages] = await Promise.all([
@@ -42,15 +45,22 @@ const Blog: NextPage<{
   paths: Awaited<ReturnType<typeof getAllBlogEntries>>;
 }> = ({ paths }) => {
   return (
-    <ul>
-      {paths.map((path) => (
-        <li key={path.slug}>
-          <Link href={`blog/${path.slug}`}>
-            <a>{path.slug}</a>
-          </Link>
-        </li>
-      ))}
-    </ul>
+    <>
+      <Nav />
+      <div>
+        <ProfileCard />
+        <ProfileNav />
+      </div>
+      <ul>
+        {paths.map((path) => (
+          <li key={path.slug}>
+            <Link href={`blog/${path.slug}`}>
+              <a>{path.slug}</a>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </>
   );
 };
 export default Blog;

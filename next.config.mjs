@@ -6,7 +6,7 @@ const REMARK_PLUGINS = [remarkFrontmatter, remarkMdxFrontmatter];
 const withMDX = nextMdx({
   extension: /\.mdx?$/,
   options: {
-    // Consider swapping with https://github.com/jonschlinkert/gray-matter
+    // TODO: Consider swapping with https://github.com/jonschlinkert/gray-matter
     remarkPlugins: REMARK_PLUGINS,
     rehypePlugins: [],
     // If you use `MDXProvider`, uncomment the following line.
