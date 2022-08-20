@@ -20,4 +20,9 @@ export default withMDX({
   serverRuntimeConfig: {
     remarkPlugins: REMARK_PLUGINS,
   },
+  experimental: {
+    images: {
+      allowFutureImage: true,
+    },
+  },
 });
