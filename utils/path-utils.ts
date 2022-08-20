@@ -1,4 +1,6 @@
+import { compile } from "@mdx-js/mdx";
 import dirTree from "directory-tree";
+import getConfig from "next/config";
 import path from "path";
 import { readFile } from "fs/promises";
 import yaml from "js-yaml";
@@ -6,14 +8,32 @@ import yaml from "js-yaml";
 const BLOG_CONTENT_PATH = path.join(process.cwd(), "/content/blog/");
 const BLOG_PAGES_PATH = path.join(process.cwd(), "/pages/blog/");
 
+type CompiledMdx = Awaited<ReturnType<typeof compile>>;
+
+const extractBlogEntryTitle = (compiledMdx: CompiledMdx) => {
+  return "A title";
+};
+
+const extractBlogEntrySummary = (compiledMdx: CompiledMdx) => {
+  return "A summary";
+};
+
 const extractBlogEntryDetails = async (
   blogEntry: ReturnType<typeof dirTree>
 ) => {
   const file = await readFile(blogEntry.path, { encoding: "utf8" });
   const frontmatter = yaml.loadAll(file);
+
+  const { serverRuntimeConfig } = getConfig();
+  const compiledMdx = await compile(file, {
+    outputFormat: "function-body",
+    remarkPlugins: serverRuntimeConfig.remarkPlugins,
+  });
   return {
     slug: blogEntry.name.slice(0, -(blogEntry.extension?.length || 0)),
     createdAt: new Date((frontmatter[0] as any).created_at),
+    summary: extractBlogEntrySummary(compiledMdx),
+    title: extractBlogEntryTitle(compiledMdx),
   };
 };
 
