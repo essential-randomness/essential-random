@@ -4,7 +4,7 @@ import {
   getStaticBlogPages,
 } from "../../utils/path-utils";
 
-import Link from "next/link";
+import { ArticlePreview } from "../../components/ArticlePreview";
 import { Nav } from "../../components/Nav";
 import { ProfileCard } from "../../components/ProfileCard";
 import { ProfileNav } from "../../components/ProfileNav";
@@ -36,7 +36,11 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       paths: (await getAllBlogEntries()).map((entry) => ({
         ...entry,
         createdAt: entry.createdAt.toISOString(),
-      })),
+      })) as Array<
+        Omit<Awaited<ReturnType<typeof getAllBlogEntries>>[0], "createdAt"> & {
+          createdAt: string;
+        }
+      >,
     },
   };
 };
@@ -53,13 +57,17 @@ const Blog: NextPage<{
       </div>
       <main>
         <ol>
-          {paths.map((path) => (
-            <li key={path.slug}>
-              <Link href={`blog/${path.slug}`}>
-                <a>{path.slug}</a>
-              </Link>
-            </li>
-          ))}
+          {paths.map((path) => {
+            return (
+              <ArticlePreview
+                key={path.slug}
+                url={`blog/${path.slug}`}
+                createdAt={new Date(path.createdAt)}
+                summary={path.summary}
+                title={path.title}
+              />
+            );
+          })}
         </ol>
       </main>
     </>
