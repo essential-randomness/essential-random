@@ -27,3 +27,55 @@ main {
     "nav nav"
     "sidebar content";
 }
+
+article > header {
+  grid-area: blogpost-header;
+  position: relative;
+}
+
+article > footer {
+  grid-area: blogpost-footer;
+}
+article .content {
+  grid-area: blogpost-content;
+}
+
+article > header > h2 {
+  margin: 0px;
+}
+
+article > header > img {
+  grid-area: blogpost-avatar;
+  max-width: 100%;
+  height: auto;
+  position: absolute;
+  bottom: -50%;
+  right: 0;
+  width: 100px;
+}
+
+article > header > .author {
+  grid-area: blogpost-author;
+  display: none;
+}
+article > header > h2 {
+  grid-area: blogpost-title;
+}
+article > header > time {
+  grid-area: blogpost-time;
+}
+
+article > header {
+  display: grid;
+  grid-template-columns: 1fr 80px;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    "blogpost-title blogpost-title"
+    "blogpost-time blogpost-avatar";
+}
+article {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  color: black;
+}
