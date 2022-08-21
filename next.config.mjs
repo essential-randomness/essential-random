@@ -2,7 +2,7 @@ import nextMdx from "@next/mdx";
 import remarkFrontmatter from "remark-frontmatter";
 import remarkMdxFrontmatter from "remark-mdx-frontmatter";
 
-const REMARK_PLUGINS = [remarkFrontmatter, remarkMdxFrontmatter];
+export const REMARK_PLUGINS = [remarkFrontmatter, remarkMdxFrontmatter];
 const withMDX = nextMdx({
   extension: /\.mdx?$/,
   options: {
