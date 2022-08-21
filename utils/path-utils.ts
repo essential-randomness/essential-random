@@ -1,21 +1,37 @@
+import { rehypeExtractTitle, rehypeRemoveTitle } from "./mdx-utils";
+
+import { REMARK_PLUGINS } from "../next.config.mjs";
 import { compile } from "@mdx-js/mdx";
 import dirTree from "directory-tree";
-import getConfig from "next/config";
 import path from "path";
 import { readFile } from "fs/promises";
+// @ts-expect-error
+import rehypeTruncate from "rehype-truncate";
 import yaml from "js-yaml";
 
 const BLOG_CONTENT_PATH = path.join(process.cwd(), "/content/blog/");
 const BLOG_PAGES_PATH = path.join(process.cwd(), "/pages/blog/");
 
-type CompiledMdx = Awaited<ReturnType<typeof compile>>;
-
-const extractBlogEntryTitle = (compiledMdx: CompiledMdx) => {
-  return "A title";
+// TODO: figure out whether it's possible to do all this extraction in a single pass
+// and get the information without having to recompile all the time
+const extractBlogEntryTitle = async (file: string) => {
+  return String(
+    await compile(file, {
+      outputFormat: "function-body",
+      remarkPlugins: REMARK_PLUGINS,
+      rehypePlugins: [rehypeExtractTitle],
+    })
+  );
 };
 
-const extractBlogEntrySummary = (compiledMdx: CompiledMdx) => {
-  return "A summary";
+const extractBlogEntrySummary = async (file: string) => {
+  return String(
+    await compile(file, {
+      outputFormat: "function-body",
+      remarkPlugins: REMARK_PLUGINS,
+      rehypePlugins: [rehypeRemoveTitle, rehypeTruncate],
+    })
+  );
 };
 
 const extractBlogEntryDetails = async (
@@ -24,16 +40,11 @@ const extractBlogEntryDetails = async (
   const file = await readFile(blogEntry.path, { encoding: "utf8" });
   const frontmatter = yaml.loadAll(file);
 
-  const { serverRuntimeConfig } = getConfig();
-  const compiledMdx = await compile(file, {
-    outputFormat: "function-body",
-    remarkPlugins: serverRuntimeConfig.remarkPlugins,
-  });
   return {
     slug: blogEntry.name.slice(0, -(blogEntry.extension?.length || 0)),
     createdAt: new Date((frontmatter[0] as any).created_at),
-    summary: extractBlogEntrySummary(compiledMdx),
-    title: extractBlogEntryTitle(compiledMdx),
+    compiledSummary: await extractBlogEntrySummary(file),
+    compiledTitle: await extractBlogEntryTitle(file),
   };
 };
 

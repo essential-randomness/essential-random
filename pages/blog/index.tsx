@@ -1,3 +1,5 @@
+import * as runtime from "react/jsx-runtime";
+
 import type { GetStaticProps, NextPage } from "next";
 import {
   getBlogEntriesInContentPath,
@@ -8,6 +10,7 @@ import { ArticlePreview } from "../../components/ArticlePreview";
 import { Nav } from "../../components/Nav";
 import { ProfileCard } from "../../components/ProfileCard";
 import { ProfileNav } from "../../components/ProfileNav";
+import { runSync } from "@mdx-js/mdx";
 
 const getAllBlogEntries = async () => {
   const [blogEntries, blogPages] = await Promise.all([
@@ -59,13 +62,14 @@ const Blog: NextPage<{
         <ol>
           {paths.map((path) => {
             return (
-              <ArticlePreview
-                key={path.slug}
-                url={`blog/${path.slug}`}
-                createdAt={new Date(path.createdAt)}
-                summary={path.summary}
-                title={path.title}
-              />
+              <li key={path.slug}>
+                <ArticlePreview
+                  url={`blog/${path.slug}`}
+                  createdAt={new Date(path.createdAt)}
+                  summary={runSync(path.compiledSummary, runtime)?.default()}
+                  title={runSync(path.compiledTitle, runtime)?.default()}
+                />
+              </li>
             );
           })}
         </ol>
