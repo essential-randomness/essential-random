@@ -13,21 +13,21 @@ export const Nav = () => {
         </ul>
         <ul>
           <li>
-            <Link href={"/"}>
+            <Link href={"/blog"}>
               <a>Blog</a>
             </Link>
           </li>
         </ul>
         <ul>
           <li>
-            <Link href={"/"}>
+            <Link href={"/projects"}>
               <a>Projects</a>
             </Link>
           </li>
         </ul>
         <ul>
           <li>
-            <Link href={"/"}>
+            <Link href={"/support-me"}>
               <a>Support me</a>
             </Link>
           </li>
