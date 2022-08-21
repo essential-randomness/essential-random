@@ -39,10 +39,12 @@ main > ol > li + li {
 article > header {
   grid-area: blogpost-header;
   position: relative;
+  border-bottom: 1px dashed black;
 }
 
 article > footer {
   grid-area: blogpost-footer;
+  border-top: 1px dashed black;
 }
 article .content {
   grid-area: blogpost-content;
