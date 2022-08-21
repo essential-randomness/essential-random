@@ -6,7 +6,7 @@ import path from "path";
 export interface ArticlePreviewProps {
   url: string;
   title: string;
-  summary: string;
+  summary: JSX.Element;
   createdAt: Date;
 }
 
