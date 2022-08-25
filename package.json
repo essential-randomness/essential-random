@@ -12,6 +12,7 @@
     "@mdx-js/loader": "^2.1.2",
     "@mdx-js/react": "^2.1.2",
     "@next/mdx": "^12.2.5",
+    "@paypal/paypal-js": "^5.1.1",
     "directory-tree": "^3.3.0",
     "hast-util-select": "^5.0.2",
     "hast-util-to-text": "^3.1.1",
