@@ -32,7 +32,7 @@ const renderPayPalButton = async (
       createSubscription: (_, actions) => {
         return actions.subscription.create({
           plan_id: options.planId,
-          quantity: "30", // The quantity of the product for a subscription
+          quantity: button.dataset.quantity,
         });
       },
       onApprove: async (data) => {
@@ -51,6 +51,7 @@ export interface PayPalButtonProps {
 export const PayPalButton = (props: PayPalButtonProps) => {
   return (
     <div
+      data-quantity={props.quantity}
       key={props.planId}
       // See: https://github.com/paypal/react-paypal-js/issues/224
       // TODO: remove this once that issue is fixed
