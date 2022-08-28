@@ -52,3 +52,14 @@ const extractProjectDetails = async (
     }, {} as ProjectFrontmatter["links"]),
   };
 };
+
+/**
+ * @returns get the filename path for the project with the given slug
+ */
+export const getProjectEntryFilesystemPath = ({ slug }: { slug: string }) => {
+  return path.join(
+    PROJECTS_CONTENT_PATH,
+    // TODO: allow other extensions
+    slug + ".mdx"
+  );
+};
