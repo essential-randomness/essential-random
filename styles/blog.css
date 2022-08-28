@@ -10,17 +10,14 @@ header {
 }
 
 main {
-  display: flex;
-  flex-direction: column;
   grid-area: content;
 }
 
 main > ol {
   list-style: none;
-}
-
-main > ol > li + li {
-  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  grid-gap: 20px;
 }
 
 .profile {
