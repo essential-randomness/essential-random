@@ -16,7 +16,7 @@ const Blog: NextPage<{
         <ProfileCard />
       </div> */}
       <main className="projects">
-        <ol>
+        <ul>
           {paths.map((project) => {
             return (
               <li key={project.url}>
@@ -24,7 +24,7 @@ const Blog: NextPage<{
               </li>
             );
           })}
-        </ol>
+        </ul>
       </main>
     </>
   );

@@ -1,9 +1,0 @@
-article {
-  max-width: 400px;
-}
-
-main.projects ol {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 20px;
-}
