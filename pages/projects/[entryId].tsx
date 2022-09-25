@@ -1,11 +1,6 @@
 import * as runtime from "react/jsx-runtime";
 
 import type { GetStaticPaths, GetStaticProps, NextPage } from "next/types";
-import {
-  ProjectLinks,
-  WEBSITE_TYPES,
-  maybeGetWebsiteIcon,
-} from "../../components/ProjectPreview";
 import { compile, runSync } from "@mdx-js/mdx";
 import {
   getAdjacentProjects,
@@ -15,6 +10,7 @@ import {
 
 import Link from "next/link";
 import { Nav } from "../../components/Nav";
+import { ProjectLinks } from "../../components/ProjectPreview";
 import { REMARK_PLUGINS } from "../../next.config.mjs";
 import { readFile } from "fs/promises";
 import { useMemo } from "react";
