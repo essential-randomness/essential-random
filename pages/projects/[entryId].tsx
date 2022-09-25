@@ -1,6 +1,11 @@
 import * as runtime from "react/jsx-runtime";
 
 import type { GetStaticPaths, GetStaticProps, NextPage } from "next/types";
+import {
+  ProjectLinks,
+  WEBSITE_TYPES,
+  maybeGetWebsiteIcon,
+} from "../../components/ProjectPreview";
 import { compile, runSync } from "@mdx-js/mdx";
 import {
   getAdjacentProjects,
@@ -26,6 +31,10 @@ const ProjectEntry: NextPage<
     <>
       <Nav />
       <main className="project">
+        <h1>{props.curr.name}</h1>
+        <dl>
+          <ProjectLinks links={props.curr.links} />
+        </dl>
         {Content ? <Content /> : "loading"}
         {props.prev && (
           <div className="prev">

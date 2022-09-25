@@ -23,6 +23,31 @@ const maybeGetWebsiteIcon = (websiteName: WEBSITE_TYPES) => {
   }
 };
 
+export const ProjectLinks = ({
+  links,
+}: {
+  links: ProjectFrontmatter["links"];
+}) => {
+  return (
+    <>
+      <dt>Links</dt>
+      <dd data-term="links">
+        <dl>
+          {Object.entries(links).map(([website, url]) => (
+            <div key={url} data-website={website}>
+              {maybeGetWebsiteIcon(website as WEBSITE_TYPES)}
+              <dt>{website}</dt>
+              <dd>
+                <a href={url}>{url}</a>
+              </dd>
+            </div>
+          ))}
+        </dl>
+      </dd>
+    </>
+  );
+};
+
 export const ProjectPreview = (props: ProjectFrontmatter & { url: string }) => {
   return (
     <article key={props.name} className="project">
@@ -43,20 +68,7 @@ export const ProjectPreview = (props: ProjectFrontmatter & { url: string }) => {
         <dl>
           <dt>Status</dt>
           <dd>{props.status}</dd>
-          <dt>Links</dt>
-          <dd>
-            <dl>
-              {Object.entries(props.links).map(([website, url]) => (
-                <div key={url}>
-                  {maybeGetWebsiteIcon(website as WEBSITE_TYPES)}
-                  <dt>{website}</dt>
-                  <dd>
-                    <a href={url}>{url}</a>
-                  </dd>
-                </div>
-              ))}
-            </dl>
-          </dd>
+          <ProjectLinks links={props.links} />
           <dt>Tags</dt>
           <dd>
             <ul>

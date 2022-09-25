@@ -75,6 +75,7 @@ export const getAdjacentProjects = async ({ slug }: { slug: string }) => {
   }
   return {
     prev: projectIndex > 0 ? projects[projectIndex - 1] : null,
+    curr: projects[projectIndex],
     next:
       projectIndex < projects.length - 1 ? projects[projectIndex + 1] : null,
   };
