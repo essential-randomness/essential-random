@@ -1,8 +1,27 @@
+import { Github, Npm, Tumblr, Twitter } from "@icons-pack/react-simple-icons";
+
 import Image from "next/future/image";
 import Link from "next/link";
 import { ProjectFrontmatter } from "../utils/projects-utils";
 import avatar from "../public/avatar.png";
 import path from "path";
+
+type WEBSITE_TYPES = "github" | "tumblr" | "twitter" | "npm" | "web";
+
+const maybeGetWebsiteIcon = (websiteName: WEBSITE_TYPES) => {
+  switch (websiteName) {
+    case "twitter":
+      return <Twitter />;
+    case "github":
+      return <Github />;
+    case "tumblr":
+      return <Tumblr />;
+    case "npm":
+      return <Npm />;
+    default:
+      return null;
+  }
+};
 
 export const ProjectPreview = (props: ProjectFrontmatter & { url: string }) => {
   return (
@@ -14,7 +33,11 @@ export const ProjectPreview = (props: ProjectFrontmatter & { url: string }) => {
           </Link>
         </h2>
       </header>
-      {props.preview && <img src={props.preview} width="300" height={300} />}
+      {props.preview && (
+        <Link href={props.url}>
+          <img src={props.preview} width={300} />
+        </Link>
+      )}
       <div>{props.description}</div>
       <footer>
         <dl>
@@ -25,6 +48,7 @@ export const ProjectPreview = (props: ProjectFrontmatter & { url: string }) => {
             <dl>
               {Object.entries(props.links).map(([website, url]) => (
                 <div key={url}>
+                  {maybeGetWebsiteIcon(website as WEBSITE_TYPES)}
                   <dt>{website}</dt>
                   <dd>
                     <a href={url}>{url}</a>
