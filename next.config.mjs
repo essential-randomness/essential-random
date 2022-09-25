@@ -24,5 +24,6 @@ export default withMDX({
     images: {
       allowFutureImage: true,
     },
+    scrollRestoration: true,
   },
 });
