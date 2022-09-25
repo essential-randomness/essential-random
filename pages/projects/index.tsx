@@ -12,9 +12,6 @@ const Blog: NextPage<{
   return (
     <>
       <Nav />
-      {/* <div className="profile">
-        <ProfileCard />
-      </div> */}
       <main className="projects">
         <ul>
           {paths.map((project) => {

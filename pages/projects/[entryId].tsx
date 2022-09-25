@@ -1,26 +1,54 @@
 import * as runtime from "react/jsx-runtime";
 
-import type { GetStaticProps, NextPage } from "next/types";
+import type { GetStaticPaths, GetStaticProps, NextPage } from "next/types";
 import { compile, runSync } from "@mdx-js/mdx";
 import {
+  getAdjacentProjects,
   getProjectEntryFilesystemPath,
   getProjectsInContentPath,
 } from "../../utils/projects-utils";
 
+import Link from "next/link";
+import { Nav } from "../../components/Nav";
 import { REMARK_PLUGINS } from "../../next.config.mjs";
 import { readFile } from "fs/promises";
 import { useMemo } from "react";
 
-const ProjectEntry: NextPage<{ content: string }> = (props) => {
+const ProjectEntry: NextPage<
+  { content: string } & Awaited<ReturnType<typeof getAdjacentProjects>>
+> = (props) => {
   const Content = useMemo(
     () => runSync(props.content, runtime)?.default,
     [props.content]
   );
 
-  return <div>{Content ? <Content /> : "loading"}</div>;
+  return (
+    <>
+      <Nav />
+      <main className="project">
+        {Content ? <Content /> : "loading"}
+        {props.prev && (
+          <div className="prev">
+            Previous project:
+            <Link href={props.prev.url}>
+              <a>{props.prev.name}</a>
+            </Link>
+          </div>
+        )}
+        {props.next && (
+          <div className="next">
+            Next project:
+            <Link href={props.next.url}>
+              <a>{props.next.name}</a>
+            </Link>
+          </div>
+        )}
+      </main>
+    </>
+  );
 };
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
   const projectEntries = await getProjectsInContentPath();
   return {
     paths: projectEntries?.map((entry) => ({
@@ -30,13 +58,13 @@ export async function getStaticPaths() {
     })),
     fallback: "blocking",
   };
-}
+};
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const mdxFile = await readFile(
-    getProjectEntryFilesystemPath({ slug: params?.entryId as string }),
-    { encoding: "utf8" }
-  );
+  const slug = params?.entryId as string;
+  const mdxFile = await readFile(getProjectEntryFilesystemPath({ slug }), {
+    encoding: "utf8",
+  });
 
   return {
     props: {
@@ -47,6 +75,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
           remarkPlugins: REMARK_PLUGINS,
         })
       ),
+      ...(await getAdjacentProjects({ slug })),
     },
     revalidate: 60,
   };

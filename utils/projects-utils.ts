@@ -63,3 +63,19 @@ export const getProjectEntryFilesystemPath = ({ slug }: { slug: string }) => {
     slug + ".mdx"
   );
 };
+
+/**
+ * @returns get the projects before/after the given slug
+ */
+export const getAdjacentProjects = async ({ slug }: { slug: string }) => {
+  const projects = await getProjectsInContentPath();
+  const projectIndex = projects.findIndex((project) => project.slug == slug);
+  if (projectIndex == -1) {
+    throw new Error(`Project ${slug} does not exist.`);
+  }
+  return {
+    prev: projectIndex > 0 ? projects[projectIndex - 1] : null,
+    next:
+      projectIndex < projects.length - 1 ? projects[projectIndex + 1] : null,
+  };
+};
