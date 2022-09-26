@@ -1,23 +1,25 @@
 import * as runtime from "react/jsx-runtime";
 
 import type { GetStaticProps, NextPage } from "next";
-import { compile, runSync } from "@mdx-js/mdx";
 import {
   getBlogEntriesInContentPath,
+  getBlogEntryInContentPath,
   getBlogEntryPath,
 } from "../../utils/path-utils";
+import { getMDXComponent, getMDXExport } from "mdx-bundler/client";
 
 import { REMARK_PLUGINS } from "../../next.config.mjs";
-import { readFile } from "fs/promises";
+import { bundleMDX } from "mdx-bundler";
 import { useMemo } from "react";
 
 const BlogEntry: NextPage<{ content: string }> = (props) => {
+  console.log(props.content);
   const Content = useMemo(
-    () => runSync(props.content, runtime)?.default,
+    () => getMDXComponent(props.content),
     [props.content]
   );
 
-  return <div>{Content ? <Content /> : "loading"}</div>;
+  return <div>{<Content />}</div>;
 };
 
 export async function getStaticPaths() {
@@ -33,19 +35,31 @@ export async function getStaticPaths() {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const mdxFile = await readFile(
-    getBlogEntryPath({ slug: params?.entryId as string }),
-    { encoding: "utf8" }
-  );
-
+  const path = getBlogEntryPath({ slug: params?.entryId as string });
+  console.log(path.substring(0, path.lastIndexOf("/") + 1));
   return {
     props: {
-      // TODO: potentially checkout https://github.com/kentcdodds/mdx-bundler
       content: String(
-        await compile(mdxFile, {
-          outputFormat: "function-body",
-          remarkPlugins: REMARK_PLUGINS,
-        })
+        (
+          await bundleMDX({
+            file: path,
+            cwd: path.substring(0, path.lastIndexOf("/") + 1),
+            esbuildOptions(options) {
+              options.define = {
+                "process.env.__NEXT_MANUAL_CLIENT_BASE_PATH": JSON.stringify(
+                  process.env.__NEXT_MANUAL_CLIENT_BASE_PATH
+                ),
+                "process.env.__NEXT_OPTIMISTIC_CLIENT_CACHE": JSON.stringify(
+                  process.env.__NEXT_OPTIMISTIC_CLIENT_CACHE
+                ),
+                "process.env.__NEXT_NEW_LINK_BEHAVIOR": JSON.stringify(
+                  process.env.__NEXT_NEW_LINK_BEHAVIOR
+                ),
+              };
+              return options;
+            },
+          })
+        ).code
       ),
     },
     revalidate: 60,

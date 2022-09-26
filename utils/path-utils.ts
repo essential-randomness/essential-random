@@ -1,6 +1,7 @@
 import { rehypeExtractTitle, rehypeRemoveTitle } from "./mdx-utils";
 
 import { REMARK_PLUGINS } from "../next.config.mjs";
+import { bundleMDX } from "mdx-bundler";
 import { compile } from "@mdx-js/mdx";
 import dirTree from "directory-tree";
 import path from "path";
@@ -16,35 +17,60 @@ const BLOG_PAGES_PATH = path.join(process.cwd(), "/pages/blog/");
 // and get the information without having to recompile all the time
 const extractBlogEntryTitle = async (file: string) => {
   return String(
-    await compile(file, {
-      outputFormat: "function-body",
-      remarkPlugins: REMARK_PLUGINS,
-      rehypePlugins: [rehypeExtractTitle],
-    })
+    (
+      await bundleMDX({
+        file,
+        // mdxOptions: (options) => {
+        //   options.remarkPlugins = [
+        //     ...(options.remarkPlugins ?? []),
+        //     ...(REMARK_PLUGINS as any),
+        //   ];
+        //   options.rehypePlugins = [
+        //     ...(options.rehypePlugins ?? []),
+        //     rehypeExtractTitle,
+        //   ];
+
+        //   return options;
+        // },
+      })
+    ).code
   );
 };
 
 const extractBlogEntrySummary = async (file: string) => {
   return String(
-    await compile(file, {
-      outputFormat: "function-body",
-      remarkPlugins: REMARK_PLUGINS,
-      rehypePlugins: [rehypeRemoveTitle, rehypeTruncate],
-    })
+    (
+      await bundleMDX({
+        file,
+        // mdxOptions: (options) => {
+        //   options.remarkPlugins = [
+        //     ...(options.remarkPlugins ?? []),
+        //     ...(REMARK_PLUGINS as any),
+        //   ];
+        //   options.rehypePlugins = [
+        //     ...(options.rehypePlugins ?? []),
+        //     rehypeRemoveTitle,
+        //     rehypeTruncate,
+        //   ];
+
+        //   return options;
+        // },
+      })
+    ).code
   );
 };
 
 const extractBlogEntryDetails = async (
-  blogEntry: ReturnType<typeof dirTree>
+  blogEntry: Pick<ReturnType<typeof dirTree>, "name" | "extension" | "path">
 ) => {
-  const file = await readFile(blogEntry.path, { encoding: "utf8" });
-  const frontmatter = yaml.loadAll(file);
+  // const file = await readFile(blogEntry.path, { encoding: "utf8" });
+  // const frontmatter = yaml.loadAll(file);
 
   return {
     slug: blogEntry.name.slice(0, -(blogEntry.extension?.length || 0)),
-    createdAt: new Date((frontmatter[0] as any).created_at),
-    compiledSummary: await extractBlogEntrySummary(file),
-    compiledTitle: await extractBlogEntryTitle(file),
+    createdAt: new Date(),
+    compiledSummary: await extractBlogEntrySummary(blogEntry.path),
+    compiledTitle: await extractBlogEntryTitle(blogEntry.path),
   };
 };
 
@@ -58,6 +84,19 @@ export const getBlogEntriesInContentPath = async () => {
       attributes: ["extension"],
     }).children!.map(extractBlogEntryDetails)
   );
+};
+
+/**
+ * @returns An array of details for the given blog entry in BLOG_CONTENT_PATH.
+ */
+export const getBlogEntryInContentPath = async ({ slug }: { slug: string }) => {
+  const path = getBlogEntryPath({ slug });
+  console.log(path);
+  return await extractBlogEntryDetails({
+    path: path,
+    extension: ".mdx",
+    name: slug + ".mdx",
+  });
 };
 
 /**
