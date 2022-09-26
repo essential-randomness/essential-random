@@ -7,6 +7,9 @@ import {
   getBlogEntryPath,
 } from "../../utils/path-utils";
 
+import { Nav } from "../../components/Nav";
+import { ProfileCard } from "../../components/ProfileCard";
+import { ProfileNav } from "../../components/ProfileNav";
 import { REMARK_PLUGINS } from "../../next.config.mjs";
 import { readFile } from "fs/promises";
 import { useMemo } from "react";
@@ -17,7 +20,16 @@ const BlogEntry: NextPage<{ content: string }> = (props) => {
     [props.content]
   );
 
-  return <div>{Content ? <Content /> : "loading"}</div>;
+  return (
+    <>
+      <Nav />
+      <div className="profile">
+        <ProfileCard />
+        <ProfileNav />
+      </div>
+      <main>{Content ? <Content /> : "loading"}</main>
+    </>
+  );
 };
 
 export async function getStaticPaths() {

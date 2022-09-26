@@ -15,6 +15,7 @@
     "@next/mdx": "^12.2.5",
     "@paypal/paypal-js": "^5.1.1",
     "directory-tree": "^3.3.0",
+    "gray-matter": "^4.0.3",
     "hast-util-select": "^5.0.2",
     "hast-util-to-text": "^3.1.1",
     "js-yaml": "^4.1.0",

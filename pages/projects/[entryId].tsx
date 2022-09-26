@@ -78,6 +78,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         await compile(mdxFile, {
           outputFormat: "function-body",
           remarkPlugins: REMARK_PLUGINS,
+          useDynamicImport: true,
         })
       ),
       ...(await getAdjacentProjects({ slug })),
