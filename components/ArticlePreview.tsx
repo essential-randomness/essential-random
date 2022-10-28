@@ -1,4 +1,4 @@
-import Image from "next/future/image";
+import Image from "next/image";
 import Link from "next/link";
 import avatar from "../public/avatar.png";
 import path from "path";
@@ -22,9 +22,7 @@ export const ArticlePreview = (props: ArticlePreviewProps) => {
           height={300}
         />
         <h2>
-          <Link href={props.url}>
-            {props.title}
-          </Link>
+          <Link href={props.url}>{props.title}</Link>
         </h2>
         <time dateTime={String(props.createdAt)}>
           {props.createdAt.toLocaleDateString()}

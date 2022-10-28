@@ -1,6 +1,6 @@
 import { Github, Npm, Tumblr, Twitter } from "@icons-pack/react-simple-icons";
 
-import Image from "next/future/image";
+import Image from "next/image";
 import Link from "next/link";
 import { ProjectFrontmatter } from "../utils/projects-utils";
 import avatar from "../public/avatar.png";
@@ -53,17 +53,13 @@ export const ProjectPreview = (props: ProjectFrontmatter & { url: string }) => {
     <article key={props.name} className="project">
       <header>
         <h2>
-          <Link href={props.url}>
-            {props.name}
-          </Link>
+          <Link href={props.url}>{props.name}</Link>
         </h2>
       </header>
       {props.preview && (
-        (<Link href={props.url}>
-
+        <Link href={props.url}>
           <img src={props.preview} width={300} />
-
-        </Link>)
+        </Link>
       )}
       <div>{props.description}</div>
       <footer>
