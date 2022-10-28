@@ -6,21 +6,21 @@ export const ProfileNav = () => {
       <ul>
         <li>
           <Link href={"/"}>
-            <a>Profile</a>
+            Profile
           </Link>
         </li>
       </ul>
       <ul>
         <li>
           <Link href={"/"}>
-            <a>Guestbook</a>
+            Guestbook
           </Link>
         </li>
       </ul>
       <ul>
         <li>
           <Link href={"/"}>
-            <a>Contacts</a>
+            Contacts
           </Link>
         </li>
       </ul>

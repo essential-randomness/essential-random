@@ -54,16 +54,16 @@ export const ProjectPreview = (props: ProjectFrontmatter & { url: string }) => {
       <header>
         <h2>
           <Link href={props.url}>
-            <a>{props.name}</a>
+            {props.name}
           </Link>
         </h2>
       </header>
       {props.preview && (
-        <Link href={props.url}>
-          <a>
-            <img src={props.preview} width={300} />
-          </a>
-        </Link>
+        (<Link href={props.url}>
+
+          <img src={props.preview} width={300} />
+
+        </Link>)
       )}
       <div>{props.description}</div>
       <footer>

@@ -7,28 +7,28 @@ export const Nav = () => {
         <ul data-current={true}>
           <li>
             <Link href={"/"}>
-              <a>Home</a>
+              Home
             </Link>
           </li>
         </ul>
         <ul>
           <li>
             <Link href={"/blog"}>
-              <a>Blog</a>
+              Blog
             </Link>
           </li>
         </ul>
         <ul>
           <li>
             <Link href={"/projects"}>
-              <a>Projects</a>
+              Projects
             </Link>
           </li>
         </ul>
         <ul>
           <li>
             <Link href={"/support-me"}>
-              <a>Support me</a>
+              Support me
             </Link>
           </li>
         </ul>

@@ -13,10 +13,10 @@ export const ProfileCard = () => {
         height={300}
       />
       <h1 className="p-name">
-        <Link href="/">
-          <a rel="me" className="u-url">
+        <Link href="/" rel="me" className="u-url">
+          
             Essential Randomness
-          </a>
+          
         </Link>
       </h1>
       <div>

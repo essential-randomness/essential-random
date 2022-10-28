@@ -23,7 +23,7 @@ export const ArticlePreview = (props: ArticlePreviewProps) => {
         />
         <h2>
           <Link href={props.url}>
-            <a>{props.title}</a>
+            {props.title}
           </Link>
         </h2>
         <time dateTime={String(props.createdAt)}>
