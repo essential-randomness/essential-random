@@ -11,7 +11,7 @@ export default function Page() {
       <h2>Where to find me on the web</h2>
       <ul className="social-links">
         <li>
-          <Twitter />{" "}
+          <Twitter />
           <a rel="me" href="https://twitter.com/essentialrandom">
             Twitter
           </a>
