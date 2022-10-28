@@ -23,34 +23,32 @@ const ProjectEntry: NextPage<
     [props.content]
   );
 
-  return (
-    <>
-      <Nav />
-      <main className="project">
-        <h1>{props.curr.name}</h1>
-        <dl>
-          <ProjectLinks links={props.curr.links} />
-        </dl>
-        {Content ? <Content /> : "loading"}
-        {props.prev && (
-          <div className="prev">
-            Previous project:
-            <Link href={props.prev.url}>
-              <a>{props.prev.name}</a>
-            </Link>
-          </div>
-        )}
-        {props.next && (
-          <div className="next">
-            Next project:
-            <Link href={props.next.url}>
-              <a>{props.next.name}</a>
-            </Link>
-          </div>
-        )}
-      </main>
-    </>
-  );
+  return <>
+    <Nav />
+    <main className="project">
+      <h1>{props.curr.name}</h1>
+      <dl>
+        <ProjectLinks links={props.curr.links} />
+      </dl>
+      {Content ? <Content /> : "loading"}
+      {props.prev && (
+        <div className="prev">
+          Previous project:
+          <Link href={props.prev.url}>
+            {props.prev.name}
+          </Link>
+        </div>
+      )}
+      {props.next && (
+        <div className="next">
+          Next project:
+          <Link href={props.next.url}>
+            {props.next.name}
+          </Link>
+        </div>
+      )}
+    </main>
+  </>;
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
