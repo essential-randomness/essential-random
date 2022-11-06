@@ -39,8 +39,8 @@ const extractBlogEntryDetails = async (
   return {
     slug: blogEntry.name.slice(0, -(blogEntry.extension?.length || 0)),
     createdAt: new Date((frontmatter[0] as any).created_at),
-    compiledSummary: await extractBlogEntrySummary(file),
-    compiledTitle: await extractBlogEntryTitle(file),
+    // compiledSummary: await extractBlogEntrySummary(file),
+    // compiledTitle: await extractBlogEntryTitle(file),
   };
 };
 
