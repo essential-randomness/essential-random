@@ -2,6 +2,7 @@ import { Github, Npm, Tumblr, Twitter } from "@icons-pack/react-simple-icons";
 
 import Image from "next/image";
 import Link from "next/link";
+import { Project } from "contentlayer/generated";
 import { ProjectFrontmatter } from "../utils/projects-utils";
 import avatar from "../public/avatar.png";
 import path from "path";
@@ -23,11 +24,7 @@ const maybeGetWebsiteIcon = (websiteName: WEBSITE_TYPES) => {
   }
 };
 
-export const ProjectLinks = ({
-  links,
-}: {
-  links: ProjectFrontmatter["links"];
-}) => {
+export const ProjectLinks = ({ links }: { links: Project["linksMap"] }) => {
   return (
     <>
       <dt>Links</dt>
@@ -58,7 +55,11 @@ export const ProjectPreview = (props: ProjectFrontmatter & { url: string }) => {
       </header>
       {props.preview && (
         <Link href={props.url}>
-          <img src={props.preview} width={300} />
+          <img
+            src={props.preview}
+            width={300}
+            alt={`${props.name}'s project preview image`}
+          />
         </Link>
       )}
       <div>{props.description}</div>
