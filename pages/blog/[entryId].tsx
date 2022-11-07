@@ -6,8 +6,7 @@ import {
   getBlogEntriesInContentPath,
   getBlogEntryPath,
 } from "../../utils/path-utils";
-
-import { REMARK_PLUGINS } from "../../next.config.mjs";
+\
 import { readFile } from "fs/promises";
 import { useMemo } from "react";
 
