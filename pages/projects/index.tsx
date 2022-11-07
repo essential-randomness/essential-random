@@ -1,20 +1,15 @@
-import type { GetStaticProps, NextPage } from "next/types";
-
 import { Nav } from "../../components/Nav";
-import { ProfileCard } from "../../components/ProfileCard";
-import { ProfileNav } from "../../components/ProfileNav";
+import type { NextPage } from "next/types";
 import { ProjectPreview } from "../../components/ProjectPreview";
-import { getProjectsInContentPath } from "../../utils/projects-utils";
+import { allProjects } from "contentlayer/generated";
 
-const Blog: NextPage<{
-  paths: Awaited<ReturnType<typeof getProjectsInContentPath>>;
-}> = ({ paths }) => {
+const Projects: NextPage = () => {
   return (
     <>
       <Nav />
       <main className="projects">
         <ul>
-          {paths.map((project) => {
+          {allProjects.map((project) => {
             return (
               <li key={project.url}>
                 <ProjectPreview {...project} />
@@ -26,12 +21,4 @@ const Blog: NextPage<{
     </>
   );
 };
-export default Blog;
-
-export const getStaticProps: GetStaticProps = async ({ params }) => {
-  return {
-    props: {
-      paths: await getProjectsInContentPath(),
-    },
-  };
-};
+export default Projects;
