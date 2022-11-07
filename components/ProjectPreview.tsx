@@ -9,6 +9,8 @@ import path from "path";
 
 type WEBSITE_TYPES = "github" | "tumblr" | "twitter" | "npm" | "web";
 
+export type ProjectLinksMap = Record<WEBSITE_TYPES, string | undefined>;
+
 const maybeGetWebsiteIcon = (websiteName: WEBSITE_TYPES) => {
   switch (websiteName) {
     case "twitter":
@@ -24,7 +26,7 @@ const maybeGetWebsiteIcon = (websiteName: WEBSITE_TYPES) => {
   }
 };
 
-export const ProjectLinks = ({ links }: { links: Project["linksMap"] }) => {
+export const ProjectLinks = ({ links }: { links: ProjectLinksMap }) => {
   return (
     <>
       <dt>Links</dt>
@@ -45,7 +47,7 @@ export const ProjectLinks = ({ links }: { links: Project["linksMap"] }) => {
   );
 };
 
-export const ProjectPreview = (props: ProjectFrontmatter & { url: string }) => {
+export const ProjectPreview = (props: Project) => {
   return (
     <article key={props.name} className="project">
       <header>
@@ -67,7 +69,7 @@ export const ProjectPreview = (props: ProjectFrontmatter & { url: string }) => {
         <dl>
           <dt>Status</dt>
           <dd>{props.status}</dd>
-          <ProjectLinks links={props.links} />
+          <ProjectLinks links={props.linksMap as ProjectLinksMap} />
           <dt>Tags</dt>
           <dd>
             <ul>

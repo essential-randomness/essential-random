@@ -1,9 +1,9 @@
 import type { GetStaticPaths, GetStaticProps, NextPage } from "next/types";
 import { Project, allProjects } from "contentlayer/generated";
+import { ProjectLinks, ProjectLinksMap } from "../../components/ProjectPreview";
 
 import Link from "next/link";
 import { Nav } from "../../components/Nav";
-import { ProjectLinks } from "../../components/ProjectPreview";
 import { useMDXComponent } from "next-contentlayer/hooks";
 
 interface PageProps {
@@ -21,7 +21,7 @@ const ProjectEntry: NextPage<PageProps> = ({ project, prev, next }) => {
       <main className="project">
         <h1>{project.name}</h1>
         <dl>
-          <ProjectLinks links={project.linksMap} />
+          <ProjectLinks links={project.linksMap as ProjectLinksMap} />
         </dl>
         <MDXContent />
         {prev && (
