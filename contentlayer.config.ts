@@ -25,7 +25,7 @@ const PROJECT_TAGS = ["open source", "accepts volunteers"] as const;
 
 export const Post = defineDocumentType(() => ({
   name: "Post",
-  filePathPattern: `blog/**/*.mdx`,
+  filePathPattern: `posts/**/*.mdx`,
   contentType: "mdx",
   fields: {
     title: {
