@@ -45,7 +45,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   return {
     paths: allProjects.map((project) => ({
       params: {
-        projectId: project.name,
+        projectId: project.id,
       },
     })),
     fallback: "blocking",
@@ -53,12 +53,16 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const slug = params?.projectId as string;
+  const projectId = params?.projectId as string;
   const projectIndex = allProjects.findIndex(
-    (project) => project._raw.sourceFileName === slug + ".mdx"
+    (project) => project.id === projectId
   );
   if (projectIndex == -1) {
-    throw new Error(`Project with slug ${slug} not found.`);
+    throw new Error(
+      `Project with projectId "${projectId}" not found. Available projectId values are: ${allProjects.map(
+        (project) => project.id
+      )}`
+    );
   }
   return {
     props: {
