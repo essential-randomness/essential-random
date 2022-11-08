@@ -3,9 +3,6 @@ import { Github, Npm, Tumblr, Twitter } from "@icons-pack/react-simple-icons";
 import Image from "next/image";
 import Link from "next/link";
 import { Project } from "contentlayer/generated";
-import { ProjectFrontmatter } from "../utils/projects-utils";
-import avatar from "../public/avatar.png";
-import path from "path";
 
 type WEBSITE_TYPES = "github" | "tumblr" | "twitter" | "npm" | "web";
 
@@ -57,9 +54,10 @@ export const ProjectPreview = (props: Project) => {
       </header>
       {props.preview && (
         <Link href={props.url}>
-          <img
+          <Image
             src={props.preview}
             width={300}
+            height={300}
             alt={`${props.name}'s project preview image`}
           />
         </Link>

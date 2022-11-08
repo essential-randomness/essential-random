@@ -1,7 +1,5 @@
 import { rehypeExtractTitle, rehypeRemoveTitle } from "./mdx-utils";
 
-import { REMARK_PLUGINS } from "../next.config.mjs";
-import { compile } from "@mdx-js/mdx";
 import dirTree from "directory-tree";
 import path from "path";
 import { readFile } from "fs/promises";
@@ -15,23 +13,21 @@ const BLOG_PAGES_PATH = path.join(process.cwd(), "/pages/blog/");
 // TODO: figure out whether it's possible to do all this extraction in a single pass
 // and get the information without having to recompile all the time
 const extractBlogEntryTitle = async (file: string) => {
-  return String(
-    await compile(file, {
-      outputFormat: "function-body",
-      remarkPlugins: REMARK_PLUGINS,
-      rehypePlugins: [rehypeExtractTitle],
-    })
-  );
+  return String();
+  // await compile(file, {
+  //   outputFormat: "function-body",
+  //   remarkPlugins: REMARK_PLUGINS,
+  //   rehypePlugins: [rehypeExtractTitle],
+  // })
 };
 
 const extractBlogEntrySummary = async (file: string) => {
-  return String(
-    await compile(file, {
-      outputFormat: "function-body",
-      remarkPlugins: REMARK_PLUGINS,
-      rehypePlugins: [rehypeRemoveTitle, rehypeTruncate],
-    })
-  );
+  return String();
+  // await compile(file, {
+  //   outputFormat: "function-body",
+  //   remarkPlugins: REMARK_PLUGINS,
+  //   rehypePlugins: [rehypeRemoveTitle, rehypeTruncate],
+  // })
 };
 
 const extractBlogEntryDetails = async (
