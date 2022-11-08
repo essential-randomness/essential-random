@@ -46,7 +46,7 @@ export const Post = defineDocumentType(() => ({
     },
     id: {
       type: "string",
-      resolve: (post) => post._raw.flattenedPath.substring("posts".length),
+      resolve: (post) => post._raw.flattenedPath.substring("posts/".length),
     },
   },
 }));
@@ -96,7 +96,7 @@ export const Project = defineDocumentType(() => ({
     id: {
       type: "string",
       resolve: (project) =>
-        project._raw.flattenedPath.substring("projects".length),
+        project._raw.flattenedPath.substring("projects/".length),
     },
     url: {
       type: "string",
