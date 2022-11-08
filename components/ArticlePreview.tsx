@@ -24,9 +24,11 @@ export const ArticlePreview = (props: ArticlePreviewProps) => {
         <h2>
           <Link href={props.url}>{props.title}</Link>
         </h2>
-        <time dateTime={String(props.createdAt)}>
-          {props.createdAt.toLocaleDateString()}
-        </time>
+        <Link href={props.url}>
+          <time dateTime={String(props.createdAt)}>
+            {props.createdAt.toLocaleDateString()}
+          </time>
+        </Link>
       </header>
       <div className="content">{props.summary}</div>
       <footer>

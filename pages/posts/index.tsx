@@ -13,7 +13,7 @@ const Blog: NextPage<{}> = () => {
     <>
       <Nav />
       <div className="profile">
-        <ProfileCard />
+        {/* <ProfileCard /> */}
         <ProfileNav />
       </div>
       <main>
@@ -24,9 +24,9 @@ const Blog: NextPage<{}> = () => {
                 <ArticlePreview
                   url={`/${project.url}`}
                   createdAt={new Date(project.created_at)}
-                  // TODO: fill these
-                  summary={project.body}
-                  title={project}
+                  //  TODO: fill these
+                  // summary={project.body}
+                  // title={project}
                 />
               </li>
             );
