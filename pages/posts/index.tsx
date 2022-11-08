@@ -21,6 +21,7 @@ const Blog: NextPage<{}> = () => {
           {allPosts.map((project) => {
             return (
               <li key={project.url}>
+                {/* @ts-ignore */}
                 <ArticlePreview
                   url={`/${project.url}`}
                   createdAt={new Date(project.created_at)}
