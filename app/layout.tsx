@@ -6,13 +6,15 @@ import { ProfileCard } from "../components/ProfileCard";
 
 const GlobalLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <>
-      <Nav />
-      <main>
-        <ProfileCard />
-        {children}
-      </main>
-    </>
+    <html lang="en">
+      <body>
+        <Nav />
+        <main>
+          <ProfileCard />
+          {children}
+        </main>
+      </body>
+    </html>
   );
 };
 
