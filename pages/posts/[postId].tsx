@@ -13,12 +13,12 @@ interface PageProps {
 }
 
 export default function BlogEntry({ curr, prev, next }: PageProps) {
-  const MDXContent = useMDXComponent(curr.body.code, curr);
+  // const MDXContent = useMDXComponent(curr.body.code, curr);
 
   return (
     <>
       <Nav />
-      <MDXContent />
+      {/* <MDXContent /> */}
     </>
   );
 }
