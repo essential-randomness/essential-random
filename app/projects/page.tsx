@@ -1,11 +1,9 @@
 "use client";
 
-import { Nav } from "../../components/Nav";
-import type { NextPage } from "next/types";
 import { ProjectPreview } from "../../components/ProjectPreview";
 import { allProjects } from "contentlayer/generated";
 
-const Projects: NextPage = () => {
+const Projects = () => {
   // TODO: see about getting main to get a classname equal to the path of the page,
   // or something similar
   return (
