@@ -1,48 +1,36 @@
 import { Github, Npm, Tumblr, Twitter } from "@icons-pack/react-simple-icons";
+import { extractWebsiteName, maybeGetWebsiteIcon } from "utils/social-utils";
 
 import Image from "next/image";
 import Link from "next/link";
 import { Project } from "contentlayer/generated";
+import { VscGlobe } from "react-icons/vsc";
 
 type WEBSITE_TYPES = "github" | "tumblr" | "twitter" | "npm" | "web";
 
 export type ProjectLinksMap = Record<WEBSITE_TYPES, string | undefined>;
 
-const maybeGetWebsiteIcon = (websiteName: WEBSITE_TYPES) => {
-  switch (websiteName) {
-    case "twitter":
-      return <Twitter />;
-    case "github":
-      return <Github />;
-    case "tumblr":
-      return <Tumblr />;
-    case "npm":
-      return <Npm />;
-    default:
-      return null;
-  }
-};
-
-export const ProjectLinks = ({ links }: { links: ProjectLinksMap }) => {
-  return (
-    <>
-      <dt>Links</dt>
-      <dd data-term="links">
-        <dl>
-          {Object.entries(links).map(([website, url]) => (
-            <div key={url} data-website={website}>
-              {maybeGetWebsiteIcon(website as WEBSITE_TYPES)}
-              <dt>{website}</dt>
+export const ProjectLinks = ({ links }: { links: ProjectLinksMap }) => (
+  <>
+    <dt>Links</dt>
+    <dd data-term="links">
+      <dl>
+        {Object.entries(links).map(([website, url]) => {
+          const socialNetwork = extractWebsiteName(url!) || "web";
+          return (
+            <div key={url} data-website={socialNetwork}>
+              {maybeGetWebsiteIcon(socialNetwork) || <VscGlobe />}
+              <dt>{socialNetwork}</dt>
               <dd>
                 <a href={url}>{url}</a>
               </dd>
             </div>
-          ))}
-        </dl>
-      </dd>
-    </>
-  );
-};
+          );
+        })}
+      </dl>
+    </dd>
+  </>
+);
 
 export const ProjectPreview = (props: Project) => {
   return (
