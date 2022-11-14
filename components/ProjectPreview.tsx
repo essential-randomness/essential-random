@@ -1,12 +1,9 @@
-import { Github, Npm, Tumblr, Twitter } from "@icons-pack/react-simple-icons";
 import { extractWebsiteName, maybeGetWebsiteIcon } from "utils/social-utils";
 
 import Image from "next/image";
 import Link from "next/link";
 import { Project } from "contentlayer/generated";
 import { VscGlobe } from "react-icons/vsc";
-
-type WEBSITE_TYPES = "github" | "tumblr" | "twitter" | "npm" | "web";
 
 export const ProjectLinks = ({ links }: { links: string[] }) => (
   <>
