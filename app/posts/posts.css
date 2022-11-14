@@ -1,0 +1,36 @@
+aside {
+  grid-area: profile;
+}
+
+main.posts {
+  display: grid;
+  grid-template-columns: 25% 1fr;
+  grid-gap: 20px;
+  grid-template-areas: "profile posts";
+}
+
+article header {
+  display: grid;
+  grid-template-columns: 50px auto;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "avatar title"
+    "avatar time";
+  grid-gap: 10px;
+}
+
+article header img {
+  grid-area: avatar;
+  width: 100%;
+  height: auto;
+  align-self: center;
+}
+
+article header h2 {
+  grid-area: title;
+  margin: 0;
+}
+
+article header time {
+  grid-area: time;
+}
