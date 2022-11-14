@@ -2,15 +2,21 @@ import Image from "next/image";
 import Link from "next/link";
 import avatar from "../public/avatar.png";
 import path from "path";
+import { useMDXComponent } from "next-contentlayer/hooks";
 
 export interface ArticlePreviewProps {
   url: string;
   title: string;
-  summary: JSX.Element;
+  summary: string;
   createdAt: Date;
+  /**
+   * This is to pass additional data we need to render the summary.
+   */
+  _data?: Record<string, unknown>;
 }
 
 export const ArticlePreview = (props: ArticlePreviewProps) => {
+  // const MDXContent = useMDXComponent(props.summary, props._data);
   return (
     <article key={props.url}>
       <header>
@@ -28,7 +34,10 @@ export const ArticlePreview = (props: ArticlePreviewProps) => {
           <Link href={props.url}>{props.createdAt.toLocaleDateString()}</Link>
         </time>
       </header>
-      <div className="content">{props.summary}</div>
+      <div
+        className="content"
+        dangerouslySetInnerHTML={{ __html: props.summary }}
+      ></div>
       <footer>
         <div>3 replies</div>
         <ul>

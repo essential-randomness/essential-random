@@ -8,16 +8,15 @@ import { allPosts } from "contentlayer/generated";
 const Blog = () => {
   return (
     <ol>
-      {allPosts.map((project) => {
+      {allPosts.map((post) => {
         return (
-          <li key={project.url}>
-            {/* @ts-ignore */}
+          <li key={post.url}>
             <ArticlePreview
-              url={`/${project.url}`}
-              createdAt={new Date(project.created_at)}
-              //  TODO: fill these
-              summary={project._raw.sourceFileName}
-              title={project.title}
+              url={`/${post.url}`}
+              createdAt={new Date(post.created_at)}
+              summary={post.summary}
+              title={post.title!}
+              _data={post}
             />
           </li>
         );
