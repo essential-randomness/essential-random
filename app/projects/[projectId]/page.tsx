@@ -1,12 +1,9 @@
 "use client";
 
 import { Project, allProjects } from "contentlayer/generated";
-import {
-  ProjectLinks,
-  ProjectLinksMap,
-} from "../../../components/ProjectPreview";
 
 import Link from "next/link";
+import { ProjectLinks } from "../../../components/ProjectPreview";
 import { useMDXComponent } from "next-contentlayer/hooks";
 
 interface PageProps {
@@ -47,7 +44,7 @@ const ProjectEntry = ({ params }: PageParams) => {
     <main className="project">
       <h1>{curr.name}</h1>
       <dl>
-        <ProjectLinks links={curr.linksMap as ProjectLinksMap} />
+        <ProjectLinks links={curr.links} />
       </dl>
       <MDXContent />
       {prev && (
