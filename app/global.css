@@ -2,3 +2,8 @@ nav {
   display: flex;
   flex-gap: 10px;
 }
+
+svg {
+  width: 24px;
+  height: 24px;
+}
