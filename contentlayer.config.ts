@@ -4,17 +4,6 @@ import {
   makeSource,
 } from "contentlayer/source-files";
 
-const Link = defineNestedType(() => ({
-  name: "Link",
-  fields: {
-    github: { type: "string" },
-    npm: { type: "string" },
-    web: { type: "string" },
-    twitter: { type: "string" },
-    tumblr: { type: "string" },
-  },
-}));
-
 const DEVELOPMENT_STATUSES = [
   "Active development",
   "Pre-beta phase!",
@@ -89,7 +78,7 @@ export const Project = defineDocumentType(() => ({
       type: "list",
       description: "The links to the project",
       required: true,
-      of: Link,
+      of: { type: "string" },
     },
   },
   computedFields: {
@@ -101,26 +90,6 @@ export const Project = defineDocumentType(() => ({
     url: {
       type: "string",
       resolve: (project) => project._raw.flattenedPath,
-    },
-    linksMap: {
-      // TODO: figure out how to type this
-      type: "json",
-      resolve: (project) => {
-        // We need to do Array.from because project.links is actually
-        // a `PlainArr` at this stage (whatever that is), not a real array.
-        return Array.from(project.links).reduce((agg, link) => {
-          const nextResult = { ...agg };
-          Object.entries(link)
-            .filter(
-              ([key, value]) =>
-                key !== "type" && key !== "_raw" && value !== undefined
-            )
-            .forEach(([site, url]) => {
-              nextResult[site] = url as string;
-            });
-          return nextResult;
-        }, {} as Record<string, string>);
-      },
     },
   },
 }));

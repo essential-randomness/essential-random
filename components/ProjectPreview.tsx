@@ -8,19 +8,17 @@ import { VscGlobe } from "react-icons/vsc";
 
 type WEBSITE_TYPES = "github" | "tumblr" | "twitter" | "npm" | "web";
 
-export type ProjectLinksMap = Record<WEBSITE_TYPES, string | undefined>;
-
-export const ProjectLinks = ({ links }: { links: ProjectLinksMap }) => (
+export const ProjectLinks = ({ links }: { links: string[] }) => (
   <>
     <dt>Links</dt>
     <dd data-term="links">
       <dl>
-        {Object.entries(links).map(([website, url]) => {
-          const socialNetwork = extractWebsiteName(url!) || "web";
+        {links.map((url) => {
+          const websiteName = extractWebsiteName(url) || "web";
           return (
-            <div key={url} data-website={socialNetwork}>
-              {maybeGetWebsiteIcon(socialNetwork) || <VscGlobe />}
-              <dt>{socialNetwork}</dt>
+            <div key={url} data-website={websiteName}>
+              {maybeGetWebsiteIcon(websiteName) || <VscGlobe />}
+              <dt>{websiteName}</dt>
               <dd>
                 <a href={url}>{url}</a>
               </dd>
@@ -55,7 +53,7 @@ export const ProjectPreview = (props: Project) => {
         <dl>
           <dt>Status</dt>
           <dd>{props.status}</dd>
-          <ProjectLinks links={props.linksMap as ProjectLinksMap} />
+          <ProjectLinks links={props.links} />
           <dt>Tags</dt>
           <dd>
             <ul>
