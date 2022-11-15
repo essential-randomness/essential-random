@@ -2,8 +2,9 @@ import { remove } from "unist-util-remove";
 import { select } from "hast-util-select";
 import { toText } from "hast-util-to-text";
 
-export const rehypeExtractTitle = () => {
+export const remarkExtractTitle = () => {
   return (tree: Parameters<typeof select>[1]) => {
+    console.log(tree);
     const h1 = select("h1", tree);
     if (!h1) {
       return null;
