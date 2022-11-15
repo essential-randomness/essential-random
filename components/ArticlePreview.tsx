@@ -17,6 +17,7 @@ export interface ArticlePreviewProps {
 
 export const ArticlePreview = (props: ArticlePreviewProps) => {
   // const MDXContent = useMDXComponent(props.summary, props._data);
+  console.log(props.title);
   return (
     <article key={props.url}>
       <header>
@@ -28,7 +29,10 @@ export const ArticlePreview = (props: ArticlePreviewProps) => {
           height={300}
         />
         <h2>
-          <Link href={props.url}>{props.title}</Link>
+          <Link
+            href={props.url}
+            dangerouslySetInnerHTML={{ __html: props.title }}
+          ></Link>
         </h2>
         <time dateTime={String(props.createdAt)}>
           <Link href={props.url}>{props.createdAt.toLocaleDateString()}</Link>

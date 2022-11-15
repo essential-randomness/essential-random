@@ -1,16 +1,22 @@
+import { Parent } from "unist";
+// import { toText } from "mdast-util-to-text";
+import { inspect } from "util";
+import { is } from "unist-util-is";
 import { remove } from "unist-util-remove";
-import { select } from "hast-util-select";
-import { toText } from "hast-util-to-text";
+import { select } from "unist-util-select";
 
 export const remarkExtractTitle = () => {
   return (tree: Parameters<typeof select>[1]) => {
-    console.log(tree);
-    const h1 = select("h1", tree);
-    if (!h1) {
+    console.log(inspect(tree));
+    const heading = select("heading[depth=1]", tree);
+    if (!heading || is("parent", heading)) {
       return null;
     }
-    // Create a single text element whose value is the h1 content
-    return { type: "text", value: toText(h1) };
+
+    return {
+      type: "root",
+      children: (heading as Parent).children,
+    };
   };
 };
 
