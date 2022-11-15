@@ -22,8 +22,12 @@ import { remark } from "remark";
 import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
 import remarkStringify from "remark-stringify";
+import { toEstree } from "hast-util-to-estree";
+import { toJs } from "estree-util-to-js";
 import { unified } from "unified";
 import { valueToEstree } from "estree-util-value-to-estree";
+
+// const mdxHastToJsx = require("@mdx-js/mdx/mdx-hast-to-jsx");
 
 const DEVELOPMENT_STATUSES = [
   "Active development",
@@ -36,8 +40,11 @@ const PROJECT_TAGS = ["open source", "accepts volunteers"] as const;
 const wrappedPlugin = () => {
   // TODO: accept name and message as part of the wrapper
   return function transformer(tree, vfile) {
-    console.log(vfile.data.meta.descriptionHast);
-    tree.children.unshift({
+    console.log(JSON.stringify(vfile.data.meta.descriptionHast, null, 2));
+    console.log("*****");
+    console.log("*****");
+    console.log("*****");
+    const node = {
       type: "mdxjsEsm",
       data: {
         estree: {
@@ -63,7 +70,56 @@ const wrappedPlugin = () => {
           ],
         },
       },
-    });
+    };
+
+    console.log(
+      "valuetoEsTree",
+      valueToEstree(JSON.stringify(vfile.data.meta.descriptionHast, null, 2))
+    );
+    console.log(
+      "toEsTree",
+      JSON.stringify(toEstree(vfile.data.meta.descriptionHast), null, 2)
+    );
+
+    // const node = {
+    //   type: "mdxjsEsm",
+    //   data: {
+    //     estree: toEstree(vfile.data.meta.descriptionHast),
+    //   },
+    // };
+
+    // const node = {
+    //   type: "mdxjsEsm",
+    //   data: {
+    //     estree: {
+    //       type: "Program",
+    //       sourceType: "module",
+    //       body: [
+    //         {
+    //           type: "ExportNamedDeclaration",
+    //           source: null,
+    //           specifiers: [],
+    //           declaration: {
+    //             type: "VariableDeclaration",
+    //             kind: "const",
+    //             declarations: [
+    //               {
+    //                 type: "VariableDeclarator",
+    //                 id: { type: "Identifier", name: "metaDescription" },
+    //                 init: toEstree(vfile.data.meta.descriptionHast).body[0]
+    //                   .children,
+    //               },
+    //             ],
+    //           },
+    //         },
+    //       ],
+    //     },
+    //   },
+    // };
+    console.log("*****");
+    console.log("*****");
+    console.log("node", JSON.stringify(node, null, 2));
+    tree.children.unshift(node);
   };
 };
 export const Post = defineDocumentType(() => ({
@@ -157,13 +213,15 @@ export const Post = defineDocumentType(() => ({
           },
         });
 
+        console.log("here");
         const scope = { React, ReactDOM, _jsx_runtime };
         const fn = new Function(...Object.keys(scope), bundle.code);
         const result = fn(...Object.values(scope));
         console.log(result);
         console.log(JSON.stringify(result.metaDescription, null, 2));
 
-        console.log(typeof result.metaDescription);
+        // return result.metaDescription;
+        // console.log(typeof result.metaDescription);
         return await unified()
           .use(rehypeStringify)
           .stringify(result.metaDescription);
