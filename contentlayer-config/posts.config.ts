@@ -1,6 +1,6 @@
 import * as _jsx_runtime from "react/jsx-runtime";
 
-import { rehypeRemoveTitle, remarkExtractTitle } from "utils/mdx-utils";
+import { rehypeRemoveTitle, remarkExtractTitle } from "../utils/mdx-utils";
 
 import { C } from "@icons-pack/react-simple-icons";
 import React from "react";
@@ -15,6 +15,7 @@ import rehypeStringify from "rehype-stringify";
 // @ts-expect-error
 import rehypeTruncate from "rehype-truncate";
 import { remark } from "remark";
+import remarkGfm from "remark-gfm";
 import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
 import remarkStringify from "remark-stringify";
@@ -60,6 +61,7 @@ const wrappedPlugin = () => {
       },
     };
 
+    // TODO: all these comments are for attempting exporting the summary.
     // console.log(
     //   "valuetoEsTree",
     //   valueToEstree(JSON.stringify(vfile.data.meta.descriptionHast, null, 2))
@@ -143,6 +145,7 @@ export const Post = defineDocumentType(() => ({
           return String(
             await unified()
               .use(remarkParse)
+              .use(remarkGfm)
               .use(remarkRehype)
               .use(rehypeStringify)
               .process(post.title)
@@ -152,6 +155,7 @@ export const Post = defineDocumentType(() => ({
         return String(
           await unified()
             .use(remarkParse)
+            .use(remarkGfm)
             .use([remarkExtractTitle])
             .use(remarkRehype)
             .use([rehypeStringify])
