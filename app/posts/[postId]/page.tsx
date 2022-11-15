@@ -36,7 +36,6 @@ export default function PostEntry({ params }: PageParams) {
 
   return (
     <main className="post">
-      <h2>{curr.title}</h2>
       <MDXContent />
       {prev && (
         <div className="prev">
