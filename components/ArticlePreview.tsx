@@ -21,13 +21,7 @@ export const ArticlePreview = (props: ArticlePreviewProps) => {
   return (
     <article key={props.url}>
       <header>
-        <Image
-          className="avatar u-logo"
-          src={avatar}
-          alt="Ms Boba's avatar"
-          width={300}
-          height={300}
-        />
+        <Image className="avatar u-logo" src={avatar} alt="Ms Boba's avatar" />
         <h2>
           <Link
             href={props.url}

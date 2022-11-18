@@ -1,0 +1,104 @@
+aside {
+  grid-area: profile;
+}
+
+main.projects {
+}
+
+main.projects ul {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 500px));
+  grid-template-rows: 1fr 1fr;
+  list-style-type: none;
+  gap: 10px;
+}
+
+article.project {
+  border: 1px solid black;
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+article.project header {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+article.project header > a {
+  width: 500px;
+  height: 300px;
+  position: relative;
+  display: block;
+}
+
+article.project header img {
+  object-fit: contain;
+}
+
+article.project header h2 {
+  margin: 10px;
+}
+
+article.project h3 {
+  margin: 0;
+}
+
+article.project .social-links,
+article.project .tags {
+  display: flex;
+  margin: 16px 0;
+  padding: 0;
+}
+
+article.project .social-links .name,
+article.project .social-links .url {
+  display: none;
+}
+
+article.project .tag {
+  border: 1px solid black;
+  display: flex;
+  align-items: stretch;
+  --tag-border-radius: 5px;
+  border-radius: var(--tag-border-radius);
+  min-height: 24px;
+}
+
+article.project .tag a {
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  border-radius: var(--tag-border-radius);
+  padding-inline: 5px;
+  color: black;
+  text-decoration: none;
+}
+article.project .tag a:hover {
+  text-decoration: underline;
+}
+
+article.project .tag[data-tag="open-source"] a,
+article.project .tag[data-tag="april-1st"] a {
+  padding-inline-start: 0;
+  color: #4f4f4f;
+}
+article.project .tag[data-tag="open-source"] a::before,
+article.project .tag[data-tag="april-1st"] a::before {
+  padding-inline: 3px;
+  border-top-left-radius: var(--tag-border-radius);
+  border-bottom-left-radius: var(--tag-border-radius);
+  margin-right: 3px;
+  border-right: 1px solid black;
+  color: black;
+}
+
+article.project .tag[data-tag="open-source"] a::before {
+  content: "code";
+}
+
+article.project .tag[data-tag="april-1st"] a::before {
+  content: "event";
+}

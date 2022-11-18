@@ -1,5 +1,7 @@
 "use client";
 
+import "./projects.css";
+
 import { ProjectPreview } from "../../components/ProjectPreview";
 import { allProjects } from "contentlayer/generated";
 
