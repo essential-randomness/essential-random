@@ -29,7 +29,9 @@ article.project header {
 
 article.project header > a {
   width: 500px;
-  height: 300px;
+  height: auto;
+  max-width: 100%;
+  aspect-ratio: 16/9;
   position: relative;
   display: block;
 }
@@ -49,6 +51,7 @@ article.project h3 {
 article.project .social-links,
 article.project .tags {
   display: flex;
+  flex-wrap: wrap;
   margin: 16px 0;
   padding: 0;
 }
@@ -71,6 +74,7 @@ article.project .tag a {
   padding: 0;
   display: inline-flex;
   align-items: center;
+  flex-shrink: 0;
   border-radius: var(--tag-border-radius);
   padding-inline: 5px;
   color: black;
