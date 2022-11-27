@@ -8,10 +8,12 @@ main.projects {
 main.projects ul {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 500px));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 400px));
   grid-template-rows: 1fr 1fr;
   list-style-type: none;
   gap: 10px;
+  padding: 0;
+  justify-content: center;
 }
 
 article.project {

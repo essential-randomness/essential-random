@@ -5,23 +5,10 @@ export const ProfileNav = () => {
     <nav>
       <ul>
         <li>
-          <Link href={"/"}>
-            Profile
-          </Link>
+          <Link href={"/"}>Guestbook</Link>
         </li>
-      </ul>
-      <ul>
         <li>
-          <Link href={"/"}>
-            Guestbook
-          </Link>
-        </li>
-      </ul>
-      <ul>
-        <li>
-          <Link href={"/"}>
-            Contacts
-          </Link>
+          <Link href={"/"}>Contacts</Link>
         </li>
       </ul>
     </nav>

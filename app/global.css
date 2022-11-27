@@ -1,6 +1,6 @@
 nav {
   display: flex;
-  flex-gap: 10px;
+  gap: 10px;
 }
 
 svg {
@@ -10,4 +10,15 @@ svg {
 
 * {
   box-sizing: border-box;
+}
+
+main {
+  width: 900px;
+  max-width: 100%;
+}
+
+.h-card img {
+  width: 100%;
+  height: auto;
+  max-width: 400px;
 }

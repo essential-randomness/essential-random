@@ -1,7 +1,10 @@
 "use client";
 
+import "./project.css";
+
 import { Project, allProjects } from "contentlayer/generated";
 
+import Image from "next/image";
 import Link from "next/link";
 import { ProjectLinks } from "../../../components/ProjectPreview";
 import { useMDXComponent } from "next-contentlayer/hooks";
@@ -42,23 +45,32 @@ const ProjectEntry = ({ params }: PageParams) => {
 
   return (
     <main className="project">
-      <h1>{curr.name}</h1>
-      <dl>
+      <article>
+        <h1>{curr.name}</h1>
+        <picture className="centered">
+          <Image
+            src={curr.preview}
+            alt={`${curr.name}'s project preview image`}
+            layout="fill"
+          />
+        </picture>
         <ProjectLinks links={curr.links} />
-      </dl>
-      <MDXContent />
-      {prev && (
-        <div className="prev">
-          Previous project:
-          <Link href={`/${prev.url}`}>{prev.name}</Link>
-        </div>
-      )}
-      {next && (
-        <div className="next">
-          Next project:
-          <Link href={`/${next.url}`}>{next.name}</Link>
-        </div>
-      )}
+        <MDXContent />
+      </article>
+      <nav className="prev-next">
+        {prev && (
+          <div className="prev">
+            Previous project:
+            <Link href={`/${prev.url}`}>{prev.name}</Link>
+          </div>
+        )}
+        {next && (
+          <div className="next">
+            Next project:
+            <Link href={`/${next.url}`}>{next.name}</Link>
+          </div>
+        )}
+      </nav>
     </main>
   );
 };

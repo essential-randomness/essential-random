@@ -1,5 +1,15 @@
-aside {
+main.posts aside {
   grid-area: profile;
+}
+
+main.posts aside img {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+}
+main.posts aside nav {
+  display: flex;
+  flex-direction: column;
 }
 
 main.posts {
@@ -9,7 +19,7 @@ main.posts {
   grid-template-areas: "profile posts";
 }
 
-article header {
+main.posts article header {
   display: grid;
   grid-template-columns: 50px auto;
   grid-template-rows: auto auto;
@@ -19,18 +29,18 @@ article header {
   grid-gap: 10px;
 }
 
-article header img {
+main.posts article header img {
   grid-area: avatar;
   width: 100%;
   height: auto;
-  align-self: center;
+  max-width: 100%;
 }
 
-article header h2 {
+main.posts article header h2 {
   grid-area: title;
   margin: 0;
 }
 
-article header time {
+main.posts article header time {
   grid-area: time;
 }

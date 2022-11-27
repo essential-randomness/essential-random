@@ -1,0 +1,60 @@
+main.project {
+  position: relative;
+}
+
+main.project picture {
+  width: 800px;
+  height: auto;
+  max-width: 100%;
+  aspect-ratio: 16/9;
+  position: relative;
+  display: block;
+  margin: 0 auto;
+}
+
+main.project picture img {
+  object-fit: contain;
+}
+
+main.project .social-links {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 16px 0;
+  padding: 0;
+  list-style-type: none;
+  gap: 15px;
+  justify-content: center;
+}
+
+main.project .social-links a {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
+  min-width: 50px;
+}
+main.project .social-links .url {
+  display: none;
+}
+
+nav.prev-next {
+  display: flex;
+  justify-content: space-between;
+  position: sticky;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: white;
+  padding-block: 10px;
+  border-top: 1px dashed black;
+}
+
+nav .prev::before {
+  content: "⬲";
+}
+
+nav .next::after {
+  content: "⬲";
+  display: inline-block;
+  transform: scaleX(-1);
+}
