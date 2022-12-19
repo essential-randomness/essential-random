@@ -1,4 +1,8 @@
-import { extractWebsiteName, maybeGetWebsiteIcon } from "utils/social-utils";
+import {
+  WEBSITE_TYPES,
+  extractWebsiteName,
+  maybeGetWebsiteIcon,
+} from "utils/social-utils";
 
 import { VscGlobe } from "react-icons/vsc";
 
@@ -19,7 +23,7 @@ const extractWebsiteData = (social: Social) => {
   const name =
     typeof social !== "string" && "name" in social
       ? social.name
-      : extractWebsiteName(url);
+      : (extractWebsiteName(url) as WEBSITE_TYPES);
   return {
     url,
     name,
