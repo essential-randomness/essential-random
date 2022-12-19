@@ -1,4 +1,11 @@
-import { Github, Npm, Tumblr, Twitter } from "@icons-pack/react-simple-icons";
+import {
+  Github,
+  Mastodon,
+  Npm,
+  Tumblr,
+  Twitch,
+  Twitter,
+} from "@icons-pack/react-simple-icons";
 import { ProfileMatch, SocialLinks, TYPE_MOBILE } from "social-links";
 
 import Image from "next/image";
@@ -40,6 +47,10 @@ export const extractWebsiteName = (url: string) => {
   if (attemptNpm) {
     return attemptNpm[1];
   }
+  const attempt = NPM_REGEX.exec(url);
+  if (attemptNpm) {
+    return attemptNpm[1];
+  }
   return undefined;
 };
 
@@ -51,8 +62,12 @@ export const maybeGetWebsiteIcon = (websiteName: string) => {
       return <Github />;
     case "tumblr":
       return <Tumblr />;
+    case "twitch":
+      return <Twitch />;
     case "npm":
       return <Npm />;
+    case "mastodon":
+      return <Mastodon />;
     default:
       return null;
   }

@@ -6,7 +6,7 @@ import { Project, allProjects } from "contentlayer/generated";
 
 import Image from "next/image";
 import Link from "next/link";
-import { ProjectLinks } from "../../../components/ProjectPreview";
+import { SocialLinks } from "components/SocialLinks";
 import { useMDXComponent } from "next-contentlayer/hooks";
 
 interface PageProps {
@@ -54,7 +54,7 @@ const ProjectEntry = ({ params }: PageParams) => {
             layout="fill"
           />
         </picture>
-        <ProjectLinks links={curr.links} />
+        <SocialLinks links={curr.links} />
         <MDXContent />
       </article>
       <nav className="prev-next">
