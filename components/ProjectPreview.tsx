@@ -1,28 +1,7 @@
-import { extractWebsiteName, maybeGetWebsiteIcon } from "utils/social-utils";
-
 import Image from "next/image";
 import Link from "next/link";
 import { Project } from "contentlayer/generated";
-import { VscGlobe } from "react-icons/vsc";
-
-export const ProjectLinks = ({ links }: { links: string[] }) => {
-  return (
-    <ul className="social-links">
-      {links.map((url) => {
-        const websiteName = extractWebsiteName(url) || "web";
-        return (
-          <li key={url} data-website={websiteName} aria-label={websiteName}>
-            <a href={url}>
-              {maybeGetWebsiteIcon(websiteName) || <VscGlobe />}
-              <div className="name">{websiteName}</div>
-              <div className="url">{url}</div>
-            </a>
-          </li>
-        );
-      })}
-    </ul>
-  );
-};
+import { SocialLinks } from "./SocialLinks";
 
 export const ProjectPreview = (props: Project) => {
   return (
@@ -46,7 +25,7 @@ export const ProjectPreview = (props: Project) => {
         <h3>Status</h3>
         <p>{props.status}</p>
         <h3>Links</h3>
-        <ProjectLinks links={props.links} />
+        <SocialLinks links={props.links} />
         <h3>Tags</h3>
         <ul className="tags">
           {props.tags.map((tag) => (

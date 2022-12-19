@@ -927,6 +927,11 @@ bcp-47-match@^2.0.0:
   resolved "https://registry.yarnpkg.com/bcp-47-match/-/bcp-47-match-2.0.2.tgz#3323e221eb5b40ddc3b91ed29d847ab459d549c4"
   integrity sha512-zy5swVXwQ25ttElhoN9Dgnqm6VFlMkeDNljvHSGqGNr4zClUosdFzxD+fQHJVmx3g3KY+r//wV/fmBHsa1ErnA==
 
+big.js@^5.2.2:
+  version "5.2.2"
+  resolved "https://registry.yarnpkg.com/big.js/-/big.js-5.2.2.tgz#65f0af382f578bcdc742bd9c281e9cb2d7768328"
+  integrity sha512-vyL2OymJxmarO8gxMr0mhChsO9QGwhynfuu4+MHTAW6czfq9humCB7rKpUjDd9YUiDPU4mzpyupFSvOClAwbmQ==
+
 binary-extensions@^2.0.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/binary-extensions/-/binary-extensions-2.2.0.tgz#75f502eeaf9ffde42fc98829645be4ea76bd9e2d"
@@ -1290,6 +1295,11 @@ emoji-regex@^9.2.2:
   version "9.2.2"
   resolved "https://registry.yarnpkg.com/emoji-regex/-/emoji-regex-9.2.2.tgz#840c8803b0d8047f4ff0cf963176b32d4ef3ed72"
   integrity sha512-L18DaJsXSUk2+42pv8mLs5jJT2hqFkFE4j21wOmgbUqsZ2hL72NsUU785g9RXgo3s0ZNgVl42TiHp3ZtOv/Vyg==
+
+emojis-list@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/emojis-list/-/emojis-list-3.0.0.tgz#5570662046ad29e2e916e71aae260abdff4f6a78"
+  integrity sha512-/kyM18EfinwXZbno9FyUGeFh87KC8HRQBQGildHZbEuRyWFOmv1U10o9BBp8XVZDVNNuQKyIGIu5ZYAAXJ0V2Q==
 
 es-abstract@^1.19.0, es-abstract@^1.20.4:
   version "1.20.4"
@@ -2441,6 +2451,15 @@ isexe@^2.0.0:
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-4.0.0.tgz#19203fb59991df98e3a287050d4647cdeaf32499"
   integrity sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==
 
+js-yaml-loader@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/js-yaml-loader/-/js-yaml-loader-1.2.2.tgz#2c15f93915617acd19676d648945fa3003f8629b"
+  integrity sha512-H+NeuNrG6uOs/WMjna2SjkaCw13rMWiT/D7l9+9x5n8aq88BDsh2sRmdfxckWPIHtViYHWRG6XiCKYvS1dfyLg==
+  dependencies:
+    js-yaml "^3.13.1"
+    loader-utils "^1.2.3"
+    un-eval "^1.2.0"
+
 js-yaml@^3.13.1:
   version "3.14.1"
   resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.14.1.tgz#dae812fdb3825fa306609a8717383c50c36a0537"
@@ -2520,6 +2539,15 @@ levn@^0.4.1:
   dependencies:
     prelude-ls "^1.2.1"
     type-check "~0.4.0"
+
+loader-utils@^1.2.3:
+  version "1.4.2"
+  resolved "https://registry.yarnpkg.com/loader-utils/-/loader-utils-1.4.2.tgz#29a957f3a63973883eb684f10ffd3d151fec01a3"
+  integrity sha512-I5d00Pd/jwMD2QCduo657+YM/6L3KZu++pmX9VFncxaxvHcru9jx1lBaFft+r4Mt2jK0Yhp41XlRAihzPxHNCg==
+  dependencies:
+    big.js "^5.2.2"
+    emojis-list "^3.0.0"
+    json5 "^1.0.1"
 
 locate-path@^6.0.0:
   version "6.0.0"
@@ -3238,6 +3266,13 @@ next-contentlayer@^0.2.9:
   dependencies:
     "@contentlayer/core" "0.2.9"
     "@contentlayer/utils" "0.2.9"
+
+next-plugin-yaml@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/next-plugin-yaml/-/next-plugin-yaml-1.0.1.tgz#90e96637dfa445806fc44d1df3506c0f1446246a"
+  integrity sha512-k13wbpN33wTgrgWUBiXPtObXO94JOEiwvYKJ3X0JrBz2yaW24EfNaVqHwA0dwhsn9PyPIKhPhgsu3bhJsNs+cQ==
+  dependencies:
+    js-yaml-loader "^1.2.2"
 
 next@^13.0.3:
   version "13.0.3"
@@ -4167,6 +4202,11 @@ typical@^5.2.0:
   version "5.2.0"
   resolved "https://registry.yarnpkg.com/typical/-/typical-5.2.0.tgz#4daaac4f2b5315460804f0acf6cb69c52bb93066"
   integrity sha512-dvdQgNDNJo+8B2uBQoqdb11eUCE1JQXhvjC/CZtgvZseVd5TYMXnq0+vuUemXbd/Se29cTaUuPX3YIc2xgbvIg==
+
+un-eval@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/un-eval/-/un-eval-1.2.0.tgz#22a95c650334d59d21697efae32612218ecad65f"
+  integrity sha512-Wlj/pum6dQtGTPD/lclDtoVPkSfpjPfy1dwnnKw/sZP5DpBH9fLhBgQfsqNhe5/gS1D+vkZUuB771NRMUPA5CA==
 
 unbox-primitive@^1.0.2:
   version "1.0.2"
