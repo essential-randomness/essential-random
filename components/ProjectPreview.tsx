@@ -5,7 +5,11 @@ import { SocialLinks } from "./SocialLinks";
 
 export const ProjectPreview = (props: Project) => {
   return (
-    <article key={props.name} className="project">
+    <article
+      key={props.name}
+      className="card project"
+      data-has-body={props.body.raw.length > 0}
+    >
       <header>
         <h2>
           <Link href={props.url}>{props.name}</Link>

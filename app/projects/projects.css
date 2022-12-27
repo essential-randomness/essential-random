@@ -16,20 +16,20 @@ main.projects ul {
   justify-content: center;
 }
 
-article.project {
+.project.card {
   border: 1px solid black;
   padding: 10px 20px;
   display: flex;
   flex-direction: column;
 }
 
-article.project header {
+.project.card header {
   display: flex;
   align-items: center;
   flex-direction: column;
 }
 
-article.project header > a {
+.project.card header > a {
   width: 500px;
   height: auto;
   max-width: 100%;
@@ -38,32 +38,32 @@ article.project header > a {
   display: block;
 }
 
-article.project header img {
+.project.card header img {
   object-fit: contain;
 }
 
-article.project header h2 {
+.project.card header h2 {
   margin: 10px;
 }
 
-article.project h3 {
+.project.card h3 {
   margin: 0;
 }
 
-article.project .social-links,
-article.project .tags {
+.project.card .social-links,
+.project.card .tags {
   display: flex;
   flex-wrap: wrap;
   margin: 16px 0;
   padding: 0;
 }
 
-article.project .social-links .name,
-article.project .social-links .url {
+.project.card .social-links .name,
+.project.card .social-links .url {
   display: none;
 }
 
-article.project .tag {
+.project.card .tag {
   border: 1px solid black;
   display: flex;
   align-items: stretch;
@@ -72,7 +72,7 @@ article.project .tag {
   min-height: 24px;
 }
 
-article.project .tag a {
+.project.card .tag a {
   padding: 0;
   display: inline-flex;
   align-items: center;
@@ -82,17 +82,17 @@ article.project .tag a {
   color: black;
   text-decoration: none;
 }
-article.project .tag a:hover {
+.project.card .tag a:hover {
   text-decoration: underline;
 }
 
-article.project .tag[data-tag="open-source"] a,
-article.project .tag[data-tag="april-1st"] a {
+.project.card .tag[data-tag="open-source"] a,
+.project.card .tag[data-tag="april-1st"] a {
   padding-inline-start: 0;
   color: #4f4f4f;
 }
-article.project .tag[data-tag="open-source"] a::before,
-article.project .tag[data-tag="april-1st"] a::before {
+.project.card .tag[data-tag="open-source"] a::before,
+.project.card .tag[data-tag="april-1st"] a::before {
   padding-inline: 3px;
   border-top-left-radius: var(--tag-border-radius);
   border-bottom-left-radius: var(--tag-border-radius);
@@ -101,10 +101,14 @@ article.project .tag[data-tag="april-1st"] a::before {
   color: black;
 }
 
-article.project .tag[data-tag="open-source"] a::before {
+.project.card .tag[data-tag="open-source"] a::before {
   content: "code";
 }
 
-article.project .tag[data-tag="april-1st"] a::before {
+.project.card .tag[data-tag="april-1st"] a::before {
   content: "event";
+}
+
+.project.card[data-has-body="false"] {
+  grid: "";
 }
