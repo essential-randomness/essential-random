@@ -34,7 +34,7 @@ export const ProjectPreview = (props: Project) => {
               key={tag}
               data-tag={tag.split(" ").join("-").toLowerCase()}
             >
-              <a href={tag}>{tag}</a>
+              {tag}
             </li>
           ))}
         </ul>
