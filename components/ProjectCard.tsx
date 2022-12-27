@@ -12,7 +12,9 @@ export const ProjectCard = (props: Project) => {
     >
       <header>
         <h2>
-          <Link href={props.url}>{props.name}</Link>
+          <MaybeLink href={props.url} if={props.body.raw.length > 0}>
+            {props.name}
+          </MaybeLink>
         </h2>
         {props.preview && (
           <Link href={props.url}>
