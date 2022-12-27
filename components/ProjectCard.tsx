@@ -17,13 +17,15 @@ export const ProjectCard = (props: Project) => {
           </MaybeLink>
         </h2>
         {props.preview && (
-          <Link href={props.url}>
-            <Image
-              src={props.preview}
-              alt={`${props.name}'s project preview image`}
-              layout="fill"
-            />
-          </Link>
+          <MaybeLink href={props.url} if={props.body.raw.length > 0}>
+            <picture>
+              <Image
+                src={props.preview}
+                alt={`${props.name}'s project preview image`}
+                layout="fill"
+              />
+            </picture>
+          </MaybeLink>
         )}
       </header>
       <p>{props.description}</p>

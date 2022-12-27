@@ -29,7 +29,7 @@ main.projects ul {
   flex-direction: column;
 }
 
-.project.card header > a {
+.project.card header > :where(:not(a) > picture, a) {
   width: 500px;
   height: auto;
   max-width: 100%;
