@@ -110,5 +110,5 @@ main.projects ul {
 }
 
 .project.card[data-has-body="false"] {
-  grid: "";
+  opacity: 50%;
 }

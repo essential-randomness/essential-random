@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Project } from "contentlayer/generated";
 import { SocialLinks } from "./SocialLinks";
 
-export const ProjectPreview = (props: Project) => {
+export const ProjectCard = (props: Project) => {
   return (
     <article
       key={props.name}
