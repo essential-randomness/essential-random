@@ -128,6 +128,13 @@ export const Post = defineDocumentType(() => ({
       description: "The date of the post",
       required: true,
     },
+    tags: {
+      type: "list",
+      of: {
+        type: "string",
+      },
+      description: "The tags of the blog post",
+    },
   },
   computedFields: {
     url: {
@@ -137,6 +144,18 @@ export const Post = defineDocumentType(() => ({
     id: {
       type: "string",
       resolve: (post) => post._raw.flattenedPath.substring("posts/".length),
+    },
+    categories: {
+      type: "list",
+      resolve: (post) =>
+        Array.from(post.tags || [])
+          ?.filter((tag) => tag.startsWith("+"))
+          .map((t) => t.substring(1)),
+    },
+    whispertags: {
+      type: "list",
+      resolve: (post) =>
+        Array.from(post.tags || [])?.filter((tag) => !tag.startsWith("+")),
     },
     title: {
       type: "string",

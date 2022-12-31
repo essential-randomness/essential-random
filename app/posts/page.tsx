@@ -15,6 +15,8 @@ const Blog = () => {
               url={`/${post.url}`}
               createdAt={new Date(post.created_at)}
               summary={post.summary}
+              categories={post.categories}
+              whispertags={post.whispertags}
               title={post.title!}
               _data={post}
             />
