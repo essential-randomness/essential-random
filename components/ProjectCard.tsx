@@ -3,18 +3,6 @@ import Link from "next/link";
 import { Project } from "contentlayer/generated";
 import { SocialLinks } from "./SocialLinks";
 
-const MaybeLink = (
-  props: Parameters<typeof Link>[0] & {
-    if?: boolean;
-    href?: Parameters<typeof Link>[0]["href"];
-  }
-) => {
-  if (props.if) {
-    return <Link {...props} />;
-  }
-  return <>{props.children}</>;
-};
-
 export const ProjectCard = (props: Project) => {
   return (
     <article
