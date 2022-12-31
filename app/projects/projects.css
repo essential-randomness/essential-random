@@ -72,7 +72,7 @@ main.projects ul {
   min-height: 24px;
 }
 
-.project.card .tag a {
+.tag div {
   padding: 0;
   display: inline-flex;
   align-items: center;
@@ -82,33 +82,13 @@ main.projects ul {
   color: black;
   text-decoration: none;
 }
-.project.card .tag a:hover {
-  text-decoration: underline;
-}
 
-.project.card .tag[data-tag="open-source"] a,
-.project.card .tag[data-tag="april-1st"] a {
-  padding-inline-start: 0;
-  color: #4f4f4f;
-}
-.project.card .tag[data-tag="open-source"] a::before,
-.project.card .tag[data-tag="april-1st"] a::before {
-  padding-inline: 3px;
-  border-top-left-radius: var(--tag-border-radius);
-  border-bottom-left-radius: var(--tag-border-radius);
-  margin-right: 3px;
-  border-right: 1px solid black;
-  color: black;
-}
-
-.project.card .tag[data-tag="open-source"] a::before {
-  content: "code";
-}
-
-.project.card .tag[data-tag="april-1st"] a::before {
-  content: "event";
+.tag .category {
+  background-color: pink;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
 }
 
 .project.card[data-has-body="false"] {
-  opacity: 50%;
+  filter: grayscale(95%);
 }

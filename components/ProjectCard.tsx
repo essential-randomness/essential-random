@@ -37,12 +37,8 @@ export const ProjectCard = (props: Project) => {
         <h3>Tags</h3>
         <ul className="tags">
           {props.tags.map((tag) => (
-            <li
-              className="tag"
-              key={tag}
-              data-tag={tag.split(" ").join("-").toLowerCase()}
-            >
-              {tag}
+            <li key={tag}>
+              <Tag tag={tag} />
             </li>
           ))}
         </ul>
