@@ -8,18 +8,12 @@ export const Nav = () => {
           <li>
             <Link href={"/"}>Home</Link>
           </li>
-        </ul>
-        <ul>
-          <li>
+          <li className="current">
             <Link href={"/posts"}>Blog</Link>
           </li>
-        </ul>
-        <ul>
           <li>
             <Link href={"/projects"}>Projects</Link>
           </li>
-        </ul>
-        <ul>
           <li>
             <Link href={"/support-me"}>Support me</Link>
           </li>

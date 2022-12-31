@@ -13,7 +13,7 @@ const Projects = () => {
       <ul>
         {allProjects.map((project) => {
           return (
-            <li key={project.url}>
+            <li key={project.url} data-has-body={project.body.raw.length > 0}>
               <ProjectCard {...project} />
             </li>
           );

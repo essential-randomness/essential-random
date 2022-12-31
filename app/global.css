@@ -1,20 +1,57 @@
-nav {
-  display: flex;
-  gap: 10px;
-}
-
-svg {
-  width: 24px;
-  height: 24px;
-}
-
 * {
   box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body {
+  padding: 0 20px;
+}
+
+a {
+  text-decoration: none;
+}
+
+p a {
+  text-decoration: underline;
 }
 
 main {
   width: 900px;
   max-width: 100%;
+}
+
+nav {
+  padding: 20px 10px;
+}
+
+nav ul {
+  display: flex;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  list-style: none;
+}
+
+nav li a {
+  display: block;
+  text-decoration: none;
+  color: black;
+  padding: 5px 15px;
+  border-radius: 9999px;
+}
+
+nav li.current a {
+  background: black;
+  color: white;
+}
+
+svg {
+  display: block;
+  width: 24px;
+  height: 24px;
 }
 
 .h-card img {
