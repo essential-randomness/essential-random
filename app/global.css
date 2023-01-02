@@ -22,3 +22,12 @@ main {
   height: auto;
   max-width: 400px;
 }
+
+.social-links {
+  display: flex;
+  list-style-type: none;
+  gap: 10px;
+}
+.social-links :where(.url, .name) {
+  display: none;
+}
