@@ -67,6 +67,7 @@ svg {
   list-style-type: none;
   gap: 10px;
 }
+
 .social-links .url {
   display: none;
 }
@@ -80,4 +81,14 @@ svg {
   align-items: center;
   gap: 5px;
   justify-content: center;
+}
+
+main.home .social-links li {
+  width: 100%;
+}
+main.home .social-links a {
+  border: 2px solid black;
+  border-radius: 16px;
+  box-shadow: 3px 3px 0 0px black;
+  padding: 5px 10px;
 }
