@@ -22,3 +22,17 @@ main {
   height: auto;
   max-width: 400px;
 }
+
+.social-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 7em);
+  list-style-type: none;
+  gap: 10px;
+  text-align: center;
+}
+.social-links .url {
+  display: none;
+}
+.social-links .name {
+  text-transform: capitalize;
+}
