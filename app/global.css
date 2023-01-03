@@ -85,13 +85,12 @@ main.home .social-links li {
 main.home .social-links a {
   border: 2px solid black;
   border-radius: 16px;
-  box-shadow: 3px 3px 0 0px black;
   padding: 5px 10px;
 }
 
 main.home .social-links a:hover {
   box-shadow: 3px 3px 0 0px black;
-  transform: translate(-3px, -3px);
+  transform: translate(-2px, -2px);
 }
 main.home .h-card {
   display: grid;
