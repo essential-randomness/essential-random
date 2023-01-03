@@ -22,23 +22,26 @@ interface PageParams {
 }
 const ProjectEntry = ({ params }: PageParams) => {
   const { projectId } = params;
+  const projectsWithDetails = allProjects.filter(
+    (project) => project.body.raw.length > 0
+  );
   // TODO: we probably need a server route for this
-  const projectIndex = allProjects.findIndex(
+  const projectIndex = projectsWithDetails.findIndex(
     (project) => project.id === projectId
   );
   if (projectIndex == -1) {
     throw new Error(
-      `Project with projectId "${projectId}" not found. Available projectId values are: ${allProjects.map(
+      `Project with projectId "${projectId}" not found. Available projectId values are: ${projectsWithDetails.map(
         (project) => project.id
       )}`
     );
   }
   const { curr, prev, next } = {
-    curr: allProjects[projectIndex],
-    prev: projectIndex > 0 ? allProjects[projectIndex - 1] : null,
+    curr: projectsWithDetails[projectIndex],
+    prev: projectIndex > 0 ? projectsWithDetails[projectIndex - 1] : null,
     next:
-      projectIndex !== allProjects.length - 1
-        ? allProjects[projectIndex + 1]
+      projectIndex !== projectsWithDetails.length - 1
+        ? projectsWithDetails[projectIndex + 1]
         : null,
   };
   const MDXContent = useMDXComponent(curr.body.code, curr);
