@@ -62,14 +62,22 @@ svg {
 
 .social-links {
   display: grid;
-  grid-template-columns: repeat(auto-fit, 7em);
+  grid-template-columns: repeat(auto-fit, minmax(10em, 6em));
+  justify-items: center;
   list-style-type: none;
   gap: 10px;
-  text-align: center;
 }
 .social-links .url {
   display: none;
 }
 .social-links .name {
   text-transform: capitalize;
+}
+
+.social-links a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  justify-content: center;
 }

@@ -16,8 +16,6 @@ export interface ArticlePreviewProps {
 }
 
 export const ArticlePreview = (props: ArticlePreviewProps) => {
-  // const MDXContent = useMDXComponent(props.summary, props._data);
-  console.log(props.title);
   return (
     <article key={props.url}>
       <header>
