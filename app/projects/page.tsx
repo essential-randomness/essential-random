@@ -19,6 +19,7 @@ const Projects = () => {
           );
         })}
       </ul>
+      ...and more to come!
     </main>
   );
 };
