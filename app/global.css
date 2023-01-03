@@ -60,6 +60,8 @@ svg {
   justify-items: center;
   list-style-type: none;
   gap: 10px;
+  margin: 0px;
+  padding: 0px;
 }
 
 .social-links .url {
@@ -112,4 +114,12 @@ main.home .h-card img {
 main.home .h-card .p-name {
   grid-area: title;
   margin: 0;
+}
+
+@media (max-width: 650px) {
+  main.home .h-card {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
 }
