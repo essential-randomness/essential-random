@@ -13,7 +13,10 @@ const MaybeLink = (
   }
 ) => {
   if (props.if) {
-    return <Link {...props} />;
+    // We fix a warning about passing an extra "if" prop by making it undefined.
+    // Given that we're using a reserved word (bad ms boba!) this is a clean way to
+    // to avoid weird errors, though the syntax is not intuitive.
+    return <Link {...{ ...props, if: undefined }} />;
   }
   return <>{props.children}</>;
 };
