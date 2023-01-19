@@ -8,7 +8,12 @@ import { SocialLinks } from "./SocialLinks";
 export const ProjectCard = (props: Project) => {
   const hasBody = props.body.raw.length > 0;
   return (
-    <article key={props.name} className="card project" data-has-body={hasBody}>
+    <article
+      key={props.name}
+      className="card project"
+      data-has-body={hasBody}
+      data-project-name={props.name.toLowerCase()}
+    >
       {props.preview && (
         <MaybeLink href={props.url} if={hasBody}>
           <picture className="banner">
@@ -29,8 +34,14 @@ export const ProjectCard = (props: Project) => {
           </h2>
           <SocialLinks links={props.links} />
         </header>
-        <p className="description">{props.description}</p>
-        {hasBody && <Link href={props.url}>Read more</Link>}
+        <p className="description">
+          {props.description}
+          {hasBody && (
+            <Link className="read-more" href={props.url}>
+              Read more
+            </Link>
+          )}
+        </p>
         <footer>
           <ul className="tags">
             {props.tags.map((tag) => (

@@ -1,12 +1,25 @@
 .project.card {
   border: 2px solid black;
   border-radius: 16px;
-  padding: 10px;
+  padding: 20px 10px;
   display: flex;
   flex-direction: column;
   gap: 10px;
-  box-shadow: 3px 3px 0 0px black;
   height: 100%;
+}
+
+.project.card[data-has-body="false"] {
+  flex-direction: row;
+  box-shadow: 1px 1px 0 0 black;
+}
+
+.project.card[data-has-body="true"] {
+  box-shadow: 5px 5px 0 0px black;
+}
+
+.project.card[data-has-body="true"]:hover {
+  transform: rotate(-0.3deg);
+  box-shadow: 7px 7px 0 0 black;
 }
 
 .project.card > :where(.banner, a) {
@@ -38,6 +51,9 @@
 .project.card .name {
   margin: 0;
 }
+.project.card .name a:hover {
+  text-decoration: underline;
+}
 
 .project.card .social-links,
 .project.card .tags {
@@ -56,26 +72,9 @@
   margin-top: 5px;
 }
 
-.project.card .social-links a {
-  display: block;
-}
-
 .project.card .social-links .name,
 .project.card .social-links .url {
   display: none;
-}
-
-.project.card[data-has-body="false"] {
-  flex-direction: row;
-}
-.project.card[data-has-body="false"]:hover {
-  cursor: not-allowed;
-  background-color: #f5f5f4;
-}
-
-.project.card[data-has-body="true"]:hover {
-  transform: translate(-1px, -1px);
-  box-shadow: 5px 5px 0 0px black;
 }
 
 .project.card .tag {
@@ -85,6 +84,11 @@
   --tag-border-radius: 5px;
   border-radius: var(--tag-border-radius);
   min-height: 24px;
+}
+
+.project.card .description .read-more {
+  display: block;
+  margin-top: 10px;
 }
 
 .tag > * {
