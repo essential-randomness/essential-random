@@ -6,14 +6,11 @@ import { Project } from "contentlayer/generated";
 import { SocialLinks } from "./SocialLinks";
 
 export const ProjectCard = (props: Project) => {
+  const hasBody = props.body.raw.length > 0;
   return (
-    <article
-      key={props.name}
-      className="card project"
-      data-has-body={props.body.raw.length > 0}
-    >
+    <article key={props.name} className="card project" data-has-body={hasBody}>
       {props.preview && (
-        <MaybeLink href={props.url} if={props.body.raw.length > 0}>
+        <MaybeLink href={props.url} if={hasBody}>
           <picture className="banner">
             <Image
               src={props.preview}
@@ -33,6 +30,7 @@ export const ProjectCard = (props: Project) => {
           <SocialLinks links={props.links} />
         </header>
         <p className="description">{props.description}</p>
+        {hasBody && <Link href={props.url}>Read more</Link>}
         <footer>
           <ul className="tags">
             {props.tags.map((tag) => (
