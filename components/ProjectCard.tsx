@@ -4,6 +4,19 @@ import Image from "next/image";
 import Link from "next/link";
 import { Project } from "contentlayer/generated";
 import { SocialLinks } from "./SocialLinks";
+import { Tag } from "./Tag";
+
+const MaybeLink = (
+  props: Parameters<typeof Link>[0] & {
+    if?: boolean;
+    href?: Parameters<typeof Link>[0]["href"];
+  }
+) => {
+  if (props.if) {
+    return <Link {...props} />;
+  }
+  return <>{props.children}</>;
+};
 
 export const ProjectCard = (props: Project) => {
   const hasBody = props.body.raw.length > 0;
