@@ -8,7 +8,7 @@ const GlobalLayout = ({ children }: { children: React.ReactNode }) => {
     <html lang="en">
       <body>
         <Nav />
-        <main>{children}</main>
+        {children}
       </body>
     </html>
   );

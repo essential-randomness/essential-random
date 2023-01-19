@@ -4,14 +4,13 @@ import { SocialLinks } from "components/SocialLinks";
 import socials from "../content/_socials.yml";
 
 export default function Page() {
-  console.log(socials);
   return (
-    <>
+    <main className="home">
       <ProfileCard />
       <section>
-        <h2>Where to find me on the web</h2>
+        <h2>As seen on</h2>
         <SocialLinks links={socials} />
       </section>
-    </>
+    </main>
   );
 }

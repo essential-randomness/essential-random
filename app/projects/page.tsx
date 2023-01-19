@@ -2,7 +2,7 @@
 
 import "./projects.css";
 
-import { ProjectPreview } from "../../components/ProjectPreview";
+import { ProjectCard } from "../../components/ProjectCard";
 import { allProjects } from "contentlayer/generated";
 
 const Projects = () => {
@@ -13,12 +13,13 @@ const Projects = () => {
       <ul>
         {allProjects.map((project) => {
           return (
-            <li key={project.url}>
-              <ProjectPreview {...project} />
+            <li key={project.url} data-has-body={project.body.raw.length > 0}>
+              <ProjectCard {...project} />
             </li>
           );
         })}
       </ul>
+      ...and more to come!
     </main>
   );
 };
