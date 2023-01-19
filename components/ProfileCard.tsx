@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import avatar from "../public/avatar.png";
+// import classnames from "classnames";
+// import style from "./ProfileCard.module.css";
 
 export const ProfileCard = () => {
   return (

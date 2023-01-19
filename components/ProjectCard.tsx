@@ -1,3 +1,5 @@
+import "./ProjectCard.css";
+
 import Image from "next/image";
 import Link from "next/link";
 import { Project } from "contentlayer/generated";
@@ -21,16 +23,16 @@ export const ProjectCard = (props: Project) => {
           </picture>
         </MaybeLink>
       )}
-      <div className="content-wrapper">
+      <div className="details">
         <header>
-          <h2>
+          <h2 className="name">
             <MaybeLink href={props.url} if={props.body.raw.length > 0}>
               {props.name}
             </MaybeLink>
           </h2>
           <SocialLinks links={props.links} />
         </header>
-        <p>{props.description}</p>
+        <p className="description">{props.description}</p>
         <footer>
           <ul className="tags">
             {props.tags.map((tag) => (

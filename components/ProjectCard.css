@@ -1,0 +1,111 @@
+.project.card {
+  border: 2px solid black;
+  border-radius: 16px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: 3px 3px 0 0px black;
+}
+
+.project.card > :where(.banner, a) {
+  width: 100%;
+  min-width: 75px;
+  height: auto;
+  max-width: 100%;
+  aspect-ratio: 16/9;
+  position: relative;
+  display: block;
+}
+
+.project.card .banner img {
+  object-fit: contain;
+}
+
+.project.card .details {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 0;
+}
+
+.project.card .description {
+  margin: 0;
+}
+
+.project.card .name {
+  margin: 0;
+}
+
+.project.card .social-links,
+.project.card .tags {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  list-style: none;
+  gap: 5px;
+}
+
+.project.card .tags > * {
+  max-width: 100%;
+}
+
+.project.card .social-links {
+  margin-top: 5px;
+}
+
+.project.card .social-links a {
+  display: block;
+}
+
+.project.card .social-links .name,
+.project.card .social-links .url {
+  display: none;
+}
+
+.project.card[data-has-body="false"] {
+  flex-direction: row;
+}
+.project.card[data-has-body="false"]:hover {
+  cursor: not-allowed;
+  background-color: #f5f5f4;
+}
+
+.project.card[data-has-body="true"]:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 5px 5px 0 0px black;
+}
+
+.project.card .tag {
+  border: 1px solid black;
+  display: flex;
+  align-items: stretch;
+  --tag-border-radius: 5px;
+  border-radius: var(--tag-border-radius);
+  min-height: 24px;
+}
+
+.tag > * {
+  padding: 0;
+  display: inline-block;
+  border-radius: var(--tag-border-radius);
+  padding-inline: 5px;
+  color: black;
+  text-decoration: none;
+  font-family: monospace;
+  line-height: 25px;
+}
+
+.tag .name {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.tag .category {
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-right: 1px dotted black;
+  font-weight: bold;
+}
