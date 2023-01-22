@@ -2,7 +2,7 @@
 
 import "./posts.css";
 
-import { ArticlePreview } from "../../components/ArticlePreview";
+import { PostPreview } from "../../components/PostPreview";
 import { allPosts } from "contentlayer/generated";
 
 const Blog = () => {
@@ -11,7 +11,7 @@ const Blog = () => {
       {allPosts.map((post) => {
         return (
           <li key={post.url}>
-            <ArticlePreview
+            <PostPreview
               url={`/${post.url}`}
               createdAt={new Date(post.created_at)}
               summary={post.summary}

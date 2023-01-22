@@ -1,10 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Tag } from "./Tag";
 import avatar from "../public/avatar.png";
 import path from "path";
 import { useMDXComponent } from "next-contentlayer/hooks";
 
-export interface ArticlePreviewProps {
+export interface PostPreviewProps {
   url: string;
   title: string;
   summary: string;
@@ -17,7 +18,7 @@ export interface ArticlePreviewProps {
   _data?: Record<string, unknown>;
 }
 
-export const ArticlePreview = (props: ArticlePreviewProps) => {
+export const PostPreview = (props: PostPreviewProps) => {
   return (
     <article key={props.url}>
       <header>
@@ -31,34 +32,42 @@ export const ArticlePreview = (props: ArticlePreviewProps) => {
         <time dateTime={String(props.createdAt)}>
           <Link href={props.url}>{props.createdAt.toLocaleDateString()}</Link>
         </time>
-        <ol className="categories">
+        <ul className="categories">
           {props.categories.map((category) => (
             <li key={category}>
-              <div className="category">{category}</div>
+              <Tag tag={category} />
             </li>
           ))}
-        </ol>
+        </ul>
       </header>
       <div
         className="content"
         dangerouslySetInnerHTML={{ __html: props.summary }}
       ></div>
-      <footer>
-        <div class="tooltip">
+      <Link className="read-more" href={props.url}>
+        Read more
+      </Link>
+      <div className="whispertags">
+        <div className="tooltip">
           whispertags
-          <span class="tooltiptext">
-            For a primer on whispertags (a fan-favorite feature everyone is
-            sleeping on) see this journal:
-            https://journals.sagepub.com/doi/10.1177/20563051211032138?icid=int.sj-abstract.citing-articles.324&
+          <span className="tooltiptext">
+            For a primer on whispertags (a fans-favorite feature) see{" "}
+            <a href=" https://journals.sagepub.com/doi/10.1177/20563051211032138?icid=int.sj-abstract.citing-articles.324&">
+              this article
+            </a>
           </span>
+          :
         </div>
-        <ol className="whispertags">
+        <ol>
           {props.whispertags.map((whispertag) => (
             <li key={whispertag}>
               <div className="whispertag">{whispertag}</div>
             </li>
           ))}
         </ol>
+      </div>
+
+      <footer>
         <div>No replies (because I haven&apos;t implemented them yet)</div>
         <ul>
           <li>like</li>

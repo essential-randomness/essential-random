@@ -1,3 +1,5 @@
+import "./Tag.css";
+
 export const Tag = ({ tag }: { tag: string }) => {
   // TODO: find a better way to split
   const split = tag.split(/^([^:]+):/gm).filter((s) => s.length > 0);
