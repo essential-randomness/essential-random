@@ -88,7 +88,8 @@ const TIERS: TierType[] = [
 
 const TierCard = (props: TierType) => {
   return (
-    <div>
+    <label htmlFor={props.name}>
+      <input type="radio" name="radio" id={props.name} />
       <div className="title">{props.name}</div>
       <div className="price">${props.dollarsPerMonth}/month</div>
       <div>{props.tagline}</div>
@@ -98,7 +99,7 @@ const TierCard = (props: TierType) => {
           return <li key={perk.description}>{perk.description}</li>;
         })}
       </ul>
-    </div>
+    </label>
   );
 };
 
