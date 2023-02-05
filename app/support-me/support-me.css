@@ -1,4 +1,7 @@
 main.support-me {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
 }
 main.support-me picture {
   width: 300px;
@@ -10,11 +13,20 @@ main.support-me img {
   ratio: 1;
 }
 
+main.support-me .tiers {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  gap: 20px;
+  padding-bottom: 10px;
+}
+
 .payment-buttons {
   display: flex;
   flex-direction: column;
   gap: 5px;
   animation: buttons 1s;
+  margin-top: 10px;
 }
 
 @keyframes buttons {
