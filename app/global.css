@@ -122,3 +122,9 @@ main.home .h-card .p-name {
     gap: 5px;
   }
 }
+
+:root {
+  --font-size-title: 1.5em;
+  --box-shadow-deep: 5px 5px 0 0px black;
+  --box-shadow-hover: 7px 7px 0 0 black;
+}

@@ -2,13 +2,15 @@
 
 import "./support-me.css";
 
+import { FaqEntry } from "components/FaqEntry";
 import Image from "next/image";
 import { PayPalButton } from "../../components/PayPalButton";
 import React from "react";
 import { StripeButton } from "components/StripeButton";
+import { SupportTierCard } from "components/SupportTierCard";
 import supportMe from "../../public/thenks-suporter.png";
 
-type TierType = {
+export type TierType = {
   name: string;
   dollarsPerMonth: number;
   tagline: string;
@@ -86,23 +88,6 @@ const TIERS: TierType[] = [
   },
 ];
 
-const TierCard = (props: TierType) => {
-  return (
-    <label htmlFor={props.name}>
-      <input type="radio" name="radio" id={props.name} />
-      <div className="title">{props.name}</div>
-      <div className="price">${props.dollarsPerMonth}/month</div>
-      <div>{props.tagline}</div>
-      <div>You get:</div>
-      <ul>
-        {props.perks.map((perk) => {
-          return <li key={perk.description}>{perk.description}</li>;
-        })}
-      </ul>
-    </label>
-  );
-};
-
 const PayPalDonation = () => {
   const [quantity, setQuantity] = React.useState(5);
   const paymentButtons = React.useRef<HTMLDivElement>(null);
@@ -120,42 +105,18 @@ const PayPalDonation = () => {
   }, [quantity]);
   return (
     <>
-      <input
-        id="donation-3"
-        type="radio"
-        name="donation"
-        value={3}
-        checked={quantity == 3}
-        onChange={() => setQuantity(3)}
-      />
-      <label htmlFor="donation-3">$3/month</label>
-      <input
-        id="donation-5"
-        type="radio"
-        name="donation"
-        value={5}
-        checked={quantity == 5}
-        onChange={() => setQuantity(5)}
-      />
-      <label htmlFor="donation-5">$5/month</label>
-      <input
-        id="donation-10"
-        type="radio"
-        name="donation"
-        value={10}
-        checked={quantity == 10}
-        onChange={() => setQuantity(10)}
-      />
-      <label htmlFor="donation-10">$10/month</label>
-      <input
-        id="donation-15"
-        type="radio"
-        name="donation"
-        value={15}
-        checked={quantity == 15}
-        onChange={() => setQuantity(15)}
-      />
-      <label htmlFor="donation-15">$15/month</label>
+      <div className="tiers">
+        {TIERS.map((tier) => (
+          <SupportTierCard
+            key={tier.name}
+            {...tier}
+            selected={tier.dollarsPerMonth == quantity}
+            onChange={() => {
+              setQuantity(tier.dollarsPerMonth);
+            }}
+          />
+        ))}
+      </div>
       <div className="payment-buttons" ref={paymentButtons}>
         <StripeButton quantity={quantity} />
         <PayPalButton planId="P-2T800313EX3963603MMBL4MI" quantity={quantity} />
@@ -196,63 +157,8 @@ const SupportMe = () => {
       </section>
       <section className="donate">
         <h2>How to donate</h2>
-        {TIERS.map((tier) => (
-          <TierCard key={tier.name} {...tier} />
-        ))}
         <PayPalDonation />
-        <details>
-          <summary>
-            How does this differ from the donations on your main website?
-          </summary>
-          <p>It doesn't.</p>
-        </details>
-        <details>
-          <summary>Should I choose this or Patreon/Ko-fi?</summary>
-          <p>
-            You do you. Patreon takes a certain percentage of earning and they
-            kind of are a shitty company. I like Ko-fi more.
-          </p>
-        </details>
-        <details>
-          <summary>Are my credit card info etc. secure?</summary>
-          <p>Yes.</p>
-        </details>
-        <details>
-          <summary>How do I cancel?</summary>
-          <p>
-            You can log in to your PayPal account and manage all your
-            subscription. For Stripe, <a href="">click here</a> for the customer
-            portal.
-          </p>
-          <p>In case of any issue, contact me at any time.</p>
-        </details>
-        <details>
-          <summary>What if I'm currently on the old $5/month plan?</summary>
-          <p>
-            You can keep that, and be automatically considered for the "almond
-            butter toast" support tier as a thank you for donating before it was
-            cool.
-          </p>
-          <p>
-            If you wish to up your amount, you can cancel that subscription and
-            create a new one. As long as it's using the same email, I'll make a
-            note to leave you at least as "almond butter toast", regardless of
-            amount.
-          </p>
-          <p>In case of any issue, contact me at any time.</p>
-        </details>
-        <details>
-          <summary>
-            What to do if you're from a country with low buying power
-          </summary>
-          Send me an email and i will send you a thing with more accessible
-          tiers
-        </details>
-        <details>
-          <summary>What if I'm not from a poor country, just poor?</summary>Oh
-          no someone has lied on the internet and now can actually afford to
-          support me, how will i ever financially recover
-        </details>
+        <FaqEntry />
       </section>
       <section className="testimonials">
         <h2>Testimonials</h2>

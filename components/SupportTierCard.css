@@ -1,0 +1,41 @@
+.support-tier.card {
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+  outline: 2px solid black;
+  background-color: white;
+  border-radius: 16px;
+  padding: 20px 15px;
+  gap: 15px;
+  align-items: center;
+}
+
+.support-tier.card[data-selected="true"] {
+  box-shadow: var(--box-shadow-deep);
+  filter: invert();
+}
+
+.support-tier.card:hover {
+  box-shadow: var(--box-shadow-hover);
+  transform: rotate(-0.3deg);
+  cursor: pointer;
+}
+
+.support-tier.card input {
+  display: none;
+}
+.support-tier.card .title {
+  font-size: var(--font-size-title);
+  font-weight: bold;
+}
+
+.support-tier.card .price {
+  font-size: 1.8em;
+}
+
+.support-tier.card .tagline {
+  font-style: italic;
+}
+
+.support-tier.card .perks {
+}

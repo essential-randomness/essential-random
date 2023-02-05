@@ -14,12 +14,12 @@
 }
 
 .project.card[data-has-body="true"] {
-  box-shadow: 5px 5px 0 0px black;
+  box-shadow: var(--box-shadow-deep);
 }
 
 .project.card[data-has-body="true"]:hover {
   transform: rotate(-0.3deg);
-  box-shadow: 7px 7px 0 0 black;
+  box-shadow: var(--box-shadow-hover);
 }
 
 .project.card > :where(.banner, a) {
