@@ -241,6 +241,18 @@ const SupportMe = () => {
           </p>
           <p>In case of any issue, contact me at any time.</p>
         </details>
+        <details>
+          <summary>
+            What to do if you're from a country with low buying power
+          </summary>
+          Send me an email and i will send you a thing with more accessible
+          tiers
+        </details>
+        <details>
+          <summary>What if I'm not from a poor country, just poor?</summary>Oh
+          no someone has lied on the internet and now can actually afford to
+          support me, how will i ever financially recover
+        </details>
       </section>
       <section className="testimonials">
         <h2>Testimonials</h2>
