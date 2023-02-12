@@ -117,10 +117,6 @@ const PayPalDonation = () => {
           />
         ))}
       </div>
-      <div className="payment-buttons" ref={paymentButtons}>
-        <StripeButton quantity={quantity} />
-        <PayPalButton planId="P-2T800313EX3963603MMBL4MI" quantity={quantity} />
-      </div>
     </>
   );
 };
@@ -158,6 +154,8 @@ const SupportMe = () => {
       <section className="donate">
         <h2>How to donate</h2>
         <PayPalDonation />
+      </section>
+      <section className="donate">
         <FaqEntry />
       </section>
       <section className="testimonials">
