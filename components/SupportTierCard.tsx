@@ -1,6 +1,8 @@
 import "./SupportTierCard.css";
 
 import { ChangeEventHandler } from "react";
+import { PayPalButton } from "./PayPalButton";
+import { StripeButton } from "./StripeButton";
 import { TierType } from "app/support-me/page";
 
 export const SupportTierCard = (
@@ -29,6 +31,15 @@ export const SupportTierCard = (
           return <li key={perk.description}>{perk.description}</li>;
         })}
       </ul>
+      <div className="donate">Donate ${props.dollarsPerMonth} monthly</div>
+
+      <div className="payment-buttons">
+        <StripeButton quantity={props.dollarsPerMonth} />
+        <PayPalButton
+          planId="P-2T800313EX3963603MMBL4MI"
+          quantity={props.dollarsPerMonth}
+        />
+      </div>
     </label>
   );
 };
