@@ -31,8 +31,9 @@ export const SupportTierCard = (
           return <li key={perk.description}>{perk.description}</li>;
         })}
       </ul>
-      <div className="donate">Donate ${props.dollarsPerMonth} monthly</div>
-
+      <div className="fake-payment-button">
+        Donate ${props.dollarsPerMonth} monthly
+      </div>
       <div className="payment-buttons">
         <StripeButton quantity={props.dollarsPerMonth} />
         <PayPalButton

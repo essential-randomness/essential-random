@@ -1,3 +1,7 @@
+import { SiApplepay, SiGooglepay } from "react-icons/si";
+
+import { SlCreditCard } from "react-icons/sl";
+
 const getLinkForQuantity = (quantity: number) => {
   switch (quantity) {
     case 3:
@@ -15,25 +19,8 @@ const getLinkForQuantity = (quantity: number) => {
 export const StripeButton = ({ quantity }: { quantity: number }) => {
   return (
     <a href={getLinkForQuantity(quantity)} className="stripe">
-      Subscribe with Credit card, GPay or Apple Pay
-      <style>{`
-      .stripe {
-        width: 100%;
-        height: 55px;
-        color: white;
-        background-color: black;
-        padding: 5px 15px;
-        border-radius: 9999px;
-        max-width: 750px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border: 2px solid white
-      }
-      .stripe:hover {
-        filter: invert();
-      }
-        `}</style>
+      <SlCreditCard /> <SiGooglepay />
+      <SiApplepay /> Pay with Stripe
     </a>
   );
 };

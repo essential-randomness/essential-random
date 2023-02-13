@@ -20,23 +20,3 @@ main.support-me .tiers {
   gap: 20px;
   padding-bottom: 10px;
 }
-
-.payment-buttons {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  animation: buttons 1s;
-  margin-top: 10px;
-}
-
-@keyframes buttons {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.3);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
