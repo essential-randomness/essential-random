@@ -153,7 +153,8 @@ const SupportMe = () => {
         <h2>How to donate</h2>
         <PayPalDonation />
       </section>
-      <section className="donate">
+      <section className="faq">
+        <h2>FAQs</h2>
         <FaqEntry />
       </section>
       <section className="testimonials">
