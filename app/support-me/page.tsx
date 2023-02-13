@@ -138,9 +138,9 @@ const SupportMe = () => {
           endeavors I've been up to and thought "wow, I'm glad someone is
           finally doing this, I wish they keep doing this, and maybe even more
           stuff like this", I have news for you: you can help me get more{" "}
-          <strike>chaos</strike> beauty into the web (and help me pay my rent)
-          by donating to my cause, and help ensure I don't need to go back to
-          help some large company sell more ads.
+          <s>chaos</s> beauty into the web (and help me pay my rent) by donating
+          to my cause, and help ensure I don't need to go back to help some
+          large company sell more ads.
         </p>
         <p>
           Donation tiers might offer specific rewards, but there's only thing I
