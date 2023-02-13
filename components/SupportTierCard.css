@@ -1,7 +1,6 @@
 .support-tier.card {
   display: flex;
   flex-direction: column;
-  min-width: 300px;
   outline: 2px solid black;
   background-color: white;
   border-radius: 16px;
@@ -66,7 +65,7 @@
 
 .support-tier.card .payment-buttons {
   display: none;
-  gap: 5px;
+  gap: 15px;
   animation: buttons 0.5s;
   top: 0;
   left: 0;
@@ -98,7 +97,7 @@
 
 .stripe {
   width: 100%;
-  height: 35px;
+  height: 45px;
   max-width: 750px;
   display: flex;
   align-items: center;
@@ -114,10 +113,4 @@
 }
 .stripe:hover {
   filter: none;
-}
-
-@media only screen and (min-width: 750px) {
-  .stripe {
-    height: 45px;
-  }
 }

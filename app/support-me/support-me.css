@@ -15,8 +15,14 @@ main.support-me img {
 
 main.support-me .tiers {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   width: 100%;
   gap: 20px;
   padding-bottom: 10px;
+}
+
+@media only screen and (max-width: 360px) {
+  main.support-me .tiers {
+    grid-template-columns: 1fr;
+  }
 }
