@@ -93,13 +93,11 @@ const PayPalDonation = () => {
   const paymentButtons = React.useRef<HTMLDivElement>(null);
 
   React.useEffect(() => {
-    console.log(quantity);
     if (!paymentButtons.current) {
       return;
     }
     paymentButtons.current.style.animation = "";
     setTimeout(() => {
-      console.log(paymentButtons.current);
       paymentButtons.current!.style.animation = "buttons 1s";
     }, 500);
   }, [quantity]);
