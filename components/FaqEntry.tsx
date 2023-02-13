@@ -1,7 +1,8 @@
+import "./FaqEntry.css";
+
 export const FaqEntry = () => {
   return (
-    <>
-      {" "}
+    <div className="faqs">
       <details>
         <summary>
           How does this differ from the donations on your main website?
@@ -54,6 +55,6 @@ export const FaqEntry = () => {
         Oh no someone has lied on the internet and now can actually afford to
         support me, how will i ever financially recover
       </details>
-    </>
+    </div>
   );
 };
