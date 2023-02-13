@@ -3,14 +3,36 @@ main.support-me {
   gap: 10px;
   flex-direction: column;
 }
+main.support-me .intro {
+  display: grid;
+  grid-template-columns: auto 250px;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "title image"
+    "body image";
+  align-items: center;
+  column-gap: 20px;
+}
+@media only screen and (max-width: 750px) {
+  main.support-me .intro {
+    display: flex;
+    flex-direction: column;
+  }
+}
+main.support-me h2 {
+  margin: 0px;
+}
+
 main.support-me picture {
-  width: 300px;
+  width: 250px;
   display: block;
+  grid-area: image;
 }
 main.support-me img {
   width: 100%;
   height: auto;
   ratio: 1;
+  border-radius: 16px;
 }
 
 main.support-me .tiers {
