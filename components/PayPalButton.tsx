@@ -5,6 +5,7 @@ import React from "react";
 const CLIENT_ID =
   "AbYamsrG5_XYxgwQm3wrH4rsCeveTZZFmDrjbxD4QjsWbitArq9DZNpJs19I3bGWyrESPWfdqYKP-6Lu";
 
+let payPalPromise: Promise<PayPalNamespace | null> | null = null;
 const renderPayPalButton = async (
   button: HTMLDivElement,
   options: {
@@ -12,13 +13,14 @@ const renderPayPalButton = async (
   }
 ) => {
   let paypal: PayPalNamespace;
-  if (!window.paypal) {
-    paypal = (await loadScript({
+  if (!window.paypal && !payPalPromise) {
+    payPalPromise = loadScript({
       "client-id": CLIENT_ID,
       vault: true,
       intent: "subscription",
-    })) as PayPalNamespace;
+    });
   }
+  await payPalPromise;
   paypal = window.paypal!;
   paypal
     .Buttons?.({
@@ -30,6 +32,7 @@ const renderPayPalButton = async (
       },
       fundingSource: "paypal",
       createSubscription: (_, actions) => {
+        console.log("creating subscription for ", button);
         return actions.subscription.create({
           plan_id: options.planId,
           quantity: button.dataset.quantity,
