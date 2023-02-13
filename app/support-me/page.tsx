@@ -4,9 +4,7 @@ import "./support-me.css";
 
 import { FaqEntry } from "components/FaqEntry";
 import Image from "next/image";
-import { PayPalButton } from "../../components/PayPalButton";
 import React from "react";
-import { StripeButton } from "components/StripeButton";
 import { SupportTierCard } from "components/SupportTierCard";
 import supportMe from "../../public/thenks-suporter.png";
 
@@ -131,23 +129,25 @@ const SupportMe = () => {
           />
         </picture>
         <h2>What you get</h2>
-        <p>
-          If you've been looking at all the projects, memes, and general
-          endeavors I've been up to and thought "wow, I'm glad someone is
-          finally doing this, I wish they keep doing this, and maybe even more
-          stuff like this", I have news for you: you can help me get more{" "}
-          <s>chaos</s> beauty into the web (and help me pay my rent) by donating
-          to my cause, and help ensure I don't need to go back to help some
-          large company sell more ads.
-        </p>
-        <p>
-          Donation tiers might offer specific rewards, but there's only thing I
-          hold myself fully responsible to consistently deliver: with your
-          support, I'll continue building my chaotic empire, educating people on
-          how to build their own chaotic empires, and I'll keep making the
-          resulting projects and knowledge as free, ethical, and accessible as I
-          can reasonably can.
-        </p>
+        <div>
+          <p>
+            If you've been looking at all the projects, memes, and general
+            endeavors I've been up to and thought "wow, I'm glad someone is
+            finally doing this, I wish they keep doing this, and maybe even more
+            stuff like this", I have news for you: you can help me get more{" "}
+            <s>chaos</s> beauty into the web (and help me pay my rent) by
+            donating to my cause, and help ensure I don't need to go back to
+            help some large company sell more ads.
+          </p>
+          <p>
+            Donation tiers might offer specific rewards, but there's only thing
+            I hold myself fully responsible to consistently deliver: with your
+            support, I'll continue building my chaotic empire, educating people
+            on how to build their own chaotic empires, and I'll keep making the
+            resulting projects and knowledge as free, ethical, and accessible as
+            I can reasonably can.
+          </p>
+        </div>
       </section>
       <section className="donate">
         <h2>How to donate</h2>
