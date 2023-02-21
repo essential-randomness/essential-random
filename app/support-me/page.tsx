@@ -10,6 +10,7 @@ import supportMe from "../../public/thenks-suporter.png";
 
 export type TierType = {
   name: string;
+  imageUrl: string;
   dollarsPerMonth: number;
   tagline: string;
   perks: { description: string }[];
@@ -20,6 +21,8 @@ const TIERS: TierType[] = [
     name: "a nice egg",
     dollarsPerMonth: 3,
     tagline: "Can you offer me a nice egg in this high-inflation time?",
+    imageUrl:
+      "https://cdn.discordapp.com/attachments/963700079196270622/1075661944175992842/a_nice_egg_no_sparkle.png",
     perks: [
       {
         description:
@@ -42,6 +45,8 @@ const TIERS: TierType[] = [
   {
     name: "specialty coffee & boba",
     dollarsPerMonth: 8,
+    imageUrl:
+      "https://cdn.discordapp.com/attachments/963700079196270622/1075762858098442331/coffee_and_boba.png",
     tagline: "I mean, it's a latte, Michael. What could it cost?",
     perks: [
       {
@@ -56,6 +61,8 @@ const TIERS: TierType[] = [
   {
     name: "almond butter toast",
     dollarsPerMonth: 15,
+    imageUrl:
+      "https://cdn.discordapp.com/attachments/963700079196270622/1075762858710814760/toast.png",
     tagline: "Frankly, my dear, I don't like avocado.",
     perks: [
       {
@@ -69,6 +76,8 @@ const TIERS: TierType[] = [
   {
     name: "subsidized massage",
     dollarsPerMonth: 25,
+    imageUrl:
+      "https://cdn.discordapp.com/attachments/963700079196270622/1075762858710814760/toast.png",
     tagline: `"It's like one of my Silicon Valley start ups!"`,
     perks: [
       {
@@ -87,21 +96,12 @@ const TIERS: TierType[] = [
 ];
 
 const PayPalDonation = () => {
-  const [quantity, setQuantity] = React.useState(5);
-  const paymentButtons = React.useRef<HTMLDivElement>(null);
+  const [quantity, setQuantity] = React.useState(0);
 
-  React.useEffect(() => {
-    if (!paymentButtons.current) {
-      return;
-    }
-    paymentButtons.current.style.animation = "";
-    setTimeout(() => {
-      paymentButtons.current!.style.animation = "buttons 1s";
-    }, 500);
-  }, [quantity]);
+  console.log(quantity);
   return (
     <>
-      <div className="tiers">
+      <form className="tiers">
         {TIERS.map((tier) => (
           <SupportTierCard
             key={tier.name}
@@ -110,9 +110,10 @@ const PayPalDonation = () => {
             onChange={() => {
               setQuantity(tier.dollarsPerMonth);
             }}
+            onReset={() => setQuantity(0)}
           />
         ))}
-      </div>
+      </form>
     </>
   );
 };
@@ -130,27 +131,30 @@ const SupportMe = () => {
         </picture>
         <h2>What you get</h2>
         <div>
-          <p>
-            If you've been looking at all the projects, memes, and general
-            endeavors I've been up to and thought "wow, I'm glad someone is
-            finally doing this, I wish they keep doing this, and maybe even more
-            stuff like this", I have news for you: you can help me get more{" "}
-            <s>chaos</s> beauty into the web (and help me pay my rent) by
-            donating to my cause, and help ensure I don't need to go back to
-            help some large company sell more ads.
-          </p>
-          <p>
-            Donation tiers might offer specific rewards, but there's only thing
-            I hold myself fully responsible to consistently deliver: with your
-            support, I'll continue building my chaotic empire, educating people
-            on how to build their own chaotic empires, and I'll keep making the
-            resulting projects and knowledge as free, ethical, and accessible as
-            I can reasonably can.
-          </p>
+          MY THESIS: - the internet is broken, but—to the extent that it can be
+          in the world we're living in—fixable - Fixing it goes through 3
+          things: - Community - Education - Not taking ourselves so seriously -
+          You can read more about how I'm achieving each by going to [ these
+          categories on my blog ]. Or you will, when I actually implement it.
+          For now, this is all a work in progress, and you'll have to trust me.
+          Alternatively, head to my testimonials page This is the right time to
+          act because: - The current internet is crumbling - So many people are
+          facing unemployment - People really hate big tech To do this, though,
+          I (put simply) need to be able to pay rent, afford a masseuse so my
+          neck can maybe one day not hurt as much, and be able to be a cute
+          bitch.
         </div>
       </section>
       <section className="donate">
         <h2>How to donate</h2>
+        <div className="note">
+          Donation tiers might offer specific rewards, but there's only thing I
+          hold myself fully responsible to consistently deliver: with your
+          support, I'll continue building my chaotic empire, educating people on
+          how to build their own chaotic empires, and I'll keep making the
+          resulting projects and knowledge as free, ethical, and accessible as I
+          can reasonably can.
+        </div>
         <PayPalDonation />
       </section>
       <section className="faq">

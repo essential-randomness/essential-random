@@ -23,7 +23,7 @@
 .support-tier.card[data-selected="false"]:hover {
   transform: rotate(-0.3deg);
 }
-.support-tier.card input {
+.support-tier.card input[type="radio"] {
   display: none;
 }
 .support-tier.card .title {
@@ -32,7 +32,7 @@
 }
 
 .support-tier.card .price {
-  font-size: 1.8em;
+  font-size: 1.2em;
 }
 
 .support-tier.card .tagline {
@@ -45,6 +45,11 @@
 
 .support-tier.card .donate {
   width: 100%;
+}
+
+.support-tier.card img {
+  width: 200px;
+  height: auto;
 }
 
 .support-tier.card .fake-payment-button {
@@ -79,6 +84,22 @@
 }
 .support-tier.card .payment-buttons > * {
   width: 100%;
+}
+
+.support-tier.card .payment-buttons .close {
+  all: unset;
+  position: absolute;
+  top: 0;
+  right: 0;
+  filter: invert(1);
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.support-tier.card .payment-buttons .close:hover {
+  cursor: pointer;
 }
 
 .support-tier.card[data-selected="true"] .payment-buttons {
