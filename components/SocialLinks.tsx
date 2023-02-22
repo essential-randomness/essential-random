@@ -1,3 +1,5 @@
+import "./SocialLinks.css";
+
 import {
   WEBSITE_TYPES,
   extractWebsiteName,
