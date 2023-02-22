@@ -85,6 +85,10 @@
   color: black;
 }
 
+.project.card .social-links li {
+  width: auto;
+}
+
 .project.card .social-links .name,
 .project.card .social-links .url {
   display: none;

@@ -12,6 +12,14 @@ main.posts aside nav {
   flex-direction: column;
 }
 
+main.posts .articles li {
+  margin-bottom: 20px;
+}
+main.posts .social-links {
+  justify-content: center;
+  margin-top: 20px;
+}
+
 main.posts {
   display: grid;
   grid-template-columns: 25% 1fr;

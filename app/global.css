@@ -54,44 +54,6 @@ svg {
   height: 24px;
 }
 
-.social-links {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(10em, 6em));
-  justify-items: center;
-  list-style-type: none;
-  gap: 10px;
-  margin: 0px;
-  padding: 0px;
-}
-
-.social-links .url {
-  display: none;
-}
-.social-links .name {
-  text-transform: capitalize;
-}
-
-.social-links a {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 5px;
-  justify-content: center;
-}
-
-main.home .social-links li {
-  width: 100%;
-}
-main.home .social-links a {
-  border: 2px solid black;
-  border-radius: 16px;
-  padding: 5px 10px;
-}
-
-main.home .social-links a:hover {
-  box-shadow: 3px 3px 0 0px black;
-  transform: translate(-2px, -2px);
-}
 main.home .h-card {
   display: grid;
   grid-template-columns: 15em auto;
