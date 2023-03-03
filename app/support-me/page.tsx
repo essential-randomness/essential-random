@@ -21,7 +21,7 @@ const TIERS: TierType[] = [
     name: "a nice egg",
     dollarsPerMonth: 3,
     tagline: "Can you offer me a nice egg in this high-inflation time?",
-    imageUrl: "support-me/egg.png",
+    imageUrl: "/support-me/egg.png",
     perks: [
       {
         description:
@@ -44,7 +44,7 @@ const TIERS: TierType[] = [
   {
     name: "specialty coffee & boba",
     dollarsPerMonth: 8,
-    imageUrl: "support-me/coffee-and-boba.png",
+    imageUrl: "/support-me/coffee-and-boba.png",
     tagline: "I mean, it's a latte, Michael. What could it cost?",
     perks: [
       {
@@ -59,7 +59,7 @@ const TIERS: TierType[] = [
   {
     name: "almond butter toast",
     dollarsPerMonth: 15,
-    imageUrl: "support-me/almond-toast.png",
+    imageUrl: "/support-me/almond-toast.png",
     tagline: "Frankly, my dear, I don't like avocado.",
     perks: [
       {
@@ -73,7 +73,7 @@ const TIERS: TierType[] = [
   {
     name: "subsidized massage",
     dollarsPerMonth: 25,
-    imageUrl: "support-me/massage.png",
+    imageUrl: "/support-me/massage.png",
     tagline: `"It's like one of my Silicon Valley start ups!"`,
     perks: [
       {
