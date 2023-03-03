@@ -1,5 +1,6 @@
 import "./SupportTierCard.css";
 
+import Image from "next/image";
 import { PayPalButton } from "./PayPalButton";
 import { ReactEventHandler } from "react";
 import { SlClose } from "react-icons/sl";
@@ -28,7 +29,7 @@ export const SupportTierCard = (
       />
       <div className="title">{props.name}</div>
       <div className="price">${props.dollarsPerMonth}/month</div>
-      <img src={props.imageUrl} />
+      <Image src={props.imageUrl} alt={props.name} />
       <div className="tagline">{props.tagline}</div>
       <ul className="perks">
         {props.perks.map((perk) => {
