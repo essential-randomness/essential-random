@@ -13,8 +13,9 @@ export const FaqEntry = () => {
             essentialrandomness.com
           </a>
           ) are backed by Ghost, the blogging software I used to run the initial
-          version of my newsletter. I'm not a huge fan of Ghost, so I'm running
-          my own software now. The money ends in the same place.
+          version of my newsletter. I&apos;m not a huge fan of Ghost, so
+          I&apos;m running my own software now. The money ends in the same
+          place.
         </p>
       </details>
       <details>
@@ -27,8 +28,8 @@ export const FaqEntry = () => {
       <details>
         <summary>Are my credit card info etc. secure?</summary>
         <p>
-          Yes. I'm selling subscriptions through Stripe and PayPal links, which
-          means your credit card information never leaves those sites.
+          Yes. I&apos;m selling subscriptions through Stripe and PayPal links,
+          which means your credit card information never leaves those sites.
         </p>
       </details>
       <details>
@@ -62,10 +63,12 @@ export const FaqEntry = () => {
         <p>In case of any issue, contact me at any time.</p>
       </details>
       <details>
-        <summary>Can't I just pay for a premium BobaBoard account?</summary>
+        <summary>
+          Can&apos;t I just pay for a premium BobaBoard account?
+        </summary>
         <p>
           While BobaBoard is the main project I work on, I work on a lot more
-          than BobaBoard. It's important that I continue doing so for the
+          than BobaBoard. It&apos;s important that I continue doing so for the
           long-term success of our goals.
         </p>
         <p>
