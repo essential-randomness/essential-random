@@ -21,8 +21,7 @@ const TIERS: TierType[] = [
     name: "a nice egg",
     dollarsPerMonth: 3,
     tagline: "Can you offer me a nice egg in this high-inflation time?",
-    imageUrl:
-      "https://cdn.discordapp.com/attachments/963700079196270622/1075661944175992842/a_nice_egg_no_sparkle.png",
+    imageUrl: "support-me/egg.png",
     perks: [
       {
         description:
@@ -45,8 +44,7 @@ const TIERS: TierType[] = [
   {
     name: "specialty coffee & boba",
     dollarsPerMonth: 8,
-    imageUrl:
-      "https://cdn.discordapp.com/attachments/963700079196270622/1075762858098442331/coffee_and_boba.png",
+    imageUrl: "support-me/coffee-and-boba.png",
     tagline: "I mean, it's a latte, Michael. What could it cost?",
     perks: [
       {
@@ -61,8 +59,7 @@ const TIERS: TierType[] = [
   {
     name: "almond butter toast",
     dollarsPerMonth: 15,
-    imageUrl:
-      "https://cdn.discordapp.com/attachments/963700079196270622/1075762858710814760/toast.png",
+    imageUrl: "support-me/almond-toast.png",
     tagline: "Frankly, my dear, I don't like avocado.",
     perks: [
       {
@@ -76,8 +73,7 @@ const TIERS: TierType[] = [
   {
     name: "subsidized massage",
     dollarsPerMonth: 25,
-    imageUrl:
-      "https://cdn.discordapp.com/attachments/963700079196270622/1075762858710814760/toast.png",
+    imageUrl: "support-me/massage.png",
     tagline: `"It's like one of my Silicon Valley start ups!"`,
     perks: [
       {
@@ -129,33 +125,50 @@ const SupportMe = () => {
             alt={`Remake of a popular meme reading "Thenks suporter for my rent' (sic)"`}
           />
         </picture>
-        <h2>What you get</h2>
+        <h2>Who I am & what I do</h2>
         <div>
-          MY THESIS: - the internet is broken, but—to the extent that it can be
-          in the world we're living in—fixable - Fixing it goes through 3
-          things: - Community - Education - Not taking ourselves so seriously -
-          You can read more about how I'm achieving each by going to [ these
-          categories on my blog ]. Or you will, when I actually implement it.
-          For now, this is all a work in progress, and you'll have to trust me.
-          Alternatively, head to my testimonials page This is the right time to
-          act because: - The current internet is crumbling - So many people are
-          facing unemployment - People really hate big tech To do this, though,
-          I (put simply) need to be able to pay rent, afford a masseuse so my
-          neck can maybe one day not hurt as much, and be able to be a cute
-          bitch.
+          <p>
+            In 2020, I quit my job as a Silicon Valley software engineer on a
+            mission to bring the internet back to the place of joy and
+            creativity I grew up in.
+          </p>
+          <p>The initiatives I launched and am currently leading include:</p>
+          <ul>
+            <li>
+              BobaBoard, a privacy-centric, open source, forum-like software for
+              online communities{" "}
+            </li>
+            <li>
+              Fandom Coders, a 200+ people community where expert and beginners
+              coders in fandom meet for friendship, support and learning
+            </li>
+            <li>
+              Random fun stuff, including RobinBoob (a "ship-ownership
+              certificates" marketplace parodying the NFT craze), and FujoBoard
+              (a reimagining of the old Yaoi paddles phenomenon for the modern
+              fangirl)
+            </li>
+          </ul>
+          I've also introduced many people in fandom (often members of
+          communities under represented in tech) to open source and web
+          development, and I'm actively working on related educational material.
         </div>
       </section>
       <section className="donate">
         <h2>How to donate</h2>
-        <div className="note">
-          Donation tiers might offer specific rewards, but there's only thing I
-          hold myself fully responsible to consistently deliver: with your
-          support, I'll continue building my chaotic empire, educating people on
-          how to build their own chaotic empires, and I'll keep making the
-          resulting projects and knowledge as free, ethical, and accessible as I
-          can reasonably can.
-        </div>
+        <p>
+          My well-thought-out roadmap towards a better internet cannot survive
+          without a full-time person at its helm. With your contribution, you
+          will become an active enabler of the movement I'm spearheading, and
+          will rest assured that someone out there is fighting the good fight
+          (also) in your name.
+        </p>
         <PayPalDonation />
+        <p>
+          You can also donate at{" "}
+          <a href="https://patreon.com/user?u=87081842">Patreon</a> or{" "}
+          <a href="https://ko-fi.com/essentialrandomness">Ko-fi</a>.
+        </p>
       </section>
       <section className="faq">
         <h2>FAQs</h2>
