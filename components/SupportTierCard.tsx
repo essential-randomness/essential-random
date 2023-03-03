@@ -29,7 +29,7 @@ export const SupportTierCard = (
       />
       <div className="title">{props.name}</div>
       <div className="price">${props.dollarsPerMonth}/month</div>
-      <Image src={props.imageUrl} alt={props.name} />
+      <Image src={props.imageUrl} alt={props.name} width={460} height={200} />
       <div className="tagline">{props.tagline}</div>
       <ul className="perks">
         {props.perks.map((perk) => {
