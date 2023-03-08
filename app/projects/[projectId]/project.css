@@ -18,12 +18,17 @@ main.project picture img {
 
 main.project .social-links {
   display: flex;
+  width: 100%;
   flex-wrap: wrap;
   margin: 16px 0;
   padding: 0;
   list-style-type: none;
   gap: 15px;
   justify-content: center;
+}
+
+main.project .social-links li {
+  max-width: 100px;
 }
 
 main.project .social-links a {

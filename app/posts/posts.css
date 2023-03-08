@@ -95,7 +95,7 @@ main.posts article .whispertags li {
   display: inline;
 }
 
-.read-more {
+main.posts .read-more {
   display: block;
   border: 2px solid black;
   border-radius: 16px;
@@ -106,7 +106,7 @@ main.posts article .whispertags li {
   background-color: white;
 }
 
-.read-more:hover {
+main.posts .read-more:hover {
   filter: invert();
 }
 
