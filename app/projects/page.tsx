@@ -1,5 +1,3 @@
-"use client";
-
 import "./projects.css";
 
 import { ProjectCard } from "../../components/ProjectCard";

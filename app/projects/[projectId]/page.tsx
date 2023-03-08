@@ -1,5 +1,3 @@
-"use client";
-
 import "./project.css";
 
 import { Project, allProjects } from "contentlayer/generated";

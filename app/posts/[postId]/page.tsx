@@ -1,5 +1,3 @@
-"use client";
-
 import { Post, allPosts } from "contentlayer/generated";
 
 import Link from "next/link";
@@ -17,21 +15,8 @@ interface PageParams {
   };
 }
 
-export default function PostEntry({ params }: PageParams) {
-  const postId = params?.postId as string;
-  const postIndex = allPosts.findIndex((post) => post.id === postId);
-  if (postIndex == -1) {
-    throw new Error(
-      `Post with postId "${postId}" not found. Available postId values are: ${allPosts.map(
-        (post) => post.id
-      )}`
-    );
-  }
-  const { curr, prev, next } = {
-    curr: allPosts[postIndex],
-    prev: postIndex > 0 ? allPosts[postIndex - 1] : null,
-    next: postIndex !== allPosts.length - 1 ? allPosts[postIndex + 1] : null,
-  };
+export default function PostEntry(props: PageProps) {
+  const { curr, prev, next } = props;
   const MDXContent = useMDXComponent(curr.body.code, curr);
 
   return (
@@ -53,8 +38,19 @@ export default function PostEntry({ params }: PageParams) {
   );
 }
 
-export async function generateStaticParams() {
-  return allPosts.map((project) => ({
-    projectId: project.id,
-  }));
+export async function generateStaticParams({ params }: PageParams) {
+  const postId = params?.postId as string;
+  const postIndex = allPosts.findIndex((post) => post.id === postId);
+  if (postIndex == -1) {
+    throw new Error(
+      `Post with postId "${postId}" not found. Available postId values are: ${allPosts.map(
+        (post) => post.id
+      )}`
+    );
+  }
+  return {
+    curr: allPosts[postIndex],
+    prev: postIndex > 0 ? allPosts[postIndex - 1] : null,
+    next: postIndex !== allPosts.length - 1 ? allPosts[postIndex + 1] : null,
+  };
 }

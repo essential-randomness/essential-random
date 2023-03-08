@@ -1,5 +1,3 @@
-"use client";
-
 import "./posts.css";
 
 import { PostPreview } from "../../components/PostPreview";

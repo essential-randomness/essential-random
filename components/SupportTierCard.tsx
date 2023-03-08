@@ -5,7 +5,7 @@ import { PayPalButton } from "./PayPalButton";
 import { ReactEventHandler } from "react";
 import { SlClose } from "react-icons/sl";
 import { StripeButton } from "./StripeButton";
-import { TierType } from "app/support-me/page";
+import { TierType } from "./TiersDisplay";
 
 export const SupportTierCard = (
   props: TierType & {

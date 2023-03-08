@@ -54,8 +54,9 @@ const PostsLayout = ({ children }: { children: React.ReactNode }) => {
           </li>
           <li>
             <a href="https://twitter.com/BobaBoard/status/1381348761901785091">
-              “I don't usually weigh in on controversies (proceeds to weigh in
-              on controversies)”, a.k.a. “the software engineering costs” thread
+              “I don&apos;t usually weigh in on controversies (proceeds to weigh
+              in on controversies)”, a.k.a. “the software engineering costs”
+              thread
             </a>
           </li>
           <li>
