@@ -79,6 +79,13 @@ export const FaqEntry = () => {
           please donate to me directly.
         </p>
       </details>
+      <details>
+        <summary>Who designed these beautiful icons?</summary>
+        <p>
+          My amazing friend <a href="https://scumsuck.com">SKUMSUCK</a>{" "}
+          generously created them for me.
+        </p>
+      </details>
     </div>
   );
 };
