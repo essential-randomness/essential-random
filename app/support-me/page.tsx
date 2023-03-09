@@ -19,9 +19,9 @@ const SupportMe = () => {
         <h2>Who I am & what I do</h2>
         <div>
           <p>
-            In 2020, I quit my job as a Silicon Valley software engineer on a
-            mission to bring the internet back to the place of joy and
-            creativity I grew up in.
+            In 2020, I quit my job as a Silicon Valley software engineer to
+            embark on a mission to bring the internet back to the place of joy
+            and creativity I grew up in.
           </p>
           <p>The initiatives I launched and am currently leading include:</p>
           <ul>
@@ -30,7 +30,7 @@ const SupportMe = () => {
               online communities{" "}
             </li>
             <li>
-              Fandom Coders, a 200+ people community where expert and beginners
+              Fandom Coders, a 200+ people community where expert and beginner
               coders in fandom meet for friendship, support and learning
             </li>
             <li>
@@ -41,7 +41,7 @@ const SupportMe = () => {
             </li>
           </ul>
           I&apos;ve also introduced many people in fandom (often members of
-          communities under represented in tech) to open source and web
+          communities underrepresented in tech) to open source and web
           development, and I&apos;m actively working on related educational
           material.
         </div>

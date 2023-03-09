@@ -76,7 +76,7 @@ const TIERS: TierType[] = [
       },
       {
         description:
-          "Half-yearly 30 minutes call to discuss *anything* you want",
+          "Half-yearly 30 minute call to discuss *anything* you want",
       },
       {
         description:

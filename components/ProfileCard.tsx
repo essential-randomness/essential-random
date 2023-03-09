@@ -19,7 +19,7 @@ export const ProfileCard = () => {
       <div className="p-note">
         Software Engineer, Fandom Person & Other Random Stuff. Big mad at big
         tech. Full Stack Human. #queeredge — Building chaotic ethical social
-        spaces at <a href="https://bobaboard.com/">www.bobaboard.com</a>!
+        spaces at <a href="https://bobaboard.com/">bobaboard.com</a>!
       </div>
     </section>
   );

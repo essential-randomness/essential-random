@@ -26,7 +26,7 @@ export const FaqEntry = () => {
         </p>
       </details>
       <details>
-        <summary>Are my credit card info etc. secure?</summary>
+        <summary>Is my payment info secure?</summary>
         <p>
           Yes. I&apos;m selling subscriptions through Stripe and PayPal links,
           which means your credit card information never leaves those sites.
@@ -35,8 +35,8 @@ export const FaqEntry = () => {
       <details>
         <summary>How do I cancel?</summary>
         <p>
-          You can log in to your PayPal account and manage all your
-          subscription. For Stripe,{" "}
+          You can log in to your PayPal account to manage all your
+          subscriptions. For Stripe,{" "}
           <a href="https://billing.stripe.com/p/login/7sI9E470ibQt0A8dQQ">
             click here
           </a>{" "}
@@ -50,9 +50,9 @@ export const FaqEntry = () => {
       <details>
         <summary>What if I&apos;m currently on the old $5/month plan?</summary>
         <p>
-          You can keep that, and be automatically considered for the
-          &quot;almond butter toast&quot; support tier as a thank you for
-          donating before it was cool.
+          You can keep that, and be automatically enrolled in the &quot;almond
+          butter toast&quot; support tier as a thank you for donating before it
+          was cool.
         </p>
         <p>
           If you wish to up your amount, you can cancel that subscription and
@@ -60,11 +60,32 @@ export const FaqEntry = () => {
           make a note to leave you at least as &quot;almond butter toast&quot;,
           regardless of amount.
         </p>
-        <p>In case of any issue, contact me at any time.</p>
+        <p>
+          In case of any issue, contact me at any time at{" "}
+          <a href="ms.boba@bobaboard.com">ms.boba@bobaboard.com</a>.
+        </p>
       </details>
       <details>
         <summary>
-          Can&apos;t I just pay for a premium BobaBoard account?
+          I&apos;m a proud &quot;subsidized massage&quot; supporter. Can we
+          really discuss <em>anything</em> on our call?
+        </summary>
+        <p>
+          When I say anything, I mean, well, <em>mostly</em> anything. Crying
+          over the present state of fandom? Absolutely! Reading me your sexy
+          fanfic? Totally fine. Venting about your overbearing boss? Been there,
+          done that!
+        </p>
+        <p>
+          As long as the subject is something two friends in fandom would
+          &quot;reasonably&quot; discuss, then it&apos;s fair game! If a topic
+          falls outside my own boundaries, I&apos;ll let you know with no
+          judgement.
+        </p>
+      </details>
+      <details>
+        <summary>
+          Can&apos;t I just support you by buying a premium BobaBoard account?
         </summary>
         <p>
           While BobaBoard is the main project I work on, I work on a lot more
