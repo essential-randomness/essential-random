@@ -62,6 +62,12 @@ const PostsLayout = ({ children }: { children: React.ReactNode }) => {
           <li>
             <a href="https://fujoboard.com/">The FujoBoard website</a>
           </li>
+          <li>
+            <a href="https://excalidraw.com/#json=sH6qFpUqgPL-Pq-HOj_wX,m3il9YKwhFU6xRfV21M-ig">
+              A large, explanatory diagram of how the tools used in modern web
+              development fit together.
+            </a>
+          </li>
         </ul>
         <div>
           ...plus dozens of rants scattered all around the internet!
