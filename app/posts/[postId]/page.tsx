@@ -3,20 +3,15 @@ import { Post, allPosts } from "contentlayer/generated";
 import Link from "next/link";
 import { useMDXComponent } from "next-contentlayer/hooks";
 
-interface PageProps {
-  curr: Post;
-  prev: Post | null;
-  next: Post | null;
-}
-
 interface PageParams {
   params: {
     postId: string;
   };
 }
 
-export default function PostEntry(props: PageProps) {
-  const { curr, prev, next } = props;
+export default function PostEntry({ params }: PageParams) {
+  const postId = params?.postId as string;
+  const { curr, prev, next } = getPostById({ postId });
   const MDXContent = useMDXComponent(curr.body.code, curr);
 
   return (
@@ -38,8 +33,13 @@ export default function PostEntry(props: PageProps) {
   );
 }
 
-export async function generateStaticParams({ params }: PageParams) {
-  const postId = params?.postId as string;
+export async function generateStaticParams() {
+  return allPosts.map((post) => ({
+    postId: post.id,
+  }));
+}
+
+function getPostById({ postId }: { postId: string }) {
   const postIndex = allPosts.findIndex((post) => post.id === postId);
   if (postIndex == -1) {
     throw new Error(

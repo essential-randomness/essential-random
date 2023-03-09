@@ -79,7 +79,9 @@ const ProjectEntry = ({ params }: PageParams) => {
 export default ProjectEntry;
 
 export async function generateStaticParams() {
-  return allProjects.map((project) => ({
-    projectId: project.id,
-  }));
+  return allProjects
+    .filter((project) => project.body.raw.length > 0)
+    .map((project) => ({
+      projectId: project.id,
+    }));
 }
