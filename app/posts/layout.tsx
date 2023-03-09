@@ -17,7 +17,7 @@ const PostsLayout = ({ children }: { children: React.ReactNode }) => {
         <h2>Coming soon</h2>
         <p>
           Please hold on while this blog is being made presentable. In the
-          meantime, for a sample of my past writings you can read:
+          meantime, for a sample of my past writing you can read:
         </p>
         <ul className="articles">
           <li>

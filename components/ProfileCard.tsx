@@ -8,12 +8,12 @@ export const ProfileCard = () => {
   return (
     <section className="h-card">
       <Image className="avatar u-logo" src={avatar} alt="Ms Boba's avatar" />
-      <h1 className="p-name">
+      <div className="p-name">
         <Link href="/" rel="me" className="u-url">
           Essential Randomness
         </Link>
-      </h1>
-      <div>
+      </div>
+      <div className="nickname">
         a.k.a. <span className="p-nickname">Ms Boba</span>
       </div>
       <div className="p-note">

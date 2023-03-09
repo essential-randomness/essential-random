@@ -12,6 +12,10 @@ main.posts aside nav {
   flex-direction: column;
 }
 
+main.posts h2 {
+  margin-top: 0;
+}
+
 main.posts .articles li {
   margin-bottom: 20px;
 }
