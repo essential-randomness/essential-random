@@ -11,7 +11,7 @@ const SupportMe = () => {
     <main className="support-me">
       <BeamUp
         beamToFragment="donate"
-        startFromFragment="faq"
+        startFromFragment="donate-others"
         label="Back to tiers"
       />
       <h1>Help me fix the internet</h1>
@@ -64,26 +64,31 @@ const SupportMe = () => {
         <div id="donate">
           <TiersDisplay />
         </div>
-        <p>
+        <p id="donate-others">
           You can also donate at{" "}
           <a href="https://patreon.com/user?u=87081842">Patreon</a> or{" "}
           <a href="https://ko-fi.com/essentialrandomness">Ko-fi</a>.
         </p>
       </section>
-      <section className="faq" id="faq">
+      <section className="faq">
         <h2>FAQs</h2>
         <FaqEntry />
-      </section>
-      <section className="testimonials">
-        <h2>Testimonials</h2>
-        <p>
-          Still need to be convinced? Here, have some <em>actual quotes</em>{" "}
-          from people using <em>actual stuff</em> I&apos;ve
-          built/engendered/otherwise admin&apos;d.
-        </p>
       </section>
     </main>
   );
 };
 
 export default SupportMe;
+
+export const metadata = {
+  title: "Essential Randomness — Support me",
+  description: "Help Ms Boba build a better internet with your contribution!",
+  openGraph: {
+    images: "/support-me/og-image.png",
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: "/support-me/og-image.png",
+    creator: "@EssentialRandom",
+  },
+};

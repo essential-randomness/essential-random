@@ -19,7 +19,7 @@ const BeamUp = ({ label, startFromFragment, beamToFragment }: Props) => {
       }
       const shouldScroll = startFromFragment
         ? (document.getElementById(startFromFragment)?.getBoundingClientRect()
-            .top || 0) < -50
+            .top || 0) < 0
         : document.documentElement.scrollTop > 50;
       if (shouldScroll) {
         if (!beamUpVisible) {

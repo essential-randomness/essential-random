@@ -17,7 +17,17 @@ const GlobalLayout = ({ children }: { children: React.ReactNode }) => {
 export default GlobalLayout;
 
 export const metadata = {
-  title: "Essential Randomness",
+  title: "Essential Randomness — Ms Boba's Emporium of Weirdness",
+  description:
+    " Ms Boba's experimental website. Open for business while construction is ongoing.",
+  openGraph: {
+    images: "/og-image.png",
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: "/og-image.png",
+    creator: "@EssentialRandom",
+  },
   icons: {
     icon: [
       { url: "/favicon/favicon-16x16.png", sizes: "16x16" },
