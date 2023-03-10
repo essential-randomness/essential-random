@@ -37,10 +37,6 @@ const PostsLayout = ({ children }: { children: React.ReactNode }) => {
             </a>
           </li>
           <li>
-            <a href="https://www.bobaboard.com/faqs">The BobaBoard FUCQs v2</a>{" "}
-            (and <a href="https://v1.bobaboard.com/faqs">the v1 version</a>)
-          </li>
-          <li>
             <a href="https://essential-randomness.tumblr.com/post/671691948059426816/why-a-fandom-platform-of-our-own-is-not-about">
               Why “a (transformational) fandom platform of our own” is not about
               writing down a list of features
@@ -61,6 +57,10 @@ const PostsLayout = ({ children }: { children: React.ReactNode }) => {
           </li>
           <li>
             <a href="https://fujoboard.com/">The FujoBoard website</a>
+          </li>
+          <li>
+            <a href="https://www.bobaboard.com/faqs">The BobaBoard FUCQs v2</a>{" "}
+            (and <a href="https://v1.bobaboard.com/faqs">the v1 version</a>)
           </li>
           <li>
             <a href="https://excalidraw.com/#json=sH6qFpUqgPL-Pq-HOj_wX,m3il9YKwhFU6xRfV21M-ig">

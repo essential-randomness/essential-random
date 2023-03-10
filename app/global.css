@@ -87,12 +87,10 @@ main.home .h-card img {
   width: 100%;
   height: auto;
   max-width: 400px;
-  grid-area: avatar;
   align-self: center;
 }
 
 main.home .h-card .p-name {
-  grid-area: title;
   margin: 0;
 }
 
@@ -104,6 +102,18 @@ main.home .h-card .p-name {
   main.home {
     display: flex;
     flex-direction: column;
+  }
+  main.home h2 {
+    margin-top: revert;
+  }
+
+  .h-card {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    align-items: center;
+  }
+  .avatar {
+    grid-row-start: span 3;
   }
 }
 :root {
