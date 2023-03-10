@@ -1,5 +1,6 @@
 import "./support-me.css";
 
+import BeamUp from "components/BeamUp";
 import { FaqEntry } from "components/FaqEntry";
 import Image from "next/image";
 import { TiersDisplay } from "components/TiersDisplay";
@@ -8,6 +9,11 @@ import supportMe from "public/thenks-suporter.png";
 const SupportMe = () => {
   return (
     <main className="support-me">
+      <BeamUp
+        beamToFragment="donate"
+        startFromFragment="faq"
+        label="Back to tiers"
+      />
       <h1>Help me fix the internet</h1>
       <section className="intro">
         <picture>
@@ -55,14 +61,16 @@ const SupportMe = () => {
           and will rest assured that someone out there is fighting the good
           fight (also) in your name.
         </p>
-        <TiersDisplay />
+        <div id="donate">
+          <TiersDisplay />
+        </div>
         <p>
           You can also donate at{" "}
           <a href="https://patreon.com/user?u=87081842">Patreon</a> or{" "}
           <a href="https://ko-fi.com/essentialrandomness">Ko-fi</a>.
         </p>
       </section>
-      <section className="faq">
+      <section className="faq" id="faq">
         <h2>FAQs</h2>
         <FaqEntry />
       </section>

@@ -5,6 +5,20 @@ export const FaqEntry = () => {
     <div className="faqs">
       <details>
         <summary>
+          I&apos;m still on the fence. Can I see some raving testimonials from
+          other supporters?
+        </summary>
+        <p>
+          I&apos;m glad you asked! Here&apos;s some carefully collected
+          testimonials, voluntarily donated by people who&apos;ve been part of
+          this journey:
+        </p>
+        <ul>
+          <li></li>
+        </ul>
+      </details>
+      <details>
+        <summary>
           How does this differ from the donations on your main website?
         </summary>
         <p>
