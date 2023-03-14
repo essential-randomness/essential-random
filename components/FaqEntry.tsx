@@ -1,6 +1,9 @@
 import "./FaqEntry.css";
 
+import { allTestimonials } from "contentlayer/generated";
+
 export const FaqEntry = () => {
+  const { testimonials } = allTestimonials[0];
   return (
     <div className="faqs">
       <details>
@@ -14,7 +17,9 @@ export const FaqEntry = () => {
           this journey:
         </p>
         <ul>
-          <li></li>
+          {testimonials.map((testimonial) => (
+            <li key={testimonial.message}>{testimonial.message}</li>
+          ))}
         </ul>
       </details>
       <details>
