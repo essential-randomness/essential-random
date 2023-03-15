@@ -69,6 +69,10 @@ main.home h2 {
   margin-top: 0;
 }
 
+li {
+  margin-bottom: 0.5em;
+}
+
 .h-card {
   border: 2px solid black;
   box-shadow: var(--box-shadow);

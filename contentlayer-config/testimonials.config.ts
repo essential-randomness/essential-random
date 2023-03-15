@@ -11,7 +11,6 @@ const Testimonial = defineNestedType(() => ({
     from: {
       type: "string",
       description: "The author of the testimonial",
-      required: true,
     },
     message: {
       type: "string",
