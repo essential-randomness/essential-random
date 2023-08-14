@@ -2,41 +2,66 @@
 import { SocialLinks } from "../components/SocialLinks";
 import { getCollection } from "astro:content";
 import { fromCollection } from "../utils/social-utils";
+import Layout from "../layouts/Layout.astro";
 const socials = fromCollection(await getCollection("socials"));
+
+// export const metadata = {
+//   title: "Essential Randomness — Ms Boba's Emporium of Weirdness",
+//   description:
+//     " Ms Boba's experimental website. Open for business while construction is ongoing.",
+//   openGraph: {
+//     images: "/og-image.png",
+//   },
+//   twitter: {
+//     card: "summary_large_image",
+//     images: "/og-image.png",
+//     creator: "@EssentialRandom",
+//   },
+//   icons: {
+//     icon: [
+//       { url: "/favicon/favicon-16x16.png", sizes: "16x16" },
+//       { url: "/favicon/favicon-32x32.png", sizes: "32x32" },
+//     ],
+//     apple: "/favicon/apple-touch-icon.png",
+//   },
+//   manifest: "/favicon/site.webmanifest",
+// };
 ---
 
-<section>
-  <h2>The story so far</h2>
-  <p>
-    Since I was gifted my first computer in the early 00s, the internet has
-    given me an important place of self-expression, connection, and growth. What
-    started as skipping school to program websites, eventually became a
-    full-fledged software engineering degree, and a cushy job at a famous
-    company.
-  </p>
+<Layout title="Essential Randomness — Ms Boba's Emporium of Weirdness">
+  <section>
+    <h2>The story so far</h2>
+    <p>
+      Since I was gifted my first computer in the early 00s, the internet has
+      given me an important place of self-expression, connection, and growth.
+      What started as skipping school to program websites, eventually became a
+      full-fledged software engineering degree, and a cushy job at a famous
+      company.
+    </p>
 
-  <p>
-    When the Tumblr porn ban hit it was a hard wake up call: far from still
-    being a place of joy and discovery—one where a weird, neurodivergent kid
-    could learn to thrive—the web was slowly being stripped of its soul and
-    potential. The big-tech promise &ldquo;to change the world and make the web
-    better&rdquo; that I had moved across the world for had been an empty lie.
-  </p>
-  <p>
-    <strong>
-      Since 2019, I&apos;ve been working on adding marketing and
-      entrepreneurship skills to my software engineering background, with the
-      goal to build sustainable projects and communities that will make the web
-      a better place.
-    </strong>
-    You can learn more about the projects I built since then in the
-    <a href="/projects">Projects section</a>, and find out how to support my
-    work on the <a href="/support-me">Support Me</a>
-    page.
-  </p>
+    <p>
+      When the Tumblr porn ban hit it was a hard wake up call: far from still
+      being a place of joy and discovery—one where a weird, neurodivergent kid
+      could learn to thrive—the web was slowly being stripped of its soul and
+      potential. The big-tech promise "to change the world and make the web
+      better" that I had moved across the world for had been an empty lie.
+    </p>
+    <p>
+      <strong>
+        Since 2019, I've been working on adding marketing and entrepreneurship
+        skills to my software engineering background, with the goal to build
+        sustainable projects and communities that will make the web a better
+        place.
+      </strong>
+      You can learn more about the projects I built since then in the
+      <a href="/projects">Projects section</a>, and find out how to support my
+      work on the <a href="/support-me">Support Me</a>
+      page.
+    </p>
 
-  <section class="social">
-    <h2>As seen on</h2>
-    <SocialLinks links={socials} />
+    <section class="social">
+      <h2>As seen on</h2>
+      <SocialLinks links={socials} />
+    </section>
   </section>
-</section>
+</Layout>
