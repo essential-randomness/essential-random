@@ -1,6 +1,6 @@
 import "./posts.css";
 
-import { PostPreview } from "../../components/PostPreview";
+import { PostPreview } from "../../src/components/PostPreview";
 import { allPosts } from "contentlayer/generated";
 
 const Blog = () => {

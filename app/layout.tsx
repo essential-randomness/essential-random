@@ -1,7 +1,7 @@
 // These styles apply to every route in the application
 import "./global.css";
 
-import { Nav } from "../components/Nav";
+import { Nav } from "../src/components/Nav";
 
 const GlobalLayout = ({ children }: { children: React.ReactNode }) => {
   return (

@@ -2,7 +2,7 @@
 import "./posts.css";
 
 import { ProfileCard } from "components/ProfileCard";
-import { ProfileNav } from "../../components/ProfileNav";
+import { ProfileNav } from "../../src/components/ProfileNav";
 import { SocialLinks } from "components/SocialLinks";
 // @ts-expect-error
 import socials from "content/_socials.yml";
