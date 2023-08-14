@@ -1,0 +1,20 @@
+---
+import "./FaqEntry.css";
+
+import { getCollection } from "astro:content";
+const faqs = await getCollection("faqs");
+
+const faqEntries = await Promise.all(faqs.map(async faq => ({
+    title: faq.data.title,
+    Content: (await faq.render()).Content
+})));
+
+---
+<div class="faqs">
+    {faqEntries.map(faq => (
+        <details>
+            <summary set:html={faq.title} />
+            {<faq.Content />}
+        </details>
+    ))}
+</div>

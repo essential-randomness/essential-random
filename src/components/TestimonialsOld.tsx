@@ -1,8 +1,4 @@
-"use client";
-
 import { useEffect, useState } from "react";
-
-import type { Testimonial } from "contentlayer/generated";
 
 const TESTIMONIALS_AMOUNT = 3;
 

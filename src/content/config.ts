@@ -28,21 +28,35 @@ const ProjectSchema = z.object({
   preview: z.string(),
   tags: z.array(z.string()),
 });
-export type Project = z.infer<typeof ProjectSchema>;
 
-const projects = defineCollection({
-  type: "content",
-  schema: ProjectSchema,
-});
-
-const socials = defineCollection({
-  type: "data",
-  schema: z.object({
-    socials: z.array(SocialsSchema),
-  }),
+const FaqSchema = z.object({
+  title: z.string(),
+  order: z.number(),
 });
 
 export const collections = {
-  socials,
-  projects,
+  socials: defineCollection({
+    type: "data",
+    schema: z.object({
+      socials: z.array(SocialsSchema),
+    }),
+  }),
+  projects: defineCollection({
+    type: "content",
+    schema: ProjectSchema,
+  }),
+  faqs: defineCollection({
+    type: "content",
+    schema: FaqSchema,
+  }),
+  testimonials: defineCollection({
+    type: "data",
+    schema: z.object({
+      testimonials: z.array(
+        z.object({
+          message: z.string(),
+        })
+      ),
+    }),
+  }),
 };
