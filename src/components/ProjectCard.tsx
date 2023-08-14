@@ -1,28 +1,27 @@
 import "./ProjectCard.css";
 
-import Image from "next/image";
-import Link from "next/link";
-import { Project } from "contentlayer/generated";
+import type { AnchorHTMLAttributes } from "react";
+import type { Project } from "../content/config";
 import { SocialLinks } from "./SocialLinks";
 import { Tag } from "./Tag";
 
 const MaybeLink = (
-  props: Parameters<typeof Link>[0] & {
+  props: AnchorHTMLAttributes<HTMLAnchorElement> & {
     if?: boolean;
-    href?: Parameters<typeof Link>[0]["href"];
+    href?: AnchorHTMLAttributes<HTMLAnchorElement>["href"];
   }
 ) => {
   if (props.if) {
     // We fix a warning about passing an extra "if" prop by making it undefined.
     // Given that we're using a reserved word (bad ms boba!) this is a clean way to
     // to avoid weird errors, though the syntax is not intuitive.
-    return <Link {...{ ...props, if: undefined }} />;
+    return <a {...{ ...props, if: undefined }} />;
   }
   return <>{props.children}</>;
 };
 
-export const ProjectCard = (props: Project) => {
-  const hasBody = props.body.raw.length > 0;
+export const ProjectCard = (props: Project & { body: string; url: string;}) => {
+  const hasBody = props.body.length > 0;
   return (
     <article
       key={props.name}
@@ -33,10 +32,9 @@ export const ProjectCard = (props: Project) => {
       {props.preview && (
         <MaybeLink href={props.url} if={hasBody}>
           <picture className="banner">
-            <Image
+            <img
               src={props.preview}
               alt={`${props.name}'s project preview image`}
-              layout="fill"
             />
           </picture>
         </MaybeLink>
@@ -44,7 +42,7 @@ export const ProjectCard = (props: Project) => {
       <div className="details">
         <header>
           <h2 className="name">
-            <MaybeLink href={props.url} if={props.body.raw.length > 0}>
+            <MaybeLink href={props.url} if={props.body.length > 0}>
               {props.name}
             </MaybeLink>
           </h2>
@@ -53,9 +51,9 @@ export const ProjectCard = (props: Project) => {
         <p className="description">
           {props.description}
           {hasBody && (
-            <Link className="read-more" href={props.url}>
+            <a className="read-more" href={props.url}>
               Read more
-            </Link>
+            </a>
           )}
         </p>
         <footer>
@@ -67,7 +65,7 @@ export const ProjectCard = (props: Project) => {
             ))}
           </ul>
         </footer>
-      </div>{" "}
+      </div>
     </article>
   );
 };

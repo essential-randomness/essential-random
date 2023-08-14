@@ -1,0 +1,50 @@
+---
+import { ProjectCard } from "../components/ProjectCard";
+
+import { getCollection } from "astro:content";
+import Layout from "../layouts/Layout.astro";
+const projects = await getCollection("projects");
+---
+<Layout>
+    <main class="projects">
+        <ul>
+            {projects.map((project) => {
+            return (
+                <li data-has-body={project.body.length >0}>
+                <ProjectCard {...project.data} body={project.body} url={`/projects/${project.slug}`}/>
+                </li>
+            );
+            })}
+        </ul>
+        ...and more to come!
+    </main>
+</Layout>
+  
+<style>
+  aside {
+    grid-area: profile;
+  }
+
+  main.projects > ul {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  li[data-has-body="true"] {
+    grid-row: span 2;
+  }
+  
+  @media screen and (min-width: 700px) {
+    main.projects > ul {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, minmax(100px, 1fr));
+      grid-auto-flow: dense;
+      gap: 20px;
+    }
+  }
+ </style>
