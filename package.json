@@ -10,6 +10,19 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^2.10.7"
+    "@astrojs/mdx": "^0.19.7",
+    "@astrojs/react": "^2.2.1",
+    "@icons-pack/react-simple-icons": "^8.0.1",
+    "@types/react": "^18.0.21",
+    "@types/react-dom": "^18.0.6",
+    "astro": "^2.10.7",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-icons": "^4.10.1",
+    "social-links": "^1.13.8"
+  },
+  "devDependencies": {
+    "prettier": "^3.0.1",
+    "prettier-plugin-astro": "^0.11.0"
   }
 }

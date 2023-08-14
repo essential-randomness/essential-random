@@ -4,15 +4,15 @@ import {
   WEBSITE_TYPES,
   extractWebsiteName,
   maybeGetWebsiteIcon,
-} from "utils/social-utils";
+} from "../utils/social-utils";
 
 import { FaShoppingBag } from "react-icons/fa";
 import { VscGlobe } from "react-icons/vsc";
 
-type Social =
+export type Social =
   | string
   | {
-      type?: "mastodon" | "store";
+      type?: "store" | WEBSITE_TYPES;
       url: string;
       name?: string;
     };

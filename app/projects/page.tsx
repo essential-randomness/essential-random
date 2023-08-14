@@ -1,6 +1,6 @@
 import "./projects.css";
 
-import { ProjectCard } from "../../components/ProjectCard";
+import { ProjectCard } from "../../src/components/ProjectCard";
 import { allProjects } from "contentlayer/generated";
 
 const Projects = () => {
