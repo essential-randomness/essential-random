@@ -1,7 +1,6 @@
-// 1. Import utilities from `astro:content`
 import { defineCollection, z } from "astro:content";
-// 2. Define your collection(s)
-const websitesSchema = z.enum([
+
+const WebsitesSchema = z.enum([
   "github",
   "tumblr",
   "twitter",
@@ -12,22 +11,38 @@ const websitesSchema = z.enum([
   "dreamwidth",
 ]);
 
+const SocialsSchema = z.string().or(
+  z.object({
+    name: z.string(),
+    url: z.string(),
+    type: WebsitesSchema.optional(),
+    icon: z.string().optional(),
+  })
+);
+
+const ProjectSchema = z.object({
+  name: z.string(),
+  links: z.array(SocialsSchema),
+  description: z.string(),
+  status: z.string(),
+  preview: z.string(),
+  tags: z.array(z.string()),
+});
+export type Project = z.infer<typeof ProjectSchema>;
+
+const projects = defineCollection({
+  type: "content",
+  schema: ProjectSchema,
+});
+
 const socials = defineCollection({
-  type: "data", // v2.5.0 and later
+  type: "data",
   schema: z.object({
-    socials: z.array(
-      z.string().or(
-        z.object({
-          name: z.string(),
-          url: z.string(),
-          type: websitesSchema.optional(),
-        })
-      )
-    ),
+    socials: z.array(SocialsSchema),
   }),
 });
-// 3. Export a single `collections` object to register your collection(s)
-//    This key should match your collection directory name in "src/content"
+
 export const collections = {
   socials,
+  projects,
 };
