@@ -1,0 +1,137 @@
+.support-tier.card {
+  display: flex;
+  flex-direction: column;
+  outline: 2px solid black;
+  background-color: white;
+  border-radius: 16px;
+  padding: 20px 15px;
+  gap: 15px;
+  align-items: center;
+  position: relative;
+}
+
+.support-tier.card[data-selected="true"] {
+  box-shadow: var(--box-shadow-deep);
+  filter: invert();
+}
+
+.support-tier.card:hover {
+  box-shadow: var(--box-shadow-hover);
+  cursor: pointer;
+}
+
+.support-tier.card[data-selected="false"]:hover {
+  transform: rotate(-0.3deg);
+}
+.support-tier.card input[type="radio"] {
+  display: none;
+}
+.support-tier.card .title {
+  font-size: var(--font-size-title);
+  font-weight: bold;
+}
+
+.support-tier.card .price {
+  font-size: 1.2em;
+}
+
+.support-tier.card .tagline {
+  font-style: italic;
+}
+
+.support-tier.card .perks {
+  flex-grow: 1;
+}
+
+.support-tier.card .donate {
+  width: 100%;
+}
+
+.support-tier.card img {
+  width: 200px;
+  height: auto;
+}
+
+.support-tier.card .fake-payment-button {
+  display: block;
+  border: 2px solid black;
+  border-radius: 16px;
+  padding: 10px 5px;
+  box-shadow: 3px 3px 0 0 black;
+  text-align: center;
+  color: black;
+  background-color: white;
+  width: 100%;
+}
+
+.support-tier.card .fake-payment-button:hover {
+  filter: invert();
+}
+
+.support-tier.card .payment-buttons {
+  display: none;
+  gap: 15px;
+  animation: buttons 0.5s;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 70%);
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  padding: 15px;
+}
+.support-tier.card .payment-buttons > * {
+  width: 100%;
+}
+
+.support-tier.card .payment-buttons .close {
+  all: unset;
+  position: absolute;
+  top: 0;
+  right: 0;
+  filter: invert(1);
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.support-tier.card .payment-buttons .close:hover {
+  cursor: pointer;
+}
+
+.support-tier.card[data-selected="true"] .payment-buttons {
+  display: flex;
+  position: absolute;
+}
+
+@keyframes buttons {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100;
+  }
+}
+
+.stripe {
+  width: 100%;
+  height: 45px;
+  max-width: 750px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid black;
+  border-radius: 16px;
+  padding: 10px 5px;
+  box-shadow: 3px 3px 0 0 black;
+  color: black;
+  background-color: white;
+  gap: 10px;
+  filter: invert();
+}
+.stripe:hover {
+  filter: none;
+}
