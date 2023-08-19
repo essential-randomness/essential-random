@@ -2,7 +2,7 @@
 import "./FaqEntry.css";
 
 import { getCollection } from "astro:content";
-const faqs = await getCollection("faqs");
+const faqs = await getCollection("faqs", (faq) => faq.data.draft !== true);
 
 const faqEntries = await Promise.all(faqs.map(async faq => ({
     title: faq.data.title,

@@ -32,6 +32,7 @@ const ProjectSchema = z.object({
 const FaqSchema = z.object({
   title: z.string(),
   order: z.number(),
+  draft: z.boolean().optional(),
 });
 
 export const collections = {
@@ -48,5 +49,15 @@ export const collections = {
   faqs: defineCollection({
     type: "content",
     schema: FaqSchema,
+  }),
+  testimonials: defineCollection({
+    type: "data",
+    schema: z.object({
+      testimonials: z.array(
+        z.object({
+          message: z.string(),
+        })
+      ),
+    }),
   }),
 };
