@@ -49,14 +49,4 @@ export const collections = {
     type: "content",
     schema: FaqSchema,
   }),
-  testimonials: defineCollection({
-    type: "data",
-    schema: z.object({
-      testimonials: z.array(
-        z.object({
-          message: z.string(),
-        })
-      ),
-    }),
-  }),
 };

@@ -1,6 +1,7 @@
 ---
-import { getCollection } from "astro:content";
-const testimonials = await getCollection("testimonials");
+
+// import { getCollection } from "astro:content";
+// const testimonials = await getCollection("testimonials");
 
 const TESTIMONIALS_AMOUNT = 3;
 
@@ -27,34 +28,38 @@ const getRandomElements = <T extends {}>({
   return result;
 };
 
-const chosenTestimonials = getRandomElements({
-        source: testimonials[0].data.testimonials,
-        amount: TESTIMONIALS_AMOUNT,
-      })
+
+// onClick={() =>
+//         setChosenTestimonials(
+//           getRandomElements({
+//             source: props.testimonials,
+//             amount: TESTIMONIALS_AMOUNT,
+//           })
+//         )
+//       }
+
+// const chosenTestimonials = getRandomElements({
+//         source: testimonials[0].data.testimonials,
+//         amount: TESTIMONIALS_AMOUNT,
+//       })
+const chosenTestimonials = [{message: "test"}]
 ---
-<ul>
-    {chosenTestimonials.map((testimonial) => (
-      <li>{testimonial.message}</li>
-    ))}
-  </ul>
-  <p>
-    <button
-      onClick={() =>
-        setChosenTestimonials(
-          getRandomElements({
-            source: props.testimonials,
-            amount: TESTIMONIALS_AMOUNT,
-          })
-        )
-      }
-    >
-      Give me more testimonials!
-    </button>
-  </p>
-  <div>
-    Want to submit your own? Head to the{" "}
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeii5nDElD8vt9aL5AIOCxtMB-CDHHMC-081QgU0ZiK-HseBQ/viewform">
-      &quot;Ms Boba fishes for compliments&quot; survey
-    </a>
-    .
-  </div>
+<!-- <ul>
+  {chosenTestimonials.map((testimonial) => (
+    <li>{testimonial.message}</li>
+  ))}
+</ul>
+<p>
+  <button
+  >
+    Give me more testimonials!
+  </button>
+</p>
+<div>
+  Want to submit your own? Head to the
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLSeii5nDElD8vt9aL5AIOCxtMB-CDHHMC-081QgU0ZiK-HseBQ/viewform">
+    &quot;Ms Boba fishes for compliments&quot; survey
+  </a>
+  .
+</div> -->
+<div>Hello</div>
