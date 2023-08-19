@@ -1,53 +1,12 @@
 import "./FaqEntry.css";
 
-import { Testimonials } from "./Testimonials";
+import { Testimonials } from "./TestimonialsOld";
 import { allTestimonials } from "contentlayer/generated";
 
 export const FaqEntry = () => {
   const { testimonials } = allTestimonials[0];
   return (
     <div className="faqs">
-      <details>
-        <summary>Help! Something isn&apos;t working!</summary>
-        <p>
-          Thanks for letting me know. This is a very experimental page, and
-          things might break unexpectedly. Please do let me know what went wrong
-          by contacting me at{" "}
-          <a href="ms.boba@bobaboard.com">ms.boba@bobaboard.com</a>.
-        </p>
-        <p>
-          In the meantime you can also donate through{" "}
-          <a href="https://patreon.com/user?u=87081842">Patreon</a> or{" "}
-          <a href="https://ko-fi.com/essentialrandomness">Ko-fi</a>.
-        </p>
-      </details>
-      <details>
-        <summary>
-          I&apos;m still on the fence. Can I see some raving testimonials from
-          other supporters?
-        </summary>
-        <p>
-          I&apos;m glad you asked! Here&apos;s some testimonials, randomly
-          chosen from the many voluntarily donated by people who&apos;ve been
-          part of this journey:
-        </p>
-        <Testimonials testimonials={testimonials} />
-      </details>
-      <details>
-        <summary>
-          How does this differ from the donations on your main website?
-        </summary>
-        <p>
-          Subscriptions on my main website (
-          <a href="https://essentialrandomness.com/subscribe/">
-            essentialrandomness.com
-          </a>
-          ) are backed by Ghost, the blogging software I used to run the initial
-          version of my newsletter. I&apos;m not a huge fan of Ghost, so
-          I&apos;m running my own software now. The money ends in the same
-          place.
-        </p>
-      </details>
       <details>
         <summary>Should I choose this or Patreon/Ko-fi?</summary>
         <p>
