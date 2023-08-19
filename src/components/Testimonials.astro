@@ -1,7 +1,6 @@
 ---
-
-// import { getCollection } from "astro:content";
-// const testimonials = await getCollection("testimonials");
+import { getCollection } from "astro:content";
+const testimonials = await getCollection("testimonials");
 
 const TESTIMONIALS_AMOUNT = 3;
 
@@ -38,21 +37,21 @@ const getRandomElements = <T extends {}>({
 //         )
 //       }
 
-// const chosenTestimonials = getRandomElements({
-//         source: testimonials[0].data.testimonials,
-//         amount: TESTIMONIALS_AMOUNT,
-//       })
-const chosenTestimonials = [{message: "test"}]
+const chosenTestimonials = getRandomElements({
+        source: testimonials[0].data.testimonials,
+        amount: TESTIMONIALS_AMOUNT,
+      })
 ---
-<!-- <ul>
+<ul>
   {chosenTestimonials.map((testimonial) => (
     <li>{testimonial.message}</li>
   ))}
 </ul>
 <p>
   <button
+   class="testimonials"
   >
-    Give me more testimonials!
+    TODO: Reload for more!
   </button>
 </p>
 <div>
@@ -61,5 +60,16 @@ const chosenTestimonials = [{message: "test"}]
     &quot;Ms Boba fishes for compliments&quot; survey
   </a>
   .
-</div> -->
-<div>Hello</div>
+</div>
+
+<script>
+  // Find all buttons with the `alert` class on the page.
+  const buttons = document.querySelectorAll<HTMLButtonElement>('button.testimonials');
+
+  // Handle clicks on each button.
+  buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+      alert(button.dataset.testimonials);
+    });
+  });
+</script>

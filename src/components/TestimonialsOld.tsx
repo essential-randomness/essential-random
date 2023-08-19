@@ -25,10 +25,8 @@ const getRandomElements = <T extends {}>({
   return result;
 };
 
-export const Testimonials = (props: { testimonials: Testimonial[] }) => {
-  const [chosenTestimonials, setChosenTestimonials] = useState<Testimonial[]>(
-    []
-  );
+export const Testimonials = (props: { testimonials: string[] }) => {
+  const [chosenTestimonials, setChosenTestimonials] = useState<string[]>([]);
   useEffect(() => {
     setChosenTestimonials(
       getRandomElements({
@@ -42,7 +40,7 @@ export const Testimonials = (props: { testimonials: Testimonial[] }) => {
     <>
       <ul>
         {chosenTestimonials.map((testimonial) => (
-          <li key={testimonial.message}>{testimonial.message}</li>
+          <li key={testimonial}>{testimonial}</li>
         ))}
       </ul>
       <p>
