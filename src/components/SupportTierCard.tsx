@@ -1,11 +1,10 @@
 import "./SupportTierCard.css";
 
-import Image from "next/image";
 import { PayPalButton } from "./PayPalButton";
-import { ReactEventHandler } from "react";
+import type { ReactEventHandler } from "react";
 import { SlClose } from "react-icons/sl";
 import { StripeButton } from "./StripeButton";
-import { TierType } from "./TiersDisplay";
+import type { TierType } from "./TiersDisplay";
 
 export const SupportTierCard = (
   props: TierType & {
@@ -29,7 +28,7 @@ export const SupportTierCard = (
       />
       <div className="title">{props.name}</div>
       <div className="price">${props.dollarsPerMonth}/month</div>
-      <Image src={props.imageUrl} alt={props.name} width={460} height={200} />
+      <img src={props.imageUrl} alt={props.name} width={460} height={200} />
       <div className="tagline">{props.tagline}</div>
       <ul className="perks">
         {props.perks.map((perk) => {

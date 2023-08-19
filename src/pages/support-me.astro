@@ -1,9 +1,14 @@
 ---
+import "../styles/support-me.css";
+
 import BeamUp from "../components/BeamUp";
 import Faqs from "../components/Faqs.astro";
-// import { TiersDisplay } from "../components/TiersDisplay";
+import { TiersDisplay } from "../components/TiersDisplay";
+import Layout from "../layouts/Layout.astro";
 
 ---
+
+<Layout title="Essential Randomness — Ms Boba's Emporium of Weirdness">
 <main class="support-me">
     <BeamUp
       beamToFragment="donate"
@@ -58,7 +63,7 @@ import Faqs from "../components/Faqs.astro";
         fight (also) in your name.
       </p>
       <div id="donate">
-        <!-- <TiersDisplay /> -->
+        <TiersDisplay client:load />
       </div>
       <p id="donate-others">
         You can also donate at
@@ -71,3 +76,4 @@ import Faqs from "../components/Faqs.astro";
       <Faqs />
     </section>
   </main>
+  </Layout>
