@@ -1,0 +1,142 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import { SocialLinks } from "../../components/SocialLinks";
+const projects = await getCollection("projects");
+
+export async function getStaticPaths() {
+const projects = await getCollection("projects");
+console.log(projects)
+  return projects.map((project) => ({
+    params: {
+      projectId: project.slug,
+    },
+  }));
+};
+
+
+const { projectId } = Astro.params;
+const projectsWithDetails = projects.filter(
+  (project) => project.body.length > 0
+);
+// TODO: we probably need a server route for this
+const projectIndex = projectsWithDetails.findIndex(
+  (project) => project.slug === projectId
+);
+if (projectIndex == -1) {
+  throw new Error(
+    `Project with projectId "${projectId}" not found. Available projectId values are: ${projectsWithDetails.map(
+      (project) => project.slug
+    )}`
+  );
+}
+const { curr, prev, next } = {
+  curr: projectsWithDetails[projectIndex],
+  prev: projectIndex > 0 ? projectsWithDetails[projectIndex - 1] : null,
+  next:
+    projectIndex !== projectsWithDetails.length - 1
+      ? projectsWithDetails[projectIndex + 1]
+      : null,
+};
+
+const Content = (await curr.render()).Content;
+---
+
+<Layout title="Essential Randomness — Ms Boba's Emporium of Weirdness">
+    <main class="project">
+        <article>
+          <h1>{curr.data.name}</h1>
+          <picture class="centered">
+            <img
+              src={curr.data.preview}
+              alt={`${curr.data.name}'s project preview image`}
+            />
+          </picture>
+          <!-- <SocialLinks links={curr.data.links} /> -->
+          <Content />
+        </article>
+        <nav class="prev-next">
+          {prev && (
+            <div class="prev">
+              Previous project:
+              <a href={`./${prev.slug}`}>{prev.data.name}</a>
+            </div>
+          )}
+          {next && (
+            <div class="next">
+              Next project:
+              <a href={`./${next.slug}`}>{next.data.name}</a>
+            </div>
+          )}
+        </nav>
+      </main>
+</Layout>
+  
+<style>
+main.project {
+  position: relative;
+}
+
+main.project picture {
+  width: 800px;
+  height: auto;
+  max-width: 100%;
+  aspect-ratio: 16/9;
+  position: relative;
+  display: block;
+  margin: 0 auto;
+}
+
+main.project picture img {
+  object-fit: contain;
+}
+
+main.project .social-links {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  margin: 16px 0;
+  padding: 0;
+  list-style-type: none;
+  gap: 15px;
+  justify-content: center;
+}
+
+main.project .social-links li {
+  max-width: 100px;
+}
+
+main.project .social-links a {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
+  min-width: 50px;
+}
+main.project .social-links .url {
+  display: none;
+}
+
+nav.prev-next {
+  display: flex;
+  justify-content: space-between;
+  position: sticky;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: white;
+  padding-block: 10px;
+  border-top: 1px dashed black;
+}
+
+nav .prev::before {
+  content: "⬲";
+}
+
+nav .next::after {
+  content: "⬲";
+  display: inline-block;
+  transform: scaleX(-1);
+}
+
+ </style>
