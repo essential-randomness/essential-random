@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { SupportTierCard } from "components/SupportTierCard";
+import { SupportTierCard } from "./SupportTierCard";
 
 export type TierType = {
   name: string;

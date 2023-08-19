@@ -4,7 +4,7 @@ import "./FaqEntry.css";
 import { getCollection } from "astro:content";
 const faqs = await getCollection("faqs", (faq) => faq.data.draft !== true);
 
-const faqEntries = await Promise.all(faqs.map(async faq => ({
+const faqEntries = await Promise.all(faqs.sort((f1, f2) => f1.data.order - f2.data.order ).map(async faq => ({
     title: faq.data.title,
     Content: (await faq.render()).Content
 })));
