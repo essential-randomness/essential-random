@@ -6,6 +6,7 @@
   flex-direction: column;
   gap: 10px;
   height: 100%;
+  align-items: center;
 }
 
 .project.card[data-has-body="false"] {
@@ -17,6 +18,12 @@
   box-shadow: var(--box-shadow-deep);
 }
 
+.project.card[data-has-body="true"] img {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  border-radius: 10px 10px 0 0;
+}
 .project.card[data-has-body="true"]:hover {
   transform: rotate(-0.3deg);
   box-shadow: var(--box-shadow-hover);
@@ -34,6 +41,7 @@
 
 .project.card .banner img {
   object-fit: contain;
+  max-width: 100%;
 }
 
 .project.card .details {

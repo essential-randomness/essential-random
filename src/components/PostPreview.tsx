@@ -51,7 +51,7 @@ export const PostPreview = (props: PostPreviewProps) => {
         <div className="tooltip">
           whispertags
           <span className="tooltiptext">
-            For a primer on whispertags (a fans-favorite feature) see{" "}
+            For a primer on whispertags (a fans-favorite feature) see
             <a href=" https://journals.sagepub.com/doi/10.1177/20563051211032138?icid=int.sj-abstract.citing-articles.324&">
               this article
             </a>
