@@ -1,11 +1,12 @@
 ---
-import { ProjectCard } from "../components/ProjectCard";
+import { ProjectCard } from "../../components/ProjectCard";
 
 import { getCollection } from "astro:content";
-import Layout from "../layouts/Layout.astro";
+import Layout from "../../layouts/Layout.astro";
 const projects = await getCollection("projects");
 ---
-<Layout>
+
+<Layout title="Essential Randomness — Ms Boba's Emporium of Weirdness">
     <main class="projects">
         <ul>
             {projects.map((project) => {
