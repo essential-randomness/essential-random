@@ -1,5 +1,3 @@
-import Image from "next/image";
-import Link from "next/link";
 import avatar from "../public/avatar.png";
 // import classnames from "classnames";
 // import style from "./ProfileCard.module.css";
@@ -7,11 +5,11 @@ import avatar from "../public/avatar.png";
 export const ProfileCard = () => {
   return (
     <section className="h-card">
-      <Image className="avatar u-logo" src={avatar} alt="Ms Boba's avatar" />
+      <img className="avatar u-logo" src={avatar} alt="Ms Boba's avatar" />
       <div className="p-name">
-        <Link href="/" rel="me" className="u-url">
+        <a href="/" rel="me" className="u-url">
           Essential Randomness
-        </Link>
+        </a>
       </div>
       <div className="nickname">
         a.k.a. <span className="p-nickname">Ms Boba</span>
