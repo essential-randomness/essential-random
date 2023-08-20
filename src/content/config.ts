@@ -20,7 +20,7 @@ const SocialsSchema = z.string().or(
   })
 );
 
-const ProjectSchema = z.object({
+export const ProjectSchema = z.object({
   name: z.string(),
   links: z.array(SocialsSchema),
   description: z.string(),
@@ -28,6 +28,7 @@ const ProjectSchema = z.object({
   preview: z.string(),
   tags: z.array(z.string()),
 });
+export type Project = z.infer<typeof ProjectSchema>;
 
 const FaqSchema = z.object({
   title: z.string(),

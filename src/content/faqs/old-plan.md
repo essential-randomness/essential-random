@@ -15,6 +15,6 @@ order: 800
     regardless of amount.
 </p>
 <p>
-    In case of any issue, contact me at any time at{" "}
+    In case of any issue, contact me at any time at
     <a href="ms.boba@bobaboard.com">ms.boba@bobaboard.com</a>.
 </p>

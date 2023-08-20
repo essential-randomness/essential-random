@@ -1,6 +1,6 @@
 .social-links {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(10em, 6em));
+  grid-template-columns: repeat(auto-fit, minmax(6em, 10em));
   justify-items: center;
   list-style-type: none;
   gap: 10px;

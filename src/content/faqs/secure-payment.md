@@ -1,5 +1,5 @@
 ---
-title: How does this differ from the donations on your main website?
+title: Is my payment info secure?
 order: 600
 ---
 
