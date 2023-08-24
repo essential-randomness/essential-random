@@ -1,12 +1,15 @@
 import { ProfileMatch, SocialLinks, TYPE_MOBILE } from "social-links";
 import {
   SiGithub,
+  SiKofi,
   SiLivejournal,
   SiMastodon,
   SiNpm,
+  SiPatreon,
   SiTumblr,
   SiTwitch,
   SiTwitter,
+  SiYoutube,
 } from "@icons-pack/react-simple-icons";
 
 import type { CollectionEntry } from "astro:content";
@@ -20,7 +23,10 @@ export type WEBSITE_TYPES =
   | "web"
   | "twitch"
   | "mastodon"
-  | "dreamwidth";
+  | "dreamwidth"
+  | "ko-fi"
+  | "patreon"
+  | "youtube";
 
 export type ProjectLinksMap = Record<WEBSITE_TYPES, string | undefined>;
 const socialLinks = new SocialLinks();
@@ -61,7 +67,10 @@ export const extractWebsiteName = (url: string): WEBSITE_TYPES | null => {
   if (attemptDw) {
     return "dreamwidth";
   }
-  return null;
+  const { host } = new URL(url);
+  return host
+    .substring(0, host.lastIndexOf("."))
+    .toLowerCase() as WEBSITE_TYPES;
 };
 
 export const maybeGetWebsiteIcon = (websiteName: WEBSITE_TYPES) => {
@@ -81,6 +90,12 @@ export const maybeGetWebsiteIcon = (websiteName: WEBSITE_TYPES) => {
     case "dreamwidth":
       // TODO: swap with DW
       return <SiLivejournal />;
+    case "ko-fi":
+      return <SiKofi />;
+    case "patreon":
+      return <SiPatreon />;
+    case "youtube":
+      return <SiYoutube />;
     default:
       return null;
   }
