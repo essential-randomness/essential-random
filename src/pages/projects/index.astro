@@ -4,6 +4,8 @@ import { ProjectCard } from "../../components/ProjectCard";
 import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 const projects = await getCollection("projects");
+import { marked } from 'marked';
+
 ---
 
 <Layout title="Essential Randomness — Ms Boba's Emporium of Weirdness">
@@ -12,7 +14,7 @@ const projects = await getCollection("projects");
             {projects.map((project) => {
             return (
                 <li data-has-body={project.body.length >0}>
-                <ProjectCard {...project.data} body={project.body} url={`/projects/${project.slug}`}/>
+                <ProjectCard {...project.data} body={project.body} url={`/projects/${project.slug}`} description={marked.parse(project.data.description)}/>
                 </li>
             );
             })}
