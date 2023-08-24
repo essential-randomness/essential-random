@@ -20,7 +20,7 @@ const MaybeLink = (
   return <>{props.children}</>;
 };
 
-export const ProjectCard = (props: Project & { body: string; url: string;}) => {
+export const ProjectCard = (props: Project & { body: string; url: string }) => {
   const hasBody = props.body.length > 0;
   return (
     <article
@@ -49,7 +49,7 @@ export const ProjectCard = (props: Project & { body: string; url: string;}) => {
           <SocialLinks links={props.links} />
         </header>
         <p className="description">
-          {props.description}
+          <span dangerouslySetInnerHTML={{ __html: props.description }} />
           {hasBody && (
             <a className="read-more" href={props.url}>
               Read more
