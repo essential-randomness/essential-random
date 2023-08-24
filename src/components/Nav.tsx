@@ -1,6 +1,6 @@
-import { clsx } from 'clsx';
+import { clsx } from "clsx";
 
-export const Nav = ({currentPath}: {currentPath: string}) => {
+export const Nav = ({ currentPath }: { currentPath: string }) => {
   return (
     <header>
       <nav>
@@ -8,10 +8,12 @@ export const Nav = ({currentPath}: {currentPath: string}) => {
           <li className={clsx({ current: currentPath == "/" })}>
             <a href={"/"}>Home</a>
           </li>
-          <li className={clsx({ current: currentPath == "/posts" })}>
+          <li className={clsx({ current: currentPath.startsWith("/posts") })}>
             <a href={"/posts"}>Blog</a>
           </li>
-          <li className={clsx({ current: currentPath == "/projects" })}>
+          <li
+            className={clsx({ current: currentPath.startsWith("/projects") })}
+          >
             <a href={"/projects"}>Projects</a>
           </li>
           <li className={clsx({ current: currentPath == "/support-me" })}>
