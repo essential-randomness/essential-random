@@ -1,0 +1,59 @@
+---
+const currentPath = Astro.url.pathname;
+---
+
+<header>
+  <nav>
+    <ul>
+      <li class:list={[{ current: currentPath == "/" }]}>
+        <a href={"/"}>Home</a>
+      </li>
+      <li class:list={[{ current: currentPath.startsWith("/posts") }]}>
+        <a href={"/posts"}>Blog</a>
+      </li>
+      <li class:list={[{ current: currentPath.startsWith("/projects") }]}>
+        <a href={"/projects"}>Projects</a>
+      </li>
+      <li class:list={[{ current: currentPath == "/support-me" }]}>
+        <a href={"/support-me"}>Support me</a>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<style>
+  nav {
+    padding: 20px 10px;
+  }
+
+  nav ul {
+    display: flex;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+  }
+
+  nav li {
+    list-style: none;
+  }
+
+  nav li a {
+    display: block;
+    text-decoration: none;
+    color: black;
+    padding: 5px 15px;
+    border-radius: 9999px;
+  }
+
+  nav li.current a {
+    background: black;
+    color: white;
+  }
+
+  @media (max-width: 460px) {
+    nav ul {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+</style>
