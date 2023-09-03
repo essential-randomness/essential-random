@@ -65,41 +65,16 @@ main.home .social {
   grid-column: span 2;
 }
 
+main.home .h-card {
+  span: 1;
+}
+
 main.home h2 {
   margin-top: 0;
 }
 
 li {
   margin-bottom: 0.5em;
-}
-
-.h-card {
-  border: 2px solid black;
-  box-shadow: var(--box-shadow);
-  padding: 10px 15px;
-  border-radius: 15px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
-.h-card * {
-  line-height: 1.3;
-}
-
-main.home .h-card img {
-  width: 100%;
-  height: auto;
-  max-width: 400px;
-  align-self: center;
-}
-
-main.home .h-card .p-name {
-  margin: 0;
-}
-
-.h-card .nickname {
-  font-size: small;
 }
 
 @media (max-width: 650px) {
@@ -109,15 +84,6 @@ main.home .h-card .p-name {
   }
   main.home h2 {
     margin-top: revert;
-  }
-
-  .h-card {
-    display: grid;
-    grid-template-columns: 30% 70%;
-    align-items: center;
-  }
-  .avatar {
-    grid-row-start: span 3;
   }
 }
 :root {
