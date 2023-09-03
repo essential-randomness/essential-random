@@ -5,19 +5,34 @@ import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 const projects = await getCollection("projects");
 import { marked } from "marked";
+
+const projectsWithMarkdown = projects.map((project) => {
+  const markdownDescription = marked.parse(project.data.description);
+  const projectCopy = {
+    ...project,
+    data: {
+      ...project.data,
+      description: markdownDescription.substring(
+        "<p>".length,
+        markdownDescription.length - ("</p>".length + 1)
+      ),
+    },
+  };
+  return projectCopy;
+});
 ---
 
 <Layout title="Essential Randomness — Ms Boba's Emporium of Weirdness">
   <main class="projects">
     <ul>
       {
-        projects.map((project) => (
+        projectsWithMarkdown.map((project) => (
           <li data-has-body={String(project.body.length > 0)}>
             <ProjectCard
               {...project.data}
               body={project.body}
               url={`/projects/${project.slug}`}
-              description={marked.parse(project.data.description)}
+              description={project.data.description}
             />
           </li>
         ))
