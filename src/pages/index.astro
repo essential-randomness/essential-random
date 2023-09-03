@@ -4,29 +4,8 @@ import { getCollection } from "astro:content";
 import { fromCollection } from "../utils/social-utils";
 import Layout from "../layouts/Layout.astro";
 import ProfileCard from "../components/ProfileCard.astro";
-const socials = fromCollection(await getCollection("socials"));
 
-// export const metadata = {
-//   title: "Essential Randomness — Ms Boba's Emporium of Weirdness",
-//   description:
-//     " Ms Boba's experimental website. Open for business while construction is ongoing.",
-//   openGraph: {
-//     images: "/og-image.png",
-//   },
-//   twitter: {
-//     card: "summary_large_image",
-//     images: "/og-image.png",
-//     creator: "@EssentialRandom",
-//   },
-//   icons: {
-//     icon: [
-//       { url: "/favicon/favicon-16x16.png", sizes: "16x16" },
-//       { url: "/favicon/favicon-32x32.png", sizes: "32x32" },
-//     ],
-//     apple: "/favicon/apple-touch-icon.png",
-//   },
-//   manifest: "/favicon/site.webmanifest",
-// };
+const socials = fromCollection(await getCollection("socials"));
 ---
 
 <Layout title="Essential Randomness — Ms Boba's Emporium of Weirdness">
