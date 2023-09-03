@@ -1,0 +1,62 @@
+---
+import avatar from "../images/avatar.png";
+---
+
+<section class="h-card">
+  <img class="avatar u-logo" src={avatar} alt="Ms Boba's avatar" />
+  <div class="p-name">
+    <a href="/" rel="me" class="u-url">
+      Essential Randomness
+    </a>
+  </div>
+  <div class="nickname">
+    a.k.a. <span class="p-nickname">Ms Boba</span>
+  </div>
+  <div class="p-note">
+    Software Engineer, Fandom Person & Other Random Stuff. Big mad at big
+    tech. Full Stack Human. #queeredge — Building chaotic ethical social
+    spaces at <a href="https://bobaboard.com/">bobaboard.com</a>!
+  </div>
+</section>
+
+<style>
+  .h-card {
+    border: 2px solid black;
+    box-shadow: var(--box-shadow);
+    padding: 10px 15px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .h-card * {
+    line-height: 1.3;
+  }
+
+  .h-card img {
+    width: 100%;
+    height: auto;
+    max-width: 400px;
+    align-self: center;
+  }
+
+  .h-card .p-name {
+    margin: 0;
+  }
+
+  .h-card .nickname {
+    font-size: small;
+  }
+
+  @media (max-width: 650px) {
+    .h-card {
+      display: grid;
+      grid-template-columns: 30% 70%;
+      align-items: center;
+    }
+    .avatar {
+      grid-row-start: span 3;
+    }
+  }
+</style>
