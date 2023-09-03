@@ -4,25 +4,29 @@ import { ProjectCard } from "../../components/ProjectCard";
 import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 const projects = await getCollection("projects");
-import { marked } from 'marked';
-
+import { marked } from "marked";
 ---
 
 <Layout title="Essential Randomness — Ms Boba's Emporium of Weirdness">
-    <main class="projects">
-        <ul>
-            {projects.map((project) => {
-            return (
-                <li data-has-body={project.body.length >0}>
-                <ProjectCard {...project.data} body={project.body} url={`/projects/${project.slug}`} description={marked.parse(project.data.description)}/>
-                </li>
-            );
-            })}
-        </ul>
-        ...and more to come!
-    </main>
+  <main class="projects">
+    <ul>
+      {
+        projects.map((project) => (
+          <li data-has-body={String(project.body.length > 0)}>
+            <ProjectCard
+              {...project.data}
+              body={project.body}
+              url={`/projects/${project.slug}`}
+              description={marked.parse(project.data.description)}
+            />
+          </li>
+        ))
+      }
+    </ul>
+     ...and more to come!
+  </main>
 </Layout>
-  
+
 <style>
   aside {
     grid-area: profile;
@@ -36,11 +40,11 @@ import { marked } from 'marked';
     list-style-type: none;
     padding: 0;
   }
-  
+
   li[data-has-body="true"] {
     grid-row: span 2;
   }
-  
+
   @media screen and (min-width: 700px) {
     main.projects > ul {
       display: grid;
@@ -50,4 +54,4 @@ import { marked } from 'marked';
       gap: 20px;
     }
   }
- </style>
+</style>
