@@ -5,11 +5,10 @@ import BeamUp from "../components/BeamUp";
 import Faqs from "../components/Faqs.astro";
 import { TiersDisplay } from "../components/TiersDisplay";
 import Layout from "../layouts/Layout.astro";
-
 ---
 
 <Layout title="Essential Randomness — Ms Boba's Emporium of Weirdness">
-<main class="support-me">
+  <main class="support-me">
     <BeamUp
       beamToFragment="donate"
       startFromFragment="donate-others"
@@ -18,17 +17,17 @@ import Layout from "../layouts/Layout.astro";
     <h1>Help me fix the internet</h1>
     <section class="intro">
       <picture>
-        <!-- <Image
-          src={supportMe}
+        <img
+          src="/support-me/thenks-suporter.png"
           alt={`Remake of a popular meme reading "Thenks suporter for my rent' (sic)"`}
-        /> -->
+        />
       </picture>
       <h2>Who I am & what I do</h2>
       <div>
         <p>
-          In 2020, I quit my job as a Silicon Valley software engineer to
-          embark on a mission to bring the internet back to the place of joy
-          and creativity I grew up in.
+          In 2020, I quit my job as a Silicon Valley software engineer to embark
+          on a mission to bring the internet back to the place of joy and
+          creativity I grew up in.
         </p>
         <p>The initiatives I launched and am currently leading include:</p>
         <ul>
@@ -43,11 +42,11 @@ import Layout from "../layouts/Layout.astro";
           <li>
             Random fun stuff, including RobinBoob (a &ldquo;ship-ownership
             certificates&rdquo; marketplace parodying the NFT craze), and
-            FujoBoard (a reimagining of the old Yaoi paddles phenomenon for
-            the modern fangirl)
+            FujoBoard (a reimagining of the old Yaoi paddles phenomenon for the
+            modern fangirl)
           </li>
         </ul>
-        I&apos;ve also introduced many people in fandom (often members of
+         I&apos;ve also introduced many people in fandom (often members of
         communities underrepresented in tech) to open source and web
         development, and I&apos;m actively working on related educational
         material.
@@ -57,10 +56,10 @@ import Layout from "../layouts/Layout.astro";
       <h2>How to donate</h2>
       <p>
         My well-thought-out roadmap towards a better internet cannot survive
-        without a full-time person at its helm. With your contribution, you
-        will become an active enabler of the movement I&apos;m spearheading,
-        and will rest assured that someone out there is fighting the good
-        fight (also) in your name.
+        without a full-time person at its helm. With your contribution, you will
+        become an active enabler of the movement I&apos;m spearheading, and will
+        rest assured that someone out there is fighting the good fight (also) in
+        your name.
       </p>
       <div id="donate">
         <TiersDisplay client:load />
@@ -76,4 +75,4 @@ import Layout from "../layouts/Layout.astro";
       <Faqs />
     </section>
   </main>
-  </Layout>
+</Layout>
