@@ -1,14 +1,12 @@
-import Link from "next/link";
-
 export const ProfileNav = () => {
   return (
     <nav>
       <ul>
         <li>
-          <Link href={"/"}>Guestbook</Link>
+          <a href={"/"}>Guestbook</a>
         </li>
         <li>
-          <Link href={"/"}>Contacts</Link>
+          <a href={"/"}>Contacts</a>
         </li>
       </ul>
     </nav>

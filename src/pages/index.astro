@@ -3,6 +3,7 @@ import { SocialLinks } from "../components/SocialLinks";
 import { getCollection } from "astro:content";
 import { fromCollection } from "../utils/social-utils";
 import Layout from "../layouts/Layout.astro";
+import ProfileCard from "../components/ProfileCard.astro";
 const socials = fromCollection(await getCollection("socials"));
 
 // export const metadata = {
@@ -29,6 +30,7 @@ const socials = fromCollection(await getCollection("socials"));
 ---
 
 <Layout title="Essential Randomness — Ms Boba's Emporium of Weirdness">
+  <ProfileCard />
   <section>
     <h2>The story so far</h2>
     <p>

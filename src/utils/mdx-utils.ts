@@ -1,4 +1,4 @@
-import { Parent } from "unist";
+import type { Parent } from "unist";
 // import { toText } from "mdast-util-to-text";
 import { inspect } from "util";
 import { is } from "unist-util-is";
@@ -9,6 +9,7 @@ export const remarkExtractTitle = () => {
   return (tree: Parameters<typeof select>[1]) => {
     console.log(inspect(tree));
     const heading = select("heading[depth=1]", tree);
+    // @ts-expect-error
     if (!heading || is("parent", heading)) {
       return null;
     }
