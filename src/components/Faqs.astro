@@ -1,6 +1,4 @@
 ---
-import "./FaqEntry.css";
-
 import { getCollection } from "astro:content";
 const faqs = await getCollection("faqs", (faq) => faq.data.draft !== true);
 import { Icon } from "astro-icon";
@@ -22,7 +20,7 @@ const faqEntries = await Promise.all(
       <article id={faq.slug}>
         <details>
           <summary>
-            <Fragment set:html={faq.title} />
+            <span set:html={faq.title} />
             <a href={`#${faq.slug}`}>
               <Icon name="gg:link" />
             </a>
@@ -56,6 +54,29 @@ const faqEntries = await Promise.all(
     content: "▿ ";
     margin-right: 5px;
   }
+
+.faqs {
+  border-radius: 16px;
+  padding: 20px 15px;
+}
+.faqs details {
+  width: 100%;
+}
+.faqs details summary {
+  padding-block: 10px;
+  font-size: var(--font-size-title-smaller);
+}
+.faqs details summary:hover {
+  cursor: pointer;
+}
+
+.faqs details[open] {
+  margin-bottom: 20px;
+}
+
+.faqs details[open] summary {
+  margin-bottom: 10px;
+}
 </style>
 
 <script is:inline>
