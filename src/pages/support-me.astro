@@ -5,6 +5,7 @@ import BeamUp from "../components/BeamUp";
 import Faqs from "../components/Faqs.astro";
 import { TiersDisplay } from "../components/TiersDisplay";
 import Layout from "../layouts/Layout.astro";
+import Icon from "astro-icon";
 ---
 
 <Layout title="Essential Randomness — Support Me">
@@ -64,8 +65,13 @@ import Layout from "../layouts/Layout.astro";
         material.
       </div>
     </section>
-    <section class="donate">
-      <h2>How to donate</h2>
+    <section class="donate" id="donate">
+      <h2>
+        How to donate
+        <a href={`#donate`}>
+          <Icon name="gg:link" />
+        </a>
+      </h2>
       <p>
         My well-thought-out roadmap towards a better internet cannot survive
         without a full-time person at its helm. With your contribution, you will
@@ -88,3 +94,10 @@ import Layout from "../layouts/Layout.astro";
     </section>
   </main>
 </Layout>
+
+<style>
+  h2 {
+    display: flex;
+    align-items: center;
+  }
+</style>
