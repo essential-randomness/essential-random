@@ -27,49 +27,68 @@ const getRandomElements = <T extends {}>({
   return result;
 };
 
-
-// onClick={() =>
-//         setChosenTestimonials(
-//           getRandomElements({
-//             source: props.testimonials,
-//             amount: TESTIMONIALS_AMOUNT,
-//           })
-//         )
-//       }
-
 const chosenTestimonials = getRandomElements({
-        source: testimonials[0].data.testimonials,
-        amount: TESTIMONIALS_AMOUNT,
-      })
+  source: testimonials[0].data.testimonials,
+  amount: TESTIMONIALS_AMOUNT,
+});
 ---
-<ul>
-  {chosenTestimonials.map((testimonial) => (
-    <li>{testimonial.message}</li>
-  ))}
+
+<ul id="testimonials-list">
+  {chosenTestimonials.map((testimonial) => <li>{testimonial.message}</li>)}
 </ul>
 <p>
   <button
-   class="testimonials"
+    class="testimonials"
+    data-testimonials={JSON.stringify(testimonials[0].data.testimonials)}
   >
-    TODO: Reload for more!
+    Click for more!
   </button>
 </p>
 <div>
   Want to submit your own? Head to the
-  <a href="https://docs.google.com/forms/d/e/1FAIpQLSeii5nDElD8vt9aL5AIOCxtMB-CDHHMC-081QgU0ZiK-HseBQ/viewform">
+  <a
+    href="https://docs.google.com/forms/d/e/1FAIpQLSeii5nDElD8vt9aL5AIOCxtMB-CDHHMC-081QgU0ZiK-HseBQ/viewform"
+  >
     &quot;Ms Boba fishes for compliments&quot; survey
   </a>
-  .
+   .
 </div>
 
-<script>
+<script is:inline>
+const getRandomElements = ({ source, amount }) => {
+  const arrayCopy = [...source];
+  const result = new Array();
+
+  for (let i = 0; i < amount; i++) {
+    if (arrayCopy.length == 0) {
+      return result;
+    }
+    // Remove one random element from arrayCopy and add it to result
+    result.unshift(
+      arrayCopy.splice(Math.floor(Math.random() * arrayCopy.length), 1)[0]
+    );
+  }
+
+  return result;
+};
+document.addEventListener("DOMContentLoaded", () => {
   // Find all buttons with the `alert` class on the page.
-  const buttons = document.querySelectorAll<HTMLButtonElement>('button.testimonials');
+  const buttons = document.querySelectorAll("button.testimonials");
 
   // Handle clicks on each button.
   buttons.forEach((button) => {
-    button.addEventListener('click', () => {
-      alert(button.dataset.testimonials);
+    button.addEventListener("click", () => {
+      const list = document.querySelectorAll("#testimonials-list > li");
+      const testimonials = JSON.parse(button.dataset.testimonials);
+      console.log(testimonials);
+      const elements = getRandomElements({
+        source: testimonials,
+        amount: list.length,
+      });
+      list.forEach((e, index) => {
+        e.innerText = elements[index].message;
+      });
+    });
     });
   });
 </script>
