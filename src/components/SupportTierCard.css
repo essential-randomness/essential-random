@@ -29,6 +29,8 @@
 .support-tier.card .title {
   font-size: var(--font-size-title);
   font-weight: bold;
+  font-family: var(--font-family-title);
+  text-transform: capitalize;
 }
 
 .support-tier.card .price {
@@ -89,17 +91,26 @@
 .support-tier.card .payment-buttons .close {
   all: unset;
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 8px;
+  right: 8px;
+  bottom: 60%;
   filter: invert(1);
-  width: 50px;
-  height: 50px;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  z-index: 101;
 }
+
 .support-tier.card .payment-buttons .close:hover {
   cursor: pointer;
+  filter: none;
+}
+
+.support-tier.card .payment-buttons .close svg {
+  position: sticky;
+  top: 15px;
+  background-color: white;
+  border-radius: 50%;
 }
 
 .support-tier.card[data-selected="true"] .payment-buttons {
