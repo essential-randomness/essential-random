@@ -24,6 +24,7 @@ const { title } = Astro.props;
       content="Ms Boba's experimental website. Open for business while construction is ongoing."
     />
     <meta property="og:image" content="/og-image.png" />
+    <meta name="twitter:image" content="/og-image.png" />
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:site" content="@EssentialRandom" />
     <meta name="viewport" content="width=device-width" />
@@ -43,6 +44,7 @@ const { title } = Astro.props;
     />
     <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png" />
     <title>{title}</title>
+    <slot name="head" />
   </head>
   <body>
     <Nav />
