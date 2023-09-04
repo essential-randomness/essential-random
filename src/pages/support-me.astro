@@ -7,7 +7,19 @@ import { TiersDisplay } from "../components/TiersDisplay";
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="Essential Randomness — Ms Boba's Emporium of Weirdness">
+<Layout title="Essential Randomness — Support Me">
+  <Fragment slot="head">
+    <meta
+      name="description"
+      content="Help me build a better internet with your contribution!"
+    />
+    <meta
+      property="og:description"
+      content="Help me build a better internet with your contribution!"
+    />
+    <meta property="og:image" content="/support-me/og-image.png" />
+    <meta name="twitter:image" content="/support-me/og-image.png" />
+  </Fragment>
   <main class="support-me">
     <BeamUp
       beamToFragment="donate"
