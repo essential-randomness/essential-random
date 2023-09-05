@@ -13,16 +13,18 @@ export const SupportTierCard = (
     selected: boolean;
   }
 ) => {
+  const id = props.name.replaceAll(" ", "-");
   return (
     <label
       className="support-tier card"
       data-selected={props.selected}
-      htmlFor={props.name}
+      htmlFor={id}
+      id={id + "-label"}
     >
       <input
         type="radio"
         name="support-tiers"
-        id={props.name}
+        id={id}
         onChange={props.onChange}
         checked={props.selected}
       />
