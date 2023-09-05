@@ -15,6 +15,8 @@ const BeamUp = ({ label, startFromFragment, beamToFragment }: Props) => {
       if (!beamEl.current) {
         return;
       }
+      // TODO: this could probably be done with intersection
+      // observer.
       const shouldScroll = startFromFragment
         ? (document.getElementById(startFromFragment)?.getBoundingClientRect()
             .top || 0) < 0
