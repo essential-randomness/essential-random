@@ -7,15 +7,12 @@ import { Tag } from "./Tag";
 
 const MaybeLink = (
   props: AnchorHTMLAttributes<HTMLAnchorElement> & {
-    if?: boolean;
+    when?: boolean;
     href?: AnchorHTMLAttributes<HTMLAnchorElement>["href"];
   }
 ) => {
-  if (props.if) {
-    // We fix a warning about passing an extra "if" prop by making it undefined.
-    // Given that we're using a reserved word (bad ms boba!) this is a clean way to
-    // to avoid weird errors, though the syntax is not intuitive.
-    return <a {...{ ...props, if: undefined }} />;
+  if (props.when) {
+    return <a {...props} />;
   }
   return <>{props.children}</>;
 };
@@ -30,7 +27,7 @@ export const ProjectCard = (props: Project & { body: string; url: string }) => {
       data-project-name={props.name.toLowerCase()}
     >
       {props.preview && (
-        <MaybeLink href={props.url} if={hasBody}>
+        <MaybeLink href={props.url} when={hasBody}>
           <picture className="banner">
             <img
               src={props.preview.src}
@@ -39,31 +36,33 @@ export const ProjectCard = (props: Project & { body: string; url: string }) => {
           </picture>
         </MaybeLink>
       )}
-      <header>
-        <h2 className="name">
-          <MaybeLink href={props.url} if={props.body.length > 0}>
-            {props.name}
-          </MaybeLink>
-        </h2>
-        <SocialLinks links={props.links} />
-      </header>
-      <p className="description">
-        <span dangerouslySetInnerHTML={{ __html: props.description }} />
-        {hasBody && (
-          <a className="read-more" href={props.url}>
-            Read more
-          </a>
-        )}
-      </p>
-      <footer>
-        <ul className="tags">
-          {props.tags.map((tag) => (
-            <li key={tag}>
-              <Tag tag={tag} />
-            </li>
-          ))}
-        </ul>
-      </footer>
+      <div className="details">
+        <header>
+          <h2 className="name">
+            <MaybeLink href={props.url} when={props.body.length > 0}>
+              {props.name}
+            </MaybeLink>
+          </h2>
+          <SocialLinks links={props.links} />
+        </header>
+        <p className="description">
+          <span dangerouslySetInnerHTML={{ __html: props.description }} />
+          {hasBody && (
+            <a className="read-more" href={props.url}>
+              Read more
+            </a>
+          )}
+        </p>
+        <footer>
+          <ul className="tags">
+            {props.tags.map((tag) => (
+              <li key={tag}>
+                <Tag tag={tag} />
+              </li>
+            ))}
+          </ul>
+        </footer>
+      </div>
     </article>
   );
 };
