@@ -13,6 +13,7 @@ import {
 } from "@icons-pack/react-simple-icons";
 
 import type { CollectionEntry } from "astro:content";
+import { SiSky } from "react-icons/si";
 import type { Social } from "../components/SocialLinks";
 
 export type WEBSITE_TYPES =
@@ -21,6 +22,7 @@ export type WEBSITE_TYPES =
   | "twitter"
   | "npm"
   | "web"
+  | "bsky"
   | "twitch"
   | "mastodon"
   | "dreamwidth"

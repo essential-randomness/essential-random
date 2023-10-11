@@ -6,6 +6,8 @@ import Faqs from "../components/Faqs.astro";
 import { TiersDisplay } from "../components/TiersDisplay";
 import Layout from "../layouts/Layout.astro";
 import Icon from "astro-icon";
+import { SiPatreon } from "@icons-pack/react-simple-icons";
+import { SiKofi } from "react-icons/si";
 ---
 
 <Layout
@@ -78,11 +80,16 @@ import Icon from "astro-icon";
       <div id="donate">
         <TiersDisplay client:load />
       </div>
-      <p id="donate-others">
-        You can also donate at
-        <a href="https://patreon.com/user?u=87081842">Patreon</a> or
-        <a href="https://ko-fi.com/essentialrandomness">Ko-fi</a>.
-      </p>
+      <h3>...or through these external websites:</h3>
+      <ul id="donate-others" class="social-links">
+        <li>
+          <a href="https://patreon.com/user?u=87081842"><SiPatreon /> Patreon</a
+          >
+        </li>
+        <li>
+          <a href="https://ko-fi.com/essentialrandomness"><SiKofi />Ko-fi</a>
+        </li>
+      </ul>
     </section>
     <section class="faq">
       <h2>FAQs</h2>
@@ -95,5 +102,44 @@ import Icon from "astro-icon";
   h2 {
     display: flex;
     align-items: center;
+  }
+  .social-links {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(6em, 10em));
+    justify-items: center;
+    list-style-type: none;
+    gap: 10px;
+    margin: 0px;
+    padding: 0px;
+    justify-content: center;
+  }
+
+  .social-links .url {
+    display: none;
+  }
+  .social-links .name {
+    text-transform: capitalize;
+  }
+
+  .social-links a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    justify-content: center;
+  }
+
+  .social-links li {
+    width: 100%;
+  }
+  .social-links a {
+    border: 2px solid black;
+    border-radius: 16px;
+    padding: 5px 10px;
+  }
+
+  .social-links a:hover {
+    box-shadow: 3px 3px 0 0px black;
+    transform: translate(-2px, -2px);
   }
 </style>

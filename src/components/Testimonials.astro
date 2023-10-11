@@ -80,7 +80,6 @@ document.addEventListener("DOMContentLoaded", () => {
     button.addEventListener("click", () => {
       const list = document.querySelectorAll("#testimonials-list > li");
       const testimonials = JSON.parse(button.dataset.testimonials);
-      console.log(testimonials);
       const elements = getRandomElements({
         source: testimonials,
         amount: list.length,
@@ -89,6 +88,6 @@ document.addEventListener("DOMContentLoaded", () => {
         e.innerText = elements[index].message;
       });
     });
-    });
   });
+});
 </script>
