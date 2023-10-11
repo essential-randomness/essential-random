@@ -4,10 +4,11 @@ socials:
   - type: mastodon
     name: the Fediverse™
     url: https://indiepocalypse.social/@essentialrandom
+  - https://bsky.app/profile/essentialrandom.bsky.social
   - https://www.twitch.tv/essentialrandomness
   - https://github.com/essential-randomness
-  - name: cohost
-    url: https://cohost.org/essential-random
+  # - name: cohost
+  #   url: https://cohost.org/essential-random
   - https://essential-randomness.dreamwidth.org/
   - https://www.youtube.com/channel/UCI_NX0PeoiWiMsHIFH0TBsw
   - https://patreon.com/user?u=87081842
