@@ -272,6 +272,22 @@ declare module 'astro:content' {
   data: InferEntrySchema<"faqs">
 } & { render(): Render[".md"] };
 };
+"posts": {
+"entry2.mdx": {
+	id: "entry2.mdx";
+  slug: "entry2";
+  body: string;
+  collection: "posts";
+  data: InferEntrySchema<"posts">
+} & { render(): Render[".mdx"] };
+"fight-for-the-open-web.mdx": {
+	id: "fight-for-the-open-web.mdx";
+  slug: "fight-for-the-open-web";
+  body: string;
+  collection: "posts";
+  data: InferEntrySchema<"posts">
+} & { render(): Render[".mdx"] };
+};
 "projects": {
 "ao3-dot-js.mdx": {
 	id: "ao3-dot-js.mdx";
@@ -299,9 +315,7 @@ declare module 'astro:content' {
 	};
 
 	type DataEntryMap = {
-		"_posts": {
-};
-"socials": {
+		"socials": {
 "socials": {
 	id: "socials";
   collection: "socials";

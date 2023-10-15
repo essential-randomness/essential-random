@@ -1,5 +1,32 @@
 ---
+import { getCollection, getEntry } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import { SocialLinks } from "../../components/SocialLinks";
+
 export async function getStaticPaths() {
-  return [];
+  const projects = await getCollection("posts");
+  const projectsWithDetails = projects.filter(
+    (project) => project.body.length > 0
+  );
+  return projectsWithDetails.map((project) => ({
+    params: {
+      blogId: project.slug,
+    },
+  }));
 }
+const { blogId } = Astro.params;
+if (!blogId) {
+  throw new Error("Slug is required");
+}
+const curr = await getEntry("posts", blogId);
+if (!curr) {
+  throw new Error("Post not found");
+}
+const Content = (await curr?.render()).Content;
 ---
+
+<Layout title="Essential Randomness — Ms Boba's Emporium of Weirdness">
+  <main class="project">
+    <Content />
+  </main>
+</Layout>
