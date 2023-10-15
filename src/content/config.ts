@@ -1,5 +1,7 @@
 import { defineCollection, z } from "astro:content";
 
+import { posts } from "./posts/_config";
+
 const WebsitesSchema = z.enum([
   "github",
   "tumblr",
@@ -61,4 +63,5 @@ export const collections = {
       ),
     }),
   }),
+  posts,
 };
