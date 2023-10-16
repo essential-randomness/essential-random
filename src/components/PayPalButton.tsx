@@ -1,4 +1,4 @@
-import { PayPalNamespace, loadScript } from "@paypal/paypal-js";
+import { type PayPalNamespace, loadScript } from "@paypal/paypal-js";
 
 import React from "react";
 
@@ -15,7 +15,7 @@ const renderPayPalButton = async (
   let paypal: PayPalNamespace;
   if (!window.paypal && !payPalPromise) {
     payPalPromise = loadScript({
-      "client-id": CLIENT_ID,
+      clientId: CLIENT_ID,
       vault: true,
       intent: "subscription",
     });
