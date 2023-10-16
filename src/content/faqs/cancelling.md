@@ -1,5 +1,5 @@
 ---
-title: How does this differ from the donations on your main website?
+title: How do I cancel?
 order: 700
 ---
 
