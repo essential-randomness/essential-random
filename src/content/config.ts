@@ -11,6 +11,7 @@ const WebsitesSchema = z.enum([
   "twitch",
   "mastodon",
   "dreamwidth",
+  "store",
 ]);
 
 const SocialsSchema = z.string().or(
