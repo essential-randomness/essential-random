@@ -1,4 +1,4 @@
-import { ProfileMatch, SocialLinks, TYPE_MOBILE } from "social-links";
+import { type ProfileMatch, SocialLinks } from "social-links";
 import {
   SiGithub,
   SiKofi,

@@ -1,7 +1,7 @@
 import "./SocialLinks.css";
 
 import {
-  WEBSITE_TYPES,
+  type WEBSITE_TYPES,
   extractWebsiteName,
   maybeGetWebsiteIcon,
 } from "../utils/social-utils";
