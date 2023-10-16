@@ -7,7 +7,7 @@ import {
 } from "../utils/social-utils";
 
 import { FaShoppingBag } from "react-icons/fa";
-import { VscGlobe } from "react-icons/vsc";
+import { VscGlobe, VscLaw } from "react-icons/vsc";
 
 export type Social =
   | string
@@ -37,7 +37,6 @@ const extractWebsiteData = (social: Social) => {
     typeof social !== "string" && "name" in social
       ? social.name
       : (extractWebsiteName(url) as WEBSITE_TYPES);
-
   return {
     url,
     name,
