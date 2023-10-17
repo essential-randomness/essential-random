@@ -1,0 +1,185 @@
+---
+title: Getting Things Started
+tags:
+  - +old blog content
+unlisted: true
+---
+
+## The Preamble
+
+Hello and welcome to the first edition of this newsletter! :bobaparty:
+Your invaluable support helps me offset development costs, so I can take care of
+menial tasks like **"producing the documentation needed to ensure this project
+can succeed"**.
+
+Going quick, cause I have to get back to `f i n a l l y` coding Boba.
+
+## Keeping up with Ms. Boba
+
+As you very well know, **we're recently announced Realms, also upping our
+support channels to 3** ([newsletter](https://essentialrandomness.com/),
+[store](https://store.bobaboard.com) and
+[RobinBoob](https://robinboob.com)). This effort took more than a
+month.
+
+I can't wait to code again. :bobatwt:
+
+Before that, however, I had a couple things to tie up:
+
+### The Newsletter Survey
+
+We have a "topic of the month" survey to figure out what my target audience
+(you) wants. Of course, I'm not going to do this manually. Instead, **I set up a
+whole fancy pipeline** to automatically take care of the logistics.
+
+One step further: [I documented it all on my own technical
+blog](https://dev.to/essentialrandom/sending-subscribers-surveys-with-ghost-pipedream-and-airtable-569i),
+dug up from its grave for the occasion. May this be the first of many
+documentations to come!
+
+### Privacy Concerns
+
+As someone warned me (thank you!), [the blogging software I'm
+using](https://ghost.org) is taking member names from Stripe despite me having
+disabled them completely in the signup. I've opened [a support
+ticket](https://forum.ghost.org/t/enable-not-saving-members-name-from-stripe/23874/2)
+to get it resolved. In the meantime, as you can read there, I did some code
+magic and hacked away the behavior.
+
+If this is a concern for you, **you can remove your name from [the account
+settings page](https://essentialrandomness.com/account/).** Sorry about the
+issue! I do have a rant about how needlessly hard it is to not have other
+people's names leaked to you when running an online business, which might find
+its way here at some point.
+
+### What's next for Boba
+
+Now that I can go back to what people are supposedly paying me for, I need to
+resist the urge to just _code code code_. No one more than me wants to put their
+head down and whip up Realms in a month, but that will just make it harder and
+harder for others to help me out in the future. **If we go too quickly now,
+we'll pay the price later.**
+
+So here's a rundown of the focus areas I will need to untangle and fit into a
+_\~coherent plan~_:
+
+1.  **Performance:** we definitely aren't where I want us to be, especially in
+    longer threads. While some of it will be solved on its own once [React
+    Concurrent
+    Mode](https://reactjs.org/blog/2021/06/08/the-plan-for-react-18.html)
+    launches, there's some work that needs to be done regardless (e.g.
+    lazy-loading of embeds, serving smaller images, swapping gifs for videos\*).
+2.  **Quality of Life Improvements:** somewhat related to performance, but not
+    only. For example, _there's definitely something going on with random 500
+    errors_. Of course, I can look at the logs and solve these (and I will), but
+    I _really_ need better instrumentation so I don't have to wait for people to
+    complain before I act. **This is likely to be one of the first things I'll
+    focus on in the coming week.**
+3.  **Design Work:** "design twice/code once" sort of efforts. For example,
+    there's a lot we need to fit in those thread/board sidebars, and I'd rather
+    have a path charted before I start incrementally coding improvements. How do
+    we collaboratively work on the final result? How do I empower people to do
+    this work without me? That's part of the challenge that needs solving.
+4.  **Documentation:** stabilizing Boba for Realms is a perfect occasion to
+    write documentation and help volunteers do meaningful, impactful work
+    autonomously. And documentation is also the perfect chance to standardize
+    conventions and kick down some [technical
+    debt](https://en.wikipedia.org/wiki/Technical_debt). For example, I'm
+    looking into adding [OpenAPI-based
+    specs](https://oai.github.io/Documentation/start-here.html) to Boba's
+    backend endpoints.
+5.  **Current Hotspots:** working on more Realms doesn't mean the single ones
+    don't also need some love: from better support for deep threads, to search,
+    to crossposting, to accessibility, to... _a lot of small things_, "the work
+    must go on".
+6.  **Realms, of course:** there's a couple different ways I'm planning to
+    approach this. In the short term:
+
+    - **Admin Tools:** Realm admins will need to make new boards, new roles, new
+      identities... all things I've been doing directly through the DB. No more:
+      it's time to get us some nice UI.  
+      _\[BobaLore: the 4/20 "decoration settings" page was prioritized knowing
+      we'd need the work for Realms\]_.
+    - **API work:** All our server requests have, until now, not carried any
+      information about the Realm they originated from (understandably, since
+      there was only one). I'll need to go through each of them and add this
+      information, which is also a great chance for the _documentation_ work
+      highlighted above.
+    - **Backend Modularization:** does this user have permission to make this
+      post? Which set of identities should we select from when assigning a new
+      one? These checks, which are already happening, will be based on more and
+      more complex logic as time goes on. Some good architecture design done
+      now, will save pain later.
+
+    These aside, the _design work_ mentioned above will also feature some
+    realms-based effort, like the "eagle eye view"/"welcome page"/"rules
+    explanation" flow & screens.
+
+7.  **Code Candy:** those things that make my code worth coding even though they
+    might not be the "highest priority". Right now, "emojis", "user badges",
+    "realm user pages".
+
+...and that's... _a lot_. Please do let me know if you have thoughts, either
+with the [usual anonymous
+form](https://docs.google.com/forms/d/e/1FAIpQLSewrGG-34xIgMPm89RLFOokincwAIEfpSh9ho19EGLJOJWTtA/viewform),
+or [by emailing me](mailto:ms.boba@bobaboard.com), or on Discord, or in any way
+you can think of. If you're interested in more (or less) details, you can let me
+know through the survey. _wink wink_ :bobaeyes::bobaeyes::bobaeyes:
+
+## From Ms. Boba's Calendar
+
+I'm going to have a bunch of meetings with prospect volunteers, stakeholders,
+and random people in the following weeks, but here's the coolest one: I've been
+introduced to [Zulip](https://zulip.com/)'s CEO, and will have the chance to ask
+him about how to foster a good open source collaboration environment (especially
+in these early stages). From their main page:
+
+> Zulip has a significantly larger and more active development community than
+> other modern open source group chat solutions like Mattermost, Rocket.Chat,
+> and matrix.org.
+
+What's the secret? I don't know. I'll report back with thoughts.
+
+## Final Notes
+
+...and with this, we're done for the first super quick edition! If you
+subscribed to this newsletter, you should have received the survey by now. If
+you haven't, [let me
+know!](https://docs.google.com/forms/d/e/1FAIpQLSewrGG-34xIgMPm89RLFOokincwAIEfpSh9ho19EGLJOJWTtA/viewform)
+
+## See you soon!
+
+---
+
+### \* Re: gifs vs videos
+
+I expect people to have a knee-jerk _"no!! I hate videos in place of gifs!"_
+reaction. I'm right there with you. But there's 2 main reasons this is needed:
+
+1.  **Gifs are really much, much slower to load than videos.** Any web
+    performance guide hammers this point down.
+2.  Gifs can't be paused, and **I need to be able to pause gifs for
+    accessibility reasons**.
+
+Personally, I find not being able to save videos as gifs frustrating, so that's
+one thing I'm going to make sure can still happen. If you have other particular
+frustrations, do voice them and I'll look into it. This change isn't going to
+happen overnight anyway, cause it's a non-trivial addition to the Boba backend
+architecture.
+
+### Note: Who has access to this?
+
+**\[UPDATE\]: This is now publicly available!**
+
+For these first editions, I'm currently surveying and giving immediate content
+access to both paying and free members (but not the public, which will likely
+get it ~3-4 weeks after release). Paid members will still get "stronger dibs" on
+the topics. I know who you are.
+
+In the future, this will likely change. I'm also looking at other offerings that
+might entice people to give some extra support. All this aside, the most
+important offering is **"Boba keeps getting worked on and Ms. Boba cam afford to
+hire help so she doesn't crash and burn"**. If you can, consider [becoming a
+paid member](https://essentialrandomness.com/subscribe/). If you can't,
+[consider letting me know what's stopping
+you](https://docs.google.com/forms/d/e/1FAIpQLSewrGG-34xIgMPm89RLFOokincwAIEfpSh9ho19EGLJOJWTtA/viewform).
