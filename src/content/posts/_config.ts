@@ -5,6 +5,7 @@ export const posts = defineCollection({
   schema: z.object({
     title: z.string(),
     created_at: z.date().optional(),
-    tags: z.array(z.string()).optional(),
+    unlisted: z.boolean().optional().default(false),
+    tags: z.array(z.string()).optional().default([]),
   }),
 });
