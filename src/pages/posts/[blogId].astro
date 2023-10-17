@@ -84,5 +84,16 @@ const Content = (await curr?.render()).Content;
       margin: 0 auto;
       display: block;
     }
+
+    .custom-emoji {
+      display: inline-block;
+      padding: 0 5px;
+      height: 30px;
+      vertical-align: middle;
+
+      & + .custom-emoji {
+        padding-inline-start: 0;
+      }
+    }
   </style>
 </Layout>
