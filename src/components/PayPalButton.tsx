@@ -2,20 +2,18 @@ import { type PayPalNamespace, loadScript } from "@paypal/paypal-js";
 
 import React from "react";
 
-const CLIENT_ID =
-  "AbYamsrG5_XYxgwQm3wrH4rsCeveTZZFmDrjbxD4QjsWbitArq9DZNpJs19I3bGWyrESPWfdqYKP-6Lu";
-
 let payPalPromise: Promise<PayPalNamespace | null> | null = null;
 const renderPayPalButton = async (
   button: HTMLDivElement,
   options: {
     planId: string;
+    clientId: string;
   }
 ) => {
   let paypal: PayPalNamespace;
   if (!window.paypal && !payPalPromise) {
     payPalPromise = loadScript({
-      clientId: CLIENT_ID,
+      clientId: options.clientId,
       vault: true,
       intent: "subscription",
     });
@@ -49,8 +47,8 @@ const renderPayPalButton = async (
 };
 
 export interface PayPalButtonProps {
-  //P-2T800313EX3963603MMBL4MI
   planId: string;
+  clientId: string;
   quantity: number;
 }
 
@@ -58,7 +56,7 @@ export const PayPalButton = (props: PayPalButtonProps) => {
   return (
     <div
       data-quantity={props.quantity}
-      key={props.planId}
+      key={props.planId + props.planId + props.quantity}
       // See: https://github.com/paypal/react-paypal-js/issues/224
       // TODO: remove this once that issue is fixed
       style={{ colorScheme: "none" }}
@@ -70,6 +68,7 @@ export const PayPalButton = (props: PayPalButtonProps) => {
 
           renderPayPalButton(el, {
             planId: props.planId,
+            clientId: props.clientId,
           });
         },
         [props.planId]
