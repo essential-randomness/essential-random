@@ -6,6 +6,13 @@ import { SlClose } from "react-icons/sl";
 import { StripeButton } from "./StripeButton";
 import type { TierType } from "./TiersDisplay";
 
+const DEV_PAYPAL_PLAN_ID = "P-1T805503J47278516MUYD2NA";
+const PROD_PAYPAL_PLAN_ID = "P-2T800313EX3963603MMBL4MI";
+const PROD_PAYPAL_CLIENT_ID =
+  "AbYamsrG5_XYxgwQm3wrH4rsCeveTZZFmDrjbxD4QjsWbitArq9DZNpJs19I3bGWyrESPWfdqYKP-6Lu";
+const DEV_PAYPAL_CLIENT_ID =
+  "AcTlVdT0tmCUP45F7DbEg1y4_neQnI8EEruw6DKCZgl6nYFVF4TmFQmeijreym9V-KYZSKs4qnOIoCR4";
+
 export const SupportTierCard = (
   props: TierType & {
     onChange: ReactEventHandler<HTMLInputElement>;
@@ -38,7 +45,7 @@ export const SupportTierCard = (
         })}
       </ul>
       <div className="fake-payment-button">
-        Donate ${props.dollarsPerMonth} monthly
+        Give ${props.dollarsPerMonth} monthly
       </div>
       <div className="payment-buttons">
         <button type="reset" className="close" onClick={props.onReset}>
@@ -46,7 +53,16 @@ export const SupportTierCard = (
         </button>
         <StripeButton quantity={props.dollarsPerMonth} />
         <PayPalButton
-          planId="P-2T800313EX3963603MMBL4MI"
+          planId={
+            process.env.NODE_ENV === "production"
+              ? PROD_PAYPAL_PLAN_ID
+              : DEV_PAYPAL_PLAN_ID
+          }
+          clientId={
+            process.env.NODE_ENV === "production"
+              ? PROD_PAYPAL_CLIENT_ID
+              : DEV_PAYPAL_CLIENT_ID
+          }
           quantity={props.dollarsPerMonth}
         />
       </div>
