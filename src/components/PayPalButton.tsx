@@ -36,10 +36,13 @@ const renderPayPalButton = async (
         return actions.subscription.create({
           plan_id: options.planId,
           quantity: button.dataset.quantity,
+          application_context: {
+            shipping_preference: "NO_SHIPPING",
+          },
         });
       },
       onApprove: async (data) => {
-        alert(data.subscriptionID); // You can add optional success message for the subscriber here
+        // alert(data.subscriptionID); // You can add optional success message for the subscriber here
       },
     })
     .render(button);
