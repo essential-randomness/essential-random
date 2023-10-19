@@ -1,6 +1,7 @@
 ---
 title: How do I cancel?
 order: 700
+success: true
 ---
 
 You can log in to your PayPal account to manage all your

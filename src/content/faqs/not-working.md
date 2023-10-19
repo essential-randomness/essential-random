@@ -1,6 +1,7 @@
 ---
 title: Help! Something isn&apos;t working!
 order: 100
+success: true
 ---
 
 Thanks for letting me know. This is a very experimental page, and

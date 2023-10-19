@@ -37,6 +37,7 @@ const FaqSchema = z.object({
   title: z.string(),
   order: z.number(),
   draft: z.boolean().optional(),
+  success: z.boolean().default(false),
 });
 
 export const collections = {
