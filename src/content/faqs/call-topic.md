@@ -1,6 +1,7 @@
 ---
 title: I&apos;m a proud &quot;subsidized massage&quot; supporter. Can we really discuss <em>anything</em> on our call?
 order: 900
+success: true
 ---
 
 <p>

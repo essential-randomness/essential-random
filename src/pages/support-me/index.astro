@@ -1,10 +1,10 @@
 ---
-import "../styles/support-me.css";
+import "../../styles/support-me.css";
 
-import BeamUp from "../components/BeamUp";
-import Faqs from "../components/Faqs.astro";
-import { TiersDisplay } from "../components/TiersDisplay";
-import Layout from "../layouts/Layout.astro";
+import BeamUp from "../../components/BeamUp";
+import Faqs from "../../components/Faqs.astro";
+import { TiersDisplay } from "../../components/TiersDisplay";
+import Layout from "../../layouts/Layout.astro";
 import Icon from "astro-icon";
 import { SiPatreon } from "@icons-pack/react-simple-icons";
 import { SiKofi } from "react-icons/si";
@@ -12,7 +12,7 @@ import { SiKofi } from "react-icons/si";
 
 <Layout
   title="Essential Randomness — Support Me"
-  description="Help me build a better internet with your contribution!"
+  description="Help me build a better internet with your support!"
 >
   <Fragment slot="head">
     <meta property="og:image" content="/support-me/og-image.png" />
@@ -23,7 +23,7 @@ import { SiKofi } from "react-icons/si";
       client:load
       beamToFragment="donate"
       startFromFragment="almond-butter-toast-label"
-      label="Go donate!"
+      label="Go support!"
     />
     <h1>Help me fix the internet</h1>
     <section class="intro">
@@ -63,9 +63,9 @@ import { SiKofi } from "react-icons/si";
         material.
       </div>
     </section>
-    <section class="donate" id="donate">
+    <section class="donate">
       <h2>
-        How to donate
+        How to support me
         <a href={`#donate`}>
           <Icon name="gg:link" />
         </a>

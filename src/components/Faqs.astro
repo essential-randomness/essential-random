@@ -9,15 +9,29 @@ const faqEntries = await Promise.all(
     .map(async (faq) => ({
       title: faq.data.title,
       slug: faq.slug,
+      success: faq.data.success,
       Content: (await faq.render()).Content,
     }))
 );
+
+interface Props {
+  successOnly?: boolean;
+}
+
+const { successOnly } = Astro.props;
 ---
 
-<div class="faqs">
+<div
+  class:list={[
+    "faqs",
+    {
+      "success-only": successOnly,
+    },
+  ]}
+>
   {
     faqEntries.map((faq) => (
-      <article id={faq.slug}>
+      <article id={faq.slug} data-success={faq.success}>
         <details>
           <summary>
             <span set:html={faq.title} />
@@ -55,40 +69,43 @@ const faqEntries = await Promise.all(
     margin-right: 5px;
   }
 
-.faqs {
-  border-radius: 16px;
-  padding: 20px 15px;
-}
-.faqs details {
-  width: 100%;
-}
-.faqs details summary {
-  padding-block: 10px;
-  font-size: var(--font-size-title-smaller);
-}
-.faqs details summary:hover {
-  cursor: pointer;
-}
+  .faqs {
+    border-radius: 16px;
+    padding: 20px 15px;
+  }
+  .faqs details {
+    width: 100%;
+  }
+  .faqs details summary {
+    padding-block: 10px;
+    font-size: var(--font-size-title-smaller);
+  }
+  .faqs details summary:hover {
+    cursor: pointer;
+  }
 
-.faqs details[open] {
-  margin-bottom: 20px;
-}
+  .faqs details[open] {
+    margin-bottom: 20px;
+  }
 
-.faqs details[open] summary {
-  margin-bottom: 10px;
-}
+  .faqs details[open] summary {
+    margin-bottom: 10px;
+  }
+  .success-only article:not([data-success]) {
+    display: none;
+  }
 </style>
 
 <script is:inline>
 document.addEventListener("DOMContentLoaded", () => {
-    const fragment = window.location.hash;
-    if (!fragment) {
-        return;
-    }
-    const element = document.querySelector(`${fragment} details`);
-    if (!element) {
-        return;
-    }
-    element.open = true;
+  const fragment = window.location.hash;
+  if (!fragment) {
+    return;
+  }
+  const element = document.querySelector(`${fragment} details`);
+  if (!element) {
+    return;
+  }
+  element.open = true;
 });
 </script>
