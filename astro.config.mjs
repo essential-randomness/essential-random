@@ -11,4 +11,7 @@ export default defineConfig({
     remarkPlugins: [],
     rehypePlugins: [rehypeToc],
   },
+  redirects: {
+    "/subscribe": "/support-me",
+  },
 });
