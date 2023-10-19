@@ -278,6 +278,13 @@ declare module 'astro:content' {
   collection: "posts";
   data: InferEntrySchema<"posts">
 } & { render(): Render[".mdx"] };
+"the-last-month-of-bobaboard/index.mdx": {
+	id: "the-last-month-of-bobaboard/index.mdx";
+  slug: "the-last-month-of-bobaboard";
+  body: string;
+  collection: "posts";
+  data: InferEntrySchema<"posts">
+} & { render(): Render[".mdx"] };
 };
 "projects": {
 "ao3-dot-js.mdx": {
