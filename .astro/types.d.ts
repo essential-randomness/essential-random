@@ -257,6 +257,13 @@ declare module 'astro:content' {
 } & { render(): Render[".md"] };
 };
 "posts": {
+"doing-content-right/index.mdx": {
+	id: "doing-content-right/index.mdx";
+  slug: "doing-content-right";
+  body: string;
+  collection: "posts";
+  data: InferEntrySchema<"posts">
+} & { render(): Render[".mdx"] };
 "entry2.mdx": {
 	id: "entry2.mdx";
   slug: "entry2";
