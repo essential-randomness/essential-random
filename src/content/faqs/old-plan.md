@@ -16,5 +16,5 @@ order: 800
 </p>
 <p>
     In case of any issue, contact me at any time at
-    <a href="ms.boba@bobaboard.com">ms.boba@bobaboard.com</a>.
+    <a href="mailto:essential.randomn3ss@gmail.com">essential.randomn3ss@gmail.com</a>.
 </p>

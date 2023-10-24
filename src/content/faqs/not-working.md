@@ -7,7 +7,7 @@ success: true
 Thanks for letting me know. This is a very experimental page, and
 things might break unexpectedly. Please do let me know what went wrong
 by contacting me at
-<a href="ms.boba@bobaboard.com">ms.boba@bobaboard.com</a>.
+<a href="mailto:essential.randomn3ss@gmail.com">essential.randomn3ss@gmail.com</a>.
 
 In the meantime you can also donate through
 <a href="https://patreon.com/user?u=87081842">Patreon</a> or

@@ -78,6 +78,7 @@ import { SiKofi } from "react-icons/si";
         your name.
       </p>
       <div id="donate">
+        <h3>Self-hosted support tiers</h3>
         <TiersDisplay client:load />
       </div>
       <h3>...or through these external websites:</h3>
@@ -90,56 +91,81 @@ import { SiKofi } from "react-icons/si";
           <a href="https://ko-fi.com/essentialrandomness"><SiKofi />Ko-fi</a>
         </li>
       </ul>
+      <details>
+        <summary><h4>Looking for one-time support?</h4></summary>
+         You can also support me by buying <a href="https://robinboob.com"
+          >a ship ownership certificate on RobinBoob</a
+        >, a <a href="https://fujoboard.com">yaoi cheese paddle on FujoBoard</a
+        >, or (if you want straight to the point) grab some <a
+          href="https://store.bobaboard.com/#!/Emoji-Set-Discord-etc/p/369069273/category=113134803"
+          >pay-what-you-want Boba-tan emojis</a
+        >!
+      </details>
+      <details>
+        <summary><h4>Want to donate more? Consider sponsoring me!</h4></summary>
+         Sponsorships are <strong
+          >custom support tiers for those who wish to make even more of a
+          difference!</strong
+        > They can be one-time or ongoing, and they can include custom rewards
+        that are particularly meaningful to you. If you're interested in
+        sponsoring me, reach out at <a
+          href="mailto:essential.randomn3ss+sponsorships@gmail.com"
+          >essential.randomn3ss@gmail.com</a
+        > for next steps!
+      </details>
     </section>
     <section class="faq">
       <h2>FAQs</h2>
       <Faqs />
     </section>
   </main>
+
+  <style>
+    h2 {
+      display: flex;
+      align-items: center;
+    }
+    .social-links {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(6em, 10em));
+      justify-items: center;
+      list-style-type: none;
+      gap: 10px;
+      margin: 0px;
+      padding: 0px;
+      justify-content: center;
+    }
+
+    .social-links .url {
+      display: none;
+    }
+    .social-links .name {
+      text-transform: capitalize;
+    }
+
+    .social-links a {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+      justify-content: center;
+    }
+
+    .social-links li {
+      width: 100%;
+    }
+    .social-links a {
+      border: 2px solid black;
+      border-radius: 16px;
+      padding: 5px 10px;
+    }
+
+    .social-links a:hover {
+      box-shadow: 3px 3px 0 0px black;
+      transform: translate(-2px, -2px);
+    }
+    details h4 {
+      display: inline-block;
+    }
+  </style>
 </Layout>
-
-<style>
-  h2 {
-    display: flex;
-    align-items: center;
-  }
-  .social-links {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(6em, 10em));
-    justify-items: center;
-    list-style-type: none;
-    gap: 10px;
-    margin: 0px;
-    padding: 0px;
-    justify-content: center;
-  }
-
-  .social-links .url {
-    display: none;
-  }
-  .social-links .name {
-    text-transform: capitalize;
-  }
-
-  .social-links a {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 5px;
-    justify-content: center;
-  }
-
-  .social-links li {
-    width: 100%;
-  }
-  .social-links a {
-    border: 2px solid black;
-    border-radius: 16px;
-    padding: 5px 10px;
-  }
-
-  .social-links a:hover {
-    box-shadow: 3px 3px 0 0px black;
-    transform: translate(-2px, -2px);
-  }
-</style>
