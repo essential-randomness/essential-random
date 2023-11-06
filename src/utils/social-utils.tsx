@@ -1,6 +1,7 @@
 import { type ProfileMatch, SocialLinks } from "social-links";
 import {
   SiGithub,
+  SiKickstarter,
   SiKofi,
   SiLivejournal,
   SiMastodon,
@@ -28,7 +29,8 @@ export type WEBSITE_TYPES =
   | "dreamwidth"
   | "ko-fi"
   | "patreon"
-  | "youtube";
+  | "youtube"
+  | "kickstarter";
 
 export type ProjectLinksMap = Record<WEBSITE_TYPES, string | undefined>;
 const socialLinks = new SocialLinks();
@@ -70,8 +72,9 @@ export const extractWebsiteName = (url: string): WEBSITE_TYPES | null => {
     return "dreamwidth";
   }
   const { host } = new URL(url);
+
   return host
-    .substring(0, host.lastIndexOf("."))
+    .substring(host.startsWith("www.") ? 4 : 0, host.lastIndexOf("."))
     .toLowerCase() as WEBSITE_TYPES;
 };
 
@@ -98,6 +101,8 @@ export const maybeGetWebsiteIcon = (websiteName: WEBSITE_TYPES) => {
       return <SiPatreon />;
     case "youtube":
       return <SiYoutube />;
+    case "kickstarter":
+      return <SiKickstarter />;
     default:
       return null;
   }
