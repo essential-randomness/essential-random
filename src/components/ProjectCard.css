@@ -1,10 +1,10 @@
 .project.card {
   border: 2px solid black;
   border-radius: 16px;
-  padding: 20px 10px;
+  padding: 20px 30px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 20px;
   height: 100%;
   align-items: center;
 
@@ -18,9 +18,26 @@
     display: block;
   }
 
-  .banner img {
-    object-fit: contain;
-    max-width: 100%;
+  .banner {
+    flex-shrink: 0;
+    max-width: 150px;
+    text-align: center;
+
+    @media screen and (max-width: 500px) {
+      flex-direction: column;
+      min-height: 200px;
+      width: 100%;
+      max-width: 100%;
+    }
+
+    img {
+      object-fit: contain;
+      width: 100%;
+
+      @media screen and (max-width: 500px) {
+        height: 100%;
+      }
+    }
   }
 
   .details {
@@ -46,6 +63,10 @@
   &[data-has-body="false"] {
     flex-direction: row;
     box-shadow: 1px 1px 0 0 black;
+
+    @media screen and (max-width: 500px) {
+      flex-direction: column;
+    }
   }
 
   &[data-has-body="true"] {

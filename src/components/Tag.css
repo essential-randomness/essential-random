@@ -5,29 +5,36 @@
   --tag-border-radius: 5px;
   border-radius: var(--tag-border-radius);
   min-height: 24px;
-}
 
-.tag > * {
-  padding: 0;
-  display: inline-block;
-  border-radius: var(--tag-border-radius);
-  padding-inline: 5px;
-  color: black;
-  text-decoration: none;
-  font-family: monospace;
-  line-height: 25px;
-}
+  & > * {
+    padding: 0;
+    display: inline-block;
+    border-radius: var(--tag-border-radius);
+    padding-inline: 5px;
+    color: black;
+    text-decoration: none;
+    font-family: monospace;
+    line-height: 25px;
+  }
+  .category {
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-right: 1px dotted black;
+    font-weight: bold;
+  }
 
-.tag .category {
-  border-top-right-radius: 0px;
-  border-bottom-right-radius: 0px;
-  border-right: 1px dotted black;
-  font-weight: bold;
-}
+  .name {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    overflow: hidden;
 
-.tag .name {
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  max-width: 100%;
-  overflow: hidden;
+    @media screen and (max-width: 500px) {
+      white-space: wrap;
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    align-items: center;
+  }
 }
