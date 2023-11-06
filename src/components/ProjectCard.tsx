@@ -1,7 +1,7 @@
 import "./ProjectCard.css";
 
 import type { AnchorHTMLAttributes } from "react";
-import type { Project } from "../content/config";
+import type { Project } from "../content/projects/_config";
 import { SocialLinks } from "./SocialLinks";
 import { Tag } from "./Tag";
 
@@ -33,7 +33,7 @@ export const ProjectCard = (props: Project & { body: string; url: string }) => {
         <MaybeLink href={props.url} if={hasBody}>
           <picture className="banner">
             <img
-              src={props.preview}
+              src={props.preview.src}
               alt={`${props.name}'s project preview image`}
             />
           </picture>

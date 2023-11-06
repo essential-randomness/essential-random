@@ -49,7 +49,7 @@ const Content = (await curr.render()).Content;
       <h1>{curr.data.name}</h1>
       <picture class="centered">
         <img
-          src={curr.data.preview}
+          src={curr.data.preview.src}
           alt={`${curr.data.name}'s project preview image`}
         />
       </picture>

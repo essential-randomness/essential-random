@@ -301,6 +301,13 @@ declare module 'astro:content' {
   collection: "projects";
   data: InferEntrySchema<"projects">
 } & { render(): Render[".mdx"] };
+"astrolabe.mdx": {
+	id: "astrolabe.mdx";
+  slug: "astrolabe";
+  body: string;
+  collection: "projects";
+  data: InferEntrySchema<"projects">
+} & { render(): Render[".mdx"] };
 "bobaboard.mdx": {
 	id: "bobaboard.mdx";
   slug: "bobaboard";
@@ -308,9 +315,44 @@ declare module 'astro:content' {
   collection: "projects";
   data: InferEntrySchema<"projects">
 } & { render(): Render[".mdx"] };
+"build-our-website.mdx": {
+	id: "build-our-website.mdx";
+  slug: "build-our-website";
+  body: string;
+  collection: "projects";
+  data: InferEntrySchema<"projects">
+} & { render(): Render[".mdx"] };
+"fandom-coders.mdx": {
+	id: "fandom-coders.mdx";
+  slug: "fandom-coders";
+  body: string;
+  collection: "projects";
+  data: InferEntrySchema<"projects">
+} & { render(): Render[".mdx"] };
 "fujoboard.mdx": {
 	id: "fujoboard.mdx";
   slug: "fujoboard";
+  body: string;
+  collection: "projects";
+  data: InferEntrySchema<"projects">
+} & { render(): Render[".mdx"] };
+"fujoshi-guide.mdx": {
+	id: "fujoshi-guide.mdx";
+  slug: "fujoshi-guide";
+  body: string;
+  collection: "projects";
+  data: InferEntrySchema<"projects">
+} & { render(): Render[".mdx"] };
+"personal-website.mdx": {
+	id: "personal-website.mdx";
+  slug: "personal-website";
+  body: string;
+  collection: "projects";
+  data: InferEntrySchema<"projects">
+} & { render(): Render[".mdx"] };
+"robinboob.mdx": {
+	id: "robinboob.mdx";
+  slug: "robinboob";
   body: string;
   collection: "projects";
   data: InferEntrySchema<"projects">

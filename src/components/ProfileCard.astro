@@ -2,7 +2,7 @@
 import avatar from "../images/avatar.png";
 ---
 
-<aside class="h-card">
+<aside class="h-card card">
   <img class="avatar u-logo" src={avatar.src} alt="Ms Boba's avatar" />
   <div class="p-name">
     <a href="/" rel="me" class="u-url"> Essential Randomness</a>
@@ -11,15 +11,49 @@ import avatar from "../images/avatar.png";
     a.k.a. <span class="p-nickname">Ms Boba</span>
   </div>
   <div class="p-note">
-    Software Engineer, Fandom Person & Other Random Stuff. Big mad at big tech.
-    Full Stack Human. #queeredge — Building chaotic ethical social spaces at <a
-      href="https://bobaboard.com/">bobaboard.com</a
-    >!
+    Software Engineer, Fandom Person & Other Random Stuff. Full Stack Human.
+    #queeredge
   </div>
 </aside>
+<aside class="card">
+  <h2>About me</h2>
+  <dl>
+    <dt>Name</dt>
+    <dd>Ms Boba</dd>
+    <dt>Hard skills</dt>
+    <dd>
+      Software engineering (staff lvl), marketing, entrepreneurship, writing
+      very hot fanfictions, shitposting
+    </dd>
+    <dt>Soft skills</dt>
+    <dd>
+      Community and team building, teaching complex subjects to beginners,
+      "figuring it out, somehow", reading 2347298 non-fiction books a year,
+      being terminally online
+    </dd>
+    <dt>Likes</dt>
+    <dd>
+      Software decentralization and interoperability, getting fandom people into
 
+
+      <u>modern</u> web development and open source, building projects that make
+      people go "what", despicable fictional characters
+    </dd>
+    <dt>Dislikes</dt>
+    <dd>
+      How boring the internet is these days, huge corporations, the pressure for
+      indie projects to forego modern tooling and frameworks
+    </dd>
+    <dt>Currently working on</dt>
+    <dd>
+      Building more of <a href="/projects">these projects</a> and <a
+        href="/support-me">getting paid for it</a
+      >
+    </dd>
+  </dl>
+</aside>
 <style>
-  .h-card {
+  .card {
     border: 2px solid black;
     box-shadow: var(--box-shadow);
     padding: 10px 15px;
@@ -27,37 +61,60 @@ import avatar from "../images/avatar.png";
     display: flex;
     flex-direction: column;
     gap: 5px;
+
+    & + .card {
+      margin-top: 20px;
+    }
+
+    * {
+      line-height: 1.3;
+    }
+
+    h2 {
+      margin-bottom: 5px;
+      text-align: center;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      max-width: 400px;
+      align-self: center;
+    }
+
+    .p-name {
+      margin: 0;
+      font-family: var(--font-family-title);
+      font-weight: 800;
+      font-size: x-large;
+
+      a {
+        line-height: 1.1;
+        display: block;
+      }
+    }
+    .nickname {
+      font-size: small;
+    }
   }
 
-  .h-card * {
-    line-height: 1.3;
+  dl {
+    margin-top: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
   }
 
-  .h-card img {
-    width: 100%;
-    height: auto;
-    max-width: 400px;
-    align-self: center;
-  }
-
-  .h-card .p-name {
-    margin: 0;
-    font-family: var(--font-family-title);
+  dt {
     font-weight: 800;
-    font-size: x-large;
   }
 
-  .h-card .p-name a {
-    line-height: 1.1;
-    display: block;
-  }
-
-  .h-card .nickname {
-    font-size: small;
+  dd {
+    margin-left: 10px;
   }
 
   @media (max-width: 650px) {
-    .h-card {
+    .card {
       display: grid;
       grid-template-columns: 30% 70%;
       align-items: center;
