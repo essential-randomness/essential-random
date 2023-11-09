@@ -1,7 +1,7 @@
-<details class="card" open>
+<details class="card about-me" open>
   <summary><h2>About <u>"me"</u></h2></summary>
   <p class="tagline">
-    "The carefully-constructed worksona of one of the many gremlins of the
+    "The artisanally-crafted worksona of one of the many gremlins of the
     internet"
   </p>
   <dl>
@@ -36,7 +36,7 @@
       How boring the internet is these days, huge corporations, <strike
         >people saying you should
       </strike>
-      <em>nevermind, I'm trying to quit complaining</em>
+      <em>nevermind, I'm trying to stop complaining about people</em>
     </dd>
     <!-- <dt>Fun fact(s):</dt>
     <dd>
@@ -58,6 +58,7 @@
     font-size: small;
     text-align: center;
     font-style: italic;
+    margin-top: 5px;
   }
   details {
     &[open] summary::after {
@@ -95,7 +96,7 @@
     }
 
     h2 {
-      margin-bottom: 5px;
+      margin-block: 5px;
       text-align: center;
     }
   }
@@ -123,3 +124,14 @@
     }
   }
 </style>
+
+<script>
+  window.addEventListener("resize", () => {
+    document
+      .querySelector(".about-me")
+      ?.toggleAttribute("open", window.innerWidth > 650);
+  });
+  document
+    .querySelector(".about-me")
+    ?.toggleAttribute("open", window.innerWidth > 650);
+</script>
