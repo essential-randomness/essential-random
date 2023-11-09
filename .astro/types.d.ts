@@ -255,6 +255,13 @@ declare module 'astro:content' {
   collection: "faqs";
   data: InferEntrySchema<"faqs">
 } & { render(): Render[".md"] };
+"splitting-your-time.md": {
+	id: "splitting-your-time.md";
+  slug: "splitting-your-time";
+  body: string;
+  collection: "faqs";
+  data: InferEntrySchema<"faqs">
+} & { render(): Render[".md"] };
 };
 "posts": {
 "doing-content-right/index.mdx": {
