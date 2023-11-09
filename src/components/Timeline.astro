@@ -1,0 +1,87 @@
+<h2>The story so far</h2>
+<ul>
+  <li>
+    <time>2001</time><p>
+      Got gifted my first computer and internet connection. Learned HTML (and
+      Photoshop!) by building a Neon Genesis Evangelion shrine.
+    </p>
+  </li>
+  <li>
+    <time>2000s</time><p>
+      Skipped a lot of highschool to hole up in my room and build my "fujoshi
+      shit".
+    </p>
+  </li>
+  <li>
+    <time>2010s</time><p>
+      After graduating as valedictorian of her Computer Science degree, I
+      emigrated from Europe 🇪🇺 to Silicon Valley 🇺🇸 to work for a very large,
+      very famous corporation.
+    </p>
+  </li>
+  <li>
+    <time>2018</time><p>
+      "Got radicalized by the Tumblr porn ban". Or, in better words, realized
+      the internet was getting really, really sucky and decided I should do
+      something about it.
+    </p>
+  </li>
+  <li>
+    <time>2019</time><p>
+      After giving up "change from the inside" is not what the web needs, I
+      abandoned my cozy online anonymity to figure out how to tackle the problem
+      from within the web itself.
+    </p>
+  </li>
+  <li>
+    <time>2020s</time><p>
+      Launched a series of projects centered around fandom, tech education, and
+      online communities. <a href="/support-me"
+        >Still trying to make a living with it.</a
+      >
+    </p>
+  </li>
+</ul>
+
+<style>
+  ul {
+    position: relative;
+    &::before {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 73px;
+      content: "";
+      border: 2px dashed black;
+    }
+  }
+  li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    time {
+      position: relative;
+      width: 70px;
+      flex-shrink: 0;
+      text-align: center;
+      background-color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-weight: bold;
+
+      &::before {
+        content: "";
+        width: 10px;
+        height: 10px;
+        background-color: white;
+        border-radius: 50%;
+        border: 4px solid black;
+      }
+    }
+    p {
+      margin-top: 10px;
+    }
+  }
+</style>
