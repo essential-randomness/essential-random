@@ -206,13 +206,6 @@ declare module 'astro:content' {
   collection: "faqs";
   data: InferEntrySchema<"faqs">
 } & { render(): Render[".md"] };
-"donation-types.md": {
-	id: "donation-types.md";
-  slug: "donation-types";
-  body: string;
-  collection: "faqs";
-  data: InferEntrySchema<"faqs">
-} & { render(): Render[".md"] };
 "favorite-support.md": {
 	id: "favorite-support.md";
   slug: "favorite-support";
