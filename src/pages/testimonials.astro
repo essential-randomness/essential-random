@@ -2,7 +2,10 @@
 import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
 
-const allTestimonials = await getCollection("testimonials");
+const allTestimonials = await getCollection(
+  "testimonials",
+  (testimonial) => !testimonial.data.hidden
+);
 const testimonialsNoOrder = allTestimonials.filter(
   (testimonial) => testimonial.data.order === undefined
 );
@@ -24,13 +27,9 @@ testimonialsWithOrder.forEach((testimonial) => {
     <h2>What friends (and beyond) say about me</h2>
     <p>
       Here's some quote from people I've worked with, or who have been involved
-      with projects I run. Want to add your own? Head to the
-      <a
-        href="https://docs.google.com/forms/d/e/1FAIpQLSeii5nDElD8vt9aL5AIOCxtMB-CDHHMC-081QgU0ZiK-HseBQ/viewform"
-      >
-        &quot;Ms Boba fishes for compliments&quot; survey
-      </a>
-       .
+      with projects I run. <strong
+        >Want to help me continue doing this work in 2024 and beyond?</strong
+      > Consider <a href="/support-me#donate">supporting me</a>!
     </p>
     <ul>
       {
@@ -49,6 +48,15 @@ testimonialsWithOrder.forEach((testimonial) => {
         })
       }
     </ul>
+    <p>
+      Want to add your own? Head to the
+      <a
+        href="https://docs.google.com/forms/d/e/1FAIpQLSeii5nDElD8vt9aL5AIOCxtMB-CDHHMC-081QgU0ZiK-HseBQ/viewform"
+      >
+        &quot;Ms Boba fishes for compliments&quot; survey
+      </a>
+       .
+    </p>
   </main>
 </Layout>
 <style>
@@ -62,6 +70,7 @@ testimonialsWithOrder.forEach((testimonial) => {
     gap: 20px;
     list-style-type: none;
     margin-top: 40px;
+    padding: 0 20px;
   }
   li {
     border: 2px solid black;

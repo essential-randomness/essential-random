@@ -352,13 +352,6 @@ declare module 'astro:content' {
 } & { render(): Render[".mdx"] };
 };
 "testimonials": {
-"a-fantastic-webdev-and-social-space-crea.md": {
-	id: "a-fantastic-webdev-and-social-space-crea.md";
-  slug: "a-fantastic-webdev-and-social-space-crea";
-  body: string;
-  collection: "testimonials";
-  data: InferEntrySchema<"testimonials">
-} & { render(): Render[".md"] };
 "a-good-friend-and-a-deep-thinker-who-tru.md": {
 	id: "a-good-friend-and-a-deep-thinker-who-tru.md";
   slug: "a-good-friend-and-a-deep-thinker-who-tru";
@@ -460,6 +453,13 @@ declare module 'astro:content' {
 "uniquely-creative-and-continues-to-guide.md": {
 	id: "uniquely-creative-and-continues-to-guide.md";
   slug: "uniquely-creative-and-continues-to-guide";
+  body: string;
+  collection: "testimonials";
+  data: InferEntrySchema<"testimonials">
+} & { render(): Render[".md"] };
+"zz-a-fantastic-webdev-and-social-space-crea.md": {
+	id: "zz-a-fantastic-webdev-and-social-space-crea.md";
+  slug: "zz-a-fantastic-webdev-and-social-space-crea";
   body: string;
   collection: "testimonials";
   data: InferEntrySchema<"testimonials">

@@ -21,6 +21,7 @@ export const collections = {
     schema: z.object({
       highlight: z.boolean().optional(),
       order: z.number().optional(),
+      hidden: z.boolean().optional(),
     }),
   }),
   socials,
