@@ -17,13 +17,9 @@ export const collections = {
     schema: FaqSchema,
   }),
   testimonials: defineCollection({
-    type: "data",
+    type: "content",
     schema: z.object({
-      testimonials: z.array(
-        z.object({
-          message: z.string(),
-        })
-      ),
+      highlight: z.boolean().optional(),
     }),
   }),
   socials,

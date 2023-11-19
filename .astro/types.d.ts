@@ -234,13 +234,6 @@ declare module 'astro:content' {
   collection: "faqs";
   data: InferEntrySchema<"faqs">
 } & { render(): Render[".md"] };
-"on-the-fence.mdx": {
-	id: "on-the-fence.mdx";
-  slug: "on-the-fence";
-  body: string;
-  collection: "faqs";
-  data: InferEntrySchema<"faqs">
-} & { render(): Render[".mdx"] };
 "secure-payment.md": {
 	id: "secure-payment.md";
   slug: "secure-payment";
@@ -358,6 +351,120 @@ declare module 'astro:content' {
   data: InferEntrySchema<"projects">
 } & { render(): Render[".mdx"] };
 };
+"testimonials": {
+"a-fantastic-webdev-and-social-space-crea.md": {
+	id: "a-fantastic-webdev-and-social-space-crea.md";
+  slug: "a-fantastic-webdev-and-social-space-crea";
+  body: string;
+  collection: "testimonials";
+  data: InferEntrySchema<"testimonials">
+} & { render(): Render[".md"] };
+"a-good-friend-and-a-deep-thinker-who-tru.md": {
+	id: "a-good-friend-and-a-deep-thinker-who-tru.md";
+  slug: "a-good-friend-and-a-deep-thinker-who-tru";
+  body: string;
+  collection: "testimonials";
+  data: InferEntrySchema<"testimonials">
+} & { render(): Render[".md"] };
+"always-had-a-knack-for-solving-problems.md": {
+	id: "always-had-a-knack-for-solving-problems.md";
+  slug: "always-had-a-knack-for-solving-problems";
+  body: string;
+  collection: "testimonials";
+  data: InferEntrySchema<"testimonials">
+} & { render(): Render[".md"] };
+"always-really-insightful-and-has-a-belie.md": {
+	id: "always-really-insightful-and-has-a-belie.md";
+  slug: "always-really-insightful-and-has-a-belie";
+  body: string;
+  collection: "testimonials";
+  data: InferEntrySchema<"testimonials">
+} & { render(): Render[".md"] };
+"an-accomplished-coder-developer-consulta.md": {
+	id: "an-accomplished-coder-developer-consulta.md";
+  slug: "an-accomplished-coder-developer-consulta";
+  body: string;
+  collection: "testimonials";
+  data: InferEntrySchema<"testimonials">
+} & { render(): Render[".md"] };
+"building-bobaboard-effort.md": {
+	id: "building-bobaboard-effort.md";
+  slug: "building-bobaboard-effort";
+  body: string;
+  collection: "testimonials";
+  data: InferEntrySchema<"testimonials">
+} & { render(): Render[".md"] };
+"fandom-old-and-software-engineer.md": {
+	id: "fandom-old-and-software-engineer.md";
+  slug: "fandom-old-and-software-engineer";
+  body: string;
+  collection: "testimonials";
+  data: InferEntrySchema<"testimonials">
+} & { render(): Render[".md"] };
+"first-hand-professional-silicon-valley-f.md": {
+	id: "first-hand-professional-silicon-valley-f.md";
+  slug: "first-hand-professional-silicon-valley-f";
+  body: string;
+  collection: "testimonials";
+  data: InferEntrySchema<"testimonials">
+} & { render(): Render[".md"] };
+"i-couldnt-have-gotten-me-and-my-website.md": {
+	id: "i-couldnt-have-gotten-me-and-my-website.md";
+  slug: "i-couldnt-have-gotten-me-and-my-website";
+  body: string;
+  collection: "testimonials";
+  data: InferEntrySchema<"testimonials">
+} & { render(): Render[".md"] };
+"i-trust-ms-bobas-efforts-to-shape-better.md": {
+	id: "i-trust-ms-bobas-efforts-to-shape-better.md";
+  slug: "i-trust-ms-bobas-efforts-to-shape-better";
+  body: string;
+  collection: "testimonials";
+  data: InferEntrySchema<"testimonials">
+} & { render(): Render[".md"] };
+"if-she-could-adopt-me.md": {
+	id: "if-she-could-adopt-me.md";
+  slug: "if-she-could-adopt-me";
+  body: string;
+  collection: "testimonials";
+  data: InferEntrySchema<"testimonials">
+} & { render(): Render[".md"] };
+"one-of-the-few-people-i-trust-to-navigat.md": {
+	id: "one-of-the-few-people-i-trust-to-navigat.md";
+  slug: "one-of-the-few-people-i-trust-to-navigat";
+  body: string;
+  collection: "testimonials";
+  data: InferEntrySchema<"testimonials">
+} & { render(): Render[".md"] };
+"possibly-one-of-the-most-positive-encour.md": {
+	id: "possibly-one-of-the-most-positive-encour.md";
+  slug: "possibly-one-of-the-most-positive-encour";
+  body: string;
+  collection: "testimonials";
+  data: InferEntrySchema<"testimonials">
+} & { render(): Render[".md"] };
+"the-kind-of-person-who-can-not-only-come.md": {
+	id: "the-kind-of-person-who-can-not-only-come.md";
+  slug: "the-kind-of-person-who-can-not-only-come";
+  body: string;
+  collection: "testimonials";
+  data: InferEntrySchema<"testimonials">
+} & { render(): Render[".md"] };
+"the-only-person-ive-seen-approach-buildi.md": {
+	id: "the-only-person-ive-seen-approach-buildi.md";
+  slug: "the-only-person-ive-seen-approach-buildi";
+  body: string;
+  collection: "testimonials";
+  data: InferEntrySchema<"testimonials">
+} & { render(): Render[".md"] };
+"uniquely-creative-and-continues-to-guide.md": {
+	id: "uniquely-creative-and-continues-to-guide.md";
+  slug: "uniquely-creative-and-continues-to-guide";
+  body: string;
+  collection: "testimonials";
+  data: InferEntrySchema<"testimonials">
+} & { render(): Render[".md"] };
+};
 
 	};
 
@@ -367,13 +474,6 @@ declare module 'astro:content' {
 	id: "socials";
   collection: "socials";
   data: InferEntrySchema<"socials">
-};
-};
-"testimonials": {
-"testimonials": {
-	id: "testimonials";
-  collection: "testimonials";
-  data: InferEntrySchema<"testimonials">
 };
 };
 
