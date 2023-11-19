@@ -1,5 +1,6 @@
 ---
 highlight: true
+order: 2
 ---
 
 I don't know anyone else working on a nascent fandom project that has both

@@ -20,6 +20,7 @@ export const collections = {
     type: "content",
     schema: z.object({
       highlight: z.boolean().optional(),
+      order: z.number().optional(),
     }),
   }),
   socials,

@@ -2,7 +2,18 @@
 import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
 
-const testimonials = await getCollection("testimonials");
+const allTestimonials = await getCollection("testimonials");
+const testimonialsNoOrder = allTestimonials.filter(
+  (testimonial) => testimonial.data.order === undefined
+);
+const testimonialsWithOrder = allTestimonials.filter(
+  (testimonial) => testimonial.data.order !== undefined
+);
+
+const testimonials = [...testimonialsNoOrder];
+testimonialsWithOrder.forEach((testimonial) => {
+  testimonials.splice(testimonial.data.order! - 1, 0, testimonial);
+});
 ---
 
 <Layout
