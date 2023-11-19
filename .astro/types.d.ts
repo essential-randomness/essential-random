@@ -422,6 +422,13 @@ declare module 'astro:content' {
   collection: "testimonials";
   data: InferEntrySchema<"testimonials">
 } & { render(): Render[".md"] };
+"infectious-enthusiasm.md": {
+	id: "infectious-enthusiasm.md";
+  slug: "infectious-enthusiasm";
+  body: string;
+  collection: "testimonials";
+  data: InferEntrySchema<"testimonials">
+} & { render(): Render[".md"] };
 "one-of-the-few-people-i-trust-to-navigat.md": {
 	id: "one-of-the-few-people-i-trust-to-navigat.md";
   slug: "one-of-the-few-people-i-trust-to-navigat";
