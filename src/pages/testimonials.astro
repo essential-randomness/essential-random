@@ -1,0 +1,105 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../layouts/Layout.astro";
+
+const testimonials = await getCollection("testimonials");
+---
+
+<Layout
+  title="Essential Randomness — Support Me"
+  description="Help me build a better internet with your support!"
+>
+  <main>
+    <h2>What friends (and beyond) say about me</h2>
+    <p>
+      Here's some quote from people I've worked with, or who have been involved
+      with projects I run. Want to add your own? Head to the
+      <a
+        href="https://docs.google.com/forms/d/e/1FAIpQLSeii5nDElD8vt9aL5AIOCxtMB-CDHHMC-081QgU0ZiK-HseBQ/viewform"
+      >
+        &quot;Ms Boba fishes for compliments&quot; survey
+      </a>
+       .
+    </p>
+    <ul>
+      {
+        testimonials.map(async (testimonial) => {
+          const Testimonial = (await testimonial.render()).Content;
+          return (
+            <li
+              class:list={{
+                highlight: testimonial.data.highlight,
+              }}
+              data-span={Math.ceil(testimonial.body.length / 100)}
+            >
+              <Testimonial />
+            </li>
+          );
+        })
+      }
+    </ul>
+  </main>
+</Layout>
+<style>
+  main > p {
+    max-width: 80ch;
+  }
+  ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-auto-rows: 1fr;
+    gap: 20px;
+    list-style-type: none;
+    margin-top: 40px;
+  }
+  li {
+    border: 2px solid black;
+    border-radius: 16px;
+    height: 100%;
+    align-items: center;
+    display: flex;
+    margin: 0;
+  }
+  li.highlight {
+    box-shadow: var(--box-shadow-deep);
+  }
+  li :global(p) {
+    padding: 10px 20px;
+  }
+  li[data-span="2"] {
+    grid-row: span 2;
+  }
+  li[data-span="3"] {
+    grid-row: span 3;
+  }
+  li[data-span="4"] {
+    grid-row: span 4;
+  }
+  li[data-span="5"] {
+    grid-row: span 5;
+  }
+  li[data-span="6"] {
+    grid-row: span 6;
+  }
+  li[data-span="7"] {
+    grid-row: span 7;
+  }
+  li[data-span="8"] {
+    grid-row: span 8;
+  }
+  li[data-span="9"] {
+    grid-row: span 9;
+  }
+  li[data-span="10"] {
+    grid-row: span 10;
+  }
+  li[data-span="11"] {
+    grid-row: span 11;
+  }
+  li[data-span="12"] {
+    grid-row: span 12;
+  }
+  li[data-span="13"] {
+    grid-row: span 13;
+  }
+</style>
