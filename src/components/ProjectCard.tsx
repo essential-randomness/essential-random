@@ -39,33 +39,31 @@ export const ProjectCard = (props: Project & { body: string; url: string }) => {
           </picture>
         </MaybeLink>
       )}
-      <div className="details">
-        <header>
-          <h2 className="name">
-            <MaybeLink href={props.url} if={props.body.length > 0}>
-              {props.name}
-            </MaybeLink>
-          </h2>
-          <SocialLinks links={props.links} />
-        </header>
-        <p className="description">
-          <span dangerouslySetInnerHTML={{ __html: props.description }} />
-          {hasBody && (
-            <a className="read-more" href={props.url}>
-              Read more
-            </a>
-          )}
-        </p>
-        <footer>
-          <ul className="tags">
-            {props.tags.map((tag) => (
-              <li key={tag}>
-                <Tag tag={tag} />
-              </li>
-            ))}
-          </ul>
-        </footer>
-      </div>
+      <header>
+        <h2 className="name">
+          <MaybeLink href={props.url} if={props.body.length > 0}>
+            {props.name}
+          </MaybeLink>
+        </h2>
+        <SocialLinks links={props.links} />
+      </header>
+      <p className="description">
+        <span dangerouslySetInnerHTML={{ __html: props.description }} />
+        {hasBody && (
+          <a className="read-more" href={props.url}>
+            Read more
+          </a>
+        )}
+      </p>
+      <footer>
+        <ul className="tags">
+          {props.tags.map((tag) => (
+            <li key={tag}>
+              <Tag tag={tag} />
+            </li>
+          ))}
+        </ul>
+      </footer>
     </article>
   );
 };
