@@ -329,9 +329,9 @@ declare module 'astro:content' {
   collection: "projects";
   data: InferEntrySchema<"projects">
 } & { render(): Render[".mdx"] };
-"fujoshi-guide.mdx": {
-	id: "fujoshi-guide.mdx";
-  slug: "fujoshi-guide";
+"fujoguide.mdx": {
+	id: "fujoguide.mdx";
+  slug: "fujoguide";
   body: string;
   collection: "projects";
   data: InferEntrySchema<"projects">

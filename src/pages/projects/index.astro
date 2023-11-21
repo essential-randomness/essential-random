@@ -22,15 +22,18 @@ const projectsWithMarkdown = projects.map((project) => {
 });
 ---
 
-<Layout title="Essential Randomness — Ms Boba's Emporium of Weirdness">
+<Layout title="Essential Randomness — Ms Boba's Eclectic Pile of Projects">
   <main class="projects">
-    <h2>Ms Boba's Eclectic Pile of Projects</h2>
+    <h2>My Eclectic Pile of Projects</h2>
      Here's a (work-in-progress) selection of what I've been working on in the
     last few years:
     <ul>
       {
         projectsWithMarkdown.map((project) => (
-          <li data-has-body={String(project.body.length > 0)}>
+          <li
+            data-has-body={String(project.body.length > 0)}
+            data-project-name={project.slug}
+          >
             <ProjectCard
               {...project.data}
               body={project.body}
@@ -61,6 +64,25 @@ const projectsWithMarkdown = projects.map((project) => {
 
   li[data-has-body="true"] {
     grid-row: span 2;
+  }
+
+  li[data-project-name="bobaboard"] {
+    grid-row-start: 1;
+    grid-row-end: span 2;
+  }
+  li[data-project-name="fujoguide"] {
+    grid-row-start: 3;
+    grid-row-end: span 2;
+    grid-column-start: 2;
+  }
+  li[data-project-name="fandom-coders"] {
+    grid-row-start: 2;
+  }
+  li[data-project-name="fujoboard"] {
+    grid-row-start: 3;
+  }
+  li[data-project-name="robinboob"] {
+    grid-row-start: 4;
   }
 
   @media screen and (min-width: 700px) {
