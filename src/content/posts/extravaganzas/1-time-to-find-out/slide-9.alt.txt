@@ -1,0 +1,33 @@
+Slide 9:
+
+The risk: move fast and break everything
+
+(a.k.a, “how it’s usually done”)
+
+(and how we’ll also do it if we’re not careful)
+
+To the left, the Planeteers using their powers combined to summon Captain
+Planet. Clockwise from the left: Gi, labeled "software that started decaying the
+instant it was written"; Wheeler, labeled "a brittle organization struggling to
+grow from its inevitable failures"; Linka, labeled "a disenfranchised user base
+with no path to meaningful ownership of the software"; Kwame, labeled "an
+increasingly hostile and culturally-divided web"; and Ma-Ti, labeled "the heroic
+efforts of a small group of increasingly burned-out people". Captain Planet is
+labeled "sustainable community software (for fandom)" but "sustainable" is
+additionally covered up by "burnout-powered".
+
+note: I KNOW it looks like im subtweeting but istg i would have written this the
+same way 6 months ago
+
+this is just the natural state human organizations trend towards, everything is
+on a constant path towards rot
+
+tbh 99.9% of people skilled enough to coordinate the work of large/complex
+organizations don't do it in their spare time for free, they get paid a shit-ton
+of money for it 
+
+which is of course not an excuse to ignore problems, in a way it makes it even
+more important not to sweep issues under the rug and figure out how to work
+through them successfully, but STILL
+
+pls dont kill me, think of my kittens

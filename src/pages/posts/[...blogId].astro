@@ -22,11 +22,33 @@ const Content = (await curr?.render()).Content;
 ---
 
 <Layout title="Essential Randomness — Ms Boba's Emporium of Weirdness">
+  <Fragment slot="head">
+    {
+      curr.data.og_image && (
+        <meta property="og:image" content={curr.data.og_image.src} />
+      )
+    }
+    {
+      curr.data.og_image && (
+        <meta name="twitter:image" content={curr.data.og_image.src} />
+      )
+    }
+    {
+      curr.data.og_description && (
+        <meta name="description" content={curr.data.og_description} />
+      )
+    }
+    {
+      curr.data.og_description && (
+        <meta property="og:description" content={curr.data.og_description} />
+      )
+    }
+  </Fragment>
   <main class="post">
     <h1>
       {curr.data.title}
     </h1>
-    <h2>{curr.data.tagline}</h2>
+    {curr.data.tagline && <h2 class="tagline">{curr.data.tagline}</h2>}
     <div>
       Published on <date
         >{
@@ -106,6 +128,15 @@ const Content = (await curr?.render()).Content;
       & + .custom-emoji {
         padding-inline-start: 0;
       }
+    }
+
+    h1:has(~ .tagline) {
+      margin-bottom: 0;
+    }
+
+    .tagline {
+      color: gray;
+      margin-top: 0;
     }
   </style>
 </Layout>

@@ -1,1 +1,20 @@
-This is a test for an alt text thing
+A "Tumblr-style" slideshow, presented by Ms Boba. The text throughout is in
+whimsical Comic Sans, as is Tumblr tradition. The deck is primarily grey text on
+a white background, wiht memes throughout. 
+
+The intro slide has its title information blocked out by additional orange Comic
+Sans on angled text boxes with black fill, as if tape or sticky notes are
+covering up the very slide itself.
+
+Slide 1:
+
+a quick PSA before we start
+
+thank for your support btw, it means a lot (Note: Support is written with a dollar sign for the letter S.)
+
+money is incredibly useful right now, and we really need—
+
+“Omg ms boba just start the slides” yes yes ok, FINE
+
+Town Hall #1
+v0.42.0 — Catching Up Edition
