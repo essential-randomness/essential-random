@@ -21,26 +21,22 @@ if (!curr) {
 const Content = (await curr?.render()).Content;
 ---
 
-<Layout title="Essential Randomness — Ms Boba's Emporium of Weirdness">
+<Layout title={`Essential Randomness — ${curr.data.title}`}>
   <Fragment slot="head">
     {
       curr.data.og_image && (
-        <meta property="og:image" content={curr.data.og_image.src} />
-      )
-    }
-    {
-      curr.data.og_image && (
-        <meta name="twitter:image" content={curr.data.og_image.src} />
-      )
-    }
-    {
-      curr.data.og_description && (
-        <meta name="description" content={curr.data.og_description} />
+        <Fragment>
+          <meta property="og:image" content={curr.data.og_image.src} />
+          <meta name="twitter:image" content={curr.data.og_image.src} />
+        </Fragment>
       )
     }
     {
       curr.data.og_description && (
-        <meta property="og:description" content={curr.data.og_description} />
+        <Fragment>
+          <meta name="description" content={curr.data.og_description} />
+          <meta property="og:description" content={curr.data.og_description} />
+        </Fragment>
       )
     }
   </Fragment>
