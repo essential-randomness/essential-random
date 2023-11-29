@@ -7,14 +7,20 @@ og_description: |
   Come learn all about The BobaVerse™ in this first edition of Ms Boba's Whimsical Extravaganza, a newsletter/town hall for my supporters!
 ---
 
-<details open>
+<details class="whats-this" open>
   <summary>OwO What's this?</summary>
 
 This is a commented version of the first edition of my newsletter/town hall. It
 was originally published in July 2023, and I'm only now getting to making it
 public. If you want new editions of this Town Hall straight into your inbox as
-soon as they're available, you can support me on [Patreon](https://www.patreon.com/essentialrandomness),
-[Ko-fi](https://ko-fi.com/essentialrandomness) or [this same website](/support-me)!
+soon as they're available, you can support me on
+[Patreon](https://www.patreon.com/essentialrandomness),
+[Ko-fi](https://ko-fi.com/essentialrandomness) or [this same
+website](/support-me)!
+
+Also, **there's currently no way to enlarge images on this blog**. Do make
+generous use of "open image in new tab" or mobile panning, or ignore the small
+text and focus on the (literal) big picture!
 
 </details>
 
@@ -41,8 +47,8 @@ ground rules).
 As the slides say, "the BobaVerse™ is an eclectic collection of projects related
 to coding, community and fandom on the web that may or may not create a
 sustainable ecosystem one day". We took all we learned while [building up the
-BobaBoard community](/projects/bobaboard), and envisioned a future where
-niche online communities participate in the creation of both their spaces and
+BobaBoard community](/projects/bobaboard), and envisioned a future where niche
+online communities participate in the creation of both their spaces and
 software!
 
 ![file:./slide-6.alt.txt](./slide-6.png)
@@ -88,8 +94,8 @@ business/programming skills to some VC-backed company?
 ### Learning, Failing, and Learning Again
 
 The process of getting to sustainably build things is a treacherous and complex
-one, one that must account for the (unfortunately inevitable) failures along
-the way. Learning is a fundamental part of the building process!
+one, one that must account for the (unfortunately inevitable) failures along the
+way. Learning is a fundamental part of the building process!
 
 We fail, we learn, we get up, we go back to trying (see [our retrospectives
 process](https://docs.bobaboard.com/docs/volunteering/general/retrospectives)
@@ -141,7 +147,7 @@ automatically sent out (working on it).
 ...and that is all for this edition of Ms Boba's Whimsical Extravaganza!
 
 <div class="socials-callout">
-<div>Like what you read? Help by sharing it on socials!</div>
+<h3>Like what you read? Help by sharing it on socials!</h3>
 
 - [Twitter](!link:twitter)
 - [Tumblr](!link:mastodon)
@@ -154,7 +160,40 @@ the next edition straight into your inbox!
 </div>
 
 <style>{`
-    .socials-callout {
-        background-color: red;
+    .whats-this, .socials-callout {
+      font-family: var(--font-family-title);
+      background-color: #f4f4f4;
+      padding: 20px;
+    }
+    h2, h3 {
+      margin-block: 1.3em;
+    }
+    .whats-this summary {
+      font-weight: 800;
+      cursor: pointer;
+      font-size: 20px;
+    }
+    .whats-this p, .socials-callout p {
+      margin: 10px 0 0 0;
+    }
+    .socials-callout h3 {
+      margin: 0 0 10px 0;
+      font-size: 20px;
+    }
+     .socials-callout ul {
+      margin: 0;
+      padding: 0 0 0 20px;
+    }
+    .socials-callout li {
+      margin: 0 0 0 0;
+    }
+    img {
+      padding-block: 0!important;
+      border: 1px solid #eee;
+      box-shadow: 4px 4px 0 0px #f5f5f5;
+      width: calc(100% - 8px);
+    }
+    img + img {
+      margin-top: 20px;
     }
 `}</style>
