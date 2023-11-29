@@ -29,7 +29,7 @@
     "rehype-toc": "^3.0.2",
     "social-links": "^1.13.8",
     "unist-util-remove": "^4.0.0",
-    "unist-util-select": "^5.0.0"
+    "unist-util-select": "^5.1.0"
   },
   "devDependencies": {
     "hast-util-from-html-isomorphic": "^2.0.0",
