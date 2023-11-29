@@ -10,5 +10,5 @@ by contacting me at
 <a href="mailto:essential.randomn3ss@gmail.com">essential.randomn3ss@gmail.com</a>.
 
 In the meantime you can also donate through
-<a href="https://patreon.com/user?u=87081842">Patreon</a> or
+<a href="https://www.patreon.com/essentialrandomness">Patreon</a> or
 <a href="https://ko-fi.com/essentialrandomness">Ko-fi</a>.
