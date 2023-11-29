@@ -8,235 +8,249 @@ const socials = fromCollection(await getCollection("socials"));
 ---
 
 <Layout title="Essential Randomness — Ms Boba's Emporium of Weirdness">
-    <main class="posts">
-        <aside>
-          <ProfileCard />
-        </aside>
-        <div>
-          <h2>Coming soon</h2>
-          <p>
-            Please hold on while this blog is being made presentable. In the
-            meantime, for a sample of my past writing you can read:
-          </p>
-          <ul class="articles">
-            <li>
-              <a href="https://www.bobaboard.com/blog/development-logs-10">
-                The latest 2023 BobaBoard retrospective
-              </a>
-              (and
-              <a href="https://docs.google.com/presentation/d/1sU6NxEvGdjoSDstIjV-HW1RU1S8ZqxVvLT8dE7TBqLA/view">
-                the 2022 version
-              </a>
-              )
-            </li>
-            <li>
-              <a href="https://essentialrandomness.com/posts/the-fight-for-the-open-web/">
-                This article about what web3 gets wrong about freedom of the web
-                (and what <em>we</em> get wrong about it).
-              </a>
-            </li>
-            <li>
-              <a href="https://essential-randomness.tumblr.com/post/671691948059426816/why-a-fandom-platform-of-our-own-is-not-about">
-                Why “a (transformational) fandom platform of our own” is not about
-                writing down a list of features
-              </a>
-            </li>
-            <li>
-              <a href="https://essential-randomness.tumblr.com/post/677309777029824512/dear-ms-boba-how-do-you-go-from-having-general">
-                How to come up with good projects to improve your programming
-                skills
-              </a>
-            </li>
-            <li>
-              <a href="https://twitter.com/BobaBoard/status/1381348761901785091">
-                “I don&apos;t usually weigh in on controversies (proceeds to weigh
-                in on controversies)”, a.k.a. “the software engineering costs”
-                thread
-              </a>
-            </li>
-            <li>
-              <a href="https://fujoboard.com/">The FujoBoard website</a>
-            </li>
-            <li>
-              <a href="https://www.bobaboard.com/faqs">The BobaBoard FUCQs v2</a>
-              (and <a href="https://v1.bobaboard.com/faqs">the v1 version</a>)
-            </li>
-            <li>
-              <a href="https://excalidraw.com/#json=sH6qFpUqgPL-Pq-HOj_wX,m3il9YKwhFU6xRfV21M-ig">
-                A large, explanatory diagram of how the tools used in modern web
-                development fit together.
-              </a>
-            </li>
-          </ul>
-          <div>
-            ...plus dozens of rants scattered all around the internet!
-            <SocialLinks links={socials} />
-          </div>
-        </div>
-      </main>
+  <main class="posts">
+    <aside>
+      <ProfileCard />
+    </aside>
+    <div>
+      <h2>Coming soon</h2>
+      <p>
+        Please hold on while this blog is being made presentable. In the
+        meantime, for a sample of my past writing you can read:
+      </p>
+      <ul class="articles">
+        <li>
+          <a href="posts/extravaganzas/1-now-its-time-to-find-out">
+            The first edition of my quarterly newsletter
+          </a>
+        </li>
+        <li>
+          <a href="https://www.bobaboard.com/blog/development-logs-10">
+            The latest 2023 BobaBoard retrospective
+          </a>
+           (and
+          <a
+            href="https://docs.google.com/presentation/d/1sU6NxEvGdjoSDstIjV-HW1RU1S8ZqxVvLT8dE7TBqLA/view"
+          >
+            the 2022 version
+          </a>
+           )
+        </li>
+        <li>
+          <a
+            href="https://essentialrandomness.com/posts/the-fight-for-the-open-web/"
+          >
+            This article about what web3 gets wrong about freedom of the web
+            (and what <em>we</em> get wrong about it).
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://essential-randomness.tumblr.com/post/671691948059426816/why-a-fandom-platform-of-our-own-is-not-about"
+          >
+            Why “a (transformational) fandom platform of our own” is not about
+            writing down a list of features
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://essential-randomness.tumblr.com/post/677309777029824512/dear-ms-boba-how-do-you-go-from-having-general"
+          >
+            How to come up with good projects to improve your programming skills
+          </a>
+        </li>
+        <li>
+          <a href="https://twitter.com/BobaBoard/status/1381348761901785091">
+            “I don&apos;t usually weigh in on controversies (proceeds to weigh
+            in on controversies)”, a.k.a. “the software engineering costs”
+            thread
+          </a>
+        </li>
+        <li>
+          <a href="https://fujoboard.com/">The FujoBoard website</a>
+        </li>
+        <li>
+          <a href="https://www.bobaboard.com/faqs">The BobaBoard FUCQs v2</a>
+           (and <a href="https://v1.bobaboard.com/faqs">the v1 version</a>)
+        </li>
+        <li>
+          <a
+            href="https://excalidraw.com/#json=sH6qFpUqgPL-Pq-HOj_wX,m3il9YKwhFU6xRfV21M-ig"
+          >
+            A large, explanatory diagram of how the tools used in modern web
+            development fit together.
+          </a>
+        </li>
+      </ul>
+      <div>
+        ...plus dozens of rants scattered all around the internet!
+        <SocialLinks links={socials} />
+      </div>
+    </div>
+  </main>
 </Layout>
-  
+
 <style>
-main.posts aside {
-  grid-area: profile;
-}
+  main.posts aside {
+    grid-area: profile;
+  }
 
-main.posts aside img {
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-}
-main.posts aside nav {
-  display: flex;
-  flex-direction: column;
-}
-
-main.posts h2 {
-  margin-top: 0;
-}
-
-main.posts .articles li {
-  margin-bottom: 20px;
-}
-main.posts .social-links {
-  justify-content: center;
-  margin-top: 20px;
-}
-
-main.posts {
-  display: grid;
-  grid-template-columns: 25% 1fr;
-  grid-gap: 20px;
-  grid-template-areas: "profile posts";
-}
-
-main.posts > ol {
-  list-style: none;
-  padding-inline: 0;
-}
-
-main.posts article {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-main.posts article header {
-  display: grid;
-  grid-template-columns: 80px auto;
-  grid-template-rows: auto auto auto;
-  grid-template-areas:
-    "avatar title"
-    "avatar time"
-    "avatar categories";
-  align-items: center;
-  column-gap: 10px;
-  padding-bottom: 10px;
-  border-bottom: 1px dashed black;
-}
-
-main.posts article header img {
-  grid-area: avatar;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-}
-
-main.posts article header h2 {
-  grid-area: title;
-  margin: 0;
-}
-
-main.posts article header time {
-  grid-area: time;
-}
-main.posts article header time:before {
-  content: "Posted on: ";
-}
-
-main.posts article .categories {
-  grid-area: categories;
-  list-style: none;
-  display: inline-flex;
-  padding-left: 0;
-  gap: 5px;
-}
-main.posts article footer {
-  border-top: 1px dashed black;
-  padding-top: 10px;
-}
-
-main.posts article .whispertags ol {
-  list-style: none;
-  display: inline-flex;
-  padding-left: 0;
-  gap: 5px;
-  flex-wrap: wrap;
-}
-
-main.posts article .whispertags li {
-  display: inline;
-}
-
-main.posts .read-more {
-  display: block;
-  border: 2px solid black;
-  border-radius: 16px;
-  padding: 10px 5px;
-  box-shadow: 3px 3px 0 0 black;
-  text-align: center;
-  color: black;
-  background-color: white;
-}
-
-main.posts .read-more:hover {
-  filter: invert();
-}
-
-.whispertag {
-  font-family: monospace;
-  display: inline;
-}
-
-.whispertag:before {
-  content: "»";
-}
-
-/* Tooltip container */
-.tooltip {
-  position: relative;
-  display: inline-block;
-  border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
-}
-
-/* Tooltip text */
-.tooltip .tooltiptext {
-  visibility: hidden;
-  width: 120px;
-  background-color: black;
-  color: #fff;
-  text-align: center;
-  padding: 5px 0;
-  border-radius: 6px;
-
-  /* Position the tooltip text - see examples below! */
-  position: absolute;
-  z-index: 1;
-}
-
-/* Show the tooltip text when you mouse over the tooltip container */
-.tooltip:hover .tooltiptext {
-  visibility: visible;
-}
-
-:global(.social-links) {
-  margin-top: 20px;
-}
-
-@media (max-width: 650px) {
-  main.posts {
+  main.posts aside img {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+  }
+  main.posts aside nav {
     display: flex;
     flex-direction: column;
   }
-}
+
+  main.posts h2 {
+    margin-top: 0;
+  }
+
+  main.posts .articles li {
+    margin-bottom: 20px;
+  }
+  main.posts .social-links {
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  main.posts {
+    display: grid;
+    grid-template-columns: 25% 1fr;
+    grid-gap: 20px;
+    grid-template-areas: "profile posts";
+  }
+
+  main.posts > ol {
+    list-style: none;
+    padding-inline: 0;
+  }
+
+  main.posts article {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  main.posts article header {
+    display: grid;
+    grid-template-columns: 80px auto;
+    grid-template-rows: auto auto auto;
+    grid-template-areas:
+      "avatar title"
+      "avatar time"
+      "avatar categories";
+    align-items: center;
+    column-gap: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed black;
+  }
+
+  main.posts article header img {
+    grid-area: avatar;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+  }
+
+  main.posts article header h2 {
+    grid-area: title;
+    margin: 0;
+  }
+
+  main.posts article header time {
+    grid-area: time;
+  }
+  main.posts article header time:before {
+    content: "Posted on: ";
+  }
+
+  main.posts article .categories {
+    grid-area: categories;
+    list-style: none;
+    display: inline-flex;
+    padding-left: 0;
+    gap: 5px;
+  }
+  main.posts article footer {
+    border-top: 1px dashed black;
+    padding-top: 10px;
+  }
+
+  main.posts article .whispertags ol {
+    list-style: none;
+    display: inline-flex;
+    padding-left: 0;
+    gap: 5px;
+    flex-wrap: wrap;
+  }
+
+  main.posts article .whispertags li {
+    display: inline;
+  }
+
+  main.posts .read-more {
+    display: block;
+    border: 2px solid black;
+    border-radius: 16px;
+    padding: 10px 5px;
+    box-shadow: 3px 3px 0 0 black;
+    text-align: center;
+    color: black;
+    background-color: white;
+  }
+
+  main.posts .read-more:hover {
+    filter: invert();
+  }
+
+  .whispertag {
+    font-family: monospace;
+    display: inline;
+  }
+
+  .whispertag:before {
+    content: "»";
+  }
+
+  /* Tooltip container */
+  .tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+  }
+
+  /* Tooltip text */
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 1;
+  }
+
+  /* Show the tooltip text when you mouse over the tooltip container */
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+  }
+
+  :global(.social-links) {
+    margin-top: 20px;
+  }
+
+  @media (max-width: 650px) {
+    main.posts {
+      display: flex;
+      flex-direction: column;
+    }
+  }
 </style>
