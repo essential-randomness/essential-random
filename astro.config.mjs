@@ -6,6 +6,7 @@ import { defineConfig } from "astro/config";
 import { fromHtmlIsomorphic } from "hast-util-from-html-isomorphic";
 import mdx from "@astrojs/mdx";
 import react from "@astrojs/react";
+import { rehypeAddAltText } from "/src/utils/mdx-utils.ts";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeCustomEmoji from "rehype-custom-emoji";
 import rehypeSlug from "rehype-slug";
@@ -47,6 +48,7 @@ export default defineConfig({
           className: "custom-emoji",
         },
       ],
+      rehypeAddAltText,
     ],
   },
   redirects: {
