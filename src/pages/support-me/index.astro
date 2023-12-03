@@ -65,14 +65,24 @@ import { SiKofi } from "react-icons/si";
     </section>
     <section id="donate" class="donate">
       <h2>
-        <a href={`#donate`}> How to support me</a>
+        <a href={`#donate`}>
+          Help&nbsp;<em>me</em>&nbsp;pay&nbsp;<em> me</em>
+          <span>(and throw money at my collaborators)</span></a
+        >
       </h2>
       <p>
-        My well-thought-out roadmap towards a better internet cannot survive
-        without a full-time person at its helm. With your contribution, you will
-        become an active enabler of the movement I&apos;m spearheading, and will
-        rest assured that someone out there is fighting the good fight (also) in
-        your name.
+        The road to a better internet is long and winding! When the going gets
+        though, a few things can help making the road a bit more bearable: a few
+        good friends, a handful of blorbos, and–last but certainly not least–<em
+          >health insurance</em
+        >.
+      </p>
+      <p>
+        Whether on
+        <a href="https://www.patreon.com/essentialrandomness">Patreon</a>,
+        <a href="https://ko-fi.com/essentialrandomness">Ko-fi</a>, or on one of
+        the self-hosted tiers below, your support will help me continue to work
+        on my projects and make the internet a better place!
       </p>
       <div>
         <h3>Self-hosted support tiers</h3>
@@ -165,6 +175,14 @@ import { SiKofi } from "react-icons/si";
     }
     details h4 {
       display: inline-block;
+    }
+    .donate h2 span {
+      font-size: 0.6em;
+      margin-left: 7px;
+      margin-top: 3px;
+    }
+    .donate h2 {
+      align-items: flex-end;
     }
   </style>
 </Layout>
