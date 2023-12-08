@@ -1,0 +1,189 @@
+---
+title: Create a tip jar with PayPal and Stripe (easy mode)
+created_at: 2023-12-07 15:35:19
+---
+
+## Set up
+
+In this article, we're going to show you how to create a tip jar with PayPal and
+Stripe, the easy way!
+
+### What you need
+
+In order to set up your tip jars you will need an account with the payment
+processor that you wish to use. In this tutorial, we will use the following
+processors:
+
+- [Stripe](https://stripe.com/): The most popular payment processor among
+  developers. As most payment processors out there, it's not friendly to NSFW
+  creators (blame credit card companies) so if your content toes the line of
+  what's allowed once again make sure to transfer out your money often.
+- [PayPal](https://www.paypal.com/): Probably the most famous payment processor
+  on the web. Not friendly to unconventional (read: NSFW) creators (make sure
+  not to mention that in your details, and to set up your account to transfer
+  out money often), but tends to be the preferred way to pay for many people,
+  especially in Latin American countries. To get the full power of PayPal, make
+  sure to create a **business account**.
+
+<div class="warning">
+
+You might need additional set up after you create an account in order to be able
+to use the features we'll discuss. Do reach out if you need help, and let me
+know if this article needs more or updated information.
+
+</div>
+
+### How to Get Tips with Stripe
+
+The easiest way to get tips with Stripe is by using their [payment
+links](https://stripe.com/docs/payment-links) feature. This feature allows you
+to select either a product to sell, a subscription or a donation, and (after
+some setup) will give you a link to a checkout page that you can give to anyone
+to collect payments.
+
+This is how the set up page looks when you select the donation option:
+
+![TODO:alt](./choose-what-to-pay-stripe.png)
+
+As you play around with the settings, you'll see the preview of the checkout
+page update on the right. If you want to keep it simple, you don't need to mess
+around with settings, but you can explore advanced options for more fun
+opportunities. For example:
+
+- You can add **custom fields** to collect more information from payers. For
+  example, you could let people fill in information about a custom doodle in
+  exchange for their tip!
+- You can also **limit the number of payments** to only allow the link to be
+  used a certain number of times. This can be useful for anything you want to
+  keep "limited edition".
+
+Make sure to also check the "after payment" tab to confirm what users will see
+once their payment is successful. You can either use Stripe's default page or
+you can choose to redirect them to a specific page on your website.
+
+![TODO:alt](./after-payment-stripe.png)
+
+<div class="warning">
+
+Make sure that neither of these pages are showing your personal information!
+Make sure to try making a few test payments yourself to ensure that Stripe isn't
+leaking data to the payer. Check your [public business details
+page](https://dashboard.stripe.com/settings/public) to hide or change
+information.
+
+</div>
+
+#### Stripe Customers Portal
+
+While this might not be necessary for one-time donations, subscriptions need a
+portal that allows people to manage their information. Luckily, Stripe offers a
+premade one. You can read more about [setting up a customer portal
+here](https://stripe.com/docs/no-code/customer-portal).
+
+### How to Get Tips with PayPal
+
+#### PayPal.me
+
+[PayPal.me](https://www.paypal.com/paypalme/) is PayPal equivalent to Stripe's
+payment links (but without the ability to sell a subscription or specific
+product). After setting this up, you will be given a link that allows anyone to
+send you an amount of their choice. You can also request a specific amount by
+adding it at the end of your link. PayPal.me does not require a business account
+and can be used for everyday things like splitting bills.
+
+Quoting the [help
+article](https://www.paypal.com/us/cshelp/article/what-is-paypalme-help432):
+
+> How do I request a specific amount via paypal.me? Just add the amount you want
+> to request to the end of your link. For example, use paypal.me/DiaRusso/25 to
+> request 25.00 USD. The request will be made in your default currency, which
+> you can change at any time in your PayPal Account settings. You can request a
+> specific currency by adding its code to the amount. To ask for Australian
+> Dollars, for example, you would use paypal.me/DiaRusso/25AUD.
+
+#### PayPal Donation Button
+
+If you want the full power of the PayPal donation experience (and aren't selling
+specific goods or services), you can use the [PayPal Donations
+Button](https://www.paypal.com/donate/buttons/manage). This allows a ton of
+customization (even more than Stripe) and works both as a link you can give out
+on socials or as HTML code you can embed on your website.
+
+![TODO:alt](./paypal-options.png)
+
+One fun bit that PayPal allows is actual fundraising campaigns with defined
+goals. It also allows payers to choose between different preset amounts (which
+require separate payment links with Stripe), and to specify an "initiative" they
+want their donation to go towards (which you can likely hack together with
+Stripe custom fields).
+
+![TODO:alt](./campaign-page-preview.png)
+
+PayPal donation buttons also allow for recurring donations, so if you aren't
+looking to sell products, this can be a good way to get no-strings-attached,
+recurring tips from your supporters.
+
+<div class="warning">
+
+Since there's a lot of possible options for PayPal donations, we won't go through
+each possibility. Let me know if you end up stuck, and I'll do my best to help!
+
+</div>
+
+#### PayPal Payments Buttons
+
+If you want to actually sell things, and not simply accept donations, you can use
+[PayPal's Buttons integration](https://www.paypal.com/buttons/). There are a lot
+of different types of buttons (especially if you're logged in), but the ones you
+should consider using are the "smart payments button" and the "smart donations button".
+
+![TODO:alt](./paypal-buttons.png)
+
+Once again, there are _a lot of options here_ (including the ability to allow
+people to set their own prices for products or add custom requests), but at the
+end of the flow you will once again get a link to a PayPal page with checkout
+options (not available for subscriptions), as well as HTML code you can add to
+your website to display the payment button there.
+
+Check out [my subscriptions page](https://github.com/essential-randomness/essential-random/blob/97cff874198d07612e4d668c01d35cdc4d24e8a0/src/components/PayPalButton.tsx#L23)
+for a few more options that you can add to this code, like the ability to not require
+shipping information or redirect the user to a specific page after payment.
+
+### How to Do Things when Payments Happen
+
+Both PayPal and Stripe allow you to redirect the user to a specific page after payment,
+but for anything more complex you will need a service that's able to receive webhooks.
+
+The concept of webhook is beyond this guide. If you have some money to spend monthly
+Zapier allows to react to both Stripe and PayPal events without needing to code, while
+PipeDream is a free option that however requires some coding abilities.
+
+Stay tuned for a guide on webhooks, cause they're super cool!
+
+### Tradeoffs & Pitfalls
+
+While this is a cool way to avoid additional intermediaries between you and payment
+processors, there are a few downsides you should be aware of:
+
+- **Tax Handling:** Many 3rd parties will automatically handle taxes on your payments.
+  With this system, you will need to do so yourself. Make sure you consult an accountant
+  and/or check the laws of your place of residence.
+- **Leaking personal information:** If you aren't careful it can be easy to accidentally
+  leak personal information while using this method. Run a few tests yourself after setting
+  these up and make sure there's no information you want to hide available anywhere!
+- **Seeing personal information:** Since you'll be taking payments directly, you'll be
+  able to see information about your buyers that other 3rd parties (like Patreon) might
+  hide by default. While this might not be a problem for you, it might deter people from
+  using your links.
+
+Thank you for reading through the end. If you do want to test this live (and see more
+articles like this), head to my ["support me" page](/support-me#donate)! Let me know
+if this was useful, or if more details are needed by writing me on my socials.
+
+See you soon!
+
+<style>{`
+    .warning {
+        background-color: yellow;
+    }
+`}</style>
