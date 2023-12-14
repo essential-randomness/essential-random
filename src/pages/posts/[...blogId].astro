@@ -56,6 +56,24 @@ const Content = (await curr?.render()).Content;
         }</date
       >
     </div>
+    {
+      curr.data.status == "rough-draft" && (
+        <div class="rough-draft">
+          <h3>Warning: Roughness Ahead~</h3>
+          <p>
+            <span>
+              The post you're about to read is marked as a rough draft!
+            </span>
+            Rough drafts might provide unclear (or wrong) information, be hard
+            to read, or otherwise all over the place.{" "}
+            <em>Read at your own risk!</em>
+          </p>
+          <p>
+            Want to learn more or help correct something? Hit me up on socials!
+          </p>
+        </div>
+      )
+    }
     <h2 id="table-of-contents">Table of Contents</h2>
     <Content />
   </main>
@@ -134,5 +152,46 @@ const Content = (await curr?.render()).Content;
       color: gray;
       margin-top: 0;
     }
+
+    .rough-draft {
+      padding: 20px 40px;
+      box-shadow: 7px 10px 0 0px black;
+      border-radius: 3px;
+      width: 80%;
+      margin: 35px auto;
+      /* background-color: papayawhip; */
+      span {
+        font-weight: bold;
+        margin-right: 4px;
+      }
+      p:last-child {
+        font-size: small;
+      }
+    }
   </style>
+
+  <script>
+    import { annotate } from "rough-notation";
+
+    const container = document.querySelector<HTMLDivElement>(".rough-draft");
+    const title = container?.querySelector<HTMLDivElement>("span");
+    if (container) {
+      const annotation = annotate(container, {
+        type: "box",
+        animate: false,
+        padding: -4,
+      });
+      annotation.show();
+    }
+    if (title) {
+      const annotation = annotate(title, {
+        type: "highlight",
+        animate: false,
+        color: "lightgray",
+        padding: -4,
+        multiline: true,
+      });
+      annotation.show();
+    }
+  </script>
 </Layout>

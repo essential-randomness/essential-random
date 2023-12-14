@@ -11,6 +11,7 @@ export const posts = defineCollection({
       tags: z.array(z.string()).optional().default([]),
       og_image: image().optional(),
       og_description: z.string().optional(),
+      status: z.enum(["rough-draft"]).optional(),
     }),
 });
 z;
