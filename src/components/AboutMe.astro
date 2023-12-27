@@ -126,7 +126,10 @@
 </style>
 
 <script>
+  let lastWidth = window.innerWidth;
   window.addEventListener("resize", () => {
+    // If only the height is changing, ignore.
+    if (lastWidth === window.innerWidth) return;
     document
       .querySelector(".about-me")
       ?.toggleAttribute("open", window.innerWidth > 650);
