@@ -1,0 +1,12 @@
+---
+import { getCollection } from "astro:content";
+
+const streams = await getCollection("streams");
+---
+
+<div>
+    Next stream: {streams[0].data.name}
+</div>
+<ul>
+    {streams.map(stream => <li>{stream.data.name}</li>)}
+</ul>

@@ -365,6 +365,15 @@ declare module 'astro:content' {
   data: InferEntrySchema<"projects">
 } & { render(): Render[".mdx"] };
 };
+"streams": {
+"webdev-q&a-1.mdx": {
+	id: "webdev-q&a-1.mdx";
+  slug: "webdev-qa-1";
+  body: string;
+  collection: "streams";
+  data: InferEntrySchema<"streams">
+} & { render(): Render[".mdx"] };
+};
 "testimonials": {
 "a-good-friend-and-a-deep-thinker-who-tru.md": {
 	id: "a-good-friend-and-a-deep-thinker-who-tru.md";
