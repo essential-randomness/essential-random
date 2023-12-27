@@ -1,47 +1,58 @@
-<h2>The story so far</h2>
-<ul>
-  <li>
-    <time>2001</time><p>
-      Got gifted my first computer and internet connection. Learned HTML (and
-      Photoshop!) by building a Neon Genesis Evangelion shrine.
-    </p>
-  </li>
-  <li>
-    <time>2000s</time><p>
-      Repetedly skipped highschool to hole up in my room and code my "fujoshi
-      shit". Learned to use databases and PHP.
-    </p>
-  </li>
-  <li>
-    <time>2010s</time><p>
-      After graduating as valedictorian of my Computer Science class, I
-      emigrated from Europe 🇪🇺 to Silicon Valley 🇺🇸 to work for a very large,
-      very famous corporation.
-    </p>
-  </li>
-  <li>
-    <time>2018</time><p>
-      "Got radicalized by the Tumblr porn ban". Or, in better words, realized
+---
+
+type TimelineItem = {
+  date: string
+  description: string
+};
+
+const MY_TIMELINE = [
+{date :"2001", description:`Got gifted my first computer and internet connection. Learned HTML (and Photoshop!) by building a Neon Genesis Evangelion shrine.`},
+{date :"2000s", description:`Repetedly skipped highschool to hole up in my room and code my "fujoshi shit". Learned to use databases and PHP.`},
+{date :"2010s", description:`After graduating as valedictorian of my Computer Science class, I emigrated from Europe 🇪🇺 to Silicon Valley 🇺🇸 to work for a very large, very famous corporation.`},
+{date :"2018", description:`"Got radicalized by the Tumblr porn ban". Or, in better words, realized
       the internet was getting really, really sucky and decided I should help do
-      something about it.
-    </p>
-  </li>
-  <li>
-    <time>2019</time><p>
-      After giving up "change from the inside", I abandoned my cozy online
+      something about it.`},
+{date :"2019", description:`After giving up "change from the inside", I abandoned my cozy online
       anonymity (and paid job) to figure out how to tackle the problem from
-      within the web itself.
-    </p>
-  </li>
-  <li>
-    <time>2020s</time><p>
+      within the web itself.`},
+{date :"2020s", description:`
       After taking classes in marketing and business, I launched a series of
       projects centered around fandom, tech education, and online communities. <a
-        href="/support-me">Still trying to make a living with them.</a
-      >
-    </p>
-  </li>
+        href="/support-me">Working to make a living with them.</a
+      >`},
+] satisfies TimelineItem[];
+
+const MY_PROJECTS = [
+{date :"2001", description:`Doujinshis`},
+{date :"2000s", description:`Company`},
+{date :"2010s", description:`BobaBoard`},
+] satisfies TimelineItem[];
+---
+
+<h2>The story so far</h2>
+<div role="tablist" aria-label="Timelines">
+  <button role="tab">My experience</button>
+  <button role="tab">My projects</button>
+</div>
+<ul class="experience">
+  {
+    MY_TIMELINE.map(({date, description}) => {
+      return <li>
+          <time>{date}</time>
+          <p set:html={description} />
+        </li>;
+    })
+  }
 </ul>
+<ul class="projects">
+  {
+    MY_PROJECTS.map(({date, description}) => {
+      return <li>
+          <time>{date}</time>
+          <p set:html={description} />
+        </li>;
+    })
+  }</ul>
 
 <style>
   ul {
