@@ -11,31 +11,36 @@ status: rough-draft
 
 ### The problem it solves
 
-Static Site Generators (SSGs) cannot create pages on demand when a visitor
-requests them and need instead to generate them ahead of time ("at build time"),
-when your HTML files are being created. This causes a problem for "dynamic
-routes": **if your URL is of the form `/posts/[postSlug]`, what are all the
-possible valid values that `[postSlug]` can have** and thus all the post pages that
-need to be generated? This is the question that `getStaticPaths` exists to
-solve.
+Static Site Generators (SSGs) don't create pages on demand when a visitor
+requests them. Instead, they generate them all ahead of time–the so-called
+_"build time"_–before your site is uploaded to the web. This causes a
+problem for "dynamic routes", the pages that have parameters within their
+URLs: **if an URL is of the form `/posts/[postSlug]`, what are all the possible
+valid values that `[postSlug]` can have?** Knowing this is essential to knowing what
+pages need to be generated, and is the question that `getStaticPaths` exists to answer.
 
 ## `getStaticPaths` and URL parameters
 
 When an SSG goes to generate a page with a dynamic parameter, it looks at the
-code within in search for an _exported_ function (the only ones it can see)
+code within in search of an _exported_ function (the only ones it can see)
 named `getStaticPaths`. Once called, this function will give the SSG the list of
-all the pages it needs to work its magic on. This is bu returning **an
+all the pages it needs to work its magic on. The form this list takes is **an
 array made up of one JavaScript object per page with the values of the
 URL parameter(s) for that page.**
 
-For example, in the case of our posts example, the TypeScript signature will be:
+Speaking in TypeScript terms this will be:
 
 ```ts
-type GetStaticPathReturnValue = Array<{
-  params: {
-    postSlug: string;
-  };
+type PageParameters = {
+  postSlug: string;
+};
+
+type ParametersForEachPage = Array<{
+  params: PageParameters;
 }>;
+
+// A function that takes no inputs, and returns ParametersForEachPage.
+type getStaticPaths = () => ParametersForEachPage;
 ```
 
 Or, for a concrete example:
@@ -45,7 +50,7 @@ Or, for a concrete example:
 // or filesystem request, the function will be async and the return
 // value wrapped in a promise. If you don't know what that means,
 // just ignore it.
-export async function getStaticPaths(): Promise<GetStaticPathReturnValue> {
+export async function getStaticPaths(): Promise<ParametersForEachPage> {
   return [
     { params: { postSlug: "my-shipping-manifesto" } },
     { params: { postSlug: "typescript-is-your-friend-i-swear" } },
