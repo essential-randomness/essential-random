@@ -278,7 +278,7 @@ type DataForEachPage = Array<
 ```ts
 export async function getStaticPaths() {
     const blogEntries = await getCollection("posts");
-    // We Aell astro to wait for all promises in the array to be resolved before
+    // We tell astro to wait for all promises in the array to be resolved before
     // reading the value.
     return Promise.all(
         // Since we added async to the function passed to map, we're now returning
@@ -359,7 +359,7 @@ Here's the final typescript types of the whole thing, which (if you've surrender
 to the power of our Lord TypeScript) will help you remember how the concepts are related:
 
 ```ts
-type GetStaticPathReturnValue = Array<{
+type DataForEachPage = Array<{
   params: {
     postSlug: string;
   };
