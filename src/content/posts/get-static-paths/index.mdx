@@ -237,7 +237,9 @@ type getStaticPaths = () => Promise<DataForEachPage>;
 ```
 
 <details>
-  <summary>Optional: Open for an advanced trick! (pre-rendering the component within `getStaticPaths`)</summary>
+  <summary>
+### Optional Trick (Advanced): pre-render components within `getStaticPaths`
+  </summary>
   <div>
     If you want to *directly return the rendered component* (rather than the
     function to render it), you will run into a problem: the `render` function is
