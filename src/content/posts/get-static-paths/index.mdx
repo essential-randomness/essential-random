@@ -7,7 +7,7 @@ created_at: 2023-12-31 11:09:53
 status: rough-draft
 ---
 
-## GetStaticPath in Astro (and theoretically Next)
+## GetStaticPath in Astro (and theoretically NextJS)
 
 ### The problem it solves
 
@@ -289,7 +289,8 @@ export async function getStaticPaths() {
             props: {
                 // We now return the content component directly (note the first-letter-uppercase
                 // convention, typical of components). Since `post.render` is an async function
-                // it will need to be awaited, which is what forced us to use Promise.all.
+                // it will need to be awaited, which is what forced us to add async
+                // to the function passed to `map` and to have to use Promise.all.
                 Content: await post.render(),
                 ...blogPost.data,
             },
@@ -359,30 +360,35 @@ Here's the final typescript types of the whole thing, which (if you've surrender
 to the power of our Lord TypeScript) will help you remember how the concepts are related:
 
 ```ts
+type PageParameters = {
+  postSlug: string;
+};
+
+type PageProperties = {
+  renderContent: () => Promise<AstroComponent>;
+  tags: string[];
+  title: string;
+  created_at: Date;
+};
+
 type DataForEachPage = Array<{
-  params: {
-    postSlug: string;
-  };
-  props: {
-    // Remember: this is an asynchronous function, so it returns a Promise that
-    // wraps around the actual return value.
-    Content: () => Promise<AstroComponent>;
-    tags: string[];
-    title: string;
-    created_at: Date;
-  };
+  params: PageParameters;
+  props: PageProperties;
 }>;
 
-// The type of Astro.params will then be the same as the type of
-// params in GetStaticPathReturnValue
+// Astro will resolve that Promise for us, so we don't need to do anything
+// special with it. If Promises confuse you, you can pretend they're not here
+// in this case.
+type getStaticPaths = () => Promise<DataForEachPage>;
+
+// The type of Astro.params will then be the same as PageParameters
 type AstroParams = {
   postSlug: string;
 };
 
-// And the type of Astro.props will then be the same as the type of
-// props in GetStaticPathReturnValue
+// And the type of Astro.props will then be the same as PageProperties
 type AstroProps = {
-  Content: () => Promise<AstroComponent>;
+  renderContent: () => Promise<AstroComponent>;
   tags: string[];
   title: string;
   created_at: Date;
