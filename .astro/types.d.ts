@@ -271,6 +271,13 @@ declare module 'astro:content' {
   collection: "posts";
   data: InferEntrySchema<"posts">
 } & { render(): Render[".mdx"] };
+"get-static-paths/index.mdx": {
+	id: "get-static-paths/index.mdx";
+  slug: "get-static-paths";
+  body: string;
+  collection: "posts";
+  data: InferEntrySchema<"posts">
+} & { render(): Render[".mdx"] };
 "getting-things-started/index.mdx": {
 	id: "getting-things-started/index.mdx";
   slug: "getting-things-started";

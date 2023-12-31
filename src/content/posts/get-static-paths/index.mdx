@@ -1,0 +1,269 @@
+---
+title: A quick guide to `getStaticPaths`
+tags:
+  - +astro
+  - +typescript
+created_at: 2023-12-31 11:09:53
+status: rough-draft
+---
+
+## GetStaticPath in Astro (and theoretically Next)
+
+### The problem it solves
+
+Static Site Generators (SSGs) cannot create pages on demand when a visitor
+requests them and need instead to generate them ahead of time ("at build time"),
+when your HTML files are being created. This causes a problem for "dynamic
+routes": **if your URL is of the form `/posts/[postSlug]`, what are all the
+possible valid values that `[postSlug]` can have** and thus all the post pages that
+need to be generated? This is the question that `getStaticPaths` exists to
+solve.
+
+## `getStaticPaths` and URL parameters
+
+When an SSG goes to generate a page with a dynamic parameter, it looks at the
+code within in search for an _exported_ function (the only ones it can see)
+named `getStaticPaths`. Once called, this function will give the SSG the list of
+all the pages it needs to work its magic on. This is bu returning **an
+array made up of one JavaScript object per page with the values of the
+URL parameter(s) for that page.**
+
+For example, in the case of our posts example, the TypeScript signature will be:
+
+```ts
+type GetStaticPathReturnValue = Array<{
+  params: {
+    postSlug: string;
+  };
+}>;
+```
+
+Or, for a concrete example:
+
+```ts
+// Since getStaticPaths often uses data that is loaded via network
+// or filesystem request, the function will be async and the return
+// value wrapped in a promise. If you don't know what that means,
+// just ignore it.
+export async function getStaticPaths(): Promise<GetStaticPathReturnValue> {
+  return [
+    { params: { postSlug: "my-shipping-manifesto" } },
+    { params: { postSlug: "typescript-is-your-friend-i-swear" } },
+    { params: { postSlug: "thirstposting-as-bonding-activity" } },
+  ];
+}
+```
+
+This will generate 3 pages:
+
+1. `/posts/my-shipping-manifesto`
+2. `/posts/ypescript-is-your-friend-i-swear`
+3. `/posts/thirstposting-as-bonding-activity`
+
+## `getStaticPaths` and props
+
+There is yet another thing that `getStaticPaths` can do for you: given that it
+already has to work to produce the value of the URL parameters for every page (a
+task that might require potentially-intensive computations), wouldn't it be neat
+if it could use that chance to also **tell the SSG about the dynamic properties
+("`props`") of each page**?
+
+In our blog example, these could be `tags`, `title`, `created_at`, and mostly
+anything we want to avoid having to recalculate later. The SSG doesn't really
+care what `props` you give it (and if you give any), and it will simply pass
+them as-is to each page as it goes to create it, similarly to how we manually
+pass props to components.
+
+The signature will then become:
+
+```ts
+type GetStaticPathReturnValue = Array<{
+  params: {
+    postSlug: string;
+  };
+  props: {
+    tags: string[];
+    title: string;
+    created_at: Date;
+  };
+}>;
+```
+
+and our function call:
+
+```ts
+export async function getStaticPaths(): Promise<GetStaticPathReturnValue> {
+    return [
+        // Our shipping post
+        {
+            params: { postSlug: "my-shipping-manifesto" },
+            props: {
+                tags: ["fandom", "shipping"],
+                title: "Why I am Right and You are All Wrong",
+                created_at: new Date('December 31, 2023 23:59:00')
+            }
+        },
+        // Our typescript-defense-squad post
+        {
+            params: { postSlug: "typescript-is-your-friend-i-swear" } },
+            props: {
+                tags: ["coding", "typescript", "beginners"],
+                title: "Be kind to him, he's just trying to help",
+                created_at: new Date('January 5, 2024 16:20:00')
+            }
+        },
+        // And so on so on...
+    ];
+}
+```
+
+Note that (unlike params, which the SSG _needs_ to work) props is completely
+optional: if we preferred to, we could simply load the post data again in the
+page itself by using the value in the `postSlug` URL parameter. "Props" is simply a
+"since we're here, we might as well" convenience.
+
+## `getStaticPaths` and content collections
+
+In Astro, `getStaticPaths` is often used in tandem with content collections. There's
+nothing particularly special about using `getStaticPaths` this way, but let's go through
+it bit by bit to make sure what's happening is clear.
+
+Once again, our goal is to let the SSG know about:
+
+1. The value of `postSlug` for each one of our posts
+2. The properties that change page by page (we'll assume this is
+   every property of `entry.data`, plus the function to render the content)
+
+```ts
+export async function getStaticPaths() {
+  // If you're already loading this in the page itself, you cannot reuse it here:
+  // assume that getStaticPaths exists on its own and has no access to anything else
+  // on the file you're writing and can only see what's written within it.
+  const blogEntries = await getCollection("posts");
+  // Given an array, map will run the function for each entry, and put the returned
+  // value in a new array (with the same position).
+  return blogEntries.map((blogPost) => {
+    return {
+      // Content collections give us a nice slug for each entry, kindly
+      // precalculated for us
+      params: { postSlug: blogPost.slug },
+      //
+      props: {
+        // Our props "content" will contain the function to render the blog
+        // post. Rather than calling the function we simply put the function itself
+        // into the renderContent property, like we do with every other varialbe.
+        renderContent: blogPost.render,
+        // We spread the content of blogPost.data in the returned object, so that
+        // we have a prop for each value in the data, rather than the whole data
+        // as a single object.
+        ...blogPost.data,
+      },
+    };
+  });
+}
+```
+
+The result of calling this `getStaticPaths` is similar to the one above: an array with
+one entry for each entry in your collection, with the value of the `postSlug` URL
+parameter, and `props` that contain the dynamic data for each page.
+
+```ts
+export async function getStaticPaths(): Promise<GetStaticPathReturnValue> {
+    return [
+        // Our shipping post
+        {
+            params: { postSlug: "my-shipping-manifesto" },
+            props: {
+                renderContent: /*a function to render the blogpost content*/,
+                tags: ["fandom", "shipping"],
+                title: "Why I am Right and You are All Wrong",
+                created_at: new Date('December 31, 2023 23:59:00')
+            }
+        },
+        // Our typescript-defense-squad post
+        {
+            params: { postSlug: "typescript-is-your-friend-i-swear" } },
+            props: {
+                renderContent: /*a function to render the blogpost content*/,
+                tags: ["coding", "typescript", "beginners"],
+                title: "Be kind to him, he's just trying to help",
+                created_at: new Date('January 5, 2024 16:20:00')
+            }
+        },
+        // And so on so on...
+    ];
+}
+```
+
+## How do I use these values in my pages?
+
+Astro has its own way to get these values in your page, using the special `Astro` object
+that is available in every `.astro` file. Simply access the `params` and `props` elements
+in this object to get your values.
+
+### Params
+
+```ts
+// Remember: this destructuring is equivalent to
+// const postSlug = Astro.params.postSlug;
+const { postSlug } = Astro.params;
+```
+
+### Props
+
+For props, this is exactly the same as it would be in any component:
+
+```astro
+---
+const { renderContent, tags, title, created_at } = Astro.props;
+
+// If you want to use the rendered content you can render it and
+// then use it as any other tag. Note we capitalize the first letter
+// of content to remind ourself that's a component.
+const Content = await renderContent();
+---
+
+{title}
+Published on: {created_at}
+
+<Content />
+```
+
+## Final TypeScript typing
+
+Here's the final typescript types of the whole thing, which (if you've surrendered
+to the power of our Lord TypeScript) will help you remember how the concepts are related:
+
+```ts
+type GetStaticPathReturnValue = Array<{
+  params: {
+    postSlug: string;
+  };
+  props: {
+    // Remember: this is an asynchronous function, so it returns a Promise that
+    // wraps around the actual return value.
+    Content: () => Promise<AstroComponent>;
+    tags: string[];
+    title: string;
+    created_at: Date;
+  };
+}>;
+
+// The type of Astro.params will then be the same as the type of
+// params in GetStaticPathReturnValue
+type AstroParams = {
+  postSlug: string;
+};
+
+// And the type of Astro.props will then be the same as the type of
+// props in GetStaticPathReturnValue
+type AstroProps = {
+  Content: () => Promise<AstroComponent>;
+  tags: string[];
+  title: string;
+  created_at: Date;
+};
+```
+
+...and that is all! Go forth and use the power of `getStaticPaths` and let me know
+if anything is unclear.
