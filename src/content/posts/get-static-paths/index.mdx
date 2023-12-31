@@ -236,10 +236,10 @@ type DataForEachPage = Array<{
 type getStaticPaths = () => Promise<DataForEachPage>;
 ```
 
-<details>
-  <summary>
 ### Optional Trick (Advanced): pre-render components within `getStaticPaths`
-  </summary>
+
+<details>
+  <summary>Show me the trick!</summary>
   <div>
     If you want to *directly return the rendered component* (rather than the
     function to render it), you will run into a problem: the `render` function is
