@@ -1,5 +1,6 @@
 ---
 title: A quick guide to `getStaticPaths`
+tagline: A beginner-friendly explanation of why and how SSGs use this function.
 tags:
   - +astro
   - +typescript
@@ -7,28 +8,26 @@ created_at: 2023-12-31 11:09:53
 status: pre-beta
 ---
 
-## `getStaticPaths` in Astro (and theoretically NextJS)
-
-### The problem it solves
+## What `getStaticPaths` does in Astro (and theoretically NextJS)
 
 Static Site Generators (SSGs) don't create pages on demand when a visitor
 requests them. Instead, they generate them all ahead of time–the so-called
-_"build time"_–before your site is uploaded to the web. This causes a
-problem for "dynamic routes", the pages that have parameters within their
-URLs: **if an URL is of the form `/posts/[postSlug]`, what are all the possible
-valid values that `[postSlug]` can have?** Knowing this is essential to knowing what
-pages need to be generated, and is the question that `getStaticPaths` exists to answer.
+_"build time"_–before your site is uploaded to the web. This creates a problem
+for "dynamic routes" (the pages that have parameters within their URLs): **if an
+URL is of the form `/posts/[postSlug]`, what are all the possible valid values
+that `[postSlug]` can have?** Without knowing this, you SSG cannot know what
+pages to generate. This is the question that `getStaticPaths` exists to answer.
 
 ## `getStaticPaths` and URL parameters
 
-When an SSG goes to generate a page with a dynamic parameter, it looks at the
-code within in search of an _exported_ function (the only ones it can see)
-named `getStaticPaths`. Once called, this function will give the SSG the list of
-all the pages it needs to work its magic on. The form this list takes is **an
-array made up of one JavaScript object per page with the values of the
-URL parameter(s) for that page.**
+When an SSG goes to generate a page that has a dynamic parameter, it first
+searches the code within in search of an _exported_ function (the only ones it
+can see) named `getStaticPaths`. When called, this function will give the SSG
+the list of all the pages it needs to work its magic on. The form this list
+takes is **an array made up of one JavaScript object per page with the values of
+the URL parameter(s) for that page.**
 
-Speaking in TypeScript terms this will be:
+Let's leverage TypeScript to show what this looks like:
 
 ```ts
 type PageParameters = {
@@ -80,7 +79,7 @@ Continuing our blog example, our dynamic properties could be `tags`, `title`,
 `created_at`, and mostly anything that depends on the specific post and that we
 want to avoid having to recalculate later. **The SSG doesn't really care what
 `props` you give it (and if you give any)**: it will simply pass them as-is to
-each page as it goes to create it, similarly to how we manually pass props to
+each page as it goes generate it, similarly to how we manually pass props to
 components.
 
 Our TypeScript signatures will then become:
@@ -133,8 +132,8 @@ export async function getStaticPaths(): Promise<GetStaticPathReturnValue> {
 }
 ```
 
-Note that **unlike params (that the SSG needs to know what to generate), props
-is completely optional**: if we preferred to, we could simply load the post data
+Note that **unlike params (that the SSG must have to know what to generate), props
+are completely optional**: if we preferred, we could simply load the post data
 again in the page itself by using the value in the `postSlug` URL parameter.
 "Props" is simply a "since we're here, we might as well" convenience.
 
@@ -148,30 +147,34 @@ Once again, our goal is to let the SSG know about:
 
 1. The value of `postSlug` for each one of our posts
 2. The properties that change page by page (we'll assume this is
-   every property of `entry.data`, plus the function to render the content)
+   every property of `entry.data` for our collection, plus the function to render
+   the content)
 
 ```ts
 export async function getStaticPaths() {
   // If you're already loading this in the page itself, you cannot reuse it here:
   // assume that getStaticPaths exists on its own and has no access to anything else
-  // on the file you're writing and can only see what's written within it.
+  // on the file you're writing: it can only see what's written within it.
   const blogEntries = await getCollection("posts");
   // Given an array, map will run the function for each entry, and put the returned
-  // value in a new array (with the same position).
+  // value in a new array (at the same position). This tells the SSG to generate a
+  // page for each entry in our collection.
   return blogEntries.map((blogPost) => {
     return {
       // Content collections give us a nice slug for each entry, kindly
-      // precalculated for us
+      // precalculated for us. This is the mandatory part.
       params: { postSlug: blogPost.slug },
-      //
+      // The properties that change for every rendered page. This is a simple
+      // convenience since we have all the data available here.
       props: {
-        // Our props "content" will contain the function to render the blog
-        // post. Rather than calling the function we simply put the function itself
-        // into the renderContent property, like we do with every other variable.
+        // Our "renderContent" prop will contain the function that renders the blog
+        // post content. Rather than calling the function, we assign its value
+        // to the renderContent property, like we'd do for any other variable.
+        // In practice, calling renderContent() will be the same as calling render().
         renderContent: blogPost.render,
         // We spread the content of blogPost.data in the returned object, so that
         // we have a prop for each value in the data, rather than the whole data
-        // as a single object.
+        // object as a single prop.
         ...blogPost.data,
       },
     };
@@ -179,7 +182,7 @@ export async function getStaticPaths() {
 }
 ```
 
-The result of calling this `getStaticPaths` is similar to the one above: an array with
+Calling this `getStaticPaths` yields a similar result to the above version: an array with
 one entry for each entry in your collection, with the value of the `postSlug` URL
 parameter, and `props` that contain the dynamic data for each page.
 
@@ -211,7 +214,7 @@ export async function getStaticPaths(): Promise<DataForEachPage> {
 }
 ```
 
-Your types will then be:
+Or in TypeScript terms:
 
 ```ts
 type PageParameters = {
@@ -219,7 +222,7 @@ type PageParameters = {
 };
 
 type PageProperties = {
-  // Warning: AstroComponent is not the real type, but don't worry about that
+  // Warning: AstroComponent is not the real type, but don't worry about that.
   renderContent: () => Promise<AstroComponent>;
   tags: string[];
   title: string;
@@ -276,7 +279,7 @@ type DataForEachPage = Array<
 >;
 ```
 
-    If we want to pre-render, we can fix this in a somewhat-simple way: by waiting for
+    If we want to pre-render the content, we can fix this in a somewhat-simple way: by waiting for
     all the promises in the array to be resolved, and thus turning `DataForEachPage` back
     to a simple array of objects. This is done using `Promise.all(array)`, which takes an
     array of `Promise` and waits for them all to be resolved.
@@ -306,9 +309,9 @@ export async function getStaticPaths() {
 ```
 
     Now we're back to the previous type signature, and all's right with ~~the world~~
-    Astro again.
+    Astro.
 
-    We can then render the component in our `.astro` files by doing:
+    We can then use the rendered component in our `.astro` files by doing:
 
 ```astro
 ---
@@ -342,7 +345,7 @@ const { postSlug } = Astro.params;
 
 ### Props
 
-For props, this is exactly the same as it would be in any component:
+Props work exactly as it would be in any component that accepts props:
 
 ```astro
 ---
@@ -403,6 +406,16 @@ type AstroProps = {
 
 ...and that is all! Go forth and use the power of `getStaticPaths` and let me know
 if anything is unclear.
+
+<details open>
+  <summary>Liked this? Help me change the face of web development!</summary>
+  <div>
+    Changing the web means changing who builds it! To this end, I create
+    accessible education targeted at growing hobbyists webdevs from isolated
+    beginners to open-source collaborators and maintainers. Learn how to{" "}
+    <a href="/support-me">support this and more work on my Support Me page!</a>
+  </div>
+</details>
 
 <style>{`
     details {
