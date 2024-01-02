@@ -15,7 +15,7 @@ requests them. Instead, they generate them all ahead of time (the so-called
 _"build time"_) before your site is uploaded to the web. This creates a problem
 when page definitions have parameters within their URLs: **if a URL is of the
 form `/posts/[postSlug]`, what are all the possible valid values that
-`[postSlug]` can have?** Without knowing this, you SSG cannot know what pages
+`[postSlug]` can have?** Without knowing this, your SSG cannot know what pages
 it's being asked to generate. This is the question that `getStaticPaths` exists
 to answer.
 
