@@ -4,10 +4,10 @@ tags:
   - +astro
   - +typescript
 created_at: 2023-12-31 11:09:53
-status: rough-draft
+status: pre-beta
 ---
 
-## GetStaticPath in Astro (and theoretically NextJS)
+## `getStaticPaths` in Astro (and theoretically NextJS)
 
 ### The problem it solves
 
@@ -133,10 +133,10 @@ export async function getStaticPaths(): Promise<GetStaticPathReturnValue> {
 }
 ```
 
-Note that **unlike params which the SSG _must have_ to work, props is completely
-optional**: if we preferred to, we could simply load the post data again in the
-page itself by using the value in the `postSlug` URL parameter. "Props" is simply a
-"since we're here, we might as well" convenience.
+Note that **unlike params (that the SSG needs to know what to generate), props
+is completely optional**: if we preferred to, we could simply load the post data
+again in the page itself by using the value in the `postSlug` URL parameter.
+"Props" is simply a "since we're here, we might as well" convenience.
 
 ## `getStaticPaths` and content collections
 
@@ -219,6 +219,7 @@ type PageParameters = {
 };
 
 type PageProperties = {
+  // Warning: AstroComponent is not the real type, but don't worry about that
   renderContent: () => Promise<AstroComponent>;
   tags: string[];
   title: string;
@@ -255,9 +256,12 @@ type PageParameters = {
   postSlug: string;
 };
 
-// Now Component is an AstroComponent, rather than the rendering function
+// Now our properties include Content (the actual component) instead of renderContent (a reference
+// to the function to render the content)
 type PageProperties = {
-  Component: AstroComponent;
+  // Instead of being a reference to the function `render`, this is now the result of calling
+  // `await render()`
+  Content: AstroComponent;
   tags: string[];
   title: string;
   created_at: Date;
@@ -405,5 +409,9 @@ if anything is unclear.
         background-color: lightgray;
         padding: 10px 20px;
         margin: 20px 10px;
-    } 
+        border-radius: 16px;
+    }
+    summary {
+        font-weight: bold;
+    }
 `}</style>

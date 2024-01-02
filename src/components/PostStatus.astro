@@ -1,0 +1,93 @@
+---
+interface Props {
+  status: "rough-draft" | "pre-beta" | undefined;
+}
+
+const { status } = Astro.props;
+---
+
+{
+  status && (
+    <div class:list={["post-status", status]}>
+      {status == "rough-draft" && <h3>Warning: Roughness Ahead~</h3>}
+      {status == "pre-beta" && <h3>Warning: Almost There but Not Quite</h3>}
+      {status == "rough-draft" && (
+        <div>
+          <p>
+            <span>
+              The post you're about to read is marked as a
+              <strong>rough draft</strong>!
+            </span>
+            Rough drafts might provide unclear (or wrong) information, be hard
+            to read, or otherwise all over the place.
+            <em>Follow them at your own risk!</em>
+          </p>
+          <p class="contact-me">
+            Want to learn more or help correct something? Hit me up on socials!
+          </p>
+        </div>
+      )}
+      {status == "pre-beta" && (
+        <div>
+          <p>
+            <span>
+              The post you're about to read is marked as{" "}
+              <strong>pre-beta</strong>!
+            </span>
+            While the content <em>should</em> be overall accurate and
+            understandable, it was not reviewed for flow, imprecisions, or
+            halfway-abandoned sentences.
+          </p>
+          <p class="contact-me">
+            Venturing through? Let me know your thoughts!
+          </p>
+        </div>
+      )}
+    </div>
+  )
+}
+
+<script>
+  import { annotate } from "rough-notation";
+
+  const container = document.querySelector<HTMLDivElement>(`.post-status`);
+  const title = container?.querySelector<HTMLDivElement>("span");
+  if (container) {
+    const annotation = annotate(container, {
+      type: "box",
+      animate: false,
+      padding: -4,
+    });
+    annotation.show();
+  }
+  if (title) {
+    const isRoughDraft = !!container?.classList.contains("rough-draft");
+    const annotation = annotate(title, {
+      type: "highlight",
+      animate: false,
+      color: isRoughDraft ? "lightgray" : "lightskyblue",
+      padding: -4,
+      multiline: true,
+    });
+    annotation.show();
+  }
+</script>
+
+<style>
+  .rough-draft,
+  .pre-beta {
+    padding: 20px 40px;
+    box-shadow: 7px 10px 0 0px black;
+    border-radius: 3px;
+    width: 80%;
+    margin: 35px auto;
+    /* background-color: papayawhip; */
+    span {
+      font-weight: bold;
+      margin-right: 4px;
+    }
+    .contact-me {
+      font-size: small;
+    }
+  }
+</style>
