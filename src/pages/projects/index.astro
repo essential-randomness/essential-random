@@ -25,9 +25,24 @@ const projectsWithMarkdown = projects.map((project) => {
 <Layout title="Essential Randomness — Ms Boba's Eclectic Pile of Projects">
   <main class="projects">
     <h2>My Eclectic Pile of Projects</h2>
-     Here's a (work-in-progress) selection of what I've been working on in the
-    last few years:
+
+     Here's a (work-in-progress) selection of what I've been working on in the last
+    few years. These projects are mainly focused on:
     <ul>
+      <li>
+        “A more fun, more social web” for shipping/transformative fandom and
+        beyond
+      </li>
+      <li>
+        Internet freedom, decentralized technologies, and open source
+        development
+      </li>
+      <li>
+        Accessible web development education for underrepresented, niche online
+        communities
+      </li>
+    </ul>
+    <ul class="projects">
       {
         projectsWithMarkdown.map((project) => (
           <li
@@ -53,7 +68,7 @@ const projectsWithMarkdown = projects.map((project) => {
     grid-area: profile;
   }
 
-  main.projects > ul {
+  main.projects > ul.projects {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -86,7 +101,7 @@ const projectsWithMarkdown = projects.map((project) => {
   }
 
   @media screen and (min-width: 700px) {
-    main.projects > ul {
+    main.projects > ul.projects {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       grid-template-rows: repeat(2, minmax(100px, 1fr));
