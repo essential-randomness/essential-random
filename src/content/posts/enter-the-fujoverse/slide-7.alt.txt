@@ -1,0 +1,41 @@
+Slide 7:
+
+Where Are We At: BobaVerse™ Edition
+
+in case you lost track of all we’ve been working on until now
+
+(you’d be extremely excused)
+
+let’s just say it’s been an intense… 3 years or so
+
+BEHOLD, the BobaVerse™!
+
+A Venn diagram of sorts, with overlapping circles in the center ("Long-term
+projects" and "April 1st jokes") as well as a rectangle on the left ("Test boba
+galaxy") that partially overlaps with Long-term projects, and another square off
+to the right ("side projects") that does not overlap with anything else. 
+
+Long-term projects contains the logos for BobaBoard and Fandom Coders (a pair of
+lime green braces that enclose the statement "if fandom then coding"), and in
+pink text the comment "ms boba getting paid for her time, aka "Patron income"
+(again, thank you)". 
+
+The Fujoshi Guide to Web Development spans across the intersection of Long-term
+projects and April 1st jokes. 
+
+April 1st jokes also includes the logo for FujoBoard (Boba-tan licking her lips)
+and purple text for RobinBoob by BobaBoard.
+
+Fandom Coders is located where the "Test boba galaxy" rectangle overlaps with
+Long-term projects. Also within the rectangle are "the Boobies" (BobaBoard
+enthusiasts, represented by a real-life photo of the marine birds blue-footed
+boobies.
+
+In the "side projects" square are AO3.js (in the red and white scheme of Archive
+of Our Own) and Tim the Enchanter from Monty Python and the Holy Grail [**VALE
+WHY IS HE HERE??**].
+
+“The BobaVerse™ is an eclectic collection of projects related to coding,
+community and fandom on the web that may or may not create a sustainable
+ecosystem one day” — definition ms boba just made up on the fly but that
+actually kinda works

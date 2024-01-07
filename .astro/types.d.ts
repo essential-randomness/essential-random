@@ -257,6 +257,13 @@ declare module 'astro:content' {
   collection: "posts";
   data: InferEntrySchema<"posts">
 } & { render(): Render[".mdx"] };
+"enter-the-fujoverse/index.mdx": {
+	id: "enter-the-fujoverse/index.mdx";
+  slug: "enter-the-fujoverse";
+  body: string;
+  collection: "posts";
+  data: InferEntrySchema<"posts">
+} & { render(): Render[".mdx"] };
 "entry2.mdx": {
 	id: "entry2.mdx";
   slug: "entry2";
