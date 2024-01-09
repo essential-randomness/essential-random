@@ -25,6 +25,15 @@ const Content = (await curr?.render()).Content;
 <Layout title={`Essential Randomness — ${curr.data.title}`}>
   <Fragment slot="head">
     {
+      curr.data.og_title && (
+        <Fragment>
+          <meta property="og:title" content={curr.data.og_title} />
+          <meta property="twitter:title" content={curr.data.og_title} />
+          <title>{curr.data.og_title}</title>
+        </Fragment>
+      )
+    }
+    {
       curr.data.og_image && (
         <Fragment>
           <meta property="og:image" content={curr.data.og_image.src} />
