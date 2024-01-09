@@ -4,18 +4,15 @@ import { ProjectCard } from "../../components/ProjectCard";
 import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 const projects = await getCollection("projects");
-import { marked } from "marked";
+import { parseInline } from "marked";
 
 const projectsWithMarkdown = projects.map((project) => {
-  const markdownDescription = marked.parse(project.data.description);
+  const markdownDescription = parseInline(project.data.description);
   const projectCopy = {
     ...project,
     data: {
       ...project.data,
-      description: markdownDescription.substring(
-        "<p>".length,
-        markdownDescription.length - ("</p>".length + 1)
-      ),
+      description: markdownDescription as string,
     },
   };
   return projectCopy;

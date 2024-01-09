@@ -17,8 +17,6 @@ h4,
 h5 {
   font-family: var(--font-family-title);
   font-weight: 800;
-  display: flex;
-  align-items: center;
 
   a {
     color: black;
@@ -30,22 +28,26 @@ h5 {
     }
   }
 
-  &::after {
-    content: "";
-    display: inline-block;
-    background-image: url(/link.svg);
-    width: 23px;
-    height: 23px;
-    margin-left: 5px;
-    background-size: contain;
-    background-repeat: no-repeat;
-    color: black;
-    visibility: hidden;
-    flex-shrink: 0;
-  }
+  &:has(> a) {
+    display: flex;
+    align-items: center;
+    &::after {
+      content: "";
+      display: inline-block;
+      background-image: url(/link.svg);
+      width: 23px;
+      height: 23px;
+      margin-left: 5px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      color: black;
+      visibility: hidden;
+      flex-shrink: 0;
+    }
 
-  &:hover::after {
-    visibility: visible;
+    &:hover::after {
+      visibility: visible;
+    }
   }
 }
 
@@ -70,6 +72,31 @@ svg {
   display: block;
   width: 24px;
   height: 24px;
+}
+
+sup {
+  background: white;
+  display: inline-block;
+  border-radius: 8px;
+  line-height: normal;
+  display: inline-flex;
+  margin-inline: 3px;
+  margin-block-start: -4px;
+  border: 2px solid black;
+  box-shadow: var(--box-shadow-shallow);
+
+  & a {
+    color: black;
+    padding: 0px 4px;
+    font-weight: bold;
+    line-height: normal;
+    font-size: smaller;
+    text-decoration: none;
+  }
+
+  &:hover {
+    filter: invert(100);
+  }
 }
 
 main.home {
@@ -107,6 +134,7 @@ li {
 :root {
   --font-size-title-smaller: 1.2em;
   --font-size-title: 1.5em;
+  --box-shadow-shallow: 1px 1px 0 0px black;
   --box-shadow: 3px 3px 0 0px black;
   --box-shadow-deep: 5px 5px 0 0px black;
   --box-shadow-hover: 7px 7px 0 0 black;

@@ -42,9 +42,7 @@ const Content = (await curr?.render()).Content;
     }
   </Fragment>
   <main class="post">
-    <h1>
-      {curr.data.title}
-    </h1>
+    <h1 set:html={curr.data.title} />
     {curr.data.tagline && <h2 class="tagline">{curr.data.tagline}</h2>}
     <div>
       Published on <date
@@ -147,6 +145,22 @@ const Content = (await curr?.render()).Content;
 
     .astro-code {
       padding: 25px 30px;
+    }
+    .footnotes {
+      border-top: 2px dashed black;
+      margin-top: 4rem;
+      margin-bottom: 3rem;
+      padding: 0 20px;
+
+      & ol ::marker {
+        font-weight: 800;
+      }
+    }
+    blockquote {
+      border-left: 5px solid black;
+      margin-block: 20px;
+      padding: 1px 15px;
+      border-radius: 15px;
     }
   </style>
 
