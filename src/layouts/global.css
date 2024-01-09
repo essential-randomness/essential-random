@@ -17,35 +17,35 @@ h4,
 h5 {
   font-family: var(--font-family-title);
   font-weight: 800;
+  display: flex;
+  align-items: center;
 
   a {
     color: black;
-    display: flex;
-    align-items: center;
     line-height: 110%;
 
     &:hover {
       text-decoration: underline;
       cursor: pointer;
     }
+  }
 
-    &::after {
-      content: "";
-      display: inline-block;
-      background-image: url(/link.svg);
-      width: 23px;
-      height: 23px;
-      margin-left: 5px;
-      background-size: contain;
-      background-repeat: no-repeat;
-      color: black;
-      visibility: hidden;
-      flex-shrink: 0;
-    }
+  &::after {
+    content: "";
+    display: inline-block;
+    background-image: url(/link.svg);
+    width: 23px;
+    height: 23px;
+    margin-left: 5px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    color: black;
+    visibility: hidden;
+    flex-shrink: 0;
+  }
 
-    &:hover::after {
-      visibility: visible;
-    }
+  &:hover::after {
+    visibility: visible;
   }
 }
 
