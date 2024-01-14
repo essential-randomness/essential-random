@@ -299,6 +299,13 @@ declare module 'astro:content' {
   collection: "posts";
   data: InferEntrySchema<"posts">
 } & { render(): Render[".mdx"] };
+"html-css-what-next/index.mdx": {
+	id: "html-css-what-next/index.mdx";
+  slug: "html-css-what-next";
+  body: string;
+  collection: "posts";
+  data: InferEntrySchema<"posts">
+} & { render(): Render[".mdx"] };
 "the-fight-for-the-open-web/index.mdx": {
 	id: "the-fight-for-the-open-web/index.mdx";
   slug: "the-fight-for-the-open-web";
