@@ -12,63 +12,182 @@ og_description: |
 ## Outgrowing HTML and CSS
 
 After building a few HTML pages, you may start to feel that your website dreams
-are slowed down by repeated tasks, or that you wish to give your visitors more
-fanciful interactions than you can figure out how to build. These difficulties
-might include (or look similar to) these:
+are slowed down by repeated tasks, or that you're looking for more fanciful
+interactivity than you know how to build. Your struggles might include (or look
+similar to) these:
 
 - Keeping your layout consistent across pages without repeating code. For
   example, you might want to automatically update your navigation on every page
   without changing the HTML on each of them.
-- Filtering images in your gallery according to their tags, or automatically
-  creating pages for each individual work in the gallery.
+- Automatically creating pages for each individual work in your galleries, or
+  filtering them according to their tags.
 - Allowing users to add their own content to your pages, be it in the form of a
   guestbook, a comment section, or even just a like on your post.
 
 First of all, _congratulations!_ Your ambition is a sign of your growth as a
 website weaver. At this point, for how intimidating that sounds, you might be
-ready for the next step in web development: a foray into the world of
-JavaScript-based tools and (if you wish) programming.
+ready for the next step in web development: a foray into JavaScript-based tools,
+and (if you wish) programming.
 
 ## So Many Pathways, So Little Time
 
-From here, there are a lot of paths this journey can take you in. While everyone's
-path is unique and rarely linear, here's a few you can pick and choose from:
+Now, _bad news_: there's countless potential paths in front of you, and you
+might find yourself confused and overwhelmed. But–_good news!_–every developer's
+journey is unique (and rarely linear), and you're going to be fine no matter
+which path you choose.
 
-1. The Static Site Generation Path (the one I reccommend most people start with)
+In this article, we'll discuss my favorite options:
+
+1. The Static Site Generation Path (my reccommendation for fannish folks)
 2. The Play Around in the Browser Path
 3. The Server Path
 
-This article is an overview of the potential roads in front of you. You can
-choose one of them and follow it to the end, or you can jump around as you wish.
-Often you might find that the one that seems most appealing doesn't end up being
-your favorite.
+You can choose one of them and follow it to the end, or you can jump around as
+you wish. Often, you might find that the one that seems most appealing doesn't
+end up being your favorite. Sometimes, you might find the one that didn't turns
+out to be a lot of fun. Remember: if you don't like the choice you made, you can
+go back and try a different one. Not only figuring out what you don't like is as
+valuable as figuring out what you do, but all these choices build upon each
+other. No learning is ever wasted.
 
-> NOTE: If you're very ambitious, you might choose to start directly with the
-> "Static Site Generator" path, and learn HTML and CSS as you go. While some
-> might caution you against it, as a fellow "throwing myself off the deep end"
-> learner, I say: _don't let your dreams be dreams!_
+> **NOTE:** If you're very ambitious, you might choose to start directly here, and
+> learn HTML and CSS as you go. While some might caution you against it, as a
+> fellow "throwing myself off the deep end" learner, I say: _don't let your
+> dreams be dreams!_ For you, the Static Site Generation Path might be the right
+> choice.
 
 ### The Static Site Generation Path
 
-Let's say you want to produce content, _a lot of content_.
-You want your website to have a lot of pages, you want your
-content to have many types, you want your galleries to have a
-lot of art. Maybe you _even_ want a blog.
+Let's say you like to produce content, _a lot of content_. This might look like
+a website with many different pages, galleries with a lot of art, or even
+frequent updates and improvements to your layout that need to be copy pasted on
+each page. Maybe you _even_ wish to start a blog. Static Site Generators are the
+perfect tool to tackle these challenges.
 
-Here's what you should do:
+**A Static Site Generator (SSG) is a program that, rather than have you write each
+page of your website by hand, stitches your files together and _generates_ those
+pages for you.** For example, an SSG will allow you to:
 
-- NVM
-- Astro:
-  - Components
-  - Content Collections (some basics of code will be helpful here)
-  - Remark & Rehype Plugins
+- Define your own `<Navigation />` tag to add wherever you want your navigation bar
+  to appear. This tag will be swapped with the HTML and CSS of your navigation when
+  the SSG runs.
+- Automatically add a new entry to your gallery for each image in a folder, making sure
+  you never accidentally forget to add the new `img` tag to your HTML.
 
-You can do this with Neocities. You can also connect Git and get a
-GitHub account, and get the joy of automatically getting your updates
-when you push it.
+**In the end, an SSG will create the same HTML and CSS files you'd have written**, without
+having you write the same code over and over again. These days, [the web's most darling Static Site Generator is Astro](https://astro.build/).
+If their homepage seems too full of jargon and overwhelming for you, don't worry: you don't
+need to understand any of those words to be able to use it.
 
-By this point, you should know how to install NPM packages. Next up,
-you can search around GitHub for plugins to install.
+> **Note:** if you want to follow along my _live_ explanation of this path, you can [watch me
+> go through it on YouTube]().
+
+#### Installing Astro
+
+Here's how to get started:
+
+<details>
+  <summary>Content collapsed for your ease of scrolling past</summary>
+
+1. **Learn how to open you Terminal (command line) and navigate to a folder:** many
+   beginners (and some experts) are nervous about using the command line to run programs. In
+   reality, **you can start using the command line without learning _any_ command.** Windows' Terminal is
+   called PowerShell, and [you can open it in any folder by following this guide](https://adamtheautomator.com/windows-open-powershell-in-a-folder/#Opening_PowerShell_via_the_Address_Bar).
+   There are similar guides for [Mac](https://apple.stackexchange.com/questions/11323/how-can-i-open-a-terminal-window-directly-from-my-current-finder-location)
+   or [Linux](https://www.techrepublic.com/article/linux-101-how-to-quickly-open-a-terminal-in-a-specific-directory/).
+
+   > **NOTE:** if you'd really, _really_ like to avoid using a Terminal, I suggest you go through the
+   > ["Play Around in the Browser" path](#the-play-around-in-the-browser-path) instead.
+
+2. **Install NodeJS with Node Version Manager (NVM):** NodeJS allows you to run JavaScript code on your computer
+   (rather than in your browser). Astro, like many other program, is written in JavaScript
+   and needs NodeJS to run. **Rather than installing NodeJS directly I suggest you
+   use NVM ([Windows](https://github.com/coreybutler/nvm-windows?tab=readme-ov-file#install-nvm-windows),
+   [others](https://github.com/nvm-sh/nvm)).** NVM will install NodeJS for you, and allow you
+   to switch between different versions whenever you need. It's a handy tool that will help
+   you later. After installing NodeJS, **you can now run `npm` commands in your Terminal.**
+3. **Install (and play around with) Astro**: Astro has an excellent [documentation website](https://docs.astro.build/)
+   and a friendly Discord server for when you get stuck. Currently, **[the command to create your
+   Astro website](https://docs.astro.build/en/install/auto/) is `npm create astro@latest`.**
+   Open your Terminal in the folder you want to create your website in, run this command, answer
+   some questions, and you're done! Reopen your Terminal in the new folder (or `cd` into it)
+   then run `npm run dev` to see your Astro website come to life.
+
+</details>
+
+#### Part 1: The Basics
+
+From here, here's the learning path I suggest:
+
+- **[Make some new
+  pages](https://docs.astro.build/en/core-concepts/astro-pages/):** First, you
+  can create some HTML pages in your `src/pages/` folder to see that all you
+  know still works as you expect! Next, you can try creating some `.astro`
+  pages, and (if you're a fan of markdown) even some `.md` ones. You can run
+  `npm run dev` to see a preview of these pages
+- **[Learn how to `build` your
+  website](https://docs.astro.build/en/guides/deploy/#building-your-site-locally)**:
+  When your pages are done, you can run `npm run build` to generate your HTML
+  and CSS pages. Explore the files in the newly-created `dist/` directory to see
+  the code Astro built for you!
+- **[Create a Component (without
+  Props)](https://docs.astro.build/en/core-concepts/astro-components/):** A Component is a
+  reusable tag you can add to any `.astro` page in place of rewriting the same HTML. You can
+  write _any_ component you wish, but if you cannot choose the Astro
+  documentation has [a tutorial that guides you through creating a Navigation
+  Bar](https://docs.astro.build/en/tutorial/3-components/). Regardless of which
+  component you choose to build, this is a good time to dive into them!
+- **[Create your Layout](https://docs.astro.build/en/core-concepts/layouts/):**
+  A step up from simple components, creating a layout will allow you to easily
+  wrap the unique content of every page in the same HTML. The new concept you're
+  looking to explore here is [the `<slot />`
+  tag](https://docs.astro.build/en/core-concepts/astro-components/#slots).
+- **[Create a Component (with
+  props)](https://docs.astro.build/en/core-concepts/astro-components/#component-props):**
+  props allow you to add custom attributes to Component tags you create! For
+  example, you might create a `Card` that allows you to display information about your OCs,
+  and use attributes for the data that changes between them, like their names, images, and
+  descriptions.
+
+#### Part 2: The slightly-less Basics
+
+At this point, if you start feeling overwhelmed by the JavaScript required, it
+might be worth temporarily switching to the ["Play Around in the
+Browser"](#the-play-around-in-the-browser-path) path to beef up your skills.
+Once you're comfortable with these, here's how you might proceed:
+
+- **[Dynamic Routes](https://docs.astro.build/en/core-concepts/routing/#dynamic-routes):** Dynamic
+  routes allow you to automatically generate individual pages based on a list of
+  data. For example, continuing the OC example, you might create an individual
+  page for each character and make your cards link to it. The ["build a blog"
+  Astro tutorial](https://docs.astro.build/en/tutorial/5-astro-api/) guides you
+  through automatically generating a blog from a series of markdown files in a
+  folder.
+- **[Content
+  Collections](https://docs.astro.build/en/guides/content-collections/#_top):**
+  This is my favorite Astro feature, and one of the main reasons I so highly
+  reccommend it. While this will require [some
+  TypeScript](#making-the-glompjump-to-typescript), you don't need to fully know
+  TypeScript to get benefits out of it. Long story short, content collections
+  allow you to store all your content in a `src/content/` folder and make sure
+  that all content in each collection has the same structure (for example, that
+  all your blogpost have a title, or all your OCs have a favorite food). You can
+  follow [Astro's Blog with Content Collections
+  tutorial](https://docs.astro.build/en/tutorials/add-content-collections/#extending-the-blog-tutorial-with-content-collections)
+  to learn more about them.
+- **[Remark & Rehype Plugins](https://docs.astro.build/en/guides/markdown-content/#configuring-markdown-and-mdx):**
+  once again, one of my favorite features (not just of Astro). If you're writing your content
+  in markdown or MDX, you can install Remark and Rehype plugins to extend the capabilities
+  of your markdown. For example, I use them to automatically generate the table of content
+  in these pages, or to add emojis to my content :bobaparty: . (TODO: fix this)
+
+#### Uploading your Website
+
+Statically Generated websites can be easily published to websites like Neocities. After all,
+once you run `npm run build`, the content within your `dist/` folder will be the same HTML
+and CSS pages you will have written by hand! If you want to step up your game even further,
+you can [learn how to use Git + GitHub](#the-always-worth-it-regadless-of-path) to automatically upload your website whenever you
+create a new version.
 
 ### The Play Around in the Browser Path
 
@@ -80,6 +199,7 @@ pages more than complex set ups, and enjoy interactivity in your pages.
 Here's a bit of what you should learn:
 
 - Basic of code (variables, arrays, functions, objects)
+- Logging values to console (invaluable for debugging)
 - JavaScript event handlers
 - DOM manipulation
 
