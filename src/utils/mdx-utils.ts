@@ -8,6 +8,11 @@ import { remove } from "unist-util-remove";
 import { select } from "unist-util-select";
 import { visit } from "unist-util-visit";
 
+import type { Root } from "hast";
+import { h } from "hastscript";
+import type { Plugin } from "unified";
+import { findAndReplace } from "hast-util-find-and-replace";
+
 export const remarkExtractTitle = () => {
   return (tree: Parameters<typeof select>[1]) => {
     // console.log(inspect(tree));
@@ -51,5 +56,54 @@ export const rehypeAddAltText = () => {
       })
     );
     return tree;
+  };
+};
+
+export type RehypeEmojiOptions = {
+  emojis: Record<string, string>;
+  className?: string;
+  ignore?: string | string[];
+  alt?: boolean;
+};
+
+const defaultOptions: RehypeEmojiOptions = {
+  emojis: {},
+  className: "emoji",
+  ignore: "code",
+  alt: true,
+};
+
+// I took this from https://github.com/monodyle/rehype-custom-emoji but
+// allowed it to visit all nodes or for some reason it wouldn't swap the
+// emojis in list items.
+export const rehypeCustomEmoji: Plugin<[RehypeEmojiOptions], Root> = (
+  options: RehypeEmojiOptions
+) => {
+  const opts = { ...defaultOptions, ...options };
+  const replace_maps: Record<string, any> = {};
+  Object.entries(opts.emojis).forEach(([emoji_code, path]) => {
+    const emoji = `:${emoji_code}:`;
+    const properties = {
+      src: path,
+      className: opts.className,
+      alt: opts.alt ? emoji : undefined,
+    };
+    replace_maps[emoji] = h("img", properties);
+  });
+
+  return (tree) => {
+    visit(tree, (node) => {
+      if (
+        node.type == "element" &&
+        node.properties?.dataEmoji === undefined &&
+        node.tagName !== "p"
+      ) {
+        return;
+      }
+      if (node.type === "text") {
+        return;
+      }
+      findAndReplace(node, replace_maps, { ignore: opts.ignore });
+    });
   };
 };
