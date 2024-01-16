@@ -35,6 +35,13 @@ export default defineConfig({
             }
             return false;
           },
+          customizeTOCItem: (toc, heading) => {
+            const headingContent = heading.children?.[0];
+            if (headingContent.children.length > 1) {
+              toc.children[0].children = headingContent.children;
+            }
+            return toc;
+          },
         },
       ],
       [
