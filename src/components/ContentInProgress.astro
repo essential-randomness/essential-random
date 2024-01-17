@@ -1,0 +1,74 @@
+---
+import { Image } from "astro:assets";
+import bobaWip from "./bobawip.png";
+---
+
+<aside class="wip">
+  <Image src={bobaWip} alt="Boba-tan working hard" />
+  <div>
+    <div class="title">This section is a Work In Progress!</div><div>
+      Writing content is hard work! When I run out of time, I might leave
+      sections unfinished to stick to my content schedule.
+    </div>
+    <div>
+      <strong
+        >If you're dying for this section to be filled, <a
+          href="/support-me#donate">become a $upporter</a
+        ></strong
+      >. You can vote for it on my dedicated $upporters writing time!
+    </div>
+  </div>
+
+  <style>
+    aside {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin: 30px 20px;
+      padding: 5px 15px;
+      img {
+        width: 200px;
+        height: auto;
+      }
+      .title {
+        font: var(--font-family-title);
+        font-weight: 800;
+        width: fit-content;
+      }
+      & > div {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+  </style>
+</aside>
+
+<script>
+  import { annotate } from "rough-notation";
+
+  const containers = document.querySelectorAll<HTMLDivElement>(`aside.wip`);
+  if (containers) {
+    containers.forEach((container) => {
+      const annotation = annotate(container, {
+        type: "box",
+        animate: false,
+        padding: 6,
+        color: "#444",
+      });
+      annotation.show();
+
+      const title = container?.querySelector<HTMLDivElement>(".title");
+      if (title) {
+        const annotation = annotate(title, {
+          type: "highlight",
+          animate: false,
+          color: "yellow",
+          padding: 8,
+          multiline: true,
+        });
+        annotation.show();
+      }
+    });
+  }
+</script>
