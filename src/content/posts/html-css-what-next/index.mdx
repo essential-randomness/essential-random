@@ -1,13 +1,15 @@
 ---
 title: I made some pages in HTML and CSS, now what?
 tagline: How to build an indie website that grows with you
-created_at: 2023-12-07 15:35:19
-status: rough-draft
+created_at: 2024-01-16 15:59:59
+status: pre-beta
 og_description: |
   Have you learned some HTML and CSS but feel like the website
   of your dreams (with a blog! a fancy gallery! a comments section!) is out of
   your reach? Here's a few options for your next steps!
 ---
+
+import ContentInProgress from "../../../components/ContentInProgress.astro";
 
 ## Outgrowing HTML and CSS
 
@@ -22,7 +24,7 @@ similar to) these:
 - Automatically creating pages for each individual work in your galleries, or
   filtering them according to their tags.
 - Allowing users to add their own content to your pages, be it in the form of a
-  guestbook, a comment section, or even just a like on your post.
+  guestbook, a comment section, or even likes on your posts.
 
 First of all, _congratulations!_ Your ambition is a sign of your growth as a
 website weaver. At this point, for how intimidating that sounds, you might be
@@ -31,10 +33,10 @@ and (if you wish) programming.
 
 ## So Many Pathways, So Little Time
 
-Now, _bad news_: there's countless potential paths in front of you, and you
-might find yourself confused and overwhelmed. But–_good news!_–every developer's
-journey is unique (and rarely linear), and you're going to be fine no matter
-which path you choose.
+First, _bad news_: there's countless potential paths in front of you, which might
+feel confusing and overwhelming. But–_good news!_–every developer's journey is
+unique (and rarely linear), and you're going to be fine no matter the steps you
+choose to take.
 
 In this article, we'll discuss my favorite options:
 
@@ -43,9 +45,11 @@ In this article, we'll discuss my favorite options:
 3. The Server Path
 
 You can choose one of them and follow it to the end, or you can jump around as
-you wish. Often, you might find that the one that seems most appealing doesn't
-end up being your favorite. Sometimes, you might find the one that didn't turns
-out to be a lot of fun. Remember: if you don't like the choice you made, you can
+you wish. Some will find that the one that seemed most appealing doesn't
+end up being their favorite. Others might find the one that didn't turns
+out to be a lot of fun.
+
+Remember: if you don't like the choice you made, you can
 go back and try a different one. Not only figuring out what you don't like is as
 valuable as figuring out what you do, but all these choices build upon each
 other. No learning is ever wasted.
@@ -69,25 +73,26 @@ page of your website by hand, stitches your files together and _generates_ those
 pages for you.** For example, an SSG will allow you to:
 
 - Define your own `<Navigation />` tag to add wherever you want your navigation bar
-  to appear. This tag will be swapped with the HTML and CSS of your navigation when
-  the SSG runs.
+  to appear. The SSG will swap this tag with the HTML and CSS of your navigation.
 - Automatically add a new entry to your gallery for each image in a folder, making sure
-  you never accidentally forget to add the new `img` tag to your HTML.
+  you never accidentally forget to add a new `img` tag to your HTML.
 
-**In the end, an SSG will create the same HTML and CSS files you'd have written**, without
-having you write the same code over and over again. These days, [the web's most darling Static Site Generator is Astro](https://astro.build/).
-If their homepage seems too full of jargon and overwhelming for you, don't worry: you don't
-need to understand any of those words to be able to use it.
+**In the end, an SSG will create the same HTML and CSS files you'd have written
+manually**, without you having to repeat the same code over and over again.
+These days, [the web (and me)'s most darling Static Site Generator is
+Astro](https://astro.build/). If their homepage seems too full of jargon and
+overwhelming for you, don't worry: you don't need to understand any of those
+words to be able to use it.
 
 > **Note:** if you want to follow along my _live_ explanation of this path, you can [watch me
-> go through it on YouTube]().
+> go through it on YouTube](https://youtu.be/LOs8DqEi2_s?si=W31BDVLQn73zKUp8).
 
 #### Installing Astro
 
 Here's how to get started:
 
 <details>
-  <summary>Content collapsed for your ease of scrolling past</summary>
+  <summary>Click here to reveal the installation steps</summary>
 
 1. **Learn how to open you Terminal (command line) and navigate to a folder:** many
    beginners (and some experts) are nervous about using the command line to run programs. In
@@ -97,161 +102,251 @@ Here's how to get started:
    or [Linux](https://www.techrepublic.com/article/linux-101-how-to-quickly-open-a-terminal-in-a-specific-directory/).
 
    > **NOTE:** if you'd really, _really_ like to avoid using a Terminal, I suggest you go through the
-   > ["Play Around in the Browser" path](#the-play-around-in-the-browser-path) instead.
+   > ["Play Around in the Browser" path](#the-play-around-in-the-browser-path) instead. Just know I
+   > believe in you and your ability to master the command line!
 
-2. **Install NodeJS with Node Version Manager (NVM):** NodeJS allows you to run JavaScript code on your computer
-   (rather than in your browser). Astro, like many other program, is written in JavaScript
-   and needs NodeJS to run. **Rather than installing NodeJS directly I suggest you
-   use NVM ([Windows](https://github.com/coreybutler/nvm-windows?tab=readme-ov-file#install-nvm-windows),
-   [others](https://github.com/nvm-sh/nvm)).** NVM will install NodeJS for you, and allow you
-   to switch between different versions whenever you need. It's a handy tool that will help
-   you later. After installing NodeJS, **you can now run `npm` commands in your Terminal.**
-3. **Install (and play around with) Astro**: Astro has an excellent [documentation website](https://docs.astro.build/)
-   and a friendly Discord server for when you get stuck. Currently, **[the command to create your
-   Astro website](https://docs.astro.build/en/install/auto/) is `npm create astro@latest`.**
-   Open your Terminal in the folder you want to create your website in, run this command, answer
-   some questions, and you're done! Reopen your Terminal in the new folder (or `cd` into it)
-   then run `npm run dev` to see your Astro website come to life.
+2. **Install NodeJS with Node Version Manager (NVM):** NodeJS allows you to run
+   JavaScript code on your computer (rather than in your browser). Astro, like
+   many other program, is written in JavaScript and needs NodeJS to run.
+   **Rather than installing NodeJS directly I suggest you use NVM
+   ([Windows](https://github.com/coreybutler/nvm-windows?tab=readme-ov-file#install-nvm-windows),
+   [others](https://github.com/nvm-sh/nvm)).** NVM will install NodeJS for you,
+   and allow you to switch between different versions whenever you need. It's a
+   handy tool that will help you later. After installing NodeJS, **you can now
+   run `npm` commands in your Terminal.**
+3. **Install (and play around with) Astro**: Astro has an excellent
+   [documentation website](https://docs.astro.build/) and a friendly Discord
+   server for when you get stuck. Currently (January 2024), **[the command to
+   create your Astro website](https://docs.astro.build/en/install/auto/) is `npm
+create astro@latest`.** Open your Terminal in the folder you want to create
+   your website in, run this command, answer some questions, and you're done!
+   Reopen your Terminal in the new folder (or `cd` into it) then run `npm run
+dev` to see your Astro website come to life.
 
 </details>
 
 #### Part 1: The Basics
 
-From here, here's the learning path I suggest:
+From here, here's how I suggest you approach learning how to use SSGs:
 
 - **[Make some new
   pages](https://docs.astro.build/en/core-concepts/astro-pages/):** First, you
   can create some HTML pages in your `src/pages/` folder to see that all you
   know still works as you expect! Next, you can try creating some `.astro`
-  pages, and (if you're a fan of markdown) even some `.md` ones. You can run
-  `npm run dev` to see a preview of these pages
+  pages, and (if you're a fan of markdown) even some `.md` ones. Run `npm run
+dev` in your terminal to see a preview of these pages.
 - **[Learn how to `build` your
   website](https://docs.astro.build/en/guides/deploy/#building-your-site-locally)**:
-  When your pages are done, you can run `npm run build` to generate your HTML
-  and CSS pages. Explore the files in the newly-created `dist/` directory to see
-  the code Astro built for you!
+  When you have made one or more pages, you can run `npm run build` to generate
+  your final HTML and CSS pages. Explore the files in the newly-created `dist/`
+  directory (in the same folder as your website) to see the code Astro built for
+  you!
 - **[Create a Component (without
-  Props)](https://docs.astro.build/en/core-concepts/astro-components/):** A Component is a
-  reusable tag you can add to any `.astro` page in place of rewriting the same HTML. You can
-  write _any_ component you wish, but if you cannot choose the Astro
-  documentation has [a tutorial that guides you through creating a Navigation
+  Props)](https://docs.astro.build/en/core-concepts/astro-components/):** A
+  Component is a reusable tag you can add to any `.astro` page in place of
+  rewriting the same HTML. You can write _any_ component you wish, but if you
+  cannot choose the Astro documentation has [a tutorial that guides you through
+  creating a Navigation
   Bar](https://docs.astro.build/en/tutorial/3-components/). Regardless of which
   component you choose to build, this is a good time to dive into them!
 - **[Create your Layout](https://docs.astro.build/en/core-concepts/layouts/):**
   A step up from simple components, creating a layout will allow you to easily
   wrap the unique content of every page in the same HTML. The new concept you're
   looking to explore here is [the `<slot />`
-  tag](https://docs.astro.build/en/core-concepts/astro-components/#slots).
+  tag](https://docs.astro.build/en/core-concepts/astro-components/#slots). A
+  slot is a "hole" in the HTML of your component that allows you to insert more
+  HTML and CSS content within it. Think of wrapping the content unique to each
+  page in a `<Layout>` tag!
 - **[Create a Component (with
   props)](https://docs.astro.build/en/core-concepts/astro-components/#component-props):**
   props allow you to add custom attributes to Component tags you create! For
-  example, you might create a `Card` that allows you to display information about your OCs,
-  and use attributes for the data that changes between them, like their names, images, and
-  descriptions.
+  example, you might create a `Card` that allows you to display information
+  about your OCs, and use attributes for the data that changes between them,
+  like their names, images, and descriptions.
 
 #### Part 2: The slightly-less Basics
 
 At this point, if you start feeling overwhelmed by the JavaScript required, it
 might be worth temporarily switching to the ["Play Around in the
 Browser"](#the-play-around-in-the-browser-path) path to beef up your skills.
-Once you're comfortable with these, here's how you might proceed:
+Once you're comfortable with these (or if you like "trials by fire"), here's
+how you might proceed:
 
 - **[Dynamic Routes](https://docs.astro.build/en/core-concepts/routing/#dynamic-routes):** Dynamic
   routes allow you to automatically generate individual pages based on a list of
   data. For example, continuing the OC example, you might create an individual
-  page for each character and make your cards link to it. The ["build a blog"
-  Astro tutorial](https://docs.astro.build/en/tutorial/5-astro-api/) guides you
+  page for each character and make your OC card link to it. For a different take
+  on this, the ["build a blog" Astro
+  tutorial](https://docs.astro.build/en/tutorial/5-astro-api/) guides you
   through automatically generating a blog from a series of markdown files in a
-  folder.
+  folder. My [guide to `getStaticPaths`](/posts/get-static-paths) might also help.
 - **[Content
   Collections](https://docs.astro.build/en/guides/content-collections/#_top):**
   This is my favorite Astro feature, and one of the main reasons I so highly
   reccommend it. While this will require [some
   TypeScript](#making-the-glompjump-to-typescript), you don't need to fully know
   TypeScript to get benefits out of it. Long story short, content collections
-  allow you to store all your content in a `src/content/` folder and make sure
-  that all content in each collection has the same structure (for example, that
-  all your blogpost have a title, or all your OCs have a favorite food). You can
-  follow [Astro's Blog with Content Collections
+  allow you to store all your content in a `src/content/` folder, and make sure
+  that all content in a collection has the same structure. For example, a
+  content collection can help ensure that all your blogpost have a title, or all
+  your OCs have a favorite food. You can follow [Astro's Blog with Content
+  Collections
   tutorial](https://docs.astro.build/en/tutorials/add-content-collections/#extending-the-blog-tutorial-with-content-collections)
   to learn more about them.
 - **[Remark & Rehype Plugins](https://docs.astro.build/en/guides/markdown-content/#configuring-markdown-and-mdx):**
   once again, one of my favorite features (not just of Astro). If you're writing your content
-  in markdown or MDX, you can install Remark and Rehype plugins to extend the capabilities
-  of your markdown. For example, I use them to automatically generate the table of content
-  in these pages, or to add emojis to my content :bobaparty::bobaparty::bobaparty:!
+  in markdown or MDX, you can install Remark and Rehype plugins to extend the
+  capabilities of your markdown. For example, I use them to automatically
+  generate the table of content in these pages, or to add emojis to my content
+  using the typical `:emoji:` shorthand :bobaparty::bobaparty::bobaparty:!
 
 #### Uploading your Website
 
-Statically Generated websites can be easily published to websites like Neocities. After all,
-once you run `npm run build`, the content within your `dist/` folder will be the same HTML
-and CSS pages you will have written by hand! If you want to step up your game even further,
-you can [learn how to use Git + GitHub](#the-always-worth-it-regadless-of-path) to automatically upload your website whenever you
-create a new version.
+Statically Generated websites can be easily published to websites hosts like
+Neocities. After all, once you run `npm run build`, the content within your
+`dist/` folder will be the same HTML and CSS pages you'd have written by hand!
+If you want to step up your game even further, you can [learn how to use Git +
+GitHub](#the-always-worth-it-regadless-of-path) to automatically upload your
+website to the web whenever you create a new version.
 
 ### The Play Around in the Browser Path
 
-Maybe you want to try JavaScript, but aren't yet ready to commit to all
-the installation process that comes with making a jump to a more complex
-build step like static site generation. Maybe you aspire to make single
-pages more than complex set ups, and enjoy interactivity in your pages.
+<ContentInProgress />
 
-Here's a bit of what you should learn:
+Maybe you want to try JavaScript, but aren't yet ready to commit to all that
+comes with a more complex setup, like the one for static site generation. Maybe
+you wish to build experiences that fit within a single page, but require more
+interactivity or bell and whistles that HTML and CSS give you.
 
-- Basic of code (variables, arrays, functions, objects)
-- Logging values to console (invaluable for debugging)
-- JavaScript event handlers
-- DOM manipulation
+Luckily, JavaScript is one of the simplest programming languages to get started with!
+All you need is the same browser you've been reading this page with–at least if you're
+on a desktop device!
 
-An easy path for this would be to make something that changes when you click
-a button. Pairing CSS animations with events is also fun.
+While I don't have time to flesh out this section, here's some very quick pointers for what to learn:
+
+- **Basic of code (variables, arrays, functions, objects):** You can [use your
+  browser
+  console](https://www.codecademy.com/article/running-javascript-in-the-browser-console)
+  to play around with JavaScript in an easily-interactive fashion! This is a
+  great way to quickly experiment with some programming basics. If you wish, I
+  have a [YouTube tutorial on these
+  basics](https://www.youtube.com/watch?v=0k3rIR2rp0o&list=PLhXpCwgI-5FIo4KHBNSsrGi78pLECCe7Z&index=5).
+  Just be mindful that [this tutorial uses
+  TypeScript](#making-the-glompjump-to-typescript), which doesn't work directly
+  in the browser console. However, all that is discussed works exactly the same for JavaScript (minus
+  type annotations).
+- **Logging values to console:** This is invaluable for debugging, especially as a beginner. I suggest learning about both
+  `console.log` and `console.dir` (with the `{ depth: null }` option). Use them freely and with abandon!
+- **DOM manipulation:** What good is JavaScript if you don't know how to use it
+  to change the look of your website? Learn about
+  [`querySelector`](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Manipulating_documents#active_learning_basic_dom_manipulation)
+  and [adding children to elements](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Manipulating_documents#creating_and_placing_new_nodes), and get manipulating!
+- **JavaScript event handlers:** Reacting to browser events is what JavaScript
+  is all about! [Learning all you can about
+  `addEventListener`](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events)
+  will quickly set you on the path to mastery!
+
+Given the lack of time, I'll leave you with another of my posts in place of task
+examples: [how to come up with good projects to improve your programming
+skills](https://essential-randomness.tumblr.com/post/677309777029824512/dear-ms-boba-how-do-you-go-from-having-general).
 
 ### The Saving Data on the Server Path
 
-This is the path for you if you're interested in getting into
-talking with other services or storing and retrieving data (like comments).
-There's many routes you can go through here, but I personally suggest:
+<ContentInProgress />
 
-- Get Astro
-- Turn on SSR mode
-- Watch our stuff on Forms, maybe use them with Discord Webhook
-  - Link to article + video
-- Learn SQLite (articles coming)
+Do you want to interact with other websites and applications (like Discord), or
+store and retrieve "user-generated data" (like comments)? Then learning about server-side
+programming might be the thing for you!
+
+One again, there's many routes to learn about this topic. While I don't have
+time to flesh out this section, here's some very quick pointers for what to
+learn:
+
+- **[Install Astro](#installing-astro):** While Astro is mainly a Static Site
+  Generator, it's also an incredibly quick and easy way to get a server up and
+  running!
+- **[Enable "server
+  mode"](https://docs.astro.build/en/core-concepts/rendering-modes/#on-demand-rendered):**
+  As I said, you can easily get access to a server with Astro!
+- **Watch [my video on using forms and
+  webhooks](https://www.twitch.tv/videos/2026880997):** Forms are your portal
+  between the client (what you see on your browser) and the server (where data
+  gets processed). You can also learn about [API endpoints in
+  Astro](https://docs.astro.build/en/core-concepts/endpoints/#server-endpoints-api-routes).
+- **Learn SQLite:** While I don't have content specifically about this yet, I
+  can reccommend [Turso](https://turso.tech/) as a way to get access to a free
+  SQLite DB to experiment with.
+
+**Important:** You cannot host websites that need a server on Neocities. [Astro's website has
+a few handy suggestions for you](https://docs.astro.build/en/guides/deploy/). You will need to
+choose one that supports SSR. This is a good time to learn [about using Version Control](#the-always-worth-it-regadless-of-path).
 
 ### The "Always Worth it, Regadless of Path"
 
-- Learn Git & GitHub (follow FujoGuide for when our guide comes out)
-- Figure out a good IDE (we reccommend VSCode)
+<ContentInProgress />
+
+- **Learn Git & GitHub:** Once again, Git + GitHub have been voted "most useful
+  skill that I would not have learned on my own" by our beginner friends in
+  Fandom Coders! They're also [the topic of my very first
+  livestream](https://www.youtube.com/watch?v=PMVw63yvY7U&list=PLhXpCwgI-5FIo4KHBNSsrGi78pLECCe7Z&index=1).
+  If you want hot fictional characters to help you learn this skill, [follow our
+  progress on FujoGuide Volume 0](https://www.fujoweb.dev/)!
+- **Switch to a professional code editor:** The default choice these days is
+  [the excellent VSCode](https://code.visualstudio.com/docs/introvideos/basics)!
 
 ## Next Up on Your Journey: Trial and Error, Mix and Match
 
-These paths just give you an idea of what's possible. You don't need to follow
-any linearly, and you can jump in and out and see what you prefer. If you're
-discouraged, maybe you can try attacking it from a different side. The best
-way to learn is to make a project that's just a bit outside of your comfort
-zone and go from there (link to the other post).
+These paths just give you an idea of what's possible, but remember: you don't
+need to follow them linearly. Jump in and out and see which one you vibe with!
+If you start feeling discouraged, try attacking JavaScript from a different side. The
+best way to learn is to [build a project that's just a bit outside of your comfort
+zone](https://essential-randomness.tumblr.com/post/677309777029824512/dear-ms-boba-how-do-you-go-from-having-general).
 
-While the road to mastering these abilities won't be simple, I believe that if
+While the road to mastering these abilities won't be simple, I know that if
 you stick with it you'll find yourself making progress quicker than you think,
-earlier than you think. If you ever feel like there's no way you'll ever "get it",
-don't despair: that's just how programming feels like sometimes! You can always
-reach out to me on socials or during streams with any question.
+earlier than you think. **If you ever feel like there's no way you'll ever "get it",
+don't despair: that's just how programming feels like sometimes!**
+
+You can always reach out to me on my socials or [during streams](https://www.twitch.tv/essentialrandomness) with any question.
 
 ## Making the ~~Glomp~~Jump to TypeScript
 
-As you go through these you might sometimes hear about TypeScript. For the most
-part, you don't need to worry about it. JavaScript code is also valid TypeScript
-code. Wherever you can write TypeScript, you can write JavaScript (but not vice versa)
-with maybe just a few more red squiggles.
+As you go through this journey, you will sometimes hear about TypeScript. For the most
+part, you don't need to worry about it: JavaScript code is also valid TypeScript
+code. **Wherever you can write TypeScript, you can write JavaScript (but not vice versa)**,
+with maybe just a few red squiggles in your editor to keep you on your toes.
 
-What TypeScript does is it makes sure that what you have in your variables and what
-you're passing to your function is right. While it can be scary, this is yet another
-step up that can help you become a better and more efficient programmer, and write
-more and more complex programs.
+What TypeScript adds on top of JavaScript is the ability to know for sure what
+type of value your variables contain, and what values your functions accept and
+give back. While TypeScript can be scary, it's yet another step forward that can
+help you become a better and more efficient programmer. Thanks to TypeScript,
+you can write more and more complex programs without spending as much time
+debugging them or looking up references.
 
-[the meme of the square hole with javascript and typescript]
+<figure>
+  <iframe
+    width="420"
+    height="315"
+    src="https://www.youtube.com/embed/6pDH66X3ClA"
+  />
+  <figcaption>
+    TypeScript suffering as JavaScript revels in its lack of type safety.
+  </figcaption>
+</figure>
 
-Unfortunately, there isn't a lot of great beginners friendly material to reccommend.
-We did do a little bit here, but we'll also try to publish more soon.
+Unfortunately, there isn't a lot of great beginners friendly material to recommend.
+As mentioned, [I went through TypeScript basics in this video](https://www.youtube.com/watch?v=0k3rIR2rp0o&list=PLhXpCwgI-5FIo4KHBNSsrGi78pLECCe7Z&index=5).
+Hopefully, I'll get to publish more content about it soon!
 
-- https://www.youtube.com/playlist?list=PLNqp92_EXZBJYFrpEzdO2EapvU0GOJ09n doublecheck guy with Ria
+Have a fun journey!
+
+<style>{`
+figure {
+    text-align: center;
+}
+figcaption {
+    margin-top: 5px;
+    text-size: small;
+    color: gray;
+}
+`}</style>
