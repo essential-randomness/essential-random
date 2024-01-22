@@ -7,6 +7,11 @@ import { fromCollection } from "../../utils/social-utils";
 import OutsideBlogPosts from "../../components/OutsideBlogPosts.astro";
 
 const socials = fromCollection(await getCollection("socials"));
+const posts = [...(await getCollection("posts"))].sort((elementA, elementB) => {
+  return (
+    elementB.data.created_at.valueOf() - elementA.data.created_at.valueOf()
+  );
+});
 ---
 
 <Layout title="Essential Randomness — Ms Boba's Emporium of Weirdness">
@@ -15,11 +20,21 @@ const socials = fromCollection(await getCollection("socials"));
       <ProfileCard />
     </aside>
     <div>
-      <h2>Coming soon</h2>
-      <p>
-        Please hold on while this blog is being made presentable. In the
-        meantime, for a sample of my past writing you can read:
-      </p>
+      <ul>
+        {
+          posts.map((post) => {
+            return (
+              <li>
+                <article>
+                  <h2 set:html={post.data.title} />
+                  {post.data.tagline && <div>{post.data.tagline}</div>}
+                  Posted on: {post.data.created_at}
+                </article>
+              </li>
+            );
+          })
+        }
+      </ul>
       <OutsideBlogPosts />
       <div>
         ...plus dozens of rants scattered all around the internet!
