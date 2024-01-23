@@ -1,0 +1,68 @@
+---
+interface Props {
+  tags: string[];
+  requestedTags: string[];
+}
+
+const { tags, requestedTags } = Astro.props;
+---
+
+<form name="tags-filter">
+  <ul>
+    {
+      tags.map((tag) => (
+        <li>
+          <label>
+            {tag}
+            <input
+              type="checkbox"
+              name="tag"
+              value={tag}
+              checked={requestedTags.includes(tag)}
+            />
+          </label>
+        </li>
+      ))
+    }
+  </ul>
+  <button type="submit">Filter</button>
+</form>
+
+<style>
+    form {
+        border: 1px solid black;
+    }
+  ul {
+    display: flex;
+    list-style: none;
+    flex-wrap: wrap;
+  }
+  label {
+    input {
+        display: none;
+    }
+    &:has(input[checked]) {
+        color: red;
+    }
+
+    display: inline-block;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 0px 5px;
+    font-size: smaller;
+    margin-right: 5px;    text-wrap: nowrap;
+  }
+</style>
+<script is:inline>
+const form = document.querySelector("form[name='tags-filter']");
+form?.addEventListener("click", (e) => {
+    if (e.target.type != "checkbox") {
+        return;
+    }
+    e.currentTarget.submit();
+})
+const submitButton = form.querySelector("button[type='submit']");
+if (submitButton) {
+    submitButton.style.display = "none";
+}
+</script>

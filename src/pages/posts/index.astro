@@ -3,6 +3,7 @@ import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import ProfileCard from "../../components/ProfileCard.astro";
 import PostPreview from "../../components/posts/PostPreview.astro";
+import TagsFilter from "../../components/posts/TagsFilter.astro";
 import { SocialLinks } from "../../components/SocialLinks";
 import { fromCollection } from "../../utils/social-utils";
 import OutsideBlogPosts from "../../components/OutsideBlogPosts.astro";
@@ -32,26 +33,7 @@ const displayPosts = requestedTags.length
       <ProfileCard />
     </aside>
     <div>
-      <form>
-        <ul>
-          {
-            tags.map((tag) => (
-              <li>
-                <label>
-                  {tag}
-                  <input
-                    type="checkbox"
-                    name="tag"
-                    value={tag}
-                    checked={requestedTags.includes(tag)}
-                  />
-                </label>
-              </li>
-            ))
-          }
-        </ul>
-        <button type="submit">Filter</button>
-      </form>
+      <TagsFilter tags={tags} requestedTags={requestedTags} />
       <ol>
         {
           displayPosts.map(async (post) => {
