@@ -7,7 +7,9 @@ import { fromCollection } from "../../utils/social-utils";
 import OutsideBlogPosts from "../../components/OutsideBlogPosts.astro";
 
 const socials = fromCollection(await getCollection("socials"));
-const posts = [...(await getCollection("posts"))].sort((elementA, elementB) => {
+const posts = [
+  ...(await getCollection("posts", (post) => !post.data.unlisted)),
+].sort((elementA, elementB) => {
   return (
     elementB.data.created_at.valueOf() - elementA.data.created_at.valueOf()
   );
