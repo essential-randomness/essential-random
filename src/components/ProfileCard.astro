@@ -76,15 +76,24 @@ import avatar from "../images/avatar.png";
   dd {
     margin-left: 10px;
   }
+  @media (max-width: 800px) {
+    .p-name a {
+      font-size: 19px;
+    }
+  }
 
   @media (max-width: 650px) {
     .card {
       display: grid;
-      grid-template-columns: 30% 70%;
+      grid-template-columns: 20% 80%;
+      column-gap: 10px;
       align-items: center;
     }
     .avatar {
       grid-row-start: span 3;
+    }
+    .p-name a {
+      font-size: x-large;
     }
   }
 </style>

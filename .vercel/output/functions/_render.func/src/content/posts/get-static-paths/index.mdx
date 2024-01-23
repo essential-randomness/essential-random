@@ -1,0 +1,431 @@
+---
+title: A quick guide to `getStaticPaths`
+tagline: A beginner-friendly explanation of why and how SSGs use this function.
+tags:
+  - +astro
+  - +typescript
+created_at: 2023-12-31 11:09:53
+status: pre-beta
+---
+
+## What `getStaticPaths` does in Astro (and theoretically NextJS)
+
+Static Site Generators (SSGs) don't create pages on demand when a visitor
+requests them. Instead, they generate them all ahead of time (the so-called
+_"build time"_) before your site is uploaded to the web. This creates a problem
+when page definitions have parameters within their URLs: **if a URL is of the
+form `/posts/[postSlug]`, what are all the possible valid values that
+`[postSlug]` can have?** Without knowing this, your SSG cannot know what pages
+it's being asked to generate. This is the question that `getStaticPaths` exists
+to answer.
+
+## `getStaticPaths` and URL parameters
+
+When an SSG goes to generate a page that has a dynamic parameter, it first
+searches the code within in search of an _exported_ function (the only ones it
+can see) named `getStaticPaths`. When called, this function will give the SSG
+the list of all the pages it needs to work its magic on. The form this list
+takes is **an array made up of one JavaScript object per page with the values of
+the URL parameter(s) for that page.**
+
+Let's leverage TypeScript to show what this looks like:
+
+```ts
+type PageParameters = {
+  postSlug: string;
+};
+
+type ParametersForEachPage = Array<{
+  params: PageParameters;
+}>;
+
+// A function that takes no inputs, and returns ParametersForEachPage.
+type getStaticPaths = () => ParametersForEachPage;
+```
+
+Or, for a concrete example:
+
+```ts
+// Since getStaticPaths often uses data that is loaded via network
+// or filesystem request, the function will be async and the return
+// value wrapped in a promise. If you don't know what that means,
+// just ignore it: the broad concept remains the same.
+export async function getStaticPaths(): Promise<ParametersForEachPage> {
+  return [
+    { params: { postSlug: "my-shipping-manifesto" } },
+    { params: { postSlug: "typescript-is-your-friend-i-swear" } },
+    { params: { postSlug: "thirstposting-as-bonding-activity" } },
+  ];
+}
+```
+
+This will generate 3 pages:
+
+1. `/posts/my-shipping-manifesto`
+2. `/posts/typescript-is-your-friend-i-swear`
+3. `/posts/thirstposting-as-bonding-activity`
+
+If you want, you can stop here: **this is all your SSG needs to start using `getStaticPaths`.**
+
+## `getStaticPaths` and props
+
+If you want to go deeper, however, there is yet another thing that
+`getStaticPaths` can do for you: given that it already has to work to produce
+the value of the URL parameters for every page (a task that might require
+potentially-expensive data loading), wouldn't it be neat if it could use that
+chance to **also tell the SSG about the dynamic properties ("`props`") that
+change page by page**?
+
+Continuing our blog example, our dynamic properties could be `tags`, `title`,
+`created_at`, and mostly anything that depends on the specific post and that we
+want to avoid having to recalculate later. **The SSG doesn't really care what
+`props` you give it (and if you give any)**: it will simply pass them as-is to
+each page as it goes generate it, similarly to how we manually pass props to
+components.
+
+Our TypeScript signatures will then become:
+
+```ts
+type PageParameters = {
+  postSlug: string;
+};
+
+type PageProperties = {
+  tags: string[];
+  title: string;
+  created_at: Date;
+};
+
+type DataForEachPage = Array<{
+  params: PageParameters;
+  props: PageProperties;
+}>;
+
+// A function that takes no inputs, and returns DataForEachPage.
+type getStaticPaths = () => DataForEachPage;
+```
+
+In practice, our function will now look like this:
+
+```ts
+export async function getStaticPaths(): Promise<GetStaticPathReturnValue> {
+    return [
+        // Our shipping post
+        {
+            params: { postSlug: "my-shipping-manifesto" },
+            props: {
+                tags: ["fandom", "shipping"],
+                title: "Why I am Right and You are All Wrong",
+                created_at: new Date('December 31, 2023 23:59:00')
+            }
+        },
+        // Our typescript-defense-squad post
+        {
+            params: { postSlug: "typescript-is-your-friend-i-swear" } },
+            props: {
+                tags: ["coding", "typescript", "beginners"],
+                title: "Be kind to him, he's just trying to help",
+                created_at: new Date('January 5, 2024 16:20:00')
+            }
+        },
+        // And so on so on...
+    ];
+}
+```
+
+Note that **unlike params (that the SSG must have to know what to generate), props
+are completely optional**: if we preferred, we could simply load the post data
+again in the page itself by using the value in the `postSlug` URL parameter.
+"Props" is simply a "since we're here, we might as well" convenience.
+
+## `getStaticPaths` and content collections
+
+In Astro, `getStaticPaths` is often used in tandem with content collections. There's
+nothing particularly special about using `getStaticPaths` this way, but let's go through
+how such code typically looks bit by bit, and make sure that what's happening is clear.
+
+Once again, our goal is to let the SSG know about:
+
+1. The value of `postSlug` for each one of our posts
+2. The properties that change page by page (we'll assume this is
+   every property of `entry.data` for our collection, plus the function to render
+   the content)
+
+```ts
+export async function getStaticPaths() {
+  // If you're already loading this in the page itself, you cannot reuse it here:
+  // assume that getStaticPaths exists on its own and has no access to anything else
+  // on the file you're writing: it can only see what's written within it.
+  const blogEntries = await getCollection("posts");
+  // Given an array, map will run the function for each entry, and put the returned
+  // value in a new array (at the same position). This tells the SSG to generate a
+  // page for each entry in our collection.
+  return blogEntries.map((blogPost) => {
+    return {
+      // Content collections give us a nice slug for each entry, kindly
+      // precalculated for us. This is the mandatory part.
+      params: { postSlug: blogPost.slug },
+      // The properties that change for every rendered page. This is a simple
+      // convenience since we have all the data available here.
+      props: {
+        // Our "renderContent" prop will contain the function that renders the blog
+        // post content. Rather than calling the function, we assign its value
+        // to the renderContent property, like we'd do for any other variable.
+        // In practice, calling renderContent() will be the same as calling render().
+        renderContent: blogPost.render,
+        // We spread the content of blogPost.data in the returned object, so that
+        // we have a prop for each value in the data, rather than the whole data
+        // object as a single prop.
+        ...blogPost.data,
+      },
+    };
+  });
+}
+```
+
+Calling this `getStaticPaths` yields a similar result to the above version: an array with
+one entry for each entry in your collection, with the value of the `postSlug` URL
+parameter, and `props` that contain the dynamic data for each page.
+
+```ts
+export async function getStaticPaths(): Promise<DataForEachPage> {
+    return [
+        // Our shipping post
+        {
+            params: { postSlug: "my-shipping-manifesto" },
+            props: {
+                renderContent: /*a function to render the blogpost content*/,
+                tags: ["fandom", "shipping"],
+                title: "Why I am Right and You are All Wrong",
+                created_at: new Date('December 31, 2023 23:59:00')
+            }
+        },
+        // Our typescript-defense-squad post
+        {
+            params: { postSlug: "typescript-is-your-friend-i-swear" } },
+            props: {
+                renderContent: /*a function to render the blogpost content*/,
+                tags: ["coding", "typescript", "beginners"],
+                title: "Be kind to him, he's just trying to help",
+                created_at: new Date('January 5, 2024 16:20:00')
+            }
+        },
+        // And so on so on...
+    ];
+}
+```
+
+Or in TypeScript terms:
+
+```ts
+type PageParameters = {
+  postSlug: string;
+};
+
+type PageProperties = {
+  // Warning: AstroComponent is not the real type, but don't worry about that.
+  renderContent: () => Promise<AstroComponent>;
+  tags: string[];
+  title: string;
+  created_at: Date;
+};
+
+type DataForEachPage = Array<{
+  params: PageParameters;
+  props: PageProperties;
+}>;
+
+// A function that takes no inputs, and returns DataForEachPage. Since
+// content collections have an asynchronous loader, this function will return a
+// promise. Luckily, Astro is chill with that.
+type getStaticPaths = () => Promise<DataForEachPage>;
+```
+
+### Optional Trick (Advanced): pre-render components within `getStaticPaths`
+
+<details>
+  <summary>Show me the trick!</summary>
+  <div>
+    If you want to *directly return the rendered component* (rather than the
+    function to render it), you will run into a problem: the `render` function is
+    an `async` function (that is returns a `Promise`), which means the function you
+    call to `map` every element of the array will also need to be `async` (and thus
+    return a `Promise`).
+
+    In TypeScript terms:
+
+```ts
+// Same as before
+type PageParameters = {
+  postSlug: string;
+};
+
+// Now our properties include Content (the actual component) instead of renderContent (a reference
+// to the function to render the content)
+type PageProperties = {
+  // Instead of being a reference to the function `render`, this is now the result of calling
+  // `await render()`
+  Content: AstroComponent;
+  tags: string[];
+  title: string;
+  created_at: Date;
+};
+
+// OOOPS, now this is an array of promises! This makes Astro very confused.
+type DataForEachPage = Array<
+  Promise<{
+    params: PageParameters;
+    props: PageProperties;
+  }>
+>;
+```
+
+    If we want to pre-render the content, we can fix this in a somewhat-simple way: by waiting for
+    all the promises in the array to be resolved, and thus turning `DataForEachPage` back
+    to a simple array of objects. This is done using `Promise.all(array)`, which takes an
+    array of `Promise` and waits for them all to be resolved.
+
+```ts
+export async function getStaticPaths() {
+    const blogEntries = await getCollection("posts");
+    // We tell astro to wait for all promises in the array to be resolved before
+    // reading the value.
+    return Promise.all(
+        // Since we added async to the function passed to map, we're now returning
+        // an array of Promises (which will be waited on by Promise.all)
+        blogEntries.map(async (blogPost) => {
+        return {
+            params: { postSlug: blogPost.slug },
+            props: {
+                // We now return the content component directly (note the first-letter-uppercase
+                // convention, typical of components). Since `post.render` is an async function
+                // it will need to be awaited, which is what forced us to add async
+                // to the function passed to `map` and to have to use Promise.all.
+                Content: await post.render(),
+                ...blogPost.data,
+            },
+        };
+    });
+}
+```
+
+    Now we're back to the previous type signature, and all's right with ~~the world~~
+    Astro.
+
+    We can then use the rendered component in our `.astro` files by doing:
+
+```astro
+---
+const { Content, tags, title, created_at } = Astro.props;
+---
+
+{title}
+Published on: {created_at}
+
+<Content />
+
+```
+
+    </div>
+
+</details>
+
+## How do I use these values in my pages?
+
+Astro has its own way to get these values in your page, using the special `Astro` object
+that is available in every `.astro` file. Simply access the `params` and `props` elements
+in this object to get your values.
+
+### Params
+
+```ts
+// Remember: this destructuring is equivalent to
+// const postSlug = Astro.params.postSlug;
+const { postSlug } = Astro.params;
+```
+
+### Props
+
+Props work exactly as it would be in any component that accepts props:
+
+```astro
+---
+const { renderContent, tags, title, created_at } = Astro.props;
+
+// If you want to use the rendered content you can render it and
+// then use it as any other tag. Note we capitalize the first letter
+// of content to remind ourself that's a component.
+const Content = await renderContent();
+---
+
+{title}
+Published on: {created_at}
+
+<Content />
+```
+
+## Final TypeScript typing
+
+Here's the final typescript types of the whole thing, which (if you've surrendered
+to the power of our Lord TypeScript) will help you remember how the concepts are related:
+
+```ts
+type PageParameters = {
+  postSlug: string;
+};
+
+type PageProperties = {
+  renderContent: () => Promise<AstroComponent>;
+  tags: string[];
+  title: string;
+  created_at: Date;
+};
+
+type DataForEachPage = Array<{
+  params: PageParameters;
+  props: PageProperties;
+}>;
+
+// Astro will resolve that Promise for us, so we don't need to do anything
+// special with it. If Promises confuse you, you can pretend they're not here
+// in this case.
+type getStaticPaths = () => Promise<DataForEachPage>;
+
+// The type of Astro.params will then be the same as PageParameters
+type AstroParams = {
+  postSlug: string;
+};
+
+// And the type of Astro.props will then be the same as PageProperties
+type AstroProps = {
+  renderContent: () => Promise<AstroComponent>;
+  tags: string[];
+  title: string;
+  created_at: Date;
+};
+```
+
+...and that is all! Go forth and use the power of `getStaticPaths` and let me know
+if anything is unclear.
+
+<details open>
+  <summary>Liked this? Help me change the face of web development!</summary>
+  <div>
+    Changing the web means changing who builds it! To this end, I create
+    accessible education targeted at growing hobbyists webdevs from isolated
+    beginners to open-source collaborators and maintainers. Learn how to{" "}
+    <a href="/support-me">support this and more work on my Support Me page!</a>
+  </div>
+</details>
+
+<style>{`
+    details {
+        background-color: lightgray;
+        padding: 10px 20px;
+        margin: 20px 10px;
+        border-radius: 16px;
+    }
+    summary {
+        font-weight: bold;
+    }
+`}</style>

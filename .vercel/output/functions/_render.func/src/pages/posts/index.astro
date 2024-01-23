@@ -1,0 +1,121 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import ProfileCard from "../../components/ProfileCard.astro";
+import PostPreview from "../../components/posts/PostPreview.astro";
+import TagsFilter from "../../components/posts/TagsFilter.astro";
+import { SocialLinks } from "../../components/SocialLinks";
+import { fromCollection } from "../../utils/social-utils";
+import OutsideBlogPosts from "../../components/OutsideBlogPosts.astro";
+
+export const prerender = false;
+
+const socials = fromCollection(await getCollection("socials"));
+const posts = [
+  ...(await getCollection("posts", (post) => !post.data.unlisted)),
+].sort((elementA, elementB) => {
+  return (
+    elementB.data.created_at.valueOf() - elementA.data.created_at.valueOf()
+  );
+});
+
+const tags = [...new Set(posts.flatMap((post) => post.data.tags))];
+const currentUrl = new URL(Astro.request.url);
+const requestedTags = currentUrl.searchParams.getAll("tag");
+const displayPosts = requestedTags.length
+  ? posts.filter((post) =>
+      post.data.tags.some((tag) => requestedTags.includes(tag))
+    )
+  : posts;
+---
+
+<Layout title="Essential Randomness — Ms Boba's Emporium of Weirdness">
+  <main class="posts">
+    <aside>
+      <ProfileCard />
+    </aside>
+    <div>
+      {/* <TagsFilter tags={tags} requestedTags={requestedTags} />*/}
+      <ol>
+        {
+          displayPosts.map(async (post) => {
+            return (
+              <li>
+                <PostPreview
+                  title={post.data.title!}
+                  createdAt={post.data.created_at}
+                  tagline={post.data.tagline}
+                  url={`/posts/${post.slug}`}
+                  tags={post.data.tags}
+                />
+              </li>
+            );
+          })
+        }
+      </ol>
+      <OutsideBlogPosts />
+      <div>
+        ...plus dozens of rants scattered all around the internet!
+        <SocialLinks links={socials} />
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  main.posts aside {
+    grid-area: profile;
+  }
+
+  main.posts aside img {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+  }
+  main.posts aside nav {
+    display: flex;
+    flex-direction: column;
+  }
+
+  main.posts h2 {
+    margin-top: 0;
+  }
+
+  main.posts .articles li {
+    margin-bottom: 20px;
+  }
+  main.posts .social-links {
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  main.posts {
+    display: grid;
+    grid-template-columns: 25% 1fr;
+    grid-gap: 10px;
+    grid-template-areas: "profile posts";
+  }
+
+  ol {
+    list-style: none;
+    padding-inline: 50px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Show the tooltip text when you mouse over the tooltip container */
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+  }
+
+  :global(.social-links) {
+    margin-top: 20px;
+  }
+
+  @media (max-width: 650px) {
+    main.posts {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+</style>
