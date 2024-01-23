@@ -61,4 +61,5 @@ export default defineConfig({
   redirects: {
     "/subscribe": "/support-me",
   },
+  output: "server",
 });
