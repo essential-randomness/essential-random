@@ -1,6 +1,8 @@
 ---
 import { Image } from "astro:assets";
 import bobaWip from "./bobawip.png";
+
+console.log(bobaWip);
 ---
 
 <aside class="wip">
@@ -47,28 +49,30 @@ import bobaWip from "./bobawip.png";
 <script>
   import { annotate } from "rough-notation";
 
-  const containers = document.querySelectorAll<HTMLDivElement>(`aside.wip`);
-  if (containers) {
-    containers.forEach((container) => {
-      const annotation = annotate(container, {
-        type: "box",
-        animate: false,
-        padding: 6,
-        color: "#444",
-      });
-      annotation.show();
-
-      const title = container?.querySelector<HTMLDivElement>(".title");
-      if (title) {
-        const annotation = annotate(title, {
-          type: "highlight",
+  document.addEventListener("DOMContentLoaded", () => {
+    const containers = document.querySelectorAll<HTMLDivElement>(`aside.wip`);
+    if (containers) {
+      containers.forEach((container) => {
+        const annotation = annotate(container, {
+          type: "box",
           animate: false,
-          color: "yellow",
-          padding: 8,
-          multiline: true,
+          padding: 6,
+          color: "#444",
         });
         annotation.show();
-      }
-    });
-  }
+
+        const title = container?.querySelector<HTMLDivElement>(".title");
+        if (title) {
+          const annotation = annotate(title, {
+            type: "highlight",
+            animate: false,
+            color: "yellow",
+            padding: 8,
+            multiline: true,
+          });
+          annotation.show();
+        }
+      });
+    }
+  });
 </script>

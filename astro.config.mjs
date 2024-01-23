@@ -12,6 +12,8 @@ import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeSlug from "rehype-slug";
 import rehypeToc from "rehype-toc";
 
+import vercel from "@astrojs/vercel/serverless";
+
 // https://astro.build/config
 export default defineConfig({
   // ...
@@ -61,5 +63,6 @@ export default defineConfig({
   redirects: {
     "/subscribe": "/support-me",
   },
-  output: "server",
+  output: "hybrid",
+  adapter: vercel(),
 });

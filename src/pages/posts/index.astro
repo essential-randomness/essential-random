@@ -8,6 +8,8 @@ import { SocialLinks } from "../../components/SocialLinks";
 import { fromCollection } from "../../utils/social-utils";
 import OutsideBlogPosts from "../../components/OutsideBlogPosts.astro";
 
+export const prerender = false;
+
 const socials = fromCollection(await getCollection("socials"));
 const posts = [
   ...(await getCollection("posts", (post) => !post.data.unlisted)),
@@ -33,7 +35,15 @@ const displayPosts = requestedTags.length
       <ProfileCard />
     </aside>
     <div>
-      <TagsFilter tags={tags} requestedTags={requestedTags} />
+      {/* <TagsFilter tags={tags} requestedTags={requestedTags} />*/}
+      <h1>My writing</h1>
+      <div class="intro">
+        <p>
+          Welcome to my blog! Take a look around, and let me know what you think
+          on <a href="#socials">my socials</a>.
+        </p>
+        <OutsideBlogPosts />
+      </div>
       <ol>
         {
           displayPosts.map(async (post) => {
@@ -51,8 +61,7 @@ const displayPosts = requestedTags.length
           })
         }
       </ol>
-      <OutsideBlogPosts />
-      <div>
+      <div id="socials">
         ...plus dozens of rants scattered all around the internet!
         <SocialLinks links={socials} />
       </div>
@@ -61,49 +70,53 @@ const displayPosts = requestedTags.length
 </Layout>
 
 <style>
-  main.posts aside {
-    grid-area: profile;
-  }
-
-  main.posts aside img {
-    width: 100%;
-    height: auto;
-    max-width: 100%;
-  }
-  main.posts aside nav {
-    display: flex;
-    flex-direction: column;
-  }
-
-  main.posts h2 {
-    margin-top: 0;
-  }
-
-  main.posts .articles li {
-    margin-bottom: 20px;
-  }
-  main.posts .social-links {
-    justify-content: center;
-    margin-top: 20px;
-  }
-
   main.posts {
     display: grid;
     grid-template-columns: 25% 1fr;
     grid-gap: 10px;
+    column-gap: 50px;
     grid-template-areas: "profile posts";
+
+    aside {
+      grid-area: profile;
+    }
+  }
+
+  .intro {
+    margin-inline: 15px;
+    margin-block: 25px;
+    margin-block-start: 20px;
+    box-shadow: var(--box-shadow-shallow);
+    border: 2px solid black;
+    padding: 10px 20px;
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    p {
+      margin: 0;
+    }
+  }
+
+  h1 {
+    margin: 0;
+    font-size: 1.8rem;
   }
 
   ol {
     list-style: none;
-    padding-inline: 50px;
+    padding-inline: 0;
     display: flex;
     flex-direction: column;
-  }
 
-  /* Show the tooltip text when you mouse over the tooltip container */
-  .tooltip:hover .tooltiptext {
-    visibility: visible;
+    li::after {
+      content: "─── ⋆⋅☆⋅⋆ ───";
+      display: block;
+      text-align: center;
+      margin-block-start: 20px;
+      margin-block-end: 15px;
+    }
   }
 
   :global(.social-links) {

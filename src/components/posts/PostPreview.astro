@@ -1,6 +1,4 @@
 ---
-import type { string } from 'astro/zod';
-
 interface Props {
   title: string;
   createdAt: Date;
@@ -25,12 +23,6 @@ const { title, createdAt, tagline, url, tags } = Astro.props;
 </article>
 
 <style>
-    article::after {
-        content: '─── ⋆⋅☆⋅⋆ ───';
-        display: block;
-        text-align: center;
-        margin-block-start: 25px;
-    }
     h2 {
      margin-block: 0rem;
     }
@@ -46,13 +38,14 @@ const { title, createdAt, tagline, url, tags } = Astro.props;
 
     .tags {
         display: block;
+        margin-block-end: 8px;
 
         div {
             display: inline-block;
             border: 1px solid black;
             border-radius: 5px;
             padding: 0px 5px;
-            font-size: smaller;
+            font-size: 13px;
             margin-right: 5px;
         }
     }
