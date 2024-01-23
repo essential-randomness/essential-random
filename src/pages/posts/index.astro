@@ -15,6 +15,15 @@ const posts = [
     elementB.data.created_at.valueOf() - elementA.data.created_at.valueOf()
   );
 });
+
+const tags = [...new Set(posts.flatMap((post) => post.data.tags))];
+const currentUrl = new URL(Astro.request.url);
+const requestedTags = currentUrl.searchParams.getAll("tag");
+const displayPosts = requestedTags.length
+  ? posts.filter((post) =>
+      post.data.tags.some((tag) => requestedTags.includes(tag))
+    )
+  : posts;
 ---
 
 <Layout title="Essential Randomness — Ms Boba's Emporium of Weirdness">
@@ -23,9 +32,29 @@ const posts = [
       <ProfileCard />
     </aside>
     <div>
+      <form>
+        <ul>
+          {
+            tags.map((tag) => (
+              <li>
+                <label>
+                  {tag}
+                  <input
+                    type="checkbox"
+                    name="tag"
+                    value={tag}
+                    checked={requestedTags.includes(tag)}
+                  />
+                </label>
+              </li>
+            ))
+          }
+        </ul>
+        <button type="submit">Filter</button>
+      </form>
       <ol>
         {
-          posts.map(async (post) => {
+          displayPosts.map(async (post) => {
             return (
               <li>
                 <PostPreview
