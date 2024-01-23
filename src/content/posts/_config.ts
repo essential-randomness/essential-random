@@ -5,7 +5,7 @@ export const posts = defineCollection({
   type: "content",
   schema: ({ image }) =>
     z.object({
-      title: z.string().transform((title) => parseInline(title)),
+      title: z.string().transform((title) => parseInline(title) ?? ""),
       tagline: z.string().optional(),
       created_at: z.date(),
       unlisted: z.boolean().optional().default(false),

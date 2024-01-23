@@ -1,0 +1,60 @@
+---
+import type { string } from 'astro/zod';
+
+interface Props {
+  title: string;
+  createdAt: Date;
+  tagline?: string;
+  url: string;
+  tags: string[];
+}
+
+const { title, createdAt, tagline, url, tags } = Astro.props;
+---
+
+<article>
+    <div class="tags">{tags.map(tag => <div>{tag}</div>)}</div>
+  <h2><a href={url} set:html={title} /></h2>
+  {createdAt.toLocaleString("en", {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  })}
+  {tagline && <div class="tagline">{tagline}</div>}
+</article>
+
+<style>
+    article::after {
+        content: '─── ⋆⋅☆⋅⋆ ───';
+        display: block;
+        text-align: center;
+        margin-block-start: 25px;
+    }
+    h2 {
+     margin-block: 0rem;
+    }
+
+    h2::after {
+        background-image: none;
+        width: 0;
+
+    }
+
+    .tagline {
+        color: gray;
+    }
+
+    .tags {
+        display: block;
+
+        div {
+            display: inline-block;
+            border: 1px solid black;
+            border-radius: 5px;
+            padding: 0px 5px;
+            font-size: smaller;
+            margin-right: 5px;
+        }
+    }
+</style>
