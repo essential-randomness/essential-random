@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import ProfileCard from "../../components/ProfileCard.astro";
+import PostPreview from "../../components/posts/PostPreview.astro";
 import { SocialLinks } from "../../components/SocialLinks";
 import { fromCollection } from "../../utils/social-utils";
 import OutsideBlogPosts from "../../components/OutsideBlogPosts.astro";
@@ -22,21 +23,23 @@ const posts = [
       <ProfileCard />
     </aside>
     <div>
-      <ul>
+      <ol>
         {
-          posts.map((post) => {
+          posts.map(async (post) => {
             return (
               <li>
-                <article>
-                  <h2 set:html={post.data.title} />
-                  {post.data.tagline && <div>{post.data.tagline}</div>}
-                  Posted on: {post.data.created_at}
-                </article>
+                <PostPreview
+                  title={post.data.title!}
+                  createdAt={post.data.created_at}
+                  tagline={post.data.tagline}
+                  url={`/posts/${post.slug}`}
+                  tags={post.data.tags}
+                />
               </li>
             );
           })
         }
-      </ul>
+      </ol>
       <OutsideBlogPosts />
       <div>
         ...plus dozens of rants scattered all around the internet!
@@ -76,122 +79,15 @@ const posts = [
   main.posts {
     display: grid;
     grid-template-columns: 25% 1fr;
-    grid-gap: 20px;
+    grid-gap: 10px;
     grid-template-areas: "profile posts";
   }
 
-  main.posts > ol {
+  ol {
     list-style: none;
-    padding-inline: 0;
-  }
-
-  main.posts article {
+    padding-inline: 50px;
     display: flex;
     flex-direction: column;
-    gap: 15px;
-  }
-
-  main.posts article header {
-    display: grid;
-    grid-template-columns: 80px auto;
-    grid-template-rows: auto auto auto;
-    grid-template-areas:
-      "avatar title"
-      "avatar time"
-      "avatar categories";
-    align-items: center;
-    column-gap: 10px;
-    padding-bottom: 10px;
-    border-bottom: 1px dashed black;
-  }
-
-  main.posts article header img {
-    grid-area: avatar;
-    width: 100%;
-    height: auto;
-    max-width: 100%;
-  }
-
-  main.posts article header h2 {
-    grid-area: title;
-    margin: 0;
-  }
-
-  main.posts article header time {
-    grid-area: time;
-  }
-  main.posts article header time:before {
-    content: "Posted on: ";
-  }
-
-  main.posts article .categories {
-    grid-area: categories;
-    list-style: none;
-    display: inline-flex;
-    padding-left: 0;
-    gap: 5px;
-  }
-  main.posts article footer {
-    border-top: 1px dashed black;
-    padding-top: 10px;
-  }
-
-  main.posts article .whispertags ol {
-    list-style: none;
-    display: inline-flex;
-    padding-left: 0;
-    gap: 5px;
-    flex-wrap: wrap;
-  }
-
-  main.posts article .whispertags li {
-    display: inline;
-  }
-
-  main.posts .read-more {
-    display: block;
-    border: 2px solid black;
-    border-radius: 16px;
-    padding: 10px 5px;
-    box-shadow: 3px 3px 0 0 black;
-    text-align: center;
-    color: black;
-    background-color: white;
-  }
-
-  main.posts .read-more:hover {
-    filter: invert();
-  }
-
-  .whispertag {
-    font-family: monospace;
-    display: inline;
-  }
-
-  .whispertag:before {
-    content: "»";
-  }
-
-  /* Tooltip container */
-  .tooltip {
-    position: relative;
-    display: inline-block;
-    border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
-  }
-
-  /* Tooltip text */
-  .tooltip .tooltiptext {
-    visibility: hidden;
-    width: 120px;
-    background-color: black;
-    color: #fff;
-    text-align: center;
-    padding: 5px 0;
-    border-radius: 6px;
-
-    /* Position the tooltip text - see examples below! */
-    position: absolute;
-    z-index: 1;
   }
 
   /* Show the tooltip text when you mouse over the tooltip container */
