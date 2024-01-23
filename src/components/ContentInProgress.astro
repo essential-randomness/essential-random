@@ -1,8 +1,6 @@
 ---
 import { Image } from "astro:assets";
 import bobaWip from "./bobawip.png";
-
-console.log(bobaWip);
 ---
 
 <aside class="wip">
@@ -49,7 +47,7 @@ console.log(bobaWip);
 <script>
   import { annotate } from "rough-notation";
 
-  document.addEventListener("load", () => {
+  window.addEventListener("load", () => {
     const containers = document.querySelectorAll<HTMLDivElement>(`aside.wip`);
     if (containers) {
       containers.forEach((container) => {
