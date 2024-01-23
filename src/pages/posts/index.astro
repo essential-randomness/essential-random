@@ -1,4 +1,6 @@
 ---
+export const prerender = false;
+
 import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import ProfileCard from "../../components/ProfileCard.astro";
@@ -7,8 +9,6 @@ import TagsFilter from "../../components/posts/TagsFilter.astro";
 import { SocialLinks } from "../../components/SocialLinks";
 import { fromCollection } from "../../utils/social-utils";
 import OutsideBlogPosts from "../../components/OutsideBlogPosts.astro";
-
-export const prerender = false;
 
 const socials = fromCollection(await getCollection("socials"));
 const posts = [
