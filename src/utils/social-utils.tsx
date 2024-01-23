@@ -11,7 +11,7 @@ import {
   SiTwitch,
   SiTwitter,
   SiYoutube,
-} from "@icons-pack/react-simple-icons";
+} from "react-icons/si";
 
 import type { CollectionEntry } from "astro:content";
 import { SiSky } from "react-icons/si";
