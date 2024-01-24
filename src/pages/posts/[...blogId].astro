@@ -22,34 +22,13 @@ if (!curr) {
 const Content = (await curr?.render()).Content;
 ---
 
-<Layout title={` ${curr.data.title} – Essential Randomness`}>
-  <Fragment slot="head">
-    {
-      curr.data.og_title && (
-        <Fragment>
-          <meta property="og:title" content={curr.data.og_title} />
-          <meta property="twitter:title" content={curr.data.og_title} />
-          <title>{curr.data.og_title}</title>
-        </Fragment>
-      )
-    }
-    {
-      curr.data.og_image && (
-        <Fragment>
-          <meta property="og:image" content={curr.data.og_image.src} />
-          <meta name="twitter:image" content={curr.data.og_image.src} />
-        </Fragment>
-      )
-    }
-    {
-      curr.data.og_description && (
-        <Fragment>
-          <meta name="description" content={curr.data.og_description} />
-          <meta property="og:description" content={curr.data.og_description} />
-        </Fragment>
-      )
-    }
-  </Fragment>
+<Layout
+  title={curr.data.og_title
+    ? curr.data.og_title
+    : `${curr.data.title} – Essential Randomness`}
+  preview={curr.data.og_image?.src}
+  description={curr.data.og_description}
+>
   <main class="post">
     <h1 set:html={curr.data.title} />
     {curr.data.tagline && <h2 class="tagline">{curr.data.tagline}</h2>}
