@@ -278,6 +278,13 @@ declare module 'astro:content' {
   collection: "posts";
   data: InferEntrySchema<"posts">
 } & { render(): Render[".mdx"] };
+"extravaganzas/2-2-llc-vs-nonprofit/index.mdx": {
+	id: "extravaganzas/2-2-llc-vs-nonprofit/index.mdx";
+  slug: "extravaganzas/2-2-llc-vs-nonprofit";
+  body: string;
+  collection: "posts";
+  data: InferEntrySchema<"posts">
+} & { render(): Render[".mdx"] };
 "extravaganzas/index.mdx": {
 	id: "extravaganzas/index.mdx";
   slug: "extravaganzas";
