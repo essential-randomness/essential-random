@@ -22,7 +22,7 @@ if (!curr) {
 const Content = (await curr?.render()).Content;
 ---
 
-<Layout title={`Essential Randomness — ${curr.data.title}`}>
+<Layout title={` ${curr.data.title} – Essential Randomness`}>
   <Fragment slot="head">
     {
       curr.data.og_title && (
