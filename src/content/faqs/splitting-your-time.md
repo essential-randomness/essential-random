@@ -1,16 +1,11 @@
 ---
-title: How are you splitting your time these days? What am I buying with my support?
+title: How are you splitting your time these days? What am I supporting?
 order: 100
 ---
 
-As my [projects page](/projects) hopefully conveys, I work on an eclectic
-variety of projects mainly focused in these areas:
+As my [projects page](/projects) hopefully conveys, I work on an ecle
 
-- "A more fun, more social web" for fandom and beyond
-- Internet freedom and open source development
-- Accessible technical education for underrepresented communities
-
-These days (late 2023), I'm proritizing the following projects:
+These days (early 2024), I'm proritizing the following projects:
 
 1. **Shipping FujoGuide Volume 0:** not only [a succesful
    Kickstarter](https://www.kickstarter.com/projects/essential-randomness/the-fujoshi-guide-to-web-development)

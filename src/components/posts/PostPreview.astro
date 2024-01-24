@@ -8,45 +8,56 @@ interface Props {
 }
 
 const { title, createdAt, tagline, url, tags } = Astro.props;
+
+const isExtravaganza = url.includes("/extravaganzas");
 ---
 
 <article>
-    <div class="tags">{tags.map(tag => <div>{tag}</div>)}</div>
   <h2><a href={url} set:html={title} /></h2>
-  {createdAt.toLocaleString("en", {
-    weekday: "long",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  })}
+  {
+    createdAt.toLocaleString("en", {
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    })
+  }
+  <div class="tags">
+    {isExtravaganza && <div data-name="extravaganza">extravaganza</div>}
+    {tags.map((tag) => <div>{tag}</div>)}
+  </div>
   {tagline && <div class="tagline">{tagline}</div>}
 </article>
 
 <style>
-    h2 {
-     margin-block: 0rem;
+  h2 {
+    margin-block: 0rem;
+  }
+
+  h2::after {
+    background-image: none;
+    width: 0;
+  }
+
+  .tagline {
+    color: gray;
+  }
+
+  .tags {
+    display: block;
+    margin-block-end: 8px;
+
+    div {
+      display: inline-block;
+      border: 1px solid black;
+      border-radius: 5px;
+      padding: 0px 5px;
+      font-size: 13px;
+      margin-right: 5px;
     }
 
-    h2::after {
-        background-image: none;
-        width: 0;
+    [data-name="extravaganza"] {
+      background-color: gold;
     }
-
-    .tagline {
-        color: gray;
-    }
-
-    .tags {
-        display: block;
-        margin-block-end: 8px;
-
-        div {
-            display: inline-block;
-            border: 1px solid black;
-            border-radius: 5px;
-            padding: 0px 5px;
-            font-size: 13px;
-            margin-right: 5px;
-        }
-    }
+  }
 </style>

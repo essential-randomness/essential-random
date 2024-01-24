@@ -24,7 +24,6 @@ import { SiKofi } from "react-icons/si";
       startFromFragment="almond-butter-toast-label"
       label="Go support!"
     />
-    <h1>Let's fix the web!</h1>
     <section class="intro">
       <picture>
         <img
@@ -32,34 +31,34 @@ import { SiKofi } from "react-icons/si";
           alt={`Remake of a popular meme reading "Thenks suporter for my rent' (sic)"`}
         />
       </picture>
-      <h2>Who I am & what I do</h2>
+      <h2>What I do (with your support)</h2>
       <div>
-        <p>
-          In 2020, I quit my job as a Silicon Valley software engineer to set
-          out on a mission: turning the internet back into the place of joy and
-          creativity I grew up in.
-        </p>
-        <p>The initiatives I launched and am currently leading include:</p>
+        My projects focus on:
+
         <ul>
           <li>
-            BobaBoard, a privacy-centric, open source, forum-like software for
-            online communities
+            <strong>“A more fun, more social web”</strong> for fandom and other
+            niche online communities
           </li>
           <li>
-            Fandom Coders, a 200+ people community where expert and beginner
-            coders in fandom meet for friendship, support and learning
+            Approachable, <strong
+              >beginner-to-intermediate technical education</strong
+            > targeted at historically marginalized internet dwellers
           </li>
           <li>
-            Random fun stuff, including RobinBoob (a &ldquo;ship-ownership
-            certificates&rdquo; marketplace parodying the NFT craze), and
-            FujoBoard (a reimagining of the old Yaoi paddles phenomenon for the
-            modern fangirl)
+            <strong>More accessible open source development</strong>, with a
+            focus on open and decentralized technologies
           </li>
         </ul>
-         I&apos;ve also introduced many people in fandom (often members of
-        communities underrepresented in tech) to open source and web
-        development, and I&apos;m actively working on related educational
-        material.
+
+        <p>
+          You can read more about them on the <a href="/projects"
+            >projects page,</a
+          > and support them on
+          <a href="https://www.patreon.com/essentialrandomness">Patreon</a>,
+          <a href="https://ko-fi.com/essentialrandomness">Ko-fi</a>, or on one
+          of the self-hosted tiers below.
+        </p>
       </div>
     </section>
     <section id="donate" class="donate">
@@ -69,116 +68,107 @@ import { SiKofi } from "react-icons/si";
           <span>(and throw money at my collaborators)</span></a
         >
       </h2>
-      <p>
-        The road to a better internet is long and winding! When the going gets
-        tough, a few things can help make the road a bit more bearable: a few
-        good friends, a handful of blorbos, and–last but certainly not least–<em
-          >health insurance</em
-        >.
-      </p>
-      <p>
-        Whether on
-        <a href="https://www.patreon.com/essentialrandomness">Patreon</a>,
-        <a href="https://ko-fi.com/essentialrandomness">Ko-fi</a>, or on one of
-        the self-hosted tiers below, your support will help me continue to work
-        on my projects and make the internet a better place!
-      </p>
-      <div>
-        <h3>Self-hosted support tiers</h3>
-        <TiersDisplay client:load />
-      </div>
-      <h3>...or through these external websites:</h3>
-      <ul id="donate-others" class="social-links">
-        <li>
-          <a href="https://www.patreon.com/essentialrandomness"
-            ><SiPatreon /> Patreon</a
-          >
-        </li>
-        <li>
-          <a href="https://ko-fi.com/essentialrandomness"><SiKofi />Ko-fi</a>
-        </li>
-      </ul>
-      <details>
-        <summary><h4>Looking for one-time support?</h4></summary>
-         You can also support me by buying <a href="https://robinboob.com"
-          >a ship ownership certificate on RobinBoob</a
-        > ($10+, digital), <a href="https://fujoboard.com"
-          >a yaoi cheese paddle on FujoBoard</a
-        > ($20+, physical), or grab <a
-          href="https://store.bobaboard.com/#!/Emoji-Set-Discord-etc/p/369069273/category=113134803"
-          >a pay-what-you-want Boba-tan emoji set</a
-        >!
-      </details>
-      <details>
-        <summary><h4>Want to give more? Consider sponsoring me!</h4></summary>
-         Sponsorships are <strong
-          >custom support tiers for those who wish to make even more of an
-          impact!</strong
-        > They can be one-time or ongoing, and they can include custom rewards
-        that are particularly meaningful to you. If you're interested in
-        sponsoring me, please reach out at <a
-          href="mailto:essential.randomn3ss+sponsorships@gmail.com"
-          >essential.randomn3ss@gmail.com</a
-        > for next steps!
-      </details>
     </section>
-    <section class="faq">
-      <h2>FAQs</h2>
-      <Faqs />
-    </section>
+    <div>
+      My work charts a path towards <a href="/posts/enter-the-fujoverse"
+        >a more independent, community-led web.</a
+      > With a long and windy road ahead, your help <em>really</em> makes a
+      difference.
+    </div>
+    <div>
+      <h3>Self-hosted support tiers</h3>
+      <TiersDisplay client:load />
+    </div>
+    <h3>...or through these external websites:</h3>
+    <ul id="donate-others" class="social-links">
+      <li>
+        <a href="https://www.patreon.com/essentialrandomness"
+          ><SiPatreon /> Patreon</a
+        >
+      </li>
+      <li>
+        <a href="https://ko-fi.com/essentialrandomness"><SiKofi />Ko-fi</a>
+      </li>
+    </ul>
+    <details>
+      <summary><h4>Looking for one-time support?</h4></summary>
+       You can also support me by buying <a href="https://robinboob.com"
+        >a ship ownership certificate on RobinBoob</a
+      > ($10+, digital), <a href="https://fujoboard.com"
+        >a yaoi cheese paddle on FujoBoard</a
+      > ($20+, physical), or grab <a
+        href="https://store.bobaboard.com/#!/Emoji-Set-Discord-etc/p/369069273/category=113134803"
+        >a pay-what-you-want Boba-tan emoji set</a
+      >!
+    </details>
+    <details>
+      <summary><h4>Want to give more? Consider sponsoring me!</h4></summary>
+       Sponsorships are <strong
+        >custom support tiers for those who wish to make even more of an impact!</strong
+      > They can be one-time or ongoing, and they can include custom rewards
+      that are particularly meaningful to you. If you're interested in
+      sponsoring me, please reach out at <a
+        href="mailto:essential.randomn3ss+sponsorships@gmail.com"
+        >essential.randomn3ss@gmail.com</a
+      > for next steps!
+    </details>
   </main>
-
-  <style>
-    h2 {
-      display: flex;
-      align-items: center;
-    }
-    .social-links {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(6em, 10em));
-      justify-items: center;
-      list-style-type: none;
-      gap: 10px;
-      margin: 0px;
-      padding: 0px;
-      justify-content: center;
-    }
-
-    .social-links .url {
-      display: none;
-    }
-    .social-links .name {
-      text-transform: capitalize;
-    }
-
-    .social-links a {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 5px;
-      justify-content: center;
-    }
-
-    .social-links li {
-      width: 100%;
-    }
-    .social-links a {
-      border: 2px solid black;
-      border-radius: 16px;
-      padding: 5px 10px;
-    }
-
-    .social-links a:hover {
-      box-shadow: 3px 3px 0 0px black;
-      transform: translate(-2px, -2px);
-    }
-    details h4 {
-      display: inline-block;
-    }
-    .donate h2 span {
-      font-size: 0.6em;
-      margin-left: 7px;
-      margin-top: 3px;
-    }
-  </style>
+  <section class="faq">
+    <h2>FAQs</h2>
+    <Faqs />
+  </section>
 </Layout>
+
+<style>
+  h2 {
+    display: flex;
+    align-items: center;
+  }
+  .social-links {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(6em, 10em));
+    justify-items: center;
+    list-style-type: none;
+    gap: 10px;
+    margin: 0px;
+    padding: 0px;
+    justify-content: center;
+  }
+
+  .social-links .url {
+    display: none;
+  }
+  .social-links .name {
+    text-transform: capitalize;
+  }
+
+  .social-links a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    justify-content: center;
+  }
+
+  .social-links li {
+    width: 100%;
+  }
+  .social-links a {
+    border: 2px solid black;
+    border-radius: 16px;
+    padding: 5px 10px;
+  }
+
+  .social-links a:hover {
+    box-shadow: 3px 3px 0 0px black;
+    transform: translate(-2px, -2px);
+  }
+  details h4 {
+    display: inline-block;
+  }
+  .donate h2 span {
+    font-size: 0.6em;
+    margin-left: 7px;
+    margin-top: 3px;
+  }
+</style>
