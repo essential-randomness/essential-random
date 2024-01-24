@@ -190,63 +190,63 @@ declare module 'astro:content' {
   slug: "bobaboard-subscription";
   body: string;
   collection: "faqs";
-  data: InferEntrySchema<"faqs">
+  data: any
 } & { render(): Render[".md"] };
 "call-topic.md": {
 	id: "call-topic.md";
   slug: "call-topic";
   body: string;
   collection: "faqs";
-  data: InferEntrySchema<"faqs">
+  data: any
 } & { render(): Render[".md"] };
 "cancelling.md": {
 	id: "cancelling.md";
   slug: "cancelling";
   body: string;
   collection: "faqs";
-  data: InferEntrySchema<"faqs">
+  data: any
 } & { render(): Render[".md"] };
 "favorite-support.md": {
 	id: "favorite-support.md";
   slug: "favorite-support";
   body: string;
   collection: "faqs";
-  data: InferEntrySchema<"faqs">
+  data: any
 } & { render(): Render[".md"] };
 "icons-design.md": {
 	id: "icons-design.md";
   slug: "icons-design";
   body: string;
   collection: "faqs";
-  data: InferEntrySchema<"faqs">
+  data: any
 } & { render(): Render[".md"] };
 "not-working.md": {
 	id: "not-working.md";
   slug: "not-working";
   body: string;
   collection: "faqs";
-  data: InferEntrySchema<"faqs">
+  data: any
 } & { render(): Render[".md"] };
 "old-plan.md": {
 	id: "old-plan.md";
   slug: "old-plan";
   body: string;
   collection: "faqs";
-  data: InferEntrySchema<"faqs">
+  data: any
 } & { render(): Render[".md"] };
 "secure-payment.md": {
 	id: "secure-payment.md";
   slug: "secure-payment";
   body: string;
   collection: "faqs";
-  data: InferEntrySchema<"faqs">
+  data: any
 } & { render(): Render[".md"] };
 "splitting-your-time.md": {
 	id: "splitting-your-time.md";
   slug: "splitting-your-time";
   body: string;
   collection: "faqs";
-  data: InferEntrySchema<"faqs">
+  data: any
 } & { render(): Render[".md"] };
 };
 "posts": {
@@ -255,84 +255,84 @@ declare module 'astro:content' {
   slug: "doing-content-right";
   body: string;
   collection: "posts";
-  data: InferEntrySchema<"posts">
+  data: any
 } & { render(): Render[".mdx"] };
 "enter-the-fujoverse/index.mdx": {
 	id: "enter-the-fujoverse/index.mdx";
   slug: "enter-the-fujoverse";
   body: string;
   collection: "posts";
-  data: InferEntrySchema<"posts">
+  data: any
 } & { render(): Render[".mdx"] };
 "entry2.mdx": {
 	id: "entry2.mdx";
   slug: "entry2";
   body: string;
   collection: "posts";
-  data: InferEntrySchema<"posts">
+  data: any
 } & { render(): Render[".mdx"] };
 "extravaganzas/1-now-its-time-to-find-out/index.mdx": {
 	id: "extravaganzas/1-now-its-time-to-find-out/index.mdx";
   slug: "extravaganzas/1-now-its-time-to-find-out";
   body: string;
   collection: "posts";
-  data: InferEntrySchema<"posts">
+  data: any
 } & { render(): Render[".mdx"] };
 "extravaganzas/2-2-llc-vs-nonprofit/index.mdx": {
 	id: "extravaganzas/2-2-llc-vs-nonprofit/index.mdx";
   slug: "extravaganzas/2-2-llc-vs-nonprofit";
   body: string;
   collection: "posts";
-  data: InferEntrySchema<"posts">
+  data: any
 } & { render(): Render[".mdx"] };
 "extravaganzas/index.mdx": {
 	id: "extravaganzas/index.mdx";
   slug: "extravaganzas";
   body: string;
   collection: "posts";
-  data: InferEntrySchema<"posts">
+  data: any
 } & { render(): Render[".mdx"] };
 "get-static-paths/index.mdx": {
 	id: "get-static-paths/index.mdx";
   slug: "get-static-paths";
   body: string;
   collection: "posts";
-  data: InferEntrySchema<"posts">
+  data: any
 } & { render(): Render[".mdx"] };
 "getting-things-started/index.mdx": {
 	id: "getting-things-started/index.mdx";
   slug: "getting-things-started";
   body: string;
   collection: "posts";
-  data: InferEntrySchema<"posts">
+  data: any
 } & { render(): Render[".mdx"] };
 "html-css-what-next/index.mdx": {
 	id: "html-css-what-next/index.mdx";
   slug: "html-css-what-next";
   body: string;
   collection: "posts";
-  data: InferEntrySchema<"posts">
+  data: any
 } & { render(): Render[".mdx"] };
 "the-fight-for-the-open-web/index.mdx": {
 	id: "the-fight-for-the-open-web/index.mdx";
   slug: "the-fight-for-the-open-web";
   body: string;
   collection: "posts";
-  data: InferEntrySchema<"posts">
+  data: any
 } & { render(): Render[".mdx"] };
 "the-last-month-of-bobaboard/index.mdx": {
 	id: "the-last-month-of-bobaboard/index.mdx";
   slug: "the-last-month-of-bobaboard";
   body: string;
   collection: "posts";
-  data: InferEntrySchema<"posts">
+  data: any
 } & { render(): Render[".mdx"] };
 "tip-jar-with-stripe-and-paypal/index.mdx": {
 	id: "tip-jar-with-stripe-and-paypal/index.mdx";
   slug: "tip-jar-with-stripe-and-paypal";
   body: string;
   collection: "posts";
-  data: InferEntrySchema<"posts">
+  data: any
 } & { render(): Render[".mdx"] };
 };
 "projects": {
@@ -341,63 +341,63 @@ declare module 'astro:content' {
   slug: "ao3-dot-js";
   body: string;
   collection: "projects";
-  data: InferEntrySchema<"projects">
+  data: any
 } & { render(): Render[".mdx"] };
 "astrolabe.mdx": {
 	id: "astrolabe.mdx";
   slug: "astrolabe";
   body: string;
   collection: "projects";
-  data: InferEntrySchema<"projects">
+  data: any
 } & { render(): Render[".mdx"] };
 "bobaboard.mdx": {
 	id: "bobaboard.mdx";
   slug: "bobaboard";
   body: string;
   collection: "projects";
-  data: InferEntrySchema<"projects">
+  data: any
 } & { render(): Render[".mdx"] };
 "build-our-website.mdx": {
 	id: "build-our-website.mdx";
   slug: "build-our-website";
   body: string;
   collection: "projects";
-  data: InferEntrySchema<"projects">
+  data: any
 } & { render(): Render[".mdx"] };
 "fandom-coders.mdx": {
 	id: "fandom-coders.mdx";
   slug: "fandom-coders";
   body: string;
   collection: "projects";
-  data: InferEntrySchema<"projects">
+  data: any
 } & { render(): Render[".mdx"] };
 "fujoboard.mdx": {
 	id: "fujoboard.mdx";
   slug: "fujoboard";
   body: string;
   collection: "projects";
-  data: InferEntrySchema<"projects">
+  data: any
 } & { render(): Render[".mdx"] };
 "fujoguide.mdx": {
 	id: "fujoguide.mdx";
   slug: "fujoguide";
   body: string;
   collection: "projects";
-  data: InferEntrySchema<"projects">
+  data: any
 } & { render(): Render[".mdx"] };
 "personal-website.mdx": {
 	id: "personal-website.mdx";
   slug: "personal-website";
   body: string;
   collection: "projects";
-  data: InferEntrySchema<"projects">
+  data: any
 } & { render(): Render[".mdx"] };
 "robinboob.mdx": {
 	id: "robinboob.mdx";
   slug: "robinboob";
   body: string;
   collection: "projects";
-  data: InferEntrySchema<"projects">
+  data: any
 } & { render(): Render[".mdx"] };
 };
 "testimonials": {
@@ -406,119 +406,119 @@ declare module 'astro:content' {
   slug: "a-good-friend-and-a-deep-thinker-who-tru";
   body: string;
   collection: "testimonials";
-  data: InferEntrySchema<"testimonials">
+  data: any
 } & { render(): Render[".md"] };
 "always-had-a-knack-for-solving-problems.md": {
 	id: "always-had-a-knack-for-solving-problems.md";
   slug: "always-had-a-knack-for-solving-problems";
   body: string;
   collection: "testimonials";
-  data: InferEntrySchema<"testimonials">
+  data: any
 } & { render(): Render[".md"] };
 "always-really-insightful-and-has-a-belie.md": {
 	id: "always-really-insightful-and-has-a-belie.md";
   slug: "always-really-insightful-and-has-a-belie";
   body: string;
   collection: "testimonials";
-  data: InferEntrySchema<"testimonials">
+  data: any
 } & { render(): Render[".md"] };
 "an-accomplished-coder-developer-consulta.md": {
 	id: "an-accomplished-coder-developer-consulta.md";
   slug: "an-accomplished-coder-developer-consulta";
   body: string;
   collection: "testimonials";
-  data: InferEntrySchema<"testimonials">
+  data: any
 } & { render(): Render[".md"] };
 "building-bobaboard-effort.md": {
 	id: "building-bobaboard-effort.md";
   slug: "building-bobaboard-effort";
   body: string;
   collection: "testimonials";
-  data: InferEntrySchema<"testimonials">
+  data: any
 } & { render(): Render[".md"] };
 "fandom-old-and-software-engineer.md": {
 	id: "fandom-old-and-software-engineer.md";
   slug: "fandom-old-and-software-engineer";
   body: string;
   collection: "testimonials";
-  data: InferEntrySchema<"testimonials">
+  data: any
 } & { render(): Render[".md"] };
 "first-hand-professional-silicon-valley-f.md": {
 	id: "first-hand-professional-silicon-valley-f.md";
   slug: "first-hand-professional-silicon-valley-f";
   body: string;
   collection: "testimonials";
-  data: InferEntrySchema<"testimonials">
+  data: any
 } & { render(): Render[".md"] };
 "i-couldnt-have-gotten-me-and-my-website.md": {
 	id: "i-couldnt-have-gotten-me-and-my-website.md";
   slug: "i-couldnt-have-gotten-me-and-my-website";
   body: string;
   collection: "testimonials";
-  data: InferEntrySchema<"testimonials">
+  data: any
 } & { render(): Render[".md"] };
 "i-trust-ms-bobas-efforts-to-shape-better.md": {
 	id: "i-trust-ms-bobas-efforts-to-shape-better.md";
   slug: "i-trust-ms-bobas-efforts-to-shape-better";
   body: string;
   collection: "testimonials";
-  data: InferEntrySchema<"testimonials">
+  data: any
 } & { render(): Render[".md"] };
 "if-she-could-adopt-me.md": {
 	id: "if-she-could-adopt-me.md";
   slug: "if-she-could-adopt-me";
   body: string;
   collection: "testimonials";
-  data: InferEntrySchema<"testimonials">
+  data: any
 } & { render(): Render[".md"] };
 "infectious-enthusiasm.md": {
 	id: "infectious-enthusiasm.md";
   slug: "infectious-enthusiasm";
   body: string;
   collection: "testimonials";
-  data: InferEntrySchema<"testimonials">
+  data: any
 } & { render(): Render[".md"] };
 "one-of-the-few-people-i-trust-to-navigat.md": {
 	id: "one-of-the-few-people-i-trust-to-navigat.md";
   slug: "one-of-the-few-people-i-trust-to-navigat";
   body: string;
   collection: "testimonials";
-  data: InferEntrySchema<"testimonials">
+  data: any
 } & { render(): Render[".md"] };
 "possibly-one-of-the-most-positive-encour.md": {
 	id: "possibly-one-of-the-most-positive-encour.md";
   slug: "possibly-one-of-the-most-positive-encour";
   body: string;
   collection: "testimonials";
-  data: InferEntrySchema<"testimonials">
+  data: any
 } & { render(): Render[".md"] };
 "the-kind-of-person-who-can-not-only-come.md": {
 	id: "the-kind-of-person-who-can-not-only-come.md";
   slug: "the-kind-of-person-who-can-not-only-come";
   body: string;
   collection: "testimonials";
-  data: InferEntrySchema<"testimonials">
+  data: any
 } & { render(): Render[".md"] };
 "the-only-person-ive-seen-approach-buildi.md": {
 	id: "the-only-person-ive-seen-approach-buildi.md";
   slug: "the-only-person-ive-seen-approach-buildi";
   body: string;
   collection: "testimonials";
-  data: InferEntrySchema<"testimonials">
+  data: any
 } & { render(): Render[".md"] };
 "uniquely-creative-and-continues-to-guide.md": {
 	id: "uniquely-creative-and-continues-to-guide.md";
   slug: "uniquely-creative-and-continues-to-guide";
   body: string;
   collection: "testimonials";
-  data: InferEntrySchema<"testimonials">
+  data: any
 } & { render(): Render[".md"] };
 "zz-a-fantastic-webdev-and-social-space-crea.md": {
 	id: "zz-a-fantastic-webdev-and-social-space-crea.md";
   slug: "zz-a-fantastic-webdev-and-social-space-crea";
   body: string;
   collection: "testimonials";
-  data: InferEntrySchema<"testimonials">
+  data: any
 } & { render(): Render[".md"] };
 };
 
@@ -529,7 +529,7 @@ declare module 'astro:content' {
 "socials": {
 	id: "socials";
   collection: "socials";
-  data: InferEntrySchema<"socials">
+  data: any
 };
 };
 
@@ -537,5 +537,5 @@ declare module 'astro:content' {
 
 	type AnyEntryMap = ContentEntryMap & DataEntryMap;
 
-	type ContentConfig = typeof import("../src/content/config");
+	type ContentConfig = never;
 }
