@@ -4,8 +4,8 @@
   outline: 2px solid black;
   background-color: white;
   border-radius: 16px;
-  padding: 20px 15px;
-  gap: 15px;
+  padding: 25px 20px;
+  gap: 10px;
   align-items: center;
   position: relative;
 }
@@ -31,6 +31,7 @@
   font-weight: bold;
   font-family: var(--font-family-title);
   text-transform: capitalize;
+  text-align: center;
 }
 
 .support-tier.card .price {
@@ -39,6 +40,7 @@
 
 .support-tier.card .tagline {
   font-style: italic;
+  text-align: center;
 }
 
 .support-tier.card .perks {
@@ -64,6 +66,7 @@
   color: black;
   background-color: white;
   width: 100%;
+  font-family: var(--font-family-title);
 }
 
 .support-tier.card .fake-payment-button:hover {
@@ -118,6 +121,12 @@
   position: absolute;
 }
 
+.support-tier.card .perks {
+  margin: 0;
+  font-size: 14px;
+  padding: 0px 25px;
+}
+
 @keyframes buttons {
   0% {
     opacity: 0;
@@ -145,4 +154,9 @@
 }
 .stripe:hover {
   filter: none;
+}
+
+.tiers {
+  max-width: 90%;
+  margin: 0 auto;
 }
