@@ -29,9 +29,7 @@ h5 {
   }
 
   &:has(> a) {
-    display: flex;
-    align-items: center;
-    &::after {
+    & a::after {
       content: "";
       display: inline-block;
       background-image: url(/link.svg);
@@ -43,9 +41,10 @@ h5 {
       color: black;
       visibility: hidden;
       flex-shrink: 0;
+      transform: translateY(20%);
     }
 
-    &:hover::after {
+    & a:hover::after {
       visibility: visible;
     }
   }
