@@ -9,16 +9,11 @@ import TagsFilter from "../../components/posts/TagsFilter.astro";
 import { SocialLinks } from "../../components/SocialLinks";
 import { fromCollection } from "../../utils/social-utils";
 import OutsideBlogPosts from "../../components/OutsideBlogPosts.astro";
+import { loadPosts } from "../../utils/posts-utils";
 
 const socials = fromCollection(await getCollection("socials"));
-const posts = [
-  ...(await getCollection("posts", (post) => !post.data.unlisted)),
-].sort((elementA, elementB) => {
-  return (
-    elementB.data.created_at.valueOf() - elementA.data.created_at.valueOf()
-  );
-});
 
+const posts = await loadPosts();
 const tags = [...new Set(posts.flatMap((post) => post.data.tags))];
 const currentUrl = new URL(Astro.request.url);
 const requestedTags = currentUrl.searchParams.getAll("tag");

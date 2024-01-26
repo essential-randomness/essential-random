@@ -8,8 +8,6 @@ interface Props {
 }
 
 const { title, createdAt, tagline, url, tags } = Astro.props;
-
-const isExtravaganza = url.includes("/extravaganzas");
 ---
 
 <article>
@@ -23,8 +21,7 @@ const isExtravaganza = url.includes("/extravaganzas");
     })
   }
   <div class="tags">
-    {isExtravaganza && <div data-name="extravaganza">extravaganza</div>}
-    {tags.map((tag) => <div>{tag}</div>)}
+    {tags.map((tag) => <div data-tag={tag}>{tag}</div>)}
   </div>
   {tagline && <div class="tagline">{tagline}</div>}
 </article>
@@ -56,7 +53,7 @@ const isExtravaganza = url.includes("/extravaganzas");
       margin-right: 5px;
     }
 
-    [data-name="extravaganza"] {
+    [data-tag="extravaganza"] {
       background-color: gold;
     }
   }

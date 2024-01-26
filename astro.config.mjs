@@ -72,4 +72,5 @@ export default defineConfig({
   },
   output: "hybrid",
   adapter: vercel(),
+  site: "https://www.essentialrandomness.com",
 });
