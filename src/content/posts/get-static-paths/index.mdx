@@ -286,7 +286,7 @@ type DataForEachPage = Array<
     to a simple array of objects. This is done using `Promise.all(array)`, which takes an
     array of `Promise` and waits for them all to be resolved.
 
-```ts
+```ts ins=/map.(async)/ ins=/return (Promise.all)/
 export async function getStaticPaths() {
     const blogEntries = await getCollection("posts");
     // We tell astro to wait for all promises in the array to be resolved before

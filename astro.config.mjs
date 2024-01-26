@@ -11,13 +11,20 @@ import rehypeAutolinkHeadings from "rehype-autolink-headings";
 // import rehypeCustomEmoji from "rehype-custom-emoji";
 import rehypeSlug from "rehype-slug";
 import rehypeToc from "rehype-toc";
-
 import vercel from "@astrojs/vercel/serverless";
+
+import expressiveCode from "astro-expressive-code";
 
 // https://astro.build/config
 export default defineConfig({
   // ...
-  integrations: [mdx(), react()],
+  integrations: [
+    expressiveCode({
+      theme: ["dracula-soft"],
+    }),
+    mdx(),
+    react(),
+  ],
   markdown: {
     remarkPlugins: [],
     rehypePlugins: [
