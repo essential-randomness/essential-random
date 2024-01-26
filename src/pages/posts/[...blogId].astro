@@ -46,6 +46,14 @@ const Content = (await curr?.render()).Content;
     <PostStatus status={curr.data.status} />
     <h2 id="table-of-contents">Table of Contents</h2>
     <Content />
+    <dialog class="footnote">
+      <div>
+        <div class="content"></div>
+        <form method="dialog">
+          <button>Close</button>
+        </form>
+      </div>
+    </dialog>
   </main>
 
   <style is:global>
@@ -150,6 +158,28 @@ const Content = (await curr?.render()).Content;
       padding: 1px 15px;
       border-radius: 15px;
     }
+
+    dialog.footnote {
+      padding: 0;
+      box-shadow: var(--box-shadow-deep);
+      border: 2px solid black;
+      overscroll-behavior: none;
+      max-width: 800px;
+      margin-inline: 10%;
+
+      & > div {
+        padding: 10px 20px;
+      }
+      button {
+        box-shadow: var(--box-shadow);
+        border: 2px solid black;
+      }
+
+      &::backdrop {
+        background-color: rgba(0, 0, 0, 0.65);
+        overscroll-behavior: none;
+      }
+    }
   </style>
 
   <script>
@@ -174,6 +204,46 @@ const Content = (await curr?.render()).Content;
         multiline: true,
       });
       annotation.show();
+    }
+  </script>
+
+  <script>
+    const footnoteLinks = document.querySelectorAll<HTMLAnchorElement>(
+      "a[data-footnote-ref]"
+    );
+    for (let footnoteLink of footnoteLinks) {
+      footnoteLink.addEventListener("click", (e) => {
+        e.preventDefault();
+        const footnote = document
+          .querySelector(`${footnoteLink.hash} p`)
+          ?.cloneNode(true);
+        if (!footnote) {
+          console.error(
+            `Why is there no footnote for hash ${footnoteLink.hash}???`
+          );
+          return;
+        }
+        const backLink = (footnote as HTMLParagraphElement).querySelector(
+          "a[data-footnote-backref]"
+        );
+        backLink && footnote.removeChild(backLink);
+        const modal =
+          document.querySelector<HTMLDialogElement>("dialog.footnote");
+        modal?.querySelector(".content")?.appendChild(footnote);
+        modal?.showModal();
+        // Code to prevent scroll START
+        document.body.style.overflow = "hidden";
+        // Code to prevent scroll END
+        modal?.addEventListener("close", () => {
+          footnote.parentElement?.removeChild(footnote);
+          document.body.style.overflow = "unset";
+        });
+        modal?.addEventListener("click", (e) => {
+          if (e.target == modal) {
+            modal.close();
+          }
+        });
+      });
     }
   </script>
 </Layout>
