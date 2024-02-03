@@ -1,0 +1,46 @@
+---
+import { getCollection } from "astro:content";
+
+interface Props {
+  startAt: Date;
+  endAt: Date;
+}
+const { startAt, endAt } = Astro.props;
+const streams = await getCollection(
+  "streams",
+  (stream) =>
+    stream.data.scheduled_at > startAt && stream.data.scheduled_at < endAt
+);
+const localTime = true;
+---
+
+<!-- <div class="no-stream">The last stream in this series is already passed</div> -->
+<div class="next-stream">
+  The next stream will be <div class="title"></div> at <time></time>
+</div>
+
+<script
+  define:vars={{
+    streams: streams.map((stream) => ({
+      title: stream.data.title,
+      scheduled_at: stream.data.scheduled_at,
+    })),
+  }}
+>
+  let nextStream = null;
+  for (let stream of streams) {
+    const streamDate = new Date(stream.scheduled_at);
+    if (
+      streamDate > Date.now() &&
+      (nextStream === null || new Date(nextStream.scheduled_at) > streamDate)
+    ) {
+      nextStream = stream;
+    }
+    if (nextStream) {
+      document.querySelector(".next-stream .title").innerHTML = stream.title;
+      document.querySelector(".next-stream time").innerHTML = new Date(
+        stream.scheduled_at
+      ).toLocaleString("en");
+    }
+  }
+</script>

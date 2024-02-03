@@ -3,6 +3,7 @@ import { defineCollection, z } from "astro:content";
 import { posts } from "./posts/_config";
 import { projects } from "./projects/_config";
 import { socials } from "./socials/_config";
+import { streams } from "./streams/_config";
 
 const FaqSchema = z.object({
   title: z.string(),
@@ -27,4 +28,5 @@ export const collections = {
   socials,
   posts,
   projects,
+  streams,
 };

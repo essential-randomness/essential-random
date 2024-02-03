@@ -292,6 +292,13 @@ declare module 'astro:content' {
   collection: "posts";
   data: InferEntrySchema<"posts">
 } & { render(): Render[".mdx"] };
+"february-schedule/index.mdx": {
+	id: "february-schedule/index.mdx";
+  slug: "february-schedule";
+  body: string;
+  collection: "posts";
+  data: InferEntrySchema<"posts">
+} & { render(): Render[".mdx"] };
 "get-static-paths/index.mdx": {
 	id: "get-static-paths/index.mdx";
   slug: "get-static-paths";
@@ -399,6 +406,22 @@ declare module 'astro:content' {
   collection: "projects";
   data: InferEntrySchema<"projects">
 } & { render(): Render[".mdx"] };
+};
+"streams": {
+"2024-02/01-bobaboard-slot.md": {
+	id: "2024-02/01-bobaboard-slot.md";
+  slug: "2024-02/01-bobaboard-slot";
+  body: string;
+  collection: "streams";
+  data: InferEntrySchema<"streams">
+} & { render(): Render[".md"] };
+"2024-02/05-personal-blogging.md": {
+	id: "2024-02/05-personal-blogging.md";
+  slug: "2024-02/05-personal-blogging";
+  body: string;
+  collection: "streams";
+  data: InferEntrySchema<"streams">
+} & { render(): Render[".md"] };
 };
 "testimonials": {
 "a-good-friend-and-a-deep-thinker-who-tru.md": {
