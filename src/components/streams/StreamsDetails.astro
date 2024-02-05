@@ -1,0 +1,32 @@
+---
+import { getCollection } from "astro:content";
+
+interface Props {
+  startAt: Date;
+  endAt: Date;
+}
+const { startAt, endAt } = Astro.props;
+const streams = await getCollection(
+  "streams",
+  (stream) =>
+    stream.data.scheduled_at > startAt && stream.data.scheduled_at < endAt
+);
+---
+
+<local-time>
+  <ol>
+    {
+      streams.map((stream) => (
+        <li data-stream-slug={stream.slug}>
+          <div set:html={stream.data.title} />
+          <time datetime={stream.data.scheduled_at.toISOString()} />
+          {stream.data.description}
+        </li>
+      ))
+    }
+  </ol>
+</local-time>
+
+<script>
+  import "./LocalTime.ts";
+</script>

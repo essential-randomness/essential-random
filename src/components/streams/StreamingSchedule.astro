@@ -1,0 +1,76 @@
+---
+import { getCollection } from "astro:content";
+
+interface Props {
+  startAt: Date;
+  endAt: Date;
+}
+const { startAt, endAt } = Astro.props;
+const streams = await getCollection(
+  "streams",
+  (stream) =>
+    stream.data.scheduled_at > startAt && stream.data.scheduled_at < endAt
+);
+const dateOptions = {
+  month: "short",
+  day: "numeric",
+} as const;
+const timeOptions = {
+  timeStyle: "short",
+} as const;
+---
+
+<local-time>
+  <ul>
+    {
+      streams.map((stream) => {
+        return (
+          <li>
+            <date
+              datetime={stream.data.scheduled_at.toISOString()}
+              data-datetime-options={JSON.stringify(dateOptions)}
+            >
+              {stream.data.scheduled_at.toLocaleString("en-US", {
+                timeZone: "US/Pacific",
+                ...dateOptions,
+              })}
+            </date>
+            <time
+              datetime={stream.data.scheduled_at.toISOString()}
+              data-datetime-options={JSON.stringify(timeOptions)}
+            >
+              {stream.data.scheduled_at.toLocaleString("en-US", {
+                timeZone: "US/Pacific",
+                ...timeOptions,
+              })}
+            </time>
+
+            <details>
+              <summary set:html={stream.data.title} />
+              {stream.data.description}
+            </details>
+          </li>
+        );
+      })
+    }
+  </ul>
+</local-time>
+
+<style>
+  ul {
+    display: table;
+    border-spacing: 20px;
+  }
+  li {
+    display: table-row;
+  }
+  date,
+  time,
+  div {
+    display: table-cell;
+  }
+</style>
+
+<script>
+  import "./LocalTime.ts";
+</script>

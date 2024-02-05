@@ -1,0 +1,26 @@
+---
+
+---
+
+<div class="time-toggle">
+  <label
+    ><input type="checkbox" /> Local time <div class="timezone"></div></label
+  >
+</div>
+
+<script>
+  console.log();
+  const component = document.querySelector(".time-toggle");
+
+  component!.querySelector(".timezone")!.innerHTML = `(${
+    Intl.DateTimeFormat().resolvedOptions().timeZone
+  })`;
+
+  const toggle = component?.querySelector("input");
+  toggle?.addEventListener("change", () => {
+    const localTime = document.querySelectorAll("local-time");
+    localTime!.forEach((time) =>
+      time.setAttribute("timezone", toggle.checked ? "local" : "original")
+    );
+  });
+</script>
