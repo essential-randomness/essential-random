@@ -24,51 +24,53 @@ const timeOptions = {
 ---
 
 <local-time>
-  <ul>
-    {
-      streams.map((stream) => {
-        return (
-          <li data-stream-slug={stream.slug}>
-            <date
-              datetime={stream.data.scheduled_at.toISOString()}
-              data-datetime-options={JSON.stringify(dateOptions)}
-            >
-              {stream.data.scheduled_at.toLocaleString("en-US", {
-                timeZone: "US/Pacific",
-                ...dateOptions,
-              })}
-            </date>
-            <time
-              datetime={stream.data.scheduled_at.toISOString()}
-              data-datetime-options={JSON.stringify(timeOptions)}
-            >
-              {stream.data.scheduled_at.toLocaleString("en-US", {
-                timeZone: "US/Pacific",
-                ...timeOptions,
-              })}
-            </time>
+  <details-toggle>
+    <ul>
+      {
+        streams.map((stream) => {
+          return (
+            <li data-stream-slug={stream.slug}>
+              <date
+                datetime={stream.data.scheduled_at.toISOString()}
+                data-datetime-options={JSON.stringify(dateOptions)}
+              >
+                {stream.data.scheduled_at.toLocaleString("en-US", {
+                  timeZone: "US/Pacific",
+                  ...dateOptions,
+                })}
+              </date>
+              <time
+                datetime={stream.data.scheduled_at.toISOString()}
+                data-datetime-options={JSON.stringify(timeOptions)}
+              >
+                {stream.data.scheduled_at.toLocaleString("en-US", {
+                  timeZone: "US/Pacific",
+                  ...timeOptions,
+                })}
+              </time>
 
-            <details open>
-              <summary set:html={stream.data.title} />
-              <div set:html={stream.data.description} />
-              {!!stream.data.tags.length && (
-                <div class="tags">
-                  {stream.data.tags.map((tag) => (
-                    <div
-                      class="badge"
-                      data-name={tag.toLowerCase().replace(" ", "_")}
-                    >
-                      {tag}
-                    </div>
-                  ))}
-                </div>
-              )}
-            </details>
-          </li>
-        );
-      })
-    }
-  </ul>
+              <details open>
+                <summary set:html={stream.data.title} />
+                <div set:html={stream.data.description} />
+                {!!stream.data.tags.length && (
+                  <div class="tags">
+                    {stream.data.tags.map((tag) => (
+                      <div
+                        class="badge"
+                        data-name={tag.toLowerCase().replace(" ", "_")}
+                      >
+                        {tag}
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </details>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </details-toggle>
 </local-time>
 
 <style>
@@ -119,6 +121,9 @@ const timeOptions = {
     padding: 0px 5px;
     font-family: var(--font-family-title);
   }
+  ul :global(.next) {
+    border: 1px solid black !important;
+  }
 
   .tags {
     margin-top: 5px;
@@ -167,6 +172,7 @@ const timeOptions = {
 
 <script>
   import "./LocalTime.ts";
+  import "./DetailsToggle";
   import { findNextStream } from "./utils";
   const streams = [...document.querySelectorAll("[data-stream-slug]")].map(
     (streamLi) => ({
