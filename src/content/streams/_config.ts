@@ -10,7 +10,6 @@ export const streams = defineCollection({
       description: z
         .string()
         .transform((description) => parseInline(description) ?? ""),
-      private: z.boolean().optional().default(false),
       scheduled_at: z.date().transform((date) => {
         return new Date(
           Temporal.ZonedDateTime.from({
