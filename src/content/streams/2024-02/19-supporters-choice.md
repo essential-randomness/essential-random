@@ -7,4 +7,5 @@ description: |
 scheduled_at: 2024-02-19 15:00:00
 tags:
   - $upporters ¢hoice
+  - beginners welcome
 ---
