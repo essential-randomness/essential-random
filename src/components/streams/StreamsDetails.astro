@@ -20,7 +20,7 @@ const streams = await getCollection(
         <li data-stream-slug={stream.slug}>
           <div set:html={stream.data.title} />
           <time datetime={stream.data.scheduled_at.toISOString()} />
-          {stream.data.description}
+          <div set:html={stream.data.description} />
         </li>
       ))
     }
@@ -31,6 +31,16 @@ const streams = await getCollection(
   import "./LocalTime.ts";
 
   document.querySelectorAll("[data-stream-slug]").forEach((streamLi) => {
-    // streamLi.querySelector("time")
+    const streamTime = new Date(
+      streamLi.querySelector("time")!.getAttribute("datetime")!
+    );
+    if (streamTime < new Date(Date.now())) {
+      streamLi.classList.add("passed");
+    }
   });
 </script>
+<style>
+  .passed {
+    color: grey;
+  }
+</style>

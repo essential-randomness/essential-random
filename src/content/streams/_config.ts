@@ -7,7 +7,9 @@ export const streams = defineCollection({
   schema: () =>
     z.object({
       title: z.string().transform((title) => parseInline(title) ?? ""),
-      description: z.string(),
+      description: z
+        .string()
+        .transform((description) => parseInline(description) ?? ""),
       scheduled_at: z.date().transform((date) => {
         return new Date(
           Temporal.ZonedDateTime.from({

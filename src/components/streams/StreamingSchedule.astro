@@ -25,7 +25,7 @@ const timeOptions = {
     {
       streams.map((stream) => {
         return (
-          <li>
+          <li data-stream-slug={stream.slug}>
             <date
               datetime={stream.data.scheduled_at.toISOString()}
               data-datetime-options={JSON.stringify(dateOptions)}
@@ -47,7 +47,7 @@ const timeOptions = {
 
             <details>
               <summary set:html={stream.data.title} />
-              {stream.data.description}
+              <div set:html={stream.data.description} />
             </details>
           </li>
         );
@@ -66,11 +66,26 @@ const timeOptions = {
   }
   date,
   time,
-  div {
+  details {
     display: table-cell;
+  }
+  details {
+    width: 100%;
+    max-width: 500px;
+  }
+  .passed {
+    color: grey;
   }
 </style>
 
 <script>
   import "./LocalTime.ts";
+  document.querySelectorAll("[data-stream-slug]").forEach((streamLi) => {
+    const streamTime = new Date(
+      streamLi.querySelector("time")!.getAttribute("datetime")!
+    );
+    if (streamTime < new Date(Date.now())) {
+      streamLi.classList.add("passed");
+    }
+  });
 </script>
