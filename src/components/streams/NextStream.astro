@@ -11,13 +11,22 @@ const streams = await getCollection(
   (stream) =>
     stream.data.scheduled_at > startAt && stream.data.scheduled_at < endAt
 );
+
+const dateOptions = {
+  timeStyle: "short",
+  dateStyle: "long",
+};
 ---
 
 <!-- <div class="no-stream">The last stream in this series is already passed</div> -->
 <local-time>
   <next-stream passed="true">
     <div class="next-stream">
-      The next stream will be <div class="title"></div> on <time></time>
+      <div class="smallcaps">The next stream will be</div><div class="title">
+      </div><div class="time-details">
+        on <time data-datetime-options={JSON.stringify(dateOptions)}></time>
+         on <a href="https://twitch.tv/essentialrandomness">Twitch</a>
+      </div>
     </div>
     <div class="no-stream">
       The last stream in this series is already passed. Recordings might be
@@ -26,12 +35,42 @@ const streams = await getCollection(
   </next-stream>
 </local-time>
 
+<style>
+  next-stream {
+    &[passed="true"] {
+      .next-stream {
+        display: none;
+      }
+    }
+    &[passed="false"] {
+      .no-stream {
+        display: none;
+      }
+    }
+  }
+
+  .smallcaps {
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 1px;
+  }
+  .title {
+    font-weight: bold;
+    font-size: 26px;
+    line-height: 1em;
+  }
+  .time-details {
+    font-size: 22px;
+  }
+</style>
+
 <script
   define:vars={{
     streams: streams.map((stream) => ({
       title: stream.data.title,
       scheduled_at: stream.data.scheduled_at,
     })),
+    dateOptions,
   }}
 >
   let nextStream = null;
@@ -50,6 +89,7 @@ const streams = await getCollection(
       nextStream.scheduled_at
     ).toLocaleString("en-US", {
       timeZone: "US/Pacific",
+      ...dateOptions,
     });
     document
       .querySelector("next-stream time")
@@ -60,18 +100,3 @@ const streams = await getCollection(
 <script>
   import "./LocalTime.ts";
 </script>
-
-<style>
-  next-stream {
-    &[passed="true"] {
-      .next-stream {
-        display: none;
-      }
-    }
-    &[passed="false"] {
-      .no-stream {
-        display: none;
-      }
-    }
-  }
-</style>

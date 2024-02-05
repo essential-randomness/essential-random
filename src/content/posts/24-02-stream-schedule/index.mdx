@@ -10,13 +10,14 @@ created_at: 2024-02-03 00:05:37
 
 import StreamingSchedule from "../../../components/streams/StreamingSchedule.astro";
 import NextStream from "../../../components/streams/NextStream.astro";
-import StreamsDetails from "../../../components/streams/StreamsDetails.astro";
 import TimeToggle from "../../../components/streams/TimeToggle.astro";
 
 For the first time ever, welcome to the official February streaming
-schedule announcement.
+schedule announcement
 
-<TimeToggle />
+![test](./socials-calendar.png)
+
+See you on <a href="https://twitch.tv/essentialrandomness">Twitch</a>!
 
 ### Next Up
 
@@ -27,14 +28,14 @@ schedule announcement.
 
 ### Full Schedule
 
+<TimeToggle />
 <StreamingSchedule
   startAt={new Date("2024-02-01 00:00:00")}
   endAt={new Date("2024-02-29 23:59:59")}
 />
 
-## All Streams
-
-<StreamsDetails
-  startAt={new Date("2024-02-01 00:00:00")}
-  endAt={new Date("2024-02-29 23:59:59")}
-/>
+<style>{`
+    .toc, #table-of-contents {
+      display:none;
+    }
+`}</style>
