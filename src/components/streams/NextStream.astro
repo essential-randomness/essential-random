@@ -11,6 +11,7 @@ const streams = await getCollection(
   (stream) =>
     stream.data.scheduled_at > startAt && stream.data.scheduled_at < endAt
 );
+const currentTime = Date.now();
 ---
 
 <!-- <div class="no-stream">The last stream in this series is already passed</div> -->
@@ -24,6 +25,11 @@ const streams = await getCollection(
       available on Twitch or YouTube.
     </div>
   </next-stream>
+   Current time is {
+    new Date(currentTime).toLocaleString("en-US", {
+      timeZone: "US/Pacific",
+    })
+  };
 </local-time>
 
 <script
