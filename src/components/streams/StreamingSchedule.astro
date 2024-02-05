@@ -45,7 +45,7 @@ const timeOptions = {
               })}
             </time>
 
-            <details>
+            <details open>
               <summary set:html={stream.data.title} />
               <div set:html={stream.data.description} />
             </details>
@@ -58,23 +58,46 @@ const timeOptions = {
 
 <style>
   ul {
-    display: table;
-    border-spacing: 20px;
+    border: 1px solid #e3e3e3;
+    padding: 0;
+    margin: 0;
+    max-width: 1000px;
+    border-radius: 4px;
   }
   li {
-    display: table-row;
+    list-style: none;
+    padding: 15px 20px;
+    margin: 0;
   }
-  date,
-  time,
-  details {
-    display: table-cell;
+
+  li + li {
+    border-top: 1px solid #f1f1f1;
+  }
+
+  summary {
+    font-weight: bold;
+    cursor: pointer;
   }
   details {
     width: 100%;
-    max-width: 500px;
   }
   .passed {
     color: grey;
+  }
+
+  @media screen and (min-width: 700px) {
+    li {
+      display: flex;
+    }
+
+    date,
+    time {
+      min-width: 120px;
+      width: 8%;
+    }
+    details {
+      flex: 1;
+    }
   }
 </style>
 

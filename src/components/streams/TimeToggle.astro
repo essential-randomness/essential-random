@@ -4,12 +4,12 @@
 
 <div class="time-toggle">
   <label
-    ><input type="checkbox" /> Local time <div class="timezone"></div></label
+    ><input type="checkbox" />Show times in my local time<div class="timezone">
+    </div></label
   >
 </div>
 
 <script>
-  console.log();
   const component = document.querySelector(".time-toggle");
 
   component!.querySelector(".timezone")!.innerHTML = `(${
@@ -24,3 +24,25 @@
     );
   });
 </script>
+
+<style>
+  .time-toggle {
+    border: 1px solid #e3e3e3;
+    width: max-content;
+    border-radius: 4px;
+    margin-bottom: 12px;
+  }
+  label {
+    padding: 6px 12px 6px 8px;
+    cursor: pointer;
+    display: block;
+  }
+  input {
+    margin-right: 8px;
+  }
+  .timezone {
+    margin-left: 12px;
+    display: inline-block;
+    opacity: 0.6;
+  }
+</style>

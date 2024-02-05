@@ -1,0 +1,28 @@
+---
+import StreamingSchedule from "../components/streams/StreamingSchedule.astro";
+import NextStream from "../components/streams/NextStream.astro";
+import StreamsDetails from "../components/streams/StreamsDetails.astro";
+import TimeToggle from "../components/streams/TimeToggle.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout>
+  For the first time ever, welcome to the official February streaming schedule
+  announcement.
+
+  <TimeToggle />
+
+   ### Next Up
+
+  <NextStream
+    startAt={new Date("2024-02-01 00:00:00")}
+    endAt={new Date("2024-02-29 23:59:59")}
+  />
+
+   ### Full Schedule
+
+  <StreamingSchedule
+    startAt={new Date("2024-02-01 00:00:00")}
+    endAt={new Date("2024-02-29 23:59:59")}
+  />
+</Layout>
