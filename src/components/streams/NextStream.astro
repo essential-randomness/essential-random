@@ -17,7 +17,7 @@ const streams = await getCollection(
 <local-time>
   <next-stream passed="true">
     <div class="next-stream">
-      The next stream will be <div class="title"></div> at <time></time>
+      The next stream will be <div class="title"></div> on <time></time>
     </div>
     <div class="no-stream">
       The last stream in this series is already passed. Recordings might be
@@ -51,6 +51,10 @@ const streams = await getCollection(
     ).toLocaleString("en-US", {
       timeZone: "US/Pacific",
     });
+    document
+      .querySelector("next-stream time")
+      .setAttribute("datetime", nextStream.scheduled_at);
+    document.querySelector("next-stream").setAttribute("passed", false);
   }
 </script>
 <script>
@@ -65,8 +69,6 @@ const streams = await getCollection(
       }
     }
     &[passed="false"] {
-      .next-stream {
-      }
       .no-stream {
         display: none;
       }
