@@ -1,0 +1,79 @@
+---
+import { getCollection } from "astro:content";
+
+interface Props {
+  startAt: Date;
+  endAt: Date;
+}
+const { startAt, endAt } = Astro.props;
+const streams = await getCollection(
+  "streams",
+  (stream) =>
+    stream.data.scheduled_at > startAt && stream.data.scheduled_at < endAt
+);
+---
+
+<!-- <div class="no-stream">The last stream in this series is already passed</div> -->
+<local-time>
+  <next-stream passed="true">
+    <div class="next-stream">
+      The next stream will be <div class="title"></div> at <time></time>
+    </div>
+    <div class="no-stream">
+      The last stream in this series is already passed. Recordings might be
+      available on Twitch or YouTube.
+    </div>
+  </next-stream>
+</local-time>
+
+<script
+  define:vars={{
+    streams: streams.map((stream) => ({
+      title: stream.data.title,
+      scheduled_at: stream.data.scheduled_at,
+    })),
+  }}
+>
+  let nextStream = null;
+  for (let stream of streams) {
+    const streamDate = new Date(stream.scheduled_at);
+    if (
+      streamDate > Date.now() &&
+      (nextStream === null || new Date(nextStream.scheduled_at) > streamDate)
+    ) {
+      nextStream = stream;
+    }
+  }
+  if (nextStream) {
+    document.querySelector("next-stream .title").innerHTML = nextStream.title;
+    document.querySelector("next-stream time").innerHTML = new Date(
+      nextStream.scheduled_at
+    ).toLocaleString("en-US", {
+      timeZone: "US/Pacific",
+    });
+    document
+      .querySelector(".next-stream time")
+      .setAttribute("datetime", nextStream.scheduled_at);
+    document.querySelector("next-stream").setAttribute("passed", false);
+  }
+</script>
+<script>
+  import "./LocalTime.ts";
+</script>
+
+<style>
+  next-stream {
+    &[passed="true"] {
+      .next-stream {
+        display: none;
+      }
+    }
+    &[passed="false"] {
+      .next-stream {
+      }
+      .no-stream {
+        display: none;
+      }
+    }
+  }
+</style>

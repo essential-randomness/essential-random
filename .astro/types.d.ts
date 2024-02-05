@@ -250,6 +250,13 @@ declare module 'astro:content' {
 } & { render(): Render[".md"] };
 };
 "posts": {
+"24-02-stream-schedule/index.mdx": {
+	id: "24-02-stream-schedule/index.mdx";
+  slug: "24-02-stream-schedule";
+  body: string;
+  collection: "posts";
+  data: InferEntrySchema<"posts">
+} & { render(): Render[".mdx"] };
 "doing-content-right/index.mdx": {
 	id: "doing-content-right/index.mdx";
   slug: "doing-content-right";
@@ -288,13 +295,6 @@ declare module 'astro:content' {
 "extravaganzas/index.mdx": {
 	id: "extravaganzas/index.mdx";
   slug: "extravaganzas";
-  body: string;
-  collection: "posts";
-  data: InferEntrySchema<"posts">
-} & { render(): Render[".mdx"] };
-"february-schedule/index.mdx": {
-	id: "february-schedule/index.mdx";
-  slug: "february-schedule";
   body: string;
   collection: "posts";
   data: InferEntrySchema<"posts">
@@ -418,6 +418,62 @@ declare module 'astro:content' {
 "2024-02/05-personal-blogging.md": {
 	id: "2024-02/05-personal-blogging.md";
   slug: "2024-02/05-personal-blogging";
+  body: string;
+  collection: "streams";
+  data: InferEntrySchema<"streams">
+} & { render(): Render[".md"] };
+"2024-02/08-astrolabe.md": {
+	id: "2024-02/08-astrolabe.md";
+  slug: "2024-02/08-astrolabe";
+  body: string;
+  collection: "streams";
+  data: InferEntrySchema<"streams">
+} & { render(): Render[".md"] };
+"2024-02/12-supporters-only.md": {
+	id: "2024-02/12-supporters-only.md";
+  slug: "2024-02/12-supporters-only";
+  body: string;
+  collection: "streams";
+  data: InferEntrySchema<"streams">
+} & { render(): Render[".md"] };
+"2024-02/14-valentine.md": {
+	id: "2024-02/14-valentine.md";
+  slug: "2024-02/14-valentine";
+  body: string;
+  collection: "streams";
+  data: InferEntrySchema<"streams">
+} & { render(): Render[".md"] };
+"2024-02/15-singles-day.md": {
+	id: "2024-02/15-singles-day.md";
+  slug: "2024-02/15-singles-day";
+  body: string;
+  collection: "streams";
+  data: InferEntrySchema<"streams">
+} & { render(): Render[".md"] };
+"2024-02/19-supporters-choice.md": {
+	id: "2024-02/19-supporters-choice.md";
+  slug: "2024-02/19-supporters-choice";
+  body: string;
+  collection: "streams";
+  data: InferEntrySchema<"streams">
+} & { render(): Render[".md"] };
+"2024-02/22-stores-revamp.md": {
+	id: "2024-02/22-stores-revamp.md";
+  slug: "2024-02/22-stores-revamp";
+  body: string;
+  collection: "streams";
+  data: InferEntrySchema<"streams">
+} & { render(): Render[".md"] };
+"2024-02/26-q-and-a-clinic.md": {
+	id: "2024-02/26-q-and-a-clinic.md";
+  slug: "2024-02/26-q-and-a-clinic";
+  body: string;
+  collection: "streams";
+  data: InferEntrySchema<"streams">
+} & { render(): Render[".md"] };
+"2024-02/29-decentralization-corner.md": {
+	id: "2024-02/29-decentralization-corner.md";
+  slug: "2024-02/29-decentralization-corner";
   body: string;
   collection: "streams";
   data: InferEntrySchema<"streams">
