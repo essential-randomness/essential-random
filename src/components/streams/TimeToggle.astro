@@ -2,11 +2,19 @@
 
 ---
 
-<div class="time-toggle">
-  <label
-    ><input type="checkbox" />Show times in my local time<div class="timezone">
-    </div></label
-  >
+<div class="toggles">
+  <div class="time-toggle">
+    <label
+      ><input type="checkbox" />Show times in my local time<div
+        class="timezone"
+      >
+      </div></label
+    >
+  </div>
+
+  <div class="details-toggle">
+    <button>Open descriptions</button>
+  </div>
 </div>
 
 <script>
@@ -25,8 +33,24 @@
   });
 </script>
 
+<script>
+  const component = document.querySelector(".details-toggle");
+  const toggle = component?.querySelector("button");
+  toggle?.addEventListener("click", () => {
+    const detailsToggle =
+      document.querySelector<HTMLElement>("details-toggle")!;
+    const result = detailsToggle.toggleAttribute("open");
+    toggle.innerHTML = result ? "Close descriptions" : "Open descriptions";
+  });
+</script>
+
 <style>
-  .time-toggle {
+  .toggles {
+    display: flex;
+    justify-content: space-between;
+  }
+  .time-toggle,
+  .details-toggle {
     border: 1px solid #e3e3e3;
     width: max-content;
     border-radius: 4px;
@@ -39,6 +63,13 @@
   }
   input {
     margin-right: 8px;
+  }
+  button {
+    all: unset;
+    outline: revert;
+    padding: 6px 12px 6px 8px;
+    cursor: pointer;
+    display: block;
   }
   .timezone {
     margin-left: 12px;
