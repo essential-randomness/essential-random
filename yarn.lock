@@ -1028,10 +1028,10 @@ astro-icon@^0.8.1:
     resolve-pkg "^2.0.0"
     svgo "^2.8.0"
 
-astro-meta-tags@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/astro-meta-tags/-/astro-meta-tags-0.2.0.tgz#a7f45eba1277515d760a7360154b52e84109d7b4"
-  integrity sha512-i3o4LjRaf51GYqW56rMsNk9dD2vR/XKtTmtwUa1f+Yc9w9nrXf1YFeNFyuIidmmAiJrAZ/dZGwx9bxqHdN559Q==
+astro-meta-tags@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/astro-meta-tags/-/astro-meta-tags-0.2.1.tgz#22c801a939b0e451c4da5a8da780e8fd9a5caa89"
+  integrity sha512-IFAQG6Ymwke+53H5hcBFtdYyCpF2KEVpp5wA7Qrx8O2+4hUx3N9wE6Vy6QgRHH2Lkgv48PUN7t5fUDBpCMEbAA==
 
 astro@4.2.2:
   version "4.2.2"
