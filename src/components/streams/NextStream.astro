@@ -20,17 +20,31 @@ const dateOptions = {
 
 <!-- <div class="no-stream">The last stream in this series is already passed</div> -->
 <local-time>
-  <next-stream passed="true">
+  <next-stream
+    passed="true"
+    streams={JSON.stringify({
+      streams: streams.map((stream) => ({
+        title: stream.data.title,
+        scheduled_at: stream.data.scheduled_at,
+        private: stream.data.tags.includes("$upporters only"),
+      })),
+    })}
+  >
     <div class="next-stream">
       <div class="smallcaps">The next stream will be</div><div class="title">
       </div><div class="time-details">
         on <time data-datetime-options={JSON.stringify(dateOptions)}></time>
-         on <a href="https://twitch.tv/essentialrandomness">Twitch</a>
+        <span class="location"></span>
       </div>
     </div>
     <div class="no-stream">
       The last stream in this series is already passed. Recordings might be
-      available on Twitch or YouTube.
+      available on <a href="https://twitch.tv/essentialrandomness">Twitch</a> or
+
+
+      <a href="https://www.youtube.com/channel/UCI_NX0PeoiWiMsHIFH0TBsw"
+        >YouTube</a
+      >.
     </div>
   </next-stream>
 </local-time>
@@ -64,37 +78,28 @@ const dateOptions = {
   }
 </style>
 
-<script
-  define:vars={{
-    streams: streams.map((stream) => ({
-      title: stream.data.title,
-      scheduled_at: stream.data.scheduled_at,
-    })),
-    dateOptions,
-  }}
->
-  let nextStream = null;
-  for (let stream of streams) {
-    const streamDate = new Date(stream.scheduled_at);
-    if (
-      streamDate > Date.now() &&
-      (nextStream === null || new Date(nextStream.scheduled_at) > streamDate)
-    ) {
-      nextStream = stream;
-    }
-  }
+<script>
+  import { findNextStream } from "./utils";
+  // TODO: turn into webcomponent
+  const nextStreamsTag = document.querySelector("next-stream")!;
+  const { streams } = JSON.parse(nextStreamsTag.getAttribute("streams")!);
+  const nextStream = findNextStream(streams) as typeof streams;
   if (nextStream) {
-    document.querySelector("next-stream .title").innerHTML = nextStream.title;
-    document.querySelector("next-stream time").innerHTML = new Date(
-      nextStream.scheduled_at
-    ).toLocaleString("en-US", {
-      timeZone: "US/Pacific",
-      ...dateOptions,
-    });
-    document
-      .querySelector("next-stream time")
-      .setAttribute("datetime", nextStream.scheduled_at);
-    document.querySelector("next-stream").setAttribute("passed", false);
+    nextStreamsTag.querySelector(".title")!.innerHTML = nextStream.title;
+    const timeTag = nextStreamsTag.querySelector("time") as HTMLTimeElement;
+    timeTag.innerHTML = new Date(nextStream.scheduled_at).toLocaleString(
+      "en-US",
+      {
+        timeZone: "US/Pacific",
+        ...JSON.parse(timeTag.dataset!["datetimeOptions"]!),
+      }
+    );
+    timeTag.setAttribute("datetime", nextStream.scheduled_at);
+    nextStreamsTag.setAttribute("passed", "false");
+
+    nextStreamsTag.querySelector(".location")!.innerHTML = !nextStream.private
+      ? `on <a href="https://twitch.tv/essentialrandomness">Twitch</a>`
+      : `in our [[$upporters lair]]`;
   }
 </script>
 <script>

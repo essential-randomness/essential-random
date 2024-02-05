@@ -1,4 +1,5 @@
 ---
+import { filterStreamsByTime } from "./utils";
 import { getCollection } from "astro:content";
 
 interface Props {
@@ -8,8 +9,10 @@ interface Props {
 const { startAt, endAt } = Astro.props;
 const streams = await getCollection(
   "streams",
-  (stream) =>
-    stream.data.scheduled_at > startAt && stream.data.scheduled_at < endAt
+  filterStreamsByTime({
+    after: startAt,
+    before: endAt,
+  })
 );
 const dateOptions = {
   month: "short",
@@ -48,6 +51,18 @@ const timeOptions = {
             <details open>
               <summary set:html={stream.data.title} />
               <div set:html={stream.data.description} />
+              {!!stream.data.tags.length && (
+                <div class="tags">
+                  {stream.data.tags.map((tag) => (
+                    <div
+                      class="badge"
+                      data-name={tag.toLowerCase().replace(" ", "_")}
+                    >
+                      {tag}
+                    </div>
+                  ))}
+                </div>
+              )}
             </details>
           </li>
         );
@@ -68,6 +83,7 @@ const timeOptions = {
     list-style: none;
     padding: 15px 20px;
     margin: 0;
+    position: relative;
   }
 
   li + li {
@@ -83,6 +99,54 @@ const timeOptions = {
   }
   .passed {
     color: grey;
+
+    .badge {
+      color: grey;
+      border-color: grey;
+    }
+  }
+
+  ul :global(.next)::before {
+    content: "🌟 next up 🌟";
+    position: absolute;
+    border-radius: 10px;
+    top: 0px;
+    left: 9px;
+    transform: translateY(-50%);
+    color: white;
+    background-color: black;
+    font-size: 10px;
+    padding: 0px 5px;
+    font-family: var(--font-family-title);
+  }
+
+  .tags {
+    margin-top: 5px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 5px;
+  }
+  .badge {
+    border-radius: 16px;
+    border: 1px solid black;
+    display: inline-block;
+    font-size: 12px;
+    padding: 1px 11px;
+    background-color: white;
+    color: black;
+    font-family: var(--font-family-title);
+    &[data-name*="$upporters"] {
+      background-color: #fbe882;
+    }
+    &[data-name*="robinboob"] {
+      background-color: #d1b3ff;
+    }
+    &[data-name*="beginners-friendly"] {
+      background-color: #d3fed3;
+    }
+    &[data-name*="beginners_welcome"] {
+      background-color: #f5c7d7;
+    }
   }
 
   @media screen and (min-width: 700px) {
@@ -103,12 +167,23 @@ const timeOptions = {
 
 <script>
   import "./LocalTime.ts";
-  document.querySelectorAll("[data-stream-slug]").forEach((streamLi) => {
-    const streamTime = new Date(
-      streamLi.querySelector("time")!.getAttribute("datetime")!
-    );
+  import { findNextStream } from "./utils";
+  const streams = [...document.querySelectorAll("[data-stream-slug]")].map(
+    (streamLi) => ({
+      element: streamLi,
+      scheduled_at: new Date(
+        streamLi.querySelector("time")!.getAttribute("datetime")!
+      ),
+    })
+  );
+  streams.forEach((stream) => {
+    const streamTime = new Date(stream.scheduled_at);
     if (streamTime < new Date(Date.now())) {
-      streamLi.classList.add("passed");
+      stream.element.classList.add("passed");
     }
   });
+  const nextStream = findNextStream(streams);
+  // TODO: fix type narrowing
+  // @ts-expect-error
+  nextStream?.element.classList.add("next");
 </script>

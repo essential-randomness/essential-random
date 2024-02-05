@@ -6,4 +6,5 @@ description: |
 scheduled_at: 2024-02-12 15:00:00
 tags:
   - $upporters-only
+  - beginners welcome
 ---

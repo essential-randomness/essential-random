@@ -7,4 +7,5 @@ description: |
 scheduled_at: 2024-02-01 15:00:00
 tags:
   - bobaboard slot
+  - beginners-friendly
 ---
