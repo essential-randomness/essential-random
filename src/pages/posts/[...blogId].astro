@@ -1,41 +1,38 @@
 ---
-import { getCollection, getEntry } from "astro:content";
+import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import PostStatus from "../../components/PostStatus.astro";
 
 export async function getStaticPaths() {
   const posts = await getCollection("posts");
-  return posts.map((post) => ({
-    params: {
-      blogId: post.slug,
-    },
-  }));
+  return Promise.all(
+    posts.map(async (post) => ({
+      params: {
+        blogId: post.slug,
+      },
+      props: {
+        Content: (await post.render()).Content,
+        data: post.data,
+      },
+    }))
+  );
 }
-const { blogId } = Astro.params;
-if (!blogId) {
-  throw new Error("Slug is required");
-}
-const curr = await getEntry("posts", blogId);
-if (!curr) {
-  throw new Error("Post not found");
-}
-const Content = (await curr?.render()).Content;
+
+const { Content, data } = Astro.props;
 ---
 
 <Layout
-  title={curr.data.og_title
-    ? curr.data.og_title
-    : `${curr.data.title} – Essential Randomness`}
-  preview={curr.data.og_image?.src}
-  description={curr.data.og_description}
+  title={data.og_title ? data.og_title : `${data.title} – Essential Randomness`}
+  preview={data.og_image?.src}
+  description={data.og_description}
 >
   <main class="post">
-    <h1 set:html={curr.data.title} />
-    {curr.data.tagline && <h2 class="tagline">{curr.data.tagline}</h2>}
+    <h1 set:html={data.title} />
+    {data.tagline && <h2 class="tagline">{data.tagline}</h2>}
     <div>
       Published on <date
         >{
-          curr.data.created_at.toLocaleDateString("en-US", {
+          data.created_at.toLocaleDateString("en-US", {
             year: "numeric",
             month: "long",
             day: "numeric",
@@ -43,7 +40,7 @@ const Content = (await curr?.render()).Content;
         }</date
       >
     </div>
-    <PostStatus status={curr.data.status} />
+    <PostStatus status={data.status} />
     <h2 id="table-of-contents">Table of Contents</h2>
     <Content />
     <dialog class="footnote">
