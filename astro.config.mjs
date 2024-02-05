@@ -70,7 +70,7 @@ export default defineConfig({
   redirects: {
     "/subscribe": "/support-me",
   },
-  output: "hybrid",
+  output: "server",
   adapter: vercel(),
   site: "https://www.essentialrandomness.com",
 });
