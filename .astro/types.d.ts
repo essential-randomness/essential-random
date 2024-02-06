@@ -248,6 +248,13 @@ declare module 'astro:content' {
   collection: "faqs";
   data: InferEntrySchema<"faqs">
 } & { render(): Render[".md"] };
+"tos.md": {
+	id: "tos.md";
+  slug: "tos";
+  body: string;
+  collection: "faqs";
+  data: InferEntrySchema<"faqs">
+} & { render(): Render[".md"] };
 };
 "posts": {
 "24-02-stream-schedule/index.mdx": {
