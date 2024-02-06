@@ -10,6 +10,8 @@ import { SocialLinks } from "../../components/SocialLinks";
 import { fromCollection } from "../../utils/social-utils";
 import OutsideBlogPosts from "../../components/OutsideBlogPosts.astro";
 import { loadPosts } from "../../utils/posts-utils";
+import { db } from "../../db";
+import { users } from "../../db/schema";
 
 const socials = fromCollection(await getCollection("socials"));
 
@@ -22,6 +24,8 @@ const displayPosts = requestedTags.length
       post.data.tags.some((tag) => requestedTags.includes(tag))
     )
   : posts;
+
+const result = await db.select().from(users).all();
 ---
 
 <Layout title="Essential Randomness — Ms Boba's Emporium of Weirdness">
@@ -30,6 +34,7 @@ const displayPosts = requestedTags.length
       <ProfileCard />
     </aside>
     <div>
+      {result[0].id}
       {/* <TagsFilter tags={tags} requestedTags={requestedTags} />*/}
       <h1>My writing</h1>
       <div class="intro">
@@ -125,3 +130,4 @@ const displayPosts = requestedTags.length
     }
   }
 </style>
+ ../../db../../db/schema
