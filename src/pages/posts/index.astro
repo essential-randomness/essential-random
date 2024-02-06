@@ -10,8 +10,6 @@ import { SocialLinks } from "../../components/SocialLinks";
 import { fromCollection } from "../../utils/social-utils";
 import OutsideBlogPosts from "../../components/OutsideBlogPosts.astro";
 import { loadPosts } from "../../utils/posts-utils";
-import { db } from "../../db";
-import { users } from "../../db/schema";
 
 const socials = fromCollection(await getCollection("socials"));
 
