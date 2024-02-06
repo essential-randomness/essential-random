@@ -13,6 +13,8 @@ const {
   description = "Ms Boba's experimental website. Open for business while construction is ongoing.",
   preview = "/og-image.png",
 } = Astro.props;
+
+const user = Astro.locals.user;
 ---
 
 <!doctype html>
@@ -54,7 +56,20 @@ const {
       src="https://plausible.io/js/script.js"></script>
   </head>
   <body>
-    <Nav />
-    <slot />
+    {
+      Astro.locals.user ? (
+        <div>Hello {Astro.locals.user.username}</div>
+      ) : (
+        <form method="post" action="/api/login">
+          <label for="username">Username</label>
+          <input id="username" name="username" />
+          <label for="password">Password</label>
+          <input id="password" name="password" />
+          <button>Continue</button>
+        </form>
+      )
+    }
   </body>
+  <Nav />
+  <slot />
 </html>
