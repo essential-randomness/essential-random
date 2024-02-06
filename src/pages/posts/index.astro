@@ -24,8 +24,6 @@ const displayPosts = requestedTags.length
       post.data.tags.some((tag) => requestedTags.includes(tag))
     )
   : posts;
-
-const result = await db.select().from(users).all();
 ---
 
 <Layout title="Essential Randomness — Ms Boba's Emporium of Weirdness">
@@ -34,7 +32,6 @@ const result = await db.select().from(users).all();
       <ProfileCard />
     </aside>
     <div>
-      {result[0].id}
       {/* <TagsFilter tags={tags} requestedTags={requestedTags} />*/}
       <h1>My writing</h1>
       <div class="intro">
