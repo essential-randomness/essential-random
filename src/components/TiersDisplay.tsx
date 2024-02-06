@@ -67,7 +67,11 @@ const TIERS: TierType[] = [
         description: "All previous perks, plus...",
       },
       {
-        description: `Second-wave "dibs" on releases of limited-edition merchandise`,
+        description: `Second-wave "dibs" on releases of limited-edition or discounted, one-off merchandise`,
+      },
+      {
+        description:
+          "Feature your blorbo on the $ponsors blorbos wall (upcoming)",
       },
       {
         description: `Even deeper "Behind the Scenes" access to early-release screenshots and documents`,
@@ -84,11 +88,11 @@ const TIERS: TierType[] = [
         description: "All previous perks, plus...",
       },
       {
-        description: `Priority "dibs" on releases of limited-edition merchandise`,
+        description: `Priority "dibs" on releases of limited-edition or discounted, one-off merchandise`,
       },
       {
         description:
-          "Feature your blorbo on the $ponsors blorbos wall (upcoming)",
+          "Feature your blorbo on the $ponsors blorbos wall (upcoming), <strong>but bigger</strong>",
       },
       {
         description:

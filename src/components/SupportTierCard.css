@@ -41,6 +41,8 @@
 .support-tier.card .tagline {
   font-style: italic;
   text-align: center;
+  max-width: 270px;
+  text-wrap: pretty;
 }
 
 .support-tier.card .perks {

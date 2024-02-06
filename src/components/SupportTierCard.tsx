@@ -41,7 +41,12 @@ export const SupportTierCard = (
       <div className="tagline">{props.tagline}</div>
       <ul className="perks">
         {props.perks.map((perk) => {
-          return <li key={perk.description}>{perk.description}</li>;
+          return (
+            <li
+              key={perk.description}
+              dangerouslySetInnerHTML={{ __html: perk.description }}
+            />
+          );
         })}
       </ul>
       <div className="fake-payment-button">
