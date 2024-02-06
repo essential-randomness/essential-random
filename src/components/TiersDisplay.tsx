@@ -18,7 +18,7 @@ const TIERS: TierType[] = [
     perks: [
       {
         description:
-          "Support my exploratory work on healthier online communities",
+          "Support my work on a more open, more decentralized, and (above all) more fun web",
       },
 
       {
@@ -30,7 +30,10 @@ const TIERS: TierType[] = [
           "Ensure the creation of more fandom-oriented Ethical Chaos™",
       },
       {
-        description: "Periodic discounts on bobaverse merch",
+        description: "Access to $upporters-only posts, polls, streams and code",
+      },
+      {
+        description: "Periodic discounts on merch",
       },
     ],
   },
@@ -44,8 +47,13 @@ const TIERS: TierType[] = [
         description: "All previous perks, plus...",
       },
       {
-        description:
-          "Access to quarterly(ish) update town halls for close supporters",
+        description: "Comments on $upporters-only posts",
+      },
+      {
+        description: "Send in priority questions for Q&A days",
+      },
+      {
+        description: "Alpha access to unreleased sites and services",
       },
     ],
   },
@@ -59,7 +67,10 @@ const TIERS: TierType[] = [
         description: "All previous perks, plus...",
       },
       {
-        description: "Send in questions for the quarterly(ish) town halls",
+        description: `Second-wave "dibs" on releases of limited-edition merchandise`,
+      },
+      {
+        description: `Even deeper "Behind the Scenes" access to early-release screenshots and documents`,
       },
     ],
   },
@@ -73,8 +84,11 @@ const TIERS: TierType[] = [
         description: "All previous perks, plus...",
       },
       {
+        description: `Priority "dibs" on releases of limited-edition merchandise`,
+      },
+      {
         description:
-          "Half-yearly 30 minute call to discuss *anything* you want",
+          "Feature your blorbo on the $ponsors blorbos wall (upcoming)",
       },
       {
         description:
