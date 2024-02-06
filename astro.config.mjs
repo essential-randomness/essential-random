@@ -66,7 +66,7 @@ export default defineConfig({
   redirects: {
     "/subscribe": "/support-me",
   },
-  output: "server",
+  output: "hybrid",
   adapter: vercel(),
   site: "https://www.essentialrandomness.com",
   vite: {
