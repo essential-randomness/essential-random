@@ -264,6 +264,13 @@ declare module 'astro:content' {
   collection: "posts";
   data: InferEntrySchema<"posts">
 } & { render(): Render[".mdx"] };
+"content-calendar-first-month-reflections/index.mdx": {
+	id: "content-calendar-first-month-reflections/index.mdx";
+  slug: "content-calendar-first-month-reflections";
+  body: string;
+  collection: "posts";
+  data: InferEntrySchema<"posts">
+} & { render(): Render[".mdx"] };
 "doing-content-right/index.mdx": {
 	id: "doing-content-right/index.mdx";
   slug: "doing-content-right";
@@ -623,5 +630,5 @@ declare module 'astro:content' {
 
 	type AnyEntryMap = ContentEntryMap & DataEntryMap;
 
-	type ContentConfig = typeof import("../src/content/config");
+	export type ContentConfig = typeof import("../src/content/config.js");
 }
