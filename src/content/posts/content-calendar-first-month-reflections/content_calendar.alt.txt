@@ -1,0 +1,3 @@
+A spreadsheet with dates and corresponding tasks, labeled things like “Boba
+Socials - Content boost” or “Personal Socials - Project update”. Tasks are
+things like “Announce new streaming schedule” and “Part 2: Legal Structures”.
