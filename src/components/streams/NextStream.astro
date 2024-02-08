@@ -31,9 +31,11 @@ const dateOptions = {
     })}
   >
     <div class="next-stream">
-      <div class="smallcaps">The next stream will be</div><div class="title">
-      </div><div class="time-details">
-        on <time data-datetime-options={JSON.stringify(dateOptions)}></time>
+      <div class="next smallcaps">The next stream will be</div>
+      <div class="current smallcaps">Currently streaming</div>
+      <div class="title"></div><div class="time-details">
+        <span class="next">on</span><span class="current">started at</span>
+        <time data-datetime-options={JSON.stringify(dateOptions)}></time>
         <span class="location"></span>
       </div>
     </div>
@@ -61,6 +63,14 @@ const dateOptions = {
         display: none;
       }
     }
+
+    &.current .next {
+      display: none;
+    }
+
+    &:not(.current) .current {
+      display: none;
+    }
   }
 
   .smallcaps {
@@ -79,7 +89,7 @@ const dateOptions = {
 </style>
 
 <script>
-  import { findNextStream } from "./utils";
+  import { findNextStream, isCurrentStream } from "./utils";
   // TODO: turn into webcomponent
   const nextStreamsTag = document.querySelector("next-stream")!;
   const { streams } = JSON.parse(nextStreamsTag.getAttribute("streams")!);
@@ -96,6 +106,8 @@ const dateOptions = {
     );
     timeTag.setAttribute("datetime", nextStream.scheduled_at);
     nextStreamsTag.setAttribute("passed", "false");
+
+    nextStreamsTag.classList.toggle("current", isCurrentStream(nextStream));
 
     nextStreamsTag.querySelector(".location")!.innerHTML = !nextStream.private
       ? `on <a href="https://twitch.tv/essentialrandomness">Twitch</a>`

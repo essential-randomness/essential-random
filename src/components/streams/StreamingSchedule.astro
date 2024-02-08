@@ -109,6 +109,20 @@ const timeOptions = {
     }
   }
 
+  ul :global(.current)::before {
+    content: "🌟 current show 🌟";
+    position: absolute;
+    border-radius: 10px;
+    top: 0px;
+    left: 9px;
+    transform: translateY(-50%);
+    color: white;
+    background-color: mediumslateblue;
+    font-size: 10px;
+    padding: 0px 5px;
+    font-family: var(--font-family-title);
+  }
+
   ul :global(.next)::before {
     content: "🌟 next up 🌟";
     position: absolute;
@@ -124,6 +138,9 @@ const timeOptions = {
   }
   ul :global(.next) {
     border: 1px solid black !important;
+  }
+  ul :global(.current) {
+    border: 1px solid mediumslateblue !important;
   }
 
   .tags {
@@ -174,7 +191,7 @@ const timeOptions = {
 <script>
   import "./LocalTime.ts";
   import "./DetailsToggle";
-  import { findNextStream } from "./utils";
+  import { findNextStream, isCurrentStream } from "./utils";
   const streams = [...document.querySelectorAll("[data-stream-slug]")].map(
     (streamLi) => ({
       element: streamLi,
@@ -185,12 +202,14 @@ const timeOptions = {
   );
   streams.forEach((stream) => {
     const streamTime = new Date(stream.scheduled_at);
-    if (streamTime < new Date(Date.now())) {
+    if (streamTime < new Date(Date.now()) && !isCurrentStream(stream)) {
       stream.element.classList.add("passed");
     }
   });
   const nextStream = findNextStream(streams);
   // TODO: fix type narrowing
   // @ts-expect-error
-  nextStream?.element.classList.add("next");
+  nextStream?.element.classList.add(
+    isCurrentStream(nextStream) ? "current" : "next"
+  );
 </script>
