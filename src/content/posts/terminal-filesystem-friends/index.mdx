@@ -1,0 +1,150 @@
+---
+title: Making friends with the File System
+tagline: The powerhouse of your operating system
+tags:
+  - +terminal
+  - +tech
+  - "+level: beginner++"
+created_at: 2024-02-11 18:49:27
+status: rough-draft
+---
+
+## What's a File System, anyway?
+
+You can think of data on a disk as a primordial soup of `0`s and `1`s. While all the
+information you have saved does exist somewhere on the disk, it cannot be retrieved
+without an operating system to give it "shape". The part of the operating system in
+charge of turning this formless data into files is called **the file system**.
+
+TODO: an evangelion reference would be nice
+
+While there's a lot of different types of file systems (you might have heard of `FAT` or
+`NTFS`), their differences don't generally matter to most users, even programmers.
+
+### What File Systems Do
+
+Aside from knowing how to retrieve the content of a file from the disk it's saved on, a
+file system also maintains various additional data about each of them. For example, a
+file system might know when a file was created, when it was last accessed, or which user
+"owns" the file.
+
+However, the most "popular" function of the filesystem is to maintain a
+human-readable way to organize–one might say _file away_–the user data. The way
+it does this is by assigning each file a path that places it somewhere within a
+system of `directories` (also called `folders`[^0]).
+
+### Folders, directories and paths
+
+An easy way to think of folders and directories is to think about the real-life concepts
+they're modeled after. If you imagine each file as an actual sheet of paper, you can imagine
+using a paper `folder` to collect related files (and maybe even other `folder`s) together. You can
+imagine placing `file`s within `folder`s, within `folder`s, within `folder`s, until you end up with
+a single `folder` at the top that contains all the `file`s and `folder`s in your system.
+
+Similarly, you could imagine placing yourself somewhere in your system and search for a file. To do so,
+you might consider consulting a `directory` listing every file and its position in the system. At every
+level you visit, there would be a new `directory` indicating the next direction to go towards, until you
+find what you were looking for.
+
+Eventually, the road you take within `directories` or `folders` to get to a file is called its `path`. The
+folders in a path are separated by the `/` sign. When you see a `/` sign at the end of a word, that's generally
+a sign that you're talking about a directory.
+
+### The File System Tree
+
+Regardless of which metaphor works best for you, the end result is the same type of structure, one
+computer scientists everywhere love: a tree[^1].
+
+[Tree diagram]
+
+Just like these tree-structures, the file system also uses specific metaphors:
+
+- **Root:** The top-level folder, where it all starts from. In Unix systems (MacOS & Linux)
+  this is called `/`. On windows, you often have multiple roots (for separate disks or disk
+  partitions) each named with a letter. The most common name is `C:/`.
+- **Parent:** Each folder, aside from the `root`, has a folder that contains it: this is its
+  parent. Computer scientists generally call the nodes within a parent its children, but this
+  is not as popular in files.
+- **Subdirectory/Subfolder:** If you put a `folder` within a `folder`, that's called a `subdirectory`
+  of the parent folder.
+
+[Path diagram]
+
+Do not talk to me or my subdirectory, or my subdirectory subdirectory, or my subdirectory ever again.
+
+#### Home Sweet Home
+
+One of the most important folder for a user is its home. Different users on a computer will all have
+their own homes, which are usually inaccessible to one another. The symbol for home is `~`.
+
+On Windows, the home is generally under [todo], where you find your `Documents/` folder. On Unix
+systems, this changes but will be `/usr/[username]`.
+
+#### Hidden files and folders
+
+Folders and files can be hidden to make things more tidy. In Unix systems, these are prefixed with a `.`.
+These are often configuration files (like `.env`) or folders (like `.git/`).
+
+## Moving across the file system, Terminal Edition
+
+If you're starting a terminal journey, one of the most important thing you can do is learn to move around
+the filesystem. There are a few simple operation you can learn that will make moving around a breeze.
+
+Windows used to have its own unique commands, but it has adapted to the Unix style. If you're using PowerShell
+(you should), then most of the Unix commands will be available to you[^2].
+
+### Oh, user, where art thou? (`pwd`)
+
+The first, most important question is: where am I? To answer this, you can use the `pwd` command. `pwd` stands
+for Present Working Directory, but if you need another mnemonic I propose "Pardon, Which Directory (is this)?"
+
+This will show you the `path` you're currently at.
+
+### Show Me Your ~~Secrets~~ Files! (`ls`)
+
+To list the files, you can use the `ls` command. `ls` stands for `list`, but if you need another mnemonic, I
+suggest "Let's See".
+
+One thing about `ls` is that by itself it doesn't show hidden files (the ones starting with `.`). If you want to
+force it, you'll have to give it a flag. You can do this by typing `ls -a`, where `a` stands for "all".
+
+### Beam me away, Scotty (`cd`)
+
+To go to a different place, you can use the `cd` command. `cd` stands for Change Directory, and if you need a
+different mnemonic you're out of luck cause I really can't do better than that.
+
+Some secrets about `cd` is that you can use `cd -` to go to the last place you were, or `cd ~` to go to your home
+directory. You can generally use `~` wherever you want not to type the whole path to that folder.
+
+## A bit more about paths
+
+Paths are very important, and mastering the art of paths will make your journey easier.
+
+### Special Paths
+
+- `.`: your current directory
+- `..`: your parent directory
+- `/`: the root directory
+- `~`: the home
+
+### Absolute vs Relative Paths
+
+- Absolute paths start from the root (`/`). `~` is also an absolute way of indicating a path.
+- Relative paths start from where you're at in the Terminal (the output of `pwd`). `.` is generally
+  implied, but you'll often see `..`. This can be further combined, for example you can use `cd ../..`
+  to go visit grandpa.
+
+### A note about extensions
+
+Generally, file systems don't care much about extensions and are more of a convenience.
+
+## Final diagram
+
+Here's a final diagram that might help you orientate yourself.
+
+There's a lot to say about file systems, but this is a good overview of all you might need to know
+to start exploring them from a command line.
+
+[^0]: Theoretically there's a difference, but practically there's not. Don't even worry about it.
+[^1]: Computer scientists really spend an inordinate amount of time thinking about trees.
+[^2]: This is called `POSIX` compliance.
