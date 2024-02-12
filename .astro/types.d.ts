@@ -327,6 +327,13 @@ declare module 'astro:content' {
   collection: "posts";
   data: InferEntrySchema<"posts">
 } & { render(): Render[".mdx"] };
+"terminal-filesystem-friends/index.mdx": {
+	id: "terminal-filesystem-friends/index.mdx";
+  slug: "terminal-filesystem-friends";
+  body: string;
+  collection: "posts";
+  data: InferEntrySchema<"posts">
+} & { render(): Render[".mdx"] };
 "the-fight-for-the-open-web/index.mdx": {
 	id: "the-fight-for-the-open-web/index.mdx";
   slug: "the-fight-for-the-open-web";
