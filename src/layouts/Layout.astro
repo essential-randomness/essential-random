@@ -46,7 +46,7 @@ const {
       sizes="32x32"
     />
     <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png" />
-    <title>{title}</title>
+    <title set:html={title} />
     <slot name="head" />
     <script
       defer
