@@ -1,6 +1,6 @@
 ---
-title: Making friends with the File System
-tagline: The powerhouse of your operating system
+title: The File System & The Terminal
+tagline: The draft of what might one day become a fujoweb.dev article
 tags:
   - +terminal
   - +tech
@@ -14,12 +14,13 @@ status: rough-draft
 You can think of data on a disk as a primordial soup of `0`s and `1`s. While all the
 information you have saved does exist somewhere on the disk, it cannot be retrieved
 without an operating system to give it "shape". The part of the operating system in
-charge of turning this formless data into files is called **the file system**.
+charge of turning this formless data into files is called **the file system**[^-1].
 
-TODO: an evangelion reference would be nice
+<figure>
+![TODO](./eva-file-bbt.png)
 
-While there's a lot of different types of file systems (you might have heard of `FAT` or
-`NTFS`), their differences don't generally matter to most users, even programmers.
+<figcaption>If we had an Operating System character, he'd be sitting next to her.</figcaption>
+</figure>
 
 ### What File Systems Do
 
@@ -36,15 +37,35 @@ system of `directories` (also called `folders`[^0]).
 ### Folders, directories and paths
 
 An easy way to think of folders and directories is to think about the real-life concepts
-they're modeled after. If you imagine each file as an actual sheet of paper, you can imagine
+they're modeled after.
+
+#### The folders metaphor
+
+<figure>
+![TODO](./filing-away.png)
+
+<figcaption>Filing away her fanfic collection.</figcaption>
+</figure>
+
+If you imagine each file as an actual sheet of paper, you can imagine
 using a paper `folder` to collect related files (and maybe even other `folder`s) together. You can
 imagine placing `file`s within `folder`s, within `folder`s, within `folder`s, until you end up with
 a single `folder` at the top that contains all the `file`s and `folder`s in your system.
+
+#### The directories metaphor
+
+<figure>
+![TODO](./directory.png)
+
+<figcaption>"This filesystem is a maze!"</figcaption>
+</figure>
 
 Similarly, you could imagine placing yourself somewhere in your system and search for a file. To do so,
 you might consider consulting a `directory` listing every file and its position in the system. At every
 level you visit, there would be a new `directory` indicating the next direction to go towards, until you
 find what you were looking for.
+
+#### Finding your Path
 
 Eventually, the road you take within `directories` or `folders` to get to a file is called its `path`. The
 folders in a path are separated by the `/` sign. When you see a `/` sign at the end of a word, that's generally
@@ -72,7 +93,13 @@ Just like these tree-structures, the file system also uses specific metaphors:
 
 Do not talk to me or my subdirectory, or my subdirectory subdirectory, or my subdirectory ever again.
 
-#### Home Sweet Home
+#### Home Sweet Home (`~`)
+
+<figure>
+![TODO](./home-sweet-home.png)
+
+<figcaption>He cross-stitched that himself.</figcaption>
+</figure>
 
 One of the most important folder for a user is its home. Different users on a computer will all have
 their own homes, which are usually inaccessible to one another. The symbol for home is `~`.
@@ -96,21 +123,21 @@ Windows used to have its own unique commands, but it has adapted to the Unix sty
 ### Oh, user, where art thou? (`pwd`)
 
 The first, most important question is: where am I? To answer this, you can use the `pwd` command. `pwd` stands
-for Present Working Directory, but if you need another mnemonic I propose "Pardon, Which Directory (is this)?"
+for **P**rint **W**orking **D**irectory, but if you need another mnemonic I propose "**P**ardon, **W**hich **D**irectory (is this)?"
 
 This will show you the `path` you're currently at.
 
 ### Show Me Your ~~Secrets~~ Files! (`ls`)
 
-To list the files, you can use the `ls` command. `ls` stands for `list`, but if you need another mnemonic, I
-suggest "Let's See".
+To list the files, you can use the `ls` command. `ls` stands for **l**i**s**t, but if you need another mnemonic, I
+suggest "**L**et's **S**ee".
 
 One thing about `ls` is that by itself it doesn't show hidden files (the ones starting with `.`). If you want to
 force it, you'll have to give it a flag. You can do this by typing `ls -a`, where `a` stands for "all".
 
-### Beam me away, Scotty (`cd`)
+### Beam me anywhere, Scotty (`cd`)
 
-To go to a different place, you can use the `cd` command. `cd` stands for Change Directory, and if you need a
+To go to a different place, you can use the `cd` command. `cd` stands for **C**hange **D**irectory, and if you need a
 different mnemonic you're out of luck cause I really can't do better than that.
 
 Some secrets about `cd` is that you can use `cd -` to go to the last place you were, or `cd ~` to go to your home
@@ -134,9 +161,14 @@ Paths are very important, and mastering the art of paths will make your journey 
   implied, but you'll often see `..`. This can be further combined, for example you can use `cd ../..`
   to go visit grandpa.
 
-### A note about extensions
+### Paths and commands
 
-Generally, file systems don't care much about extensions and are more of a convenience.
+`ls` and `cd` work with both absolute and relative paths. Here's some examples.
+
+#### A side note about file extensions
+
+Generally, file systems don't care much about extensions and are more of a convenience for the user,
+and to associate a file with the program that opens it.
 
 ## Final diagram
 
@@ -145,6 +177,58 @@ Here's a final diagram that might help you orientate yourself.
 There's a lot to say about file systems, but this is a good overview of all you might need to know
 to start exploring them from a command line.
 
+[^-1]:
+    While there's a lot of different types of file systems (you might have heard of `FAT` or
+    `NTFS`), their differences don't generally matter to most users, even programmers.
+
 [^0]: Theoretically there's a difference, but practically there's not. Don't even worry about it.
-[^1]: Computer scientists really spend an inordinate amount of time thinking about trees.
+[^1]: Two computer scientists sitting in a tree, [T-R-A-V-E-R-S-I-N-G](https://en.wikipedia.org/wiki/Tree_traversal)
 [^2]: This is called `POSIX` compliance.
+
+<style>{`
+    img {
+      padding-block: 0!important;
+      border: 1px solid #bbb;
+      width: calc(100% - 8px);
+      max-width: 700px;
+    }
+    img + img {
+      margin-top: 20px;
+    }
+    figure {
+        text-align: center;
+    }
+    figcaption {
+        margin-top: 5px;
+        text-size: small;
+        color: gray;
+    }
+    .whats-this, .socials-callout, .warning {
+      font-family: var(--font-family-title);
+      background-color: #f4f4f4;
+      padding: 20px;
+      margin-top: 40px;
+    }
+    .socials-callout h3 {
+      margin: 0 0 10px 0;
+      font-size: 20px;
+    }
+    .socials-callout img {
+      margin-block: 20px;
+      max-width: 600px;
+    }
+    .socials-callout ul {
+      margin: 0;
+      padding: 0 0 0 20px;
+    }
+    .socials-callout li {
+      margin: 0 0 0 0;
+    }
+    .socials-callout summary {
+      font-size: 16px;
+      cursor: pointer;
+    }
+    div.socials-callout:last-of-type {
+      margin-bottom: 50px;
+    }
+`}</style>
