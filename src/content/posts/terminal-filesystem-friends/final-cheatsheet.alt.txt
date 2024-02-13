@@ -1,0 +1,17 @@
+A doodle of a tree of folders. At the top is one named with just a slash mark.
+A cat is sleeping on top, marked as "git sleeping". The subtitle of the folder is 
+"the root".
+
+It branches out to two unnamed folders on each side and one below marked users/. 
+On the folder on the right side is terminal, fighting with a cat marked as 
+"github hissing". GitHub is sitting on top of a folder labeled with .hidden.
+
+Under users/ is the boba-tan/ folder, with a subtitle of "your home" and a tilde.
+Under boba-tan/ is art/, and to its left is code/. Near code is boba-tan herself
+working on her laptop, labeled current position, with a dot. Near the arrow from 
+the code/ folder to the boba-tan/ folder is the label "parent directory", with two dots.
+
+On the side a box reads:
+Where am I? pwd
+What’s here? ls
+Move away: cd

@@ -1,7 +1,5 @@
-A sketch of Boba-tan looking across a landscape with a large icon for a file
-from program Word on the horizon. At the bottom corner is the icon for the
-Finder program for MacOS, marked as "alt". Next to boba-tan is a black figure
-sitting marked as "an OS character (which we don't have)".
-
-It’s set up to be a reference to an Evangelion screenshot with two people
-looking across a landscape with a large face in the sky.
+A sketch of Boba-tan looking across a landscape with a large icon for the
+program Word on the horizon, next to a shadowed figure labeled “A OS character
+(which we don’t have)”. At the bottom corner is the icon for the Finder program
+for MacOS. It’s set up to be a reference to an Evangelion screenshot with two
+people looking across a landscape with a large face in the sky.

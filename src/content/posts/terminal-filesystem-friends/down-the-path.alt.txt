@@ -1,0 +1,3 @@
+A doodle of some nested folders. Under a folder marked only with a slash symbol
+is “down”, then under that is “the”, then under that is “path”. The last folder
+has a subtitle of “/down/the/path/“.
