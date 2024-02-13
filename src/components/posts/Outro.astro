@@ -1,0 +1,92 @@
+---
+import { getEntry } from "astro:content";
+import type { Social } from "../SocialLinks";
+import {
+  extractWebsiteName,
+  type WEBSITE_TYPES,
+} from "../../utils/social-utils";
+
+interface Props {
+  slug: string;
+}
+
+const entry = await getEntry("posts", Astro.props.slug);
+
+const extractWebsiteData = (social: Social) => {
+  const url = typeof social == "string" ? social : social.url;
+  const type =
+    typeof social !== "string" && "type" in social
+      ? social.type
+      : extractWebsiteName(url);
+  const name =
+    typeof social !== "string" && "name" in social
+      ? social.name
+      : (extractWebsiteName(url) as WEBSITE_TYPES);
+  return {
+    url,
+    name,
+    type,
+  };
+};
+---
+
+<div class="socials-callout">
+  <h3>Like what you read?</h3>
+  <div>
+    <a href="mailto:essential.randomness@gmail.com">Tell me about it</a> or <a
+      href="/support-me">help me make more!</a
+    >
+  </div>
+
+  {
+    !!entry?.data.socials.length && (
+      <Fragment>
+        <h4>You can also help by sharing this post on socials</h4>
+        <ul>
+          {entry.data.socials.map((social) => {
+            const data = extractWebsiteData(social);
+            return (
+              <li>
+                <a href={data.url}>{data.name}</a>
+              </li>
+            );
+          })}
+        </ul>
+      </Fragment>
+    )
+  }
+
+  <style>
+    .socials-callout {
+      font-family: var(--font-family-title);
+      background-color: #f4f4f4;
+      padding: 20px;
+      margin-top: 40px;
+    }
+    .socials-callout h3 {
+      margin: 0 0 10px 0;
+      font-size: 20px;
+    }
+    .socials-callout h4 {
+      margin: 10px 0 10px 0;
+    }
+    .socials-callout img {
+      margin-block: 20px;
+      max-width: 600px;
+    }
+    .socials-callout ul {
+      margin: 0;
+      padding: 0 0 0 20px;
+    }
+    .socials-callout li {
+      margin: 0 0 0 0;
+    }
+    .socials-callout summary {
+      font-size: 16px;
+      cursor: pointer;
+    }
+    div.socials-callout:last-of-type {
+      margin-bottom: 50px;
+    }
+  </style>
+</div>

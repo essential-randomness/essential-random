@@ -6,8 +6,20 @@ tags:
   - +tech
   - "+level: beginner++"
 created_at: 2024-02-11 18:49:27
+og_image: ./directory.png
+og_description: |
+  The draft of what might one day become a fujoweb.dev article, all about
+  exploring the file system from your terminal.
 status: pre-beta
+# socials:
+#   - https://twitter.com/EssentialRandom/status/1744866727778021554?s=20
+#   - https://www.tumblr.com/essential-randomness/739086784550649856/enter-the-bobafujoverse
+#   - name: fediverse
+#     url: https://indiepocalypse.social/@essentialrandom/111728810405139665
+#   - https://bsky.app/profile/essentialrandom.bsky.social/post/3kill54sbvu2r
 ---
+
+import Outro from "../../../components/posts/Outro.astro";
 
 ## What's a File System, anyway?
 
@@ -36,7 +48,7 @@ human-readable way to organize**–one might say, _file away_–**this data.** I
 does this is by keeping track of the `path` of each file within a
 system of `directories` (also called `folders`).
 
-### Folders, directories, and paths
+### Folders and directories
 
 When file systems were first created, the files in a system would be presentend
 as a single, long list. However, when this proved unwieldy to manage, **people
@@ -334,6 +346,8 @@ currently working on the cheatsheets for FujoGuide's backer rewards.
 
 While there's an infinite amount of things to say about file systems, this is
 an overview of what you need to know to navigate them in everyday programming.
+
+<Outro slug="terminal-filesystem-friends" />
 
 [^-1]:
     While there's a lot of different types of file systems (you might have heard of `FAT` or
