@@ -38,6 +38,14 @@ const extractWebsiteData = (social: Social) => {
     >
   </div>
 
+  <h3>Want to help fix something?</h3>
+  <div>
+    <a
+      href={`https://github.com/essential-randomness/essential-random/tree/main/src/content/posts/${Astro.props.slug}/index.mdx`}
+      >Open a PR!</a
+    >
+  </div>
+
   {
     !!entry?.data.socials.length && (
       <Fragment>
@@ -64,11 +72,11 @@ const extractWebsiteData = (social: Social) => {
       margin-top: 40px;
     }
     .socials-callout h3 {
-      margin: 0 0 10px 0;
+      margin: 0;
       font-size: 20px;
     }
     .socials-callout h4 {
-      margin: 10px 0 10px 0;
+      margin: 0;
     }
     .socials-callout img {
       margin-block: 20px;

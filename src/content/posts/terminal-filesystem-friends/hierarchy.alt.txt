@@ -1,0 +1,4 @@
+A doodle of a tree of folders. At the top is one named with just a slash mark.
+It branches out to “apps” on one side, then on the other side “tmp” with “logs”
+under it, then another branch goes “users” - “boba-tan” - “art”. Under
+“boba-tan” is also “code”.
