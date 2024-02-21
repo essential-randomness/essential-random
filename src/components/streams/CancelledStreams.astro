@@ -13,6 +13,7 @@ const streams = (
     filterStreamsByTime({
       after: startAt,
       before: endAt,
+      withCancelled: true,
     })
   )
 ).toSorted(
@@ -32,8 +33,9 @@ const timeOptions = {
   <details-toggle>
     <ul>
       {
-        streams.map((stream) => {
-          return (
+        streams
+          .filter((stream) => stream.data.cancelled)
+          .map((stream) => (
             <li data-stream-slug={stream.slug}>
               <date
                 datetime={stream.data.scheduled_at.toISOString()}
@@ -71,11 +73,9 @@ const timeOptions = {
                 )}
               </details>
             </li>
-          );
-        })
+          ))
       }
     </ul>
-     All times and topics are subject to change.
   </details-toggle>
 </local-time>
 
@@ -93,6 +93,12 @@ const timeOptions = {
     padding: 15px 20px;
     margin: 0;
     position: relative;
+    color: grey;
+
+    .badge {
+      color: grey;
+      border-color: grey;
+    }
   }
 
   li + li {
@@ -106,48 +112,6 @@ const timeOptions = {
   details {
     width: 100%;
   }
-  .passed {
-    color: grey;
-
-    .badge {
-      color: grey;
-      border-color: grey;
-    }
-  }
-
-  ul :global(.current)::before {
-    content: "🌟 current show 🌟";
-    position: absolute;
-    border-radius: 10px;
-    top: 0px;
-    left: 9px;
-    transform: translateY(-50%);
-    color: white;
-    background-color: mediumslateblue;
-    font-size: 10px;
-    padding: 0px 5px;
-    font-family: var(--font-family-title);
-  }
-
-  ul :global(.next)::before {
-    content: "🌟 next up 🌟";
-    position: absolute;
-    border-radius: 10px;
-    top: 0px;
-    left: 9px;
-    transform: translateY(-50%);
-    color: white;
-    background-color: black;
-    font-size: 10px;
-    padding: 0px 5px;
-    font-family: var(--font-family-title);
-  }
-  ul :global(.next) {
-    border: 1px solid black !important;
-  }
-  ul :global(.current) {
-    border: 1px solid mediumslateblue !important;
-  }
 
   .tags {
     margin-top: 5px;
@@ -155,6 +119,7 @@ const timeOptions = {
     justify-content: flex-end;
     gap: 5px;
   }
+
   .badge {
     border-radius: 16px;
     border: 1px solid black;
@@ -197,25 +162,4 @@ const timeOptions = {
 <script>
   import "./LocalTime.ts";
   import "./DetailsToggle";
-  import { findNextStream, isCurrentStream } from "./utils";
-  const streams = [...document.querySelectorAll("[data-stream-slug]")].map(
-    (streamLi) => ({
-      element: streamLi,
-      scheduled_at: new Date(
-        streamLi.querySelector("time")!.getAttribute("datetime")!
-      ),
-    })
-  );
-  streams.forEach((stream) => {
-    const streamTime = new Date(stream.scheduled_at);
-    if (streamTime < new Date(Date.now()) && !isCurrentStream(stream)) {
-      stream.element.classList.add("passed");
-    }
-  });
-  const nextStream = findNextStream(streams);
-  // TODO: fix type narrowing
-  // @ts-expect-error
-  nextStream?.element.classList.add(
-    isCurrentStream(nextStream) ? "current" : "next"
-  );
 </script>

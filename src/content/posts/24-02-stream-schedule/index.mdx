@@ -9,6 +9,7 @@ og_description: Curious about the streaming schedule for February 2024? Check it
 ---
 
 import StreamingSchedule from "../../../components/streams/StreamingSchedule.astro";
+import CancelledStreams from "../../../components/streams/CancelledStreams.astro";
 import NextStream from "../../../components/streams/NextStream.astro";
 import TimeToggle from "../../../components/streams/TimeToggle.astro";
 
@@ -30,6 +31,15 @@ See you on <a href="https://twitch.tv/essentialrandomness">Twitch</a>!
 
 <TimeToggle />
 <StreamingSchedule
+  startAt={new Date("2024-02-01 00:00:00")}
+  endAt={new Date("2024-02-29 23:59:59")}
+/>
+
+### Schedule Changes
+
+These streams were originally scheduled, but changed for various reasons.
+
+<CancelledStreams
   startAt={new Date("2024-02-01 00:00:00")}
   endAt={new Date("2024-02-29 23:59:59")}
 />

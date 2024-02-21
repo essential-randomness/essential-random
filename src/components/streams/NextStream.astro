@@ -1,5 +1,6 @@
 ---
 import { getCollection } from "astro:content";
+import { filterStreamsByTime } from "./utils";
 
 interface Props {
   startAt: Date;
@@ -8,8 +9,10 @@ interface Props {
 const { startAt, endAt } = Astro.props;
 const streams = await getCollection(
   "streams",
-  (stream) =>
-    stream.data.scheduled_at > startAt && stream.data.scheduled_at < endAt
+  filterStreamsByTime({
+    after: startAt,
+    before: endAt,
+  })
 );
 
 const dateOptions = {

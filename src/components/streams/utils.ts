@@ -1,9 +1,19 @@
 const HOUR_MS = 60 * 60 * 1000;
 
 export const filterStreamsByTime =
-  ({ after, before }: { after: Date; before: Date }) =>
-  (stream: { data: { scheduled_at: Date } }) =>
-    stream.data.scheduled_at > after && stream.data.scheduled_at < before;
+  ({
+    after,
+    before,
+    withCancelled = false,
+  }: {
+    after: Date;
+    before: Date;
+    withCancelled?: boolean;
+  }) =>
+  (stream: { data: { scheduled_at: Date; cancelled: boolean } }) =>
+    (withCancelled || !stream.data.cancelled) &&
+    stream.data.scheduled_at > after &&
+    stream.data.scheduled_at < before;
 
 export const findNextStream = (
   streams: Array<

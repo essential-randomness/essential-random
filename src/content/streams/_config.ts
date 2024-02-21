@@ -24,5 +24,6 @@ export const streams = defineCollection({
         );
       }),
       tags: z.array(z.string()).optional().default([]),
+      cancelled: z.boolean().default(false),
     }),
 });

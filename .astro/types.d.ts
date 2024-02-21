@@ -478,6 +478,13 @@ declare module 'astro:content' {
   collection: "streams";
   data: InferEntrySchema<"streams">
 } & { render(): Render[".md"] };
+"2024-02/22-supporters-choice-2.md": {
+	id: "2024-02/22-supporters-choice-2.md";
+  slug: "2024-02/22-supporters-choice-2";
+  body: string;
+  collection: "streams";
+  data: InferEntrySchema<"streams">
+} & { render(): Render[".md"] };
 "2024-02/26-q-and-a-clinic.md": {
 	id: "2024-02/26-q-and-a-clinic.md";
   slug: "2024-02/26-q-and-a-clinic";
@@ -630,5 +637,5 @@ declare module 'astro:content' {
 
 	type AnyEntryMap = ContentEntryMap & DataEntryMap;
 
-	export type ContentConfig = typeof import("../src/content/config.js");
+	type ContentConfig = typeof import("../src/content/config");
 }
