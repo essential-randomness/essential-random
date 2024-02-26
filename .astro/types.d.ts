@@ -499,6 +499,13 @@ declare module 'astro:content' {
   collection: "streams";
   data: InferEntrySchema<"streams">
 } & { render(): Render[".md"] };
+"2024-02/29-github-workshop.md": {
+	id: "2024-02/29-github-workshop.md";
+  slug: "2024-02/29-github-workshop";
+  body: string;
+  collection: "streams";
+  data: InferEntrySchema<"streams">
+} & { render(): Render[".md"] };
 };
 "testimonials": {
 "a-good-friend-and-a-deep-thinker-who-tru.md": {
