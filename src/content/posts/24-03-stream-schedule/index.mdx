@@ -1,0 +1,55 @@
+---
+title: March Streaming Schedule
+tagline: A Typical March in the FujoVerse
+tags:
+  - +streaming schedule
+created_at: 2024-03-03 20:05:37
+og_image: ./socials-calendar.png
+og_description: "In March, the Fujoverse has one priority: building an amazing April 1st joke."
+---
+
+import StreamingSchedule from "../../../components/streams/StreamingSchedule.astro";
+import CancelledStreams from "../../../components/streams/CancelledStreams.astro";
+import NextStream from "../../../components/streams/NextStream.astro";
+import TimeToggle from "../../../components/streams/TimeToggle.astro";
+
+This month, as is tradition, we'll be incredibly busy with our rush to get an
+amazing April 1st event out of the door. Because of this, you might notice our
+schedule is a bit _peculiar_.
+
+![file:socials-calendar.alt.txt](./socials-calendar.png)
+
+See you on <a href="https://twitch.tv/essentialrandomness">Twitch</a>!
+
+### Next Up
+
+<NextStream
+  startAt={new Date("2024-03-01 00:00:00")}
+  endAt={new Date("2024-03-31 23:59:59")}
+/>
+
+### Full Schedule
+
+<TimeToggle />
+<StreamingSchedule
+  startAt={new Date("2024-03-01 00:00:00")}
+  endAt={new Date("2024-03-31 23:59:59")}
+/>
+
+### Schedule Changes
+
+These streams were originally scheduled, but changed for various reasons.
+
+<CancelledStreams
+  startAt={new Date("2024-03-01 00:00:00")}
+  endAt={new Date("2024-03-31 23:59:59")}
+/>
+
+<style>{`
+    .toc, #table-of-contents {
+      display:none;
+    }
+    img {
+      padding: 0!important;
+    }
+`}</style>

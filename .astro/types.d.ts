@@ -257,6 +257,13 @@ declare module 'astro:content' {
   collection: "posts";
   data: InferEntrySchema<"posts">
 } & { render(): Render[".mdx"] };
+"24-03-stream-schedule/index.mdx": {
+	id: "24-03-stream-schedule/index.mdx";
+  slug: "24-03-stream-schedule";
+  body: string;
+  collection: "posts";
+  data: InferEntrySchema<"posts">
+} & { render(): Render[".mdx"] };
 "content-calendar-first-month-reflections/index.mdx": {
 	id: "content-calendar-first-month-reflections/index.mdx";
   slug: "content-calendar-first-month-reflections";
@@ -502,6 +509,62 @@ declare module 'astro:content' {
 "2024-02/29-github-workshop.md": {
 	id: "2024-02/29-github-workshop.md";
   slug: "2024-02/29-github-workshop";
+  body: string;
+  collection: "streams";
+  data: InferEntrySchema<"streams">
+} & { render(): Render[".md"] };
+"2024-03/11-april-1st-prep.md": {
+	id: "2024-03/11-april-1st-prep.md";
+  slug: "2024-03/11-april-1st-prep";
+  body: string;
+  collection: "streams";
+  data: InferEntrySchema<"streams">
+} & { render(): Render[".md"] };
+"2024-03/14-spring-cleanup.md": {
+	id: "2024-03/14-spring-cleanup.md";
+  slug: "2024-03/14-spring-cleanup";
+  body: string;
+  collection: "streams";
+  data: InferEntrySchema<"streams">
+} & { render(): Render[".md"] };
+"2024-03/18-april-1st-prep.md": {
+	id: "2024-03/18-april-1st-prep.md";
+  slug: "2024-03/18-april-1st-prep";
+  body: string;
+  collection: "streams";
+  data: InferEntrySchema<"streams">
+} & { render(): Render[".md"] };
+"2024-03/21-spring-cleanup.md": {
+	id: "2024-03/21-spring-cleanup.md";
+  slug: "2024-03/21-spring-cleanup";
+  body: string;
+  collection: "streams";
+  data: InferEntrySchema<"streams">
+} & { render(): Render[".md"] };
+"2024-03/25-april-1st-prep.md": {
+	id: "2024-03/25-april-1st-prep.md";
+  slug: "2024-03/25-april-1st-prep";
+  body: string;
+  collection: "streams";
+  data: InferEntrySchema<"streams">
+} & { render(): Render[".md"] };
+"2024-03/28-spring-cleanup.md": {
+	id: "2024-03/28-spring-cleanup.md";
+  slug: "2024-03/28-spring-cleanup";
+  body: string;
+  collection: "streams";
+  data: InferEntrySchema<"streams">
+} & { render(): Render[".md"] };
+"2024-03/4-april-1st-prep.md": {
+	id: "2024-03/4-april-1st-prep.md";
+  slug: "2024-03/4-april-1st-prep";
+  body: string;
+  collection: "streams";
+  data: InferEntrySchema<"streams">
+} & { render(): Render[".md"] };
+"2024-03/7-spring-cleanup.md": {
+	id: "2024-03/7-spring-cleanup.md";
+  slug: "2024-03/7-spring-cleanup";
   body: string;
   collection: "streams";
   data: InferEntrySchema<"streams">
