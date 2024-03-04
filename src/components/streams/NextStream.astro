@@ -21,7 +21,6 @@ const dateOptions = {
 };
 ---
 
-<!-- <div class="no-stream">The last stream in this series is already passed</div> -->
 <local-time>
   <next-stream
     passed="true"
@@ -29,7 +28,7 @@ const dateOptions = {
       streams: streams.map((stream) => ({
         title: stream.data.title,
         scheduled_at: stream.data.scheduled_at,
-        private: stream.data.tags.includes("$upporters only"),
+        private: stream.data.tags.includes("$upporters-only"),
       })),
     })}
   >
@@ -43,7 +42,7 @@ const dateOptions = {
       </div>
     </div>
     <div class="no-stream">
-      The last stream in this series is already passed. Recordings might be
+      The last stream in this series has already passed. Recordings might be
       available on <a href="https://twitch.tv/essentialrandomness">Twitch</a> or
 
 
@@ -114,7 +113,7 @@ const dateOptions = {
 
     nextStreamsTag.querySelector(".location")!.innerHTML = !nextStream.private
       ? `on <a href="https://twitch.tv/essentialrandomness">Twitch</a>`
-      : `in our [[$upporters lair]]`;
+      : `in our <a href="https://www.patreon.com/essentialrandomness">[[$upporters lair]]</a>`;
   }
 </script>
 <script>

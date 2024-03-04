@@ -218,4 +218,9 @@ const timeOptions = {
   nextStream?.element.classList.add(
     isCurrentStream(nextStream) ? "current" : "next"
   );
+  // @ts-expect-error
+  // TODO: fix type narrowing
+  nextStream?.element
+    ?.querySelector("details")
+    ?.setAttribute("open", isCurrentStream(nextStream) ? "true" : undefined);
 </script>
