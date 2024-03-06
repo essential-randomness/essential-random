@@ -72,10 +72,15 @@ export const extractWebsiteName = (url: string): WEBSITE_TYPES | null => {
     return "dreamwidth";
   }
   const { host } = new URL(url);
-
-  return host
+  let hostName = host
     .substring(host.startsWith("www.") ? 4 : 0, host.lastIndexOf("."))
-    .toLowerCase() as WEBSITE_TYPES;
+    .toLowerCase();
+
+  if (hostName == "x") {
+    hostName = "twitter";
+  }
+
+  return hostName as WEBSITE_TYPES;
 };
 
 export const maybeGetWebsiteIcon = (websiteName: WEBSITE_TYPES) => {
