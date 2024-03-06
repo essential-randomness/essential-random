@@ -264,6 +264,13 @@ declare module 'astro:content' {
   collection: "posts";
   data: InferEntrySchema<"posts">
 } & { render(): Render[".mdx"] };
+"april-1st-tradition-part-1/index.mdx": {
+	id: "april-1st-tradition-part-1/index.mdx";
+  slug: "april-1st-tradition-part-1";
+  body: string;
+  collection: "posts";
+  data: InferEntrySchema<"posts">
+} & { render(): Render[".mdx"] };
 "content-calendar-first-month-reflections/index.mdx": {
 	id: "content-calendar-first-month-reflections/index.mdx";
   slug: "content-calendar-first-month-reflections";
