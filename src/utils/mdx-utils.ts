@@ -111,7 +111,7 @@ export const rehypeCustomEmoji: Plugin<[RehypeEmojiOptions], Root> = (
 
 // Allows to put a footnote on its own line to have it merged with the previous element
 // Workaround for "wrap" behavior of heading links fucking up inner footnotes
-export const ownLineFootnote() => {
+export const ownLineFootnote = () => {
   return (tree) => {
     visitParents(tree, "element", (node, ancestors) => {
       const directParent = ancestors[ancestors.length - 1];
@@ -140,4 +140,4 @@ export const ownLineFootnote() => {
       }
     });
   };
-},
+};
