@@ -12,12 +12,12 @@ import type { Root } from "hast";
 import { h } from "hastscript";
 import type { Plugin } from "unified";
 import { findAndReplace } from "hast-util-find-and-replace";
+import { visitParents, SKIP } from "unist-util-visit-parents";
 
 export const remarkExtractTitle = () => {
   return (tree: Parameters<typeof select>[1]) => {
     // console.log(inspect(tree));
     const heading = select("heading[depth=1]", tree);
-    // @ts-expect-error
     if (!heading || is("parent", heading)) {
       return null;
     }
@@ -103,7 +103,41 @@ export const rehypeCustomEmoji: Plugin<[RehypeEmojiOptions], Root> = (
       if (node.type === "text") {
         return;
       }
+      // @ts-expect-error
       findAndReplace(node, replace_maps, { ignore: opts.ignore });
     });
   };
 };
+
+// Allows to put a footnote on its own line to have it merged with the previous element
+// Workaround for "wrap" behavior of heading links fucking up inner footnotes
+export const ownLineFootnote() => {
+  return (tree) => {
+    visitParents(tree, "element", (node, ancestors) => {
+      const directParent = ancestors[ancestors.length - 1];
+      if (
+        node.tagName == "sup" &&
+        // The parent is a paragraph and there is only one node in itdirectParent
+        directParent.tagName == "p" &&
+        directParent.children.length == 1
+      ) {
+        const grandpa = ancestors[ancestors.length - 2];
+        // Find the p in grandpa
+        const pIndex = Array.from(grandpa.children).findIndex(
+          (node) => node == directParent
+        );
+        // Find the index previous sibling that is not a text
+        const siblingIndex = Array.from(grandpa.children).findLastIndex(
+          (node, index) => index < pIndex && node.type == "element"
+        );
+        const sibling = grandpa.children[siblingIndex];
+        sibling.children = [...Array.from(sibling.children), node];
+        grandpa.children = Array.from(grandpa.children).toSpliced(
+          siblingIndex + 1,
+          pIndex - siblingIndex + 1
+        );
+        return SKIP;
+      }
+    });
+  };
+},

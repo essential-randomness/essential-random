@@ -29,7 +29,7 @@ h5 {
   }
 
   &:has(> a) {
-    & a::after {
+    & > a::after {
       content: "";
       display: inline-block;
       background-image: url(/link.svg);
@@ -44,7 +44,7 @@ h5 {
       transform: translateY(20%);
     }
 
-    & a:hover::after {
+    & > a:hover::after {
       visibility: visible;
     }
   }
