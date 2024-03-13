@@ -24,7 +24,7 @@ const { Content, data } = Astro.props;
 <Layout
   title={data.og_title ? data.og_title : `${data.title} – Essential Randomness`}
   preview={data.og_image?.src}
-  description={data.og_description}
+  description={data.og_description || data.tagline}
 >
   <main class="post">
     <h1 set:html={data.title} />

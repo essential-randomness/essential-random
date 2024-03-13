@@ -5,6 +5,7 @@ tags:
   - "+series: April 1st jokes"
   - +The FujoVerse™
 created_at: 2024-03-10 16:40:02
+og_image: ./robinboob.png
 ---
 
 import Outro from "../../../components/posts/Outro.astro";
@@ -18,14 +19,14 @@ honestly a great decision, and I wish I could say I then never discoursed again.
 Old habits, however, die hard. Even with my newfound worksona (who has
 thankfully stayed away from fandom wank), I sometimes manage to drag myself into
 digging way too much into the _controversial topic du jour_–a pull that is
-especially hard to resist when that topic sits at the cross of my special
+especially hard to resist when that topic sits at the intersection of my special
 interests.
 
 ## "This is important. _Everyone_ is wrong on the internet."
 
 [^0]
 
-Historically, _the_ biggest culprit (and the star of this story) has been NFTs
+Historically, _the_ biggest culprit (and the star of this story) has been NFT
 discourse. At the time, I already wrote [a way-too-long
 article](/posts/the-fight-for-the-open-web) (sorry sorry sorry) about my
 feelings. The tl;dr: **as it often happens with discourse, people on all sides
@@ -42,11 +43,11 @@ was driving me up a wall.
 
 <figure>
 
-![file](./flattered-pig.png)
+![file:./flattered-pig.png](./flattered-pig.png)
 
 <figcaption>
 
-Even a raccoon will climb up a wall when peeved.
+"Even a raccoon will climb up a wall when peeved."
 
 </figcaption>
 </figure>
@@ -73,24 +74,25 @@ it](https://www.robinboob.com).
 
 <figure>
 
-![file](./robinboob.png)
+![file:./robinboob.alt.txt](./robinboob.png)
 
 <figcaption>
 
 I did not realize one could make the BL(ockchain) joke until later, so imagine
 my delight when everything fell into place. The ETH-kun/Bitcoin-senpai design is
-by our long-term collaborator and amazing artist [spillingdown](TODO).
+by our long-term collaborator and amazing artist
+[spillingdown](https://www.fujoweb.dev/team/spillingdown).
 
 </figcaption>
 </figure>
 
 While this story might make RobinBoob seem like a unilateral dig at my own side,
 there is more to it than that. **RobinBoob is also a statement about the
-conflation, typical of NFTs spaces, between financial speculation and the desire
-to collect things you care about.** Buying a ship certificate would never make
+(typical of NFT spaces) conflation of financial speculation and the desire to
+collect things you care about.** Buying a ship certificate would never make
 someone rich. However, it bought something way more important: a fun time on the
 web, and an excuse to connect with your broader community[^3]. _That_ is why,
-with all due _"oversimplification warnings"_, fandom people buy (and sometimes
+with all due _"oversimplification warnings"_, many in fandom buy (and sometimes
 sell) things.
 
 ## The part where engineering
@@ -109,7 +111,7 @@ characters, and how to avoid character duplicates that would make the whole game
 a lot less fun.** The obvious solution was to scrape [Archive of Our
 Own](https://archiveofourown.org) for this data. But while this was overall
 feasible[^3_7], we also were very short on time. We could try, but there was no
-knowing how many we could get in that short time.
+knowing how many characters we could get in that short time.
 
 As I was exploring the various options, however, an incredible coincidence
 happened: for the first time ever, AO3 released [a dump of its own
@@ -118,7 +120,7 @@ character tags, and the information needed to deduplicate them[^4].
 
 <figure>
 
-![file](./selective-data.png)
+![file:selective-data.png](./selective-data.png)
 
 <figcaption>
 
@@ -133,11 +135,11 @@ out there really loves fujoshi and good jokes.
 ### Woman vs deadline: getting nerdsniped
 
 There isn't much more to the story (that I remember) aside from a few
-annedoctes. For example, **we found out that the ~~lazy hack~~ carefully-designed
+anecdotes. For example, **we found out that the ~~lazy hack~~ carefully-designed
 method I was using to associate a purchase with character pictures would stop
-working when someone bought a certificate with 8+ characters.** This was 6 hours
+working when someone bought a certificate with 6+ characters.** This was a few hours
 before release. And so the RobinBoob sprint marked the first time I did not sleep
-on March 31st (a 3-years streak we're hoping to break in 2024).
+on March 31st (a 3-year streak we're hoping to break in 2024).
 
 With all of this said, there were some aspects of this rush that were overall
 avoidable: **the biggest culprit was that I nerdsniped myself into figuring out default
@@ -145,7 +147,7 @@ pictures for our character selector.**
 
 <figure>
 
-![file](./characters.png)
+![file:./characters.alt.txt](./characters.png)
 
 <figcaption>
 
@@ -169,7 +171,7 @@ Here's the step-by-step logic:
 3. Once I had the name of the fandom, I scraped the search page on
    [fandom.com](https://www.fandom.com/)[^5] to find its wiki.
 4. I used the [MediaWiki API](https://www.mediawiki.org/wiki/API:Main_page) to
-   find pictures of the character on its wiki.
+   find pictures of the character on the wiki of their fandom.
 5. I had my program upload a few of them to my own storage and pair them with the
    character in the database.
 
@@ -191,7 +193,7 @@ See you next week with another April 1st deep dive: [FujoBoard](https://fujoboar
     a certain point, creating is a more empowering–and, honestly,
     _effective_–act than discoursing will ever be.
 
-[^0]: [![An XKCD comic strip](./someone-wrong.png)](https://xkcd.com/386/)
+[^0]: [![file:./someone-wrong.alt.txt](./someone-wrong.png)](https://xkcd.com/386/)
 [^0_5]:
     You can also see this happen with AI discourse these days, but I know
     better than to kick this particular hornet's nest. Please be proud of my
@@ -200,20 +202,20 @@ See you next week with another April 1st deep dive: [FujoBoard](https://fujoboar
 [^1]:
     This wasn't (and isn't) an endorsment of NFTs. I have as much beef, if not
     more, with the other side. It's just a _different_ beef. What can I tell
-    you? No urge pulls with the same strength as someone stepping on a _pet
-    peeve_.
+    you? No urge pulls with the same strength as someone you generally agree
+    with stepping on a _pet peeve_.
 
 [^2]:
     I call this the "throw yourself off a cliff and learn to fly" method of
     learning. As someone who struggles with ADHD (and completing tasks), this
-    type of forced deadline has been a godsent. Among the things it taught me is
-    what corners to cut corners when necessary without getting stuck into "just
-    another feature" rabbit holes.
+    type of forced deadline has been a godsend. Among the things it taught me is
+    what corners to cut when necessary without getting stuck in "just another
+    feature" rabbit holes.
 
 [^2_5]:
     It probably involved me running out of my "weed cave" to yell at my
-    partner about the amazing idea I had. Sorry kids, drugs may not solve all
-    problems but they sometimes do for good "out of the box thinking" tools.
+    partner about the amazing idea I had. For once the answer to "was whoever
+    made this on drugs?" is "yes, most likely".
 
 [^3]:
     RobinBoob's sale patterns are often clustered. Someone will buy a ship,
@@ -221,8 +223,8 @@ See you next week with another April 1st deep dive: [FujoBoard](https://fujoboar
     about it all and buy more for themselves.
 
 [^3_5]:
-    People askfor new features from time to time, but I had to give up to the
-    idea that they're not worth doing without a serious rewrite. If you want to
+    People ask for new features from time to time, but I had to give up to the
+    idea that they’re not worth doing without a serious rewrite. If you want to
     come watch and chat during our in-progress rebuild, check out my
     [Twitch](https://www.twitch.tv/essentialrandomness) or
     [YouTube](https://www.youtube.com/channel/UCI_NX0PeoiWiMsHIFH0TBsw).
@@ -236,11 +238,14 @@ See you next week with another April 1st deep dive: [FujoBoard](https://fujoboar
 [^4]:
     Look at the date on that post: it was published on March 21st, barely 10
     days before "showtime". I honestly don't know how RobinBoob would have
-    turned out without this incredible coincidence. But also, this is why the
+    turned out without this stroke of luck. But also, this is why the
     RobinBoob DB is stuck in time with only the characters that existed at the
     time of that dump. We're working on it.
 
-[^5]: Using the tools of the enemy against the enemy! Take that, fandom.com!
+[^5]:
+    Using the tools of [the enemy](https://www.youtube.com/watch?v=qcfuA_UAz3I)
+    against the enemy! Take that, fandom.com!
+
 [^6]:
     "Was it worth it?" Silly reader, I know better than to ask myself that
     question. Once again, we didn't do it because it was easy. We did it because

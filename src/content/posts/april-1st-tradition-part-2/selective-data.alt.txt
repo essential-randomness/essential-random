@@ -1,0 +1,13 @@
+Screenshot of Archive of Our Own:
+
+AO3 News
+
+Selective data dump for fan statisticians
+
+Published: 2021-03-21 21:35:00 UTC Tags: 2021, site stats
+
+From time to time, we get contacted by students, scholars, and people interested
+in fandom stats who would like to access information about the fanworks in the
+AO3 database, such as frequently used tags or growth of a fandom over time.
+While we're unable to respond to individual requests, today we're pleased to
+provide a one-time release of data for all of our users.
