@@ -278,6 +278,13 @@ declare module 'astro:content' {
   collection: "posts";
   data: InferEntrySchema<"posts">
 } & { render(): Render[".mdx"] };
+"boba-retro-2023/index.mdx": {
+	id: "boba-retro-2023/index.mdx";
+  slug: "boba-retro-2023";
+  body: string;
+  collection: "posts";
+  data: InferEntrySchema<"posts">
+} & { render(): Render[".mdx"] };
 "content-calendar-first-month-reflections/index.mdx": {
 	id: "content-calendar-first-month-reflections/index.mdx";
   slug: "content-calendar-first-month-reflections";
