@@ -264,6 +264,13 @@ declare module 'astro:content' {
   collection: "posts";
   data: InferEntrySchema<"posts">
 } & { render(): Render[".mdx"] };
+"24-04-stream-schedule/index.mdx": {
+	id: "24-04-stream-schedule/index.mdx";
+  slug: "24-04-stream-schedule";
+  body: string;
+  collection: "posts";
+  data: InferEntrySchema<"posts">
+} & { render(): Render[".mdx"] };
 "april-1st-tradition-part-1/index.mdx": {
 	id: "april-1st-tradition-part-1/index.mdx";
   slug: "april-1st-tradition-part-1";
@@ -586,6 +593,27 @@ declare module 'astro:content' {
 "2024-03/7-spring-cleanup.md": {
 	id: "2024-03/7-spring-cleanup.md";
   slug: "2024-03/7-spring-cleanup";
+  body: string;
+  collection: "streams";
+  data: InferEntrySchema<"streams">
+} & { render(): Render[".md"] };
+"2024-04/4-fujocoded-website.md": {
+	id: "2024-04/4-fujocoded-website.md";
+  slug: "2024-04/4-fujocoded-website";
+  body: string;
+  collection: "streams";
+  data: InferEntrySchema<"streams">
+} & { render(): Render[".md"] };
+"2024-04/7-just-chatting.md": {
+	id: "2024-04/7-just-chatting.md";
+  slug: "2024-04/7-just-chatting";
+  body: string;
+  collection: "streams";
+  data: InferEntrySchema<"streams">
+} & { render(): Render[".md"] };
+"2024-04/8-sponsors-shrine.md": {
+	id: "2024-04/8-sponsors-shrine.md";
+  slug: "2024-04/8-sponsors-shrine";
   body: string;
   collection: "streams";
   data: InferEntrySchema<"streams">

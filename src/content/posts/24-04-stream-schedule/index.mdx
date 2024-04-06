@@ -1,0 +1,41 @@
+---
+title: April Streaming Schedule
+tagline: "The busiest time for a fujin: tax season."
+tags:
+  - +streaming schedule
+created_at: 2024-04-06 15:09:52
+og_description: "It's time for our April campaign! This is a special schedule for a special month :)"
+---
+
+import StreamingSchedule from "../../../components/streams/StreamingSchedule.astro";
+import CancelledStreams from "../../../components/streams/CancelledStreams.astro";
+import NextStream from "../../../components/streams/NextStream.astro";
+import TimeToggle from "../../../components/streams/TimeToggle.astro";
+
+It's time for our April campaign! This is a special schedule for a special month :)
+
+See you on <a href="https://twitch.tv/essentialrandomness">Twitch</a>!
+
+### Next Up
+
+<NextStream
+  startAt={new Date("2024-04-01 00:00:00")}
+  endAt={new Date("2024-04-30 23:59:59")}
+/>
+
+### Full Schedule
+
+<TimeToggle />
+<StreamingSchedule
+  startAt={new Date("2024-04-01 00:00:00")}
+  endAt={new Date("2024-04-30 23:59:59")}
+/>
+
+<style>{`
+    .toc, #table-of-contents {
+      display:none;
+    }
+    img {
+      padding: 0!important;
+    }
+`}</style>
