@@ -1,0 +1,42 @@
+---
+title: May and June Streaming Schedule
+tagline: "Back with a reduced schedule"
+tags:
+  - +streaming schedule
+created_at: 2024-05-13 00:44:57
+og_description: "We're back after our campaign effort (sort of)"
+---
+
+import StreamingSchedule from "../../../components/streams/StreamingSchedule.astro";
+import CancelledStreams from "../../../components/streams/CancelledStreams.astro";
+import NextStream from "../../../components/streams/NextStream.astro";
+import TimeToggle from "../../../components/streams/TimeToggle.astro";
+
+Despite a reduced schedule while we finish fulfilling our campaign promises, we're officially
+back on air!
+
+See you on <a href="https://twitch.tv/essentialrandomness">Twitch</a>!
+
+### Next Up
+
+<NextStream
+  startAt={new Date("2024-05-01 00:00:00")}
+  endAt={new Date("2024-06-30 23:59:59")}
+/>
+
+### Full Schedule
+
+<TimeToggle />
+<StreamingSchedule
+  startAt={new Date("2024-05-01 00:00:00")}
+  endAt={new Date("2024-06-30 23:59:59")}
+/>
+
+<style>{`
+    .toc, #table-of-contents {
+      display:none;
+    }
+    img {
+      padding: 0!important;
+    }
+`}</style>

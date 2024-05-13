@@ -1,0 +1,12 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+
+const streams = await getCollection("streams");
+const { Content, ...props } = Astro.props;
+---
+<Layout title="My streams">
+    <h1>{props.title}</h1>
+    Scheduled for <time>{new Date(props.date).toLocaleString()}</time> (your local time).
+    <Content />
+</Layout>
