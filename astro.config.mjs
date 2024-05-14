@@ -69,6 +69,7 @@ export default defineConfig({
   },
   redirects: {
     "/subscribe": "/support-me",
+    "/streams": "/posts/24-0506-stream-schedule",
   },
   output: "hybrid",
   adapter: vercel(),

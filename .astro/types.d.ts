@@ -271,6 +271,13 @@ declare module 'astro:content' {
   collection: "posts";
   data: InferEntrySchema<"posts">
 } & { render(): Render[".mdx"] };
+"24-05&06-stream-schedule/index.mdx": {
+	id: "24-05&06-stream-schedule/index.mdx";
+  slug: "24-0506-stream-schedule";
+  body: string;
+  collection: "posts";
+  data: InferEntrySchema<"posts">
+} & { render(): Render[".mdx"] };
 "april-1st-tradition-part-1/index.mdx": {
 	id: "april-1st-tradition-part-1/index.mdx";
   slug: "april-1st-tradition-part-1";
@@ -614,6 +621,55 @@ declare module 'astro:content' {
 "2024-04/8-sponsors-shrine.md": {
 	id: "2024-04/8-sponsors-shrine.md";
   slug: "2024-04/8-sponsors-shrine";
+  body: string;
+  collection: "streams";
+  data: InferEntrySchema<"streams">
+} & { render(): Render[".md"] };
+"2024-05/16-sponsors-shrine.md": {
+	id: "2024-05/16-sponsors-shrine.md";
+  slug: "2024-05/16-sponsors-shrine";
+  body: string;
+  collection: "streams";
+  data: InferEntrySchema<"streams">
+} & { render(): Render[".md"] };
+"2024-05/23-fujoguide.md": {
+	id: "2024-05/23-fujoguide.md";
+  slug: "2024-05/23-fujoguide";
+  body: string;
+  collection: "streams";
+  data: InferEntrySchema<"streams">
+} & { render(): Render[".md"] };
+"2024-05/30-bobaboard.md": {
+	id: "2024-05/30-bobaboard.md";
+  slug: "2024-05/30-bobaboard";
+  body: string;
+  collection: "streams";
+  data: InferEntrySchema<"streams">
+} & { render(): Render[".md"] };
+"2024-06/13-tbd.md": {
+	id: "2024-06/13-tbd.md";
+  slug: "2024-06/13-tbd";
+  body: string;
+  collection: "streams";
+  data: InferEntrySchema<"streams">
+} & { render(): Render[".md"] };
+"2024-06/20-bobaboard.md": {
+	id: "2024-06/20-bobaboard.md";
+  slug: "2024-06/20-bobaboard";
+  body: string;
+  collection: "streams";
+  data: InferEntrySchema<"streams">
+} & { render(): Render[".md"] };
+"2024-06/27-tbd.md": {
+	id: "2024-06/27-tbd.md";
+  slug: "2024-06/27-tbd";
+  body: string;
+  collection: "streams";
+  data: InferEntrySchema<"streams">
+} & { render(): Render[".md"] };
+"2024-06/6-tbd.md": {
+	id: "2024-06/6-tbd.md";
+  slug: "2024-06/6-tbd";
   body: string;
   collection: "streams";
   data: InferEntrySchema<"streams">

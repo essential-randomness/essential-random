@@ -34,6 +34,8 @@ const socials = fromCollection(await getCollection("socials"));
          page.
       </p>
 
+      <a href="/streams">Streaming schedule</a>
+
       <section>
         <Timeline />
       </section>
@@ -55,6 +57,30 @@ const socials = fromCollection(await getCollection("socials"));
       display: flex;
       flex-direction: column;
       gap: 25px;
+    }
+    a[href="/streams"] {
+      position: fixed;
+      bottom: 30px;
+      border-radius: 30px;
+      background-color: black;
+      color: white;
+      text-align: center;
+      right: 30px;
+      padding: 10px 20px;
+      box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.5);
+      z-index: 10;
+
+      &:hover {
+        cursor: pointer;
+      }
+      @media only screen and (max-width: 600px) {
+        & {
+          position: relative;
+          bottom: auto;
+          right: auto;
+          display: inline-block;
+        }
+      }
     }
   </style>
 </Layout>

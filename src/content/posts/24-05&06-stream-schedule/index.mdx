@@ -1,0 +1,50 @@
+---
+title: May and June Streaming Schedule
+tagline: "Back with a reduced schedule while we work on our campaigns!"
+tags:
+  - +streaming schedule
+created_at: 2024-05-13 00:44:57
+og_description: "We're back after our campaign effort (sort of)"
+---
+
+import StreamingSchedule from "../../../components/streams/StreamingSchedule.astro";
+import CancelledStreams from "../../../components/streams/CancelledStreams.astro";
+import NextStream from "../../../components/streams/NextStream.astro";
+import TimeToggle from "../../../components/streams/TimeToggle.astro";
+
+We're officially back on air! The next two months (or, better said, the next
+month-and-a-half), will be a bit different: since we're focused on making as
+much progress as we can on our two fundraising campaign
+([FujoGuide's](https://www.kickstarter.com/projects/essential-randomness/the-fujoshi-guide-to-web-development)
+and [FujoCoded's](https://www.backerkit.com/c/projects/fujocoded-llc/fujocoded-software-and-education-for-a-better-web)),
+we're reducing our streaming schedule to just once a week.
+
+This schedule is _very_ subject to last-minute changes. For the most part, we'll
+do whatever work is most relevant to the task at hand as we fulfill our campaign
+promises.
+
+See you on <a href="https://twitch.tv/essentialrandomness">Twitch</a>!
+
+### Next Up
+
+<NextStream
+  startAt={new Date("2024-05-01 00:00:00")}
+  endAt={new Date("2024-06-30 23:59:59")}
+/>
+
+### Full Schedule
+
+<TimeToggle />
+<StreamingSchedule
+  startAt={new Date("2024-05-01 00:00:00")}
+  endAt={new Date("2024-06-30 23:59:59")}
+/>
+
+<style>{`
+    .toc, #table-of-contents {
+      display:none;
+    }
+    img {
+      padding: 0!important;
+    }
+`}</style>
