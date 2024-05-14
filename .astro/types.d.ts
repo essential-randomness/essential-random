@@ -646,16 +646,16 @@ declare module 'astro:content' {
   collection: "streams";
   data: InferEntrySchema<"streams">
 } & { render(): Render[".md"] };
-"2024-06/13-bobaboard.md": {
-	id: "2024-06/13-bobaboard.md";
-  slug: "2024-06/13-bobaboard";
+"2024-06/13-tbd.md": {
+	id: "2024-06/13-tbd.md";
+  slug: "2024-06/13-tbd";
   body: string;
   collection: "streams";
   data: InferEntrySchema<"streams">
 } & { render(): Render[".md"] };
-"2024-06/20-tbd.md": {
-	id: "2024-06/20-tbd.md";
-  slug: "2024-06/20-tbd";
+"2024-06/20-bobaboard.md": {
+	id: "2024-06/20-bobaboard.md";
+  slug: "2024-06/20-bobaboard";
   body: string;
   collection: "streams";
   data: InferEntrySchema<"streams">

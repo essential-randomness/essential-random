@@ -6,7 +6,7 @@ description: |
   be about. But whether it's defining some unclear part of our roadmap, documenting the current status of 
   the codebase, or showing how you could self-host an instance, we'll do some exciting
   progress, all together!
-scheduled_at: 2024-06-13 15:00:00
+scheduled_at: 2024-06-20 15:00:00
 tags:
   - bobaboard
 ---
