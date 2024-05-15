@@ -1,5 +1,5 @@
 ---
-title: "[Tentative] Let's Work on FujoGuide!"
+title: "[Tentative] Building FujoGuide with Astro"
 description: |
   [FujoGuide](https://fujoweb.dev) Volume 0 is our guide to Git & GitHub, and the
   protagonist of our [first-ever Kickstarter](https://www.kickstarter.com/projects/essential-randomness/the-fujoshi-guide-to-web-development). Why many people know this already, what they 
