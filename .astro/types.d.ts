@@ -639,37 +639,37 @@ declare module 'astro:content' {
   collection: "streams";
   data: InferEntrySchema<"streams">
 } & { render(): Render[".md"] };
-"2024-05/30-bobaboard.md": {
-	id: "2024-05/30-bobaboard.md";
-  slug: "2024-05/30-bobaboard";
+"2024-05/30-decentralization-openbadge.md": {
+	id: "2024-05/30-decentralization-openbadge.md";
+  slug: "2024-05/30-decentralization-openbadge";
   body: string;
   collection: "streams";
   data: InferEntrySchema<"streams">
 } & { render(): Render[".md"] };
-"2024-06/13-tbd.md": {
-	id: "2024-06/13-tbd.md";
-  slug: "2024-06/13-tbd";
+"2024-06/13-decentralization-openbadge-2.md": {
+	id: "2024-06/13-decentralization-openbadge-2.md";
+  slug: "2024-06/13-decentralization-openbadge-2";
   body: string;
   collection: "streams";
   data: InferEntrySchema<"streams">
 } & { render(): Render[".md"] };
-"2024-06/20-bobaboard.md": {
-	id: "2024-06/20-bobaboard.md";
-  slug: "2024-06/20-bobaboard";
+"2024-06/20-coworking-time.md": {
+	id: "2024-06/20-coworking-time.md";
+  slug: "2024-06/20-coworking-time";
   body: string;
   collection: "streams";
   data: InferEntrySchema<"streams">
 } & { render(): Render[".md"] };
-"2024-06/27-tbd.md": {
-	id: "2024-06/27-tbd.md";
-  slug: "2024-06/27-tbd";
+"2024-06/27-coworking-time.md": {
+	id: "2024-06/27-coworking-time.md";
+  slug: "2024-06/27-coworking-time";
   body: string;
   collection: "streams";
   data: InferEntrySchema<"streams">
 } & { render(): Render[".md"] };
-"2024-06/6-tbd.md": {
-	id: "2024-06/6-tbd.md";
-  slug: "2024-06/6-tbd";
+"2024-06/6-bobaboard-selfhosting.md": {
+	id: "2024-06/6-bobaboard-selfhosting.md";
+  slug: "2024-06/6-bobaboard-selfhosting";
   body: string;
   collection: "streams";
   data: InferEntrySchema<"streams">
