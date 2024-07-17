@@ -688,16 +688,16 @@ declare module 'astro:content' {
   collection: "streams";
   data: InferEntrySchema<"streams">
 } & { render(): Render[".md"] };
-"2024-07/18-coworking-time.md": {
-	id: "2024-07/18-coworking-time.md";
-  slug: "2024-07/18-coworking-time";
+"2024-07/18-wallpaper-maker.md": {
+	id: "2024-07/18-wallpaper-maker.md";
+  slug: "2024-07/18-wallpaper-maker";
   body: string;
   collection: "streams";
   data: InferEntrySchema<"streams">
 } & { render(): Render[".md"] };
-"2024-07/25-coworking-time.md": {
-	id: "2024-07/25-coworking-time.md";
-  slug: "2024-07/25-coworking-time";
+"2024-07/22-zine-marathon.md": {
+	id: "2024-07/22-zine-marathon.md";
+  slug: "2024-07/22-zine-marathon";
   body: string;
   collection: "streams";
   data: InferEntrySchema<"streams">
