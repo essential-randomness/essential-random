@@ -278,6 +278,13 @@ declare module 'astro:content' {
   collection: "posts";
   data: InferEntrySchema<"posts">
 } & { render(): Render[".mdx"] };
+"24-07&08-stream-schedule/index.mdx": {
+	id: "24-07&08-stream-schedule/index.mdx";
+  slug: "24-0708-stream-schedule";
+  body: string;
+  collection: "posts";
+  data: InferEntrySchema<"posts">
+} & { render(): Render[".mdx"] };
 "april-1st-tradition-part-1/index.mdx": {
 	id: "april-1st-tradition-part-1/index.mdx";
   slug: "april-1st-tradition-part-1";
@@ -670,6 +677,62 @@ declare module 'astro:content' {
 "2024-06/6-bobaboard-selfhosting.md": {
 	id: "2024-06/6-bobaboard-selfhosting.md";
   slug: "2024-06/6-bobaboard-selfhosting";
+  body: string;
+  collection: "streams";
+  data: InferEntrySchema<"streams">
+} & { render(): Render[".md"] };
+"2024-07/11-coworking-time.md": {
+	id: "2024-07/11-coworking-time.md";
+  slug: "2024-07/11-coworking-time";
+  body: string;
+  collection: "streams";
+  data: InferEntrySchema<"streams">
+} & { render(): Render[".md"] };
+"2024-07/18-coworking-time.md": {
+	id: "2024-07/18-coworking-time.md";
+  slug: "2024-07/18-coworking-time";
+  body: string;
+  collection: "streams";
+  data: InferEntrySchema<"streams">
+} & { render(): Render[".md"] };
+"2024-07/25-coworking-time.md": {
+	id: "2024-07/25-coworking-time.md";
+  slug: "2024-07/25-coworking-time";
+  body: string;
+  collection: "streams";
+  data: InferEntrySchema<"streams">
+} & { render(): Render[".md"] };
+"2024-07/4-coworking-time.md": {
+	id: "2024-07/4-coworking-time.md";
+  slug: "2024-07/4-coworking-time";
+  body: string;
+  collection: "streams";
+  data: InferEntrySchema<"streams">
+} & { render(): Render[".md"] };
+"2024-08/1-coworking-time.md": {
+	id: "2024-08/1-coworking-time.md";
+  slug: "2024-08/1-coworking-time";
+  body: string;
+  collection: "streams";
+  data: InferEntrySchema<"streams">
+} & { render(): Render[".md"] };
+"2024-08/15-coworking-time.md": {
+	id: "2024-08/15-coworking-time.md";
+  slug: "2024-08/15-coworking-time";
+  body: string;
+  collection: "streams";
+  data: InferEntrySchema<"streams">
+} & { render(): Render[".md"] };
+"2024-08/29-coworking-time.md": {
+	id: "2024-08/29-coworking-time.md";
+  slug: "2024-08/29-coworking-time";
+  body: string;
+  collection: "streams";
+  data: InferEntrySchema<"streams">
+} & { render(): Render[".md"] };
+"2024-08/5-coworking-time.md": {
+	id: "2024-08/5-coworking-time.md";
+  slug: "2024-08/5-coworking-time";
   body: string;
   collection: "streams";
   data: InferEntrySchema<"streams">
