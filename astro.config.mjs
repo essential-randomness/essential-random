@@ -71,7 +71,7 @@ export default defineConfig({
     "/subscribe": "/support-me",
     "/streams": {
       status: 307,
-      destination: "/posts/24-0506-stream-schedule",
+      destination: "/posts/24-0708-stream-schedule",
     },
   },
   output: "hybrid",
