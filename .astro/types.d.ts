@@ -285,6 +285,13 @@ declare module 'astro:content' {
   collection: "posts";
   data: InferEntrySchema<"posts">
 } & { render(): Render[".mdx"] };
+"24-09-stream-schedule/index.mdx": {
+	id: "24-09-stream-schedule/index.mdx";
+  slug: "24-09-stream-schedule";
+  body: string;
+  collection: "posts";
+  data: InferEntrySchema<"posts">
+} & { render(): Render[".mdx"] };
 "april-1st-tradition-part-1/index.mdx": {
 	id: "april-1st-tradition-part-1/index.mdx";
   slug: "april-1st-tradition-part-1";
@@ -733,6 +740,34 @@ declare module 'astro:content' {
 "2024-08/5-coworking-time.md": {
 	id: "2024-08/5-coworking-time.md";
   slug: "2024-08/5-coworking-time";
+  body: string;
+  collection: "streams";
+  data: InferEntrySchema<"streams">
+} & { render(): Render[".md"] };
+"2024-09/12-coworking-time.md": {
+	id: "2024-09/12-coworking-time.md";
+  slug: "2024-09/12-coworking-time";
+  body: string;
+  collection: "streams";
+  data: InferEntrySchema<"streams">
+} & { render(): Render[".md"] };
+"2024-09/19-coworking-time.md": {
+	id: "2024-09/19-coworking-time.md";
+  slug: "2024-09/19-coworking-time";
+  body: string;
+  collection: "streams";
+  data: InferEntrySchema<"streams">
+} & { render(): Render[".md"] };
+"2024-09/26-coworking-time.md": {
+	id: "2024-09/26-coworking-time.md";
+  slug: "2024-09/26-coworking-time";
+  body: string;
+  collection: "streams";
+  data: InferEntrySchema<"streams">
+} & { render(): Render[".md"] };
+"2024-09/5-coworking-time.md": {
+	id: "2024-09/5-coworking-time.md";
+  slug: "2024-09/5-coworking-time";
   body: string;
   collection: "streams";
   data: InferEntrySchema<"streams">

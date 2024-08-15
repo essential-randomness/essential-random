@@ -1,0 +1,51 @@
+---
+title: September Streaming Schedule
+tagline: "Once again with gusto"
+tags:
+  - +streaming schedule
+created_at: 2024-08-15 00:44:57
+og_description: "When you're so busy you have no time to plan"
+start_at: 2024-09-01 00:00:00
+end_at: 2024-10-01 00:00:00
+---
+
+import StreamingSchedule from "../../../components/streams/StreamingSchedule.astro";
+import CancelledStreams from "../../../components/streams/CancelledStreams.astro";
+import NextStream from "../../../components/streams/NextStream.astro";
+import TimeToggle from "../../../components/streams/TimeToggle.astro";
+import Schedule from "./schedule.svg";
+
+Ah, September... The time when summer winds to a close and we'll finally be done
+with the bulk of fulfilling our
+[FujoCoded's](https://www.backerkit.com/c/projects/fujocoded-llc/fujocoded-software-and-education-for-a-better-web)
+campaign (hopefully). Once again, this schedule is \_very_z subject to last-minute
+changes. For the most part, we'll do whatever work is most relevant to the task
+at hand as we fulfill our campaign promises.
+
+<img src={Schedule.src} />
+
+See you on <a href="https://twitch.tv/essentialrandomness">Twitch</a>!
+
+### Next Up
+
+<NextStream
+  startAt={new Date(frontmatter.start_at)}
+  endAt={new Date(frontmatter.end_at)}
+/>
+
+### Full Schedule
+
+<TimeToggle />
+<StreamingSchedule
+  startAt={new Date(frontmatter.start_at)}
+  endAt={new Date(frontmatter.end_at)}
+/>
+
+<style>{`
+    .toc, #table-of-contents {
+      display:none;
+    }
+    img {
+      padding: 0!important;
+    }
+`}</style>

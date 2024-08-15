@@ -1,9 +1,9 @@
 ---
-title: "Coworking time!"
+title: "Digital Goodies Packing"
 description: |
-  As we ramp up production on our zines, there's a lot of small things to do around our codebases.
-  Whether it's adding more pages/functionality to our websites, styling our zines, reviewing pull 
-  requests, or whatever needs doing, let's do it together, have fun and maybe even learn something!
+  With the CitrusCon presentation coming up, Ms Boba's brain is mushier than ever!
+  Let's then work on some of our digital goodies and use the artistic side of our
+  brain for a speedier recovery. This will be a true "hang out while we work" stream.
 scheduled_at: 2024-08-15 15:00:00
 tags:
   - Build in public
