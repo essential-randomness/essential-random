@@ -1,9 +1,9 @@
 ---
-title: "Coworking time!"
+title: "Digital Pack Wrap Up"
 description: |
-  As we ramp up production on our zines, there's a lot of small things to do around our codebases.
-  Whether it's adding more pages/functionality to our websites, styling our zines, reviewing pull 
-  requests, or whatever needs doing, let's do it together, have fun and maybe even learn something!
+  We're ready to wrap up our digital pack! Let's write some documentation for
+  our Shimeji Code and learn about Web Components. If we have time, it will be 
+  more zine time again.
 scheduled_at: 2024-09-19 15:00:00
 tags:
   - Build in public

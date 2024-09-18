@@ -10,7 +10,7 @@ const { startAt, endAt } = Astro.props;
 const streams = await getCollection(
   "streams",
   filterStreamsByTime({
-    after: startAt,
+    after: new Date(Date.now()),
     before: endAt,
   })
 );

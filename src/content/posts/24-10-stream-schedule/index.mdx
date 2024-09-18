@@ -1,0 +1,53 @@
+---
+title: October Streaming Schedule
+tagline: "An uncertain schedule for an uncertain future"
+tags:
+  - +streaming schedule
+created_at: 2024-09-18 00:44:57
+og_description: "An uncertain schedule for an uncertain future"
+start_at: 2024-10-01 00:00:00
+end_at: 2024-11-01 00:00:00
+---
+
+import StreamingSchedule from "../../../components/streams/StreamingSchedule.astro";
+import CancelledStreams from "../../../components/streams/CancelledStreams.astro";
+import NextStream from "../../../components/streams/NextStream.astro";
+import TimeToggle from "../../../components/streams/TimeToggle.astro";
+import Schedule from "./schedule.svg";
+
+It's official: we're now in the very final stretches of delivering the preview of Issue 1 of
+[FujoGuide](https://www.fujoweb.dev) to our Kickstarter Backers. By the time October rolls out
+we may even be _truly_ done with it. **What happens on streams next? We have no idea!**
+
+As is now tradition (although one we hope to break soon), the subject of these streams is a bit uncertain
+as we haven't regrouped to decide our post-FujoGuide priorities yet. Most likely, we'll work on [Astrolabe
+(our fandom editor)](https://github.com/fujowebdev/astrolabe) and continue setting the FujoVerse up for
+success!
+
+See you on <a href="https://twitch.tv/essentialrandomness">Twitch</a>!
+
+<img src={Schedule.src} />
+
+### Next Up
+
+<NextStream
+  startAt={new Date(frontmatter.start_at)}
+  endAt={new Date(frontmatter.end_at)}
+/>
+
+### Full Schedule
+
+<TimeToggle />
+<StreamingSchedule
+  startAt={new Date(frontmatter.start_at)}
+  endAt={new Date(frontmatter.end_at)}
+/>
+
+<style>{`
+    .toc, #table-of-contents {
+      display:none;
+    }
+    img {
+      padding: 0!important;
+    }
+`}</style>
