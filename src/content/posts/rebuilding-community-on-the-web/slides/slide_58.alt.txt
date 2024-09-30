@@ -1,1 +1,1 @@
-TODO
+Slide 58. The Unreasonable Effectiveness (crossed out Effectiveness) Complexity of Scale. The Boba-tans have returned. First up, there is a double-sided arrow pointing between two Boba-tans, who have two relationships between them (how they each feel about each other). Next there's a set of three Boba-tans with three double-sided arrows and six relationships among themselves. Last there's a set of four Boba-tans, with six double-sided arrows and 24 relationships among them.
