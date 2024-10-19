@@ -1,0 +1,8 @@
+{
+  "name": "",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {},
+  "dependencies": { "gray-matter": "^4.0.3" },
+  "devDependencies": {}
+}
