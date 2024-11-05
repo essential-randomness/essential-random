@@ -1,0 +1,137 @@
+---
+import Nav from "../components/Nav.astro";
+import "./global.css";
+
+interface Props {
+  title: string;
+  preview?: string;
+  description?: string;
+}
+
+const {
+  title,
+  description = "Ms Boba's experimental website. Open for business while construction is ongoing.",
+  preview = "/og-image.png",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="https://use.typekit.net/wkx0aeo.css" />
+    <meta charset="UTF-8" />
+    <meta property="og:site_name" content="Essential Randomness" />
+    <meta property="og:title" content={title} />
+    <meta name="description" content={description} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={preview} />
+    <meta name="twitter:image" content={preview} />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:site" content="@EssentialRandom" />
+    <meta property="twitter:description" content={description} />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <link
+      rel="icon"
+      type="image/png"
+      href="/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png" />
+    <title set:html={title} />
+    <slot name="head" />
+    <script
+      defer
+      data-domain="essentialrandomness.com"
+      src="https://plausible.io/js/script.js"></script>
+  </head>
+  <body>
+    <Nav />
+    <main>
+      <slot />
+    </main>
+  </body>
+</html>
+
+<style is:global>
+  nav.toc {
+    display: none;
+  }
+
+  main {
+    width: 700px;
+  }
+
+  h1 {
+    text-wrap: balance;
+  }
+
+  .card {
+    border: 2px solid black;
+    box-shadow: var(--box-shadow);
+    padding: 20px 25px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: min(100%, 350px);
+  }
+
+  .card:has(:target) {
+    background-color: rgb(240, 240, 240);
+    box-shadow: var(--box-shadow-deep);
+  }
+
+  .card h3 {
+    margin: 0;
+    font-size: 1.3em;
+  }
+
+  h2 {
+    font-size: 1.8em;
+  }
+
+  .card > h3 > a::after {
+    content: none;
+  }
+
+  .card ul {
+    margin-block: 0;
+    padding-inline-start: 20px;
+  }
+
+  .cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    row-gap: 12px;
+    margin-top: 30px;
+  }
+
+  .card.experience:last-child {
+    grid-column: 1 / span 2;
+    width: 100%;
+  }
+
+  .card.experience:last-child :where(p, ul) {
+    max-width: 80%;
+  }
+
+  @media (max-width: 500px) {
+    .cards {
+      display: flex;
+      flex-direction: column;
+    }
+    .card {
+      width: 100%;
+    }
+  }
+</style>

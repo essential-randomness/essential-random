@@ -69,6 +69,7 @@ export default defineConfig({
   },
   redirects: {
     "/subscribe": "/support-me",
+    "/support-me": "https://www.patreon.com/fujocoded",
     "/streams": {
       status: 307,
       destination: "/posts/24-11-stream-schedule",
