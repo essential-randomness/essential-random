@@ -1,0 +1,36 @@
+---
+const url = new URL(Astro.request.url);
+
+const organizations = url.searchParams.getAll("org");
+---
+
+<form method="GET">
+  <fieldset>
+    <label
+      ><input
+        type="checkbox"
+        name="org"
+        value="fujocoded"
+        checked={organizations.includes("fujocoded")}
+      />FujoCoded</label
+    >
+    <label
+      ><input
+        type="checkbox"
+        name="org"
+        value="fujowebdev"
+        checked={organizations.includes("fujowebdev")}
+      />FujoWebDev</label
+    >
+    <label
+      ><input
+        type="checkbox"
+        name="org"
+        value="bobaboard"
+        checked={organizations.includes("bobaboard")}
+      />BobaBoard</label
+    >
+  </fieldset>
+
+  <button type="submit">Filter</button>
+</form>

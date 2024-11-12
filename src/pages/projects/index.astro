@@ -1,10 +1,14 @@
 ---
+export const prerender = false;
+
 import { ProjectCard } from "../../components/ProjectCard";
+import ProjectFilter from "../../components/ProjectFilter.astro";
 
 import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 const projects = await getCollection("projects");
 import { parseInline } from "marked";
+import type { CollectionEntry } from "astro:content";
 
 const projectsWithMarkdown = projects.map((project) => {
   const markdownDescription = parseInline(project.data.description);
@@ -17,20 +21,67 @@ const projectsWithMarkdown = projects.map((project) => {
   };
   return projectCopy;
 });
+
+const url = new URL(Astro.request.url);
+const organizations = url.searchParams.getAll("org");
+
+const isActiveProject = (project: CollectionEntry<"projects">) => {
+  if (!organizations.length) {
+    return true;
+  }
+  if (!project.data.splitTags["org"]) {
+    return false;
+  }
+  if (
+    project.data.splitTags["org"].some((org) => organizations.includes(org))
+  ) {
+    return true;
+  }
+};
 ---
 
 <Layout title="Essential Randomness — Ms Boba's Eclectic Pile of Projects">
   <main class="projects">
     <h2>My Eclectic Pile of Projects</h2>
 
-     Here's a (work-in-progress) selection of what I've been working on in the last
-    few years:
+    <div style="max-width: 700px; text-wrap: pretty;">
+      <p>My projects are mainly built as part of 3 organizations I lead:</p>
+      <ul>
+        <li>
+          <strong
+            >FujoCoded LLC (<a href="https://www.fujocoded.com">website</a
+            >):</strong
+          > A company dedicated to empowering niche online communities to build their
+          own web through software, education, and community building.
+        </li>
+        <li>
+          <strong
+            >FujoWebDev (<a href="https://www.fujoweb.dev">website</a>):</strong
+          > FujoCoded's main division, FujoWebDev is a series of educational offerings
+          to give hobbyists access to the same development tools used by professionals.
+        </li>
+        <li>
+          <strong
+            >BobaBoard (<a href="https://www.bobaboard.com">website</a
+            >):</strong
+          > An organization (and social software) bringing a modernized version of
+          old-school forum to fannish communities and beyond.
+        </li>
+      </ul>
+    </div>
+
+    Here's a (work-in-progress) selection of what I've been working on in the
+    last few years:
+    <ProjectFilter />
     <ul class="projects">
       {
         projectsWithMarkdown.map((project) => (
           <li
             data-has-body={String(project.body.length > 0)}
             data-project-name={project.slug}
+            class:list={{
+              active: isActiveProject(project),
+            }}
           >
             <ProjectCard
               {...project.data}
@@ -42,7 +93,7 @@ const projectsWithMarkdown = projects.map((project) => {
         ))
       }
     </ul>
-     ...and more to come!
+    ...and more to come!
   </main>
 </Layout>
 
@@ -81,6 +132,13 @@ const projectsWithMarkdown = projects.map((project) => {
   }
   li[data-project-name="robinboob"] {
     grid-row-start: 4;
+  }
+
+  li {
+    filter: grayscale(1);
+  }
+  .active {
+    filter: none;
   }
 
   @media screen and (min-width: 700px) {
