@@ -60,8 +60,8 @@ tags: []
   }
 }
 
-const startDate = new Date("2024-11-01");
-const endDate = new Date("2024-11-31");
-const folderPath = "./src/content/streams/2024-11";
+const startDate = new Date("2024-12-01");
+const endDate = new Date("2025-01-01");
+const folderPath = "./src/content/streams/2024-12";
 
 createMarkdownFilesForDateRange(startDate, endDate, folderPath);

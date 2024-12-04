@@ -64,5 +64,5 @@ function renameMarkdownFiles(folderPath: string): void {
 }
 
 // Example usage:
-const folderPath = "./src/content/streams/2024-11";
+const folderPath = "./src/content/streams/2024-12";
 renameMarkdownFiles(folderPath);
