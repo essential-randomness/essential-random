@@ -1,7 +1,6 @@
 ---
 import { getCollection } from "astro:content";
 const faqs = await getCollection("faqs", (faq) => faq.data.draft !== true);
-import { Icon } from "astro-icon/components";
 
 const faqEntries = await Promise.all(
   faqs
@@ -35,9 +34,7 @@ const { successOnly } = Astro.props;
         <details>
           <summary>
             <span set:html={faq.title} />
-            <a href={`#${faq.slug}`}>
-              <Icon name="gg:link" />
-            </a>
+            <a href={`#${faq.slug}`}>link</a>
           </summary>
           {<faq.Content />}
         </details>
