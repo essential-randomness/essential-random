@@ -12,6 +12,7 @@ import rehypeToc from "rehype-toc";
 import vercel from "@astrojs/vercel/serverless";
 import expressiveCode from "astro-expressive-code";
 import metaTags from "astro-meta-tags";
+import icon from "astro-icon";
 
 // https://astro.build/config
 export default defineConfig({
@@ -23,6 +24,7 @@ export default defineConfig({
     mdx(),
     react(),
     metaTags(),
+    icon()
   ],
   markdown: {
     remarkPlugins: [],

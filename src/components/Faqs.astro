@@ -1,7 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 const faqs = await getCollection("faqs", (faq) => faq.data.draft !== true);
-import { Icon } from "astro-icon";
+import { Icon } from "astro-icon/components";
 
 const faqEntries = await Promise.all(
   faqs
@@ -11,7 +11,7 @@ const faqEntries = await Promise.all(
       slug: faq.slug,
       success: faq.data.success,
       Content: (await faq.render()).Content,
-    }))
+    })),
 );
 
 interface Props {
@@ -97,15 +97,15 @@ const { successOnly } = Astro.props;
 </style>
 
 <script is:inline>
-document.addEventListener("DOMContentLoaded", () => {
-  const fragment = window.location.hash;
-  if (!fragment) {
-    return;
-  }
-  const element = document.querySelector(`${fragment} details`);
-  if (!element) {
-    return;
-  }
-  element.open = true;
-});
+  document.addEventListener("DOMContentLoaded", () => {
+    const fragment = window.location.hash;
+    if (!fragment) {
+      return;
+    }
+    const element = document.querySelector(`${fragment} details`);
+    if (!element) {
+      return;
+    }
+    element.open = true;
+  });
 </script>
