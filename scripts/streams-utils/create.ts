@@ -1,12 +1,15 @@
 import * as fs from "fs";
 import * as path from "path";
 
+const START_DATE = "2025-02-12";
+const END_DATE = "2025-03-01";
+
 /**
- * Helper function to check if a date is a Monday or Thursday
+ * Helper function to check if a date is a stream day
  */
-function isMondayOrThursday(date: Date): boolean {
+function isStreamDay(date: Date): boolean {
   const day = date.getDay(); // 0: Sunday, 1: Monday, ..., 6: Saturday
-  return day === 1 || day === 4;
+  return day === 4;
 }
 
 /**
@@ -35,7 +38,7 @@ function createMarkdownFilesForDateRange(
   // Loop through each date in the range
   let currentDate = new Date(startDate);
   while (currentDate <= endDate) {
-    if (isMondayOrThursday(currentDate)) {
+    if (isStreamDay(currentDate)) {
       const dayOfMonth = getDayOfMonth(currentDate);
       const fileName = `${dayOfMonth}.md`;
       const filePath = path.join(folderPath, fileName);
@@ -60,8 +63,8 @@ tags: []
   }
 }
 
-const startDate = new Date("2024-12-01");
-const endDate = new Date("2025-01-01");
-const folderPath = "./src/content/streams/2024-12";
+const startDate = new Date(START_DATE);
+const endDate = new Date(END_DATE);
+const folderPath = `./src/content/streams/${startDate.getFullYear()}-${startDate.getMonth() + 1}`;
 
 createMarkdownFilesForDateRange(startDate, endDate, folderPath);

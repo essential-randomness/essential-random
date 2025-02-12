@@ -64,5 +64,18 @@ function renameMarkdownFiles(folderPath: string): void {
 }
 
 // Example usage:
-const folderPath = "./src/content/streams/2024-12";
+// Get the latest folder by default
+function getLatestFolder(): string {
+  const folders = fs
+    .readdirSync("./src/content/streams")
+    .filter((path) => !path.startsWith("_"));
+  const latestFolder = folders.sort().pop();
+  if (!latestFolder) {
+    throw new Error("No folders found");
+  }
+  return path.join("./src/content/streams", latestFolder);
+}
+
+const folderPath = getLatestFolder();
+// console.log(folderPath);
 renameMarkdownFiles(folderPath);
