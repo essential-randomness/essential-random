@@ -11,7 +11,7 @@ import matter from "gray-matter"; // to parse frontmatter
 function getFileName(fileName: string, title: string): string {
   const toKeep = fileName.substring(
     0,
-    fileName.indexOf("-") == -1 ? undefined : fileName.indexOf("-") + 1
+    fileName.indexOf("-") == -1 ? undefined : fileName.indexOf("-")
   );
   return `${toKeep}-${title
     .replace(/[^a-zA-Z\s\-]/g, " ")
