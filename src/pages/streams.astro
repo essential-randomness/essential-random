@@ -1,0 +1,15 @@
+---
+import { getCollection } from "astro:content";
+
+const latestStreamPost = (
+  await getCollection("posts", (post) => {
+    return post.slug.endsWith("stream-schedule");
+  })
+).sort(
+  (a, b) =>
+    new Date(b.data.created_at).getTime() -
+    new Date(a.data.created_at).getTime()
+)[0];
+
+return Astro.redirect(`/posts/${latestStreamPost.slug}`);
+---
