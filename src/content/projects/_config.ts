@@ -10,6 +10,7 @@ const ProjectSchema = ({ image }: SchemaContext) =>
     status: z.string(),
     preview: image(),
     tags: z.array(z.string()),
+    position: z.number().optional().default(Infinity),
   });
 
 export type Project = z.infer<ReturnType<typeof ProjectSchema>>;

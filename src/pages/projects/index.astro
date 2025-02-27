@@ -6,17 +6,19 @@ import Layout from "../../layouts/Layout.astro";
 const projects = await getCollection("projects");
 import { parseInline } from "marked";
 
-const projectsWithMarkdown = projects.map((project) => {
-  const markdownDescription = parseInline(project.data.description);
-  const projectCopy = {
-    ...project,
-    data: {
-      ...project.data,
-      description: markdownDescription as string,
-    },
-  };
-  return projectCopy;
-});
+const projectsWithMarkdown = projects
+  .map((project) => {
+    const markdownDescription = parseInline(project.data.description);
+    const projectCopy = {
+      ...project,
+      data: {
+        ...project.data,
+        description: markdownDescription as string,
+      },
+    };
+    return projectCopy;
+  })
+  .toSorted((a, b) => a.data.position - b.data.position);
 ---
 
 <Layout title="Essential Randomness — Ms Boba's Eclectic Pile of Projects">
@@ -41,25 +43,53 @@ const projectsWithMarkdown = projects.map((project) => {
       </li>
     </ul>
 
-    Here's a (work-in-progress) selection of the projects I've been working on,
-    either as part of these organizations.
+    <h3>Selected Projects</h3>
+    Here's a (work-in-progress) selection of the projects I've been working on, either
+    as part of these organizations.
     <ul class="projects">
       {
-        projectsWithMarkdown.map((project) => (
-          <li
-            data-has-body={String(project.body.length > 0)}
-            data-project-name={project.slug}
-          >
-            <ProjectCard
-              {...project.data}
-              body={project.body}
-              url={`/projects/${project.slug}`}
-              description={project.data.description}
-            />
-          </li>
-        ))
+        projectsWithMarkdown
+          .filter((project) => !project.data.tags.includes("category: extra"))
+          .map((project) => (
+            <li
+              data-has-body={String(project.body.length > 0)}
+              data-project-name={project.slug}
+            >
+              <ProjectCard
+                {...project.data}
+                body={project.body}
+                url={`/projects/${project.slug}`}
+                description={project.data.description}
+              />
+            </li>
+          ))
       }
     </ul>
+
+    <h3>...and here are some extra projects!</h3>
+
+    These projects are not *exactly* my main, showcase-able projects, but I love
+    them all the same!
+    <ul class="projects">
+      {
+        projectsWithMarkdown
+          .filter((project) => project.data.tags.includes("category: extra"))
+          .map((project) => (
+            <li
+              data-has-body={String(project.body.length > 0)}
+              data-project-name={project.slug}
+            >
+              <ProjectCard
+                {...project.data}
+                body={project.body}
+                url={`/projects/${project.slug}`}
+                description={project.data.description}
+              />
+            </li>
+          ))
+      }
+    </ul>
+
     ...and more to come!
   </main>
 </Layout>
@@ -93,12 +123,6 @@ const projectsWithMarkdown = projects.map((project) => {
   }
   li[data-project-name="fandom-coders"] {
     grid-row-start: 2;
-  }
-  li[data-project-name="fujoboard"] {
-    grid-row-start: 3;
-  }
-  li[data-project-name="robinboob"] {
-    grid-row-start: 4;
   }
 
   @media screen and (min-width: 700px) {
