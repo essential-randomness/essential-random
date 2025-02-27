@@ -58,26 +58,6 @@ const {
   <body>
     <Nav />
     <main>
-      <aside class="wip">
-        <Image
-          src={bobaWip}
-          alt="Boba-tan working hard"
-          width={400}
-          height={334}
-        />
-        <div>
-          <div class="title">This Resume is a Work In Progress!</div>
-          <div>
-            <strong> I'm starting a consulting practice!</strong> This resume will
-            evolve across the next weeks to properly showcase my skills and experience.
-            It is accurate, but may be lacking details and structure.
-          </div>
-          <div>
-            If you want to be among my first clients for a very special price,
-            <a href="mailto:essential.randomn3ss@gmail.com">contact me</a>!
-          </div>
-        </div>
-      </aside>
       <slot />
     </main>
   </body>
@@ -171,6 +151,30 @@ const {
       font-size: 30px;
     }
   }
+
+  .technologies {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin: 40px auto;
+
+    max-width: 80%;
+
+    svg {
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  details {
+    border: 2px dashed black;
+    padding: 20px 25px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
 </style>
 
 <style>
@@ -203,34 +207,3 @@ const {
     }
   }
 </style>
-
-<script>
-  import { annotate } from "rough-notation";
-
-  window.addEventListener("load", () => {
-    const containers = document.querySelectorAll<HTMLDivElement>(`aside.wip`);
-    if (containers) {
-      containers.forEach((container) => {
-        const annotation = annotate(container, {
-          type: "box",
-          animate: false,
-          padding: 6,
-          color: "#444",
-        });
-        annotation.show();
-
-        const title = container?.querySelector<HTMLDivElement>(".title");
-        if (title) {
-          const annotation = annotate(title, {
-            type: "highlight",
-            animate: false,
-            color: "yellow",
-            padding: 8,
-            multiline: true,
-          });
-          annotation.show();
-        }
-      });
-    }
-  });
-</script>

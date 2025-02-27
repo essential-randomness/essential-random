@@ -15,7 +15,7 @@
     "@astrojs/rss": "^4.0.3",
     "@astrojs/vercel": "^7.0.1",
     "@iconify-json/si": "^1.2.3",
-    "@iconify-json/simple-icons": "^1.2.16",
+    "@iconify-json/simple-icons": "^1.2.26",
     "@paypal/paypal-js": "^7.0.0",
     "@types/react": "^18.0.21",
     "@types/react-dom": "^18.0.6",
