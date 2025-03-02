@@ -21,7 +21,7 @@ const MaybeLink = (
 };
 
 export const ProjectCard = (props: Project & { body: string; url: string }) => {
-  const hasBody = props.body.length > 0;
+  const hasBody = props.body?.length > 0;
   return (
     <article
       key={props.name}
@@ -41,7 +41,7 @@ export const ProjectCard = (props: Project & { body: string; url: string }) => {
       )}
       <header>
         <h2 className="name">
-          <MaybeLink href={props.url} if={props.body.length > 0}>
+          <MaybeLink href={props.url} if={props.body?.length > 0}>
             {props.name}
           </MaybeLink>
         </h2>

@@ -70,10 +70,10 @@ export default defineConfig({
     ],
   },
   redirects: {
-    "/subscribe": "/support-me",
+    "/subscribe": "https://www.patreon.com/fujocoded",
     "/support-me": "https://www.patreon.com/fujocoded",
   },
-  output: "hybrid",
+  output: "static",
   adapter: vercel(),
   site: "https://www.essentialrandomness.com",
 });

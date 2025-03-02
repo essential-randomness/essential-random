@@ -7,7 +7,7 @@ const projects = await getCollection("projects");
 export async function getStaticPaths() {
   const projects = await getCollection("projects");
   const projectsWithDetails = projects.filter(
-    (project) => project.body.length > 0
+    (project) => project.body?.length > 0
   );
   return projectsWithDetails.map((project) => ({
     params: {
@@ -18,7 +18,7 @@ export async function getStaticPaths() {
 
 const { projectId } = Astro.params;
 const projectsWithDetails = projects.filter(
-  (project) => project.body.length > 0
+  (project) => project.body?.length > 0
 );
 // TODO: we probably need a server route for this
 const projectIndex = projectsWithDetails.findIndex(

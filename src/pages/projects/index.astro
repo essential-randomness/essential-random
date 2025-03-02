@@ -52,7 +52,7 @@ const projectsWithMarkdown = projects
           .filter((project) => !project.data.tags.includes("category: extra"))
           .map((project) => (
             <li
-              data-has-body={String(project.body.length > 0)}
+              data-has-body={String(project.body?.length > 0)}
               data-project-name={project.slug}
             >
               <ProjectCard
@@ -76,7 +76,7 @@ const projectsWithMarkdown = projects
           .filter((project) => project.data.tags.includes("category: extra"))
           .map((project) => (
             <li
-              data-has-body={String(project.body.length > 0)}
+              data-has-body={String(project.body?.length > 0)}
               data-project-name={project.slug}
             >
               <ProjectCard
