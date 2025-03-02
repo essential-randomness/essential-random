@@ -9,7 +9,7 @@ import {
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeSlug from "rehype-slug";
 import rehypeToc from "rehype-toc";
-import vercel from "@astrojs/vercel/serverless";
+import vercel from "@astrojs/vercel";
 import expressiveCode from "astro-expressive-code";
 import metaTags from "astro-meta-tags";
 import icon from "astro-icon";
@@ -70,10 +70,16 @@ export default defineConfig({
     ],
   },
   redirects: {
-    "/subscribe": "https://www.patreon.com/fujocoded",
-    "/support-me": "https://www.patreon.com/fujocoded",
+    "/subscribe": {
+      destination: "https://www.patreon.com/fujocoded",
+      statusCode: 307,
+    },
+    "/support-me": {
+      destination: "https://www.patreon.com/fujocoded",
+      statusCode: 307,
+    },
   },
-  output: "server",
+  output: "static",
   adapter: vercel(),
   site: "https://www.essentialrandomness.com",
 });
