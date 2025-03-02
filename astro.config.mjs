@@ -72,11 +72,11 @@ export default defineConfig({
   redirects: {
     "/subscribe": {
       destination: "https://www.patreon.com/fujocoded",
-      statusCode: 307,
+      status: 307,
     },
     "/support-me": {
       destination: "https://www.patreon.com/fujocoded",
-      statusCode: 307,
+      status: 307,
     },
   },
   output: "static",
