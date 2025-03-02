@@ -73,7 +73,7 @@ export default defineConfig({
     "/subscribe": "https://www.patreon.com/fujocoded",
     "/support-me": "https://www.patreon.com/fujocoded",
   },
-  output: "static",
+  output: "server",
   adapter: vercel(),
   site: "https://www.essentialrandomness.com",
 });
