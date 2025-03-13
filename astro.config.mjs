@@ -75,11 +75,11 @@ export default defineConfig({
       status: 307,
     },
     "/support-me": {
-      destination: "https://www.patreon.com/fujocoded",
+      destination: "https://patreon.com/fujocoded",
       status: 307,
     },
   },
   output: "static",
   adapter: vercel(),
-  site: "https://www.essentialrandomness.com/",
+  // site: "https://www.essentialrandomness.com/",
 });
