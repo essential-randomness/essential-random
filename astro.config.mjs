@@ -81,4 +81,5 @@ export default defineConfig({
   },
   output: "static",
   adapter: vercel(),
+  site: "https://www.essentialrandomness.com/",
 });
