@@ -79,7 +79,7 @@ export default defineConfig({
       status: 307,
     },
   },
-  output: "static",
+  output: "server",
   adapter: vercel(),
   // site: "https://www.essentialrandomness.com/",
 });
