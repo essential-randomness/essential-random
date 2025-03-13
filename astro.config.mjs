@@ -71,7 +71,7 @@ export default defineConfig({
   },
   redirects: {
     "/subscribe": {
-      destination: "https://www.patreon.com/fujocoded",
+      destination: "https://patreon.com/fujocoded",
       status: 307,
     },
     "/support-me": {
@@ -81,5 +81,4 @@ export default defineConfig({
   },
   output: "static",
   adapter: vercel(),
-  site: "https://www.essentialrandomness.com",
 });
