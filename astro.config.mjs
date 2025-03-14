@@ -81,5 +81,5 @@ export default defineConfig({
   },
   output: "server",
   adapter: vercel(),
-  // site: "https://www.essentialrandomness.com/",
+  site: "https://www.essentialrandomness.com/",
 });
