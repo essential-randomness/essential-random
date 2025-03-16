@@ -28,5 +28,4 @@ next-env.d.ts
 .vscode
 .next
 .vercel
-
-.tokens/
+.tokens
