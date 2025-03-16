@@ -70,16 +70,18 @@ export default defineConfig({
     ],
   },
   redirects: {
-    "/subscribe": {
-      destination: "https://patreon.com/fujocoded",
-      status: 307,
-    },
-    "/support-me": {
-      destination: "https://patreon.com/fujocoded",
-      status: 307,
-    },
+    // TODO: Reactivate these and delete the pages when
+    // the vercel adapter bug is fixed
+    // "/subscribe": {
+    //   destination: "https://patreon.com/fujocoded",
+    //   status: 307,
+    // },
+    // "/support-me": {
+    //   destination: "https://patreon.com/fujocoded",
+    //   status: 307,
+    // },
   },
-  output: "server",
+  output: "static",
   adapter: vercel(),
   site: "https://www.essentialrandomness.com/",
 });
