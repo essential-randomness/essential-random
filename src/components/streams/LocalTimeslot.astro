@@ -1,0 +1,93 @@
+---
+
+---
+
+<local-time timezone="original">
+  <time class="recurring">Thursdays, 3PM Pacific</time>
+  <div class="local-time">(Local time)</div>
+  <div class="global-time">(Global time)</div>
+</local-time>
+
+<div class="time-toggle">
+  <label
+    ><input type="checkbox" />Show times in my local time<div class="timezone">
+    </div></label
+  >
+</div>
+
+<script>
+  function getNextThursday3PM() {
+    const now = new Date();
+    const nextThursday = new Date(now);
+    const daysUntilThursday = (4 - now.getDay() + 7) % 7;
+    nextThursday.setDate(
+      now.getDate() + (daysUntilThursday === 0 ? 7 : daysUntilThursday)
+    );
+    nextThursday.setHours(15, 0, 0, 0);
+    return nextThursday;
+  }
+
+  function isThursdayBefore3PM() {
+    const now = new Date();
+    const nextThursday = getNextThursday3PM();
+    return now.getHours() >= 15 && now.getDay() === 4;
+  }
+
+  const nextThursday = isThursdayBefore3PM()
+    ? new Date()
+    : getNextThursday3PM();
+
+  const timeTag = document.querySelector("time.recurring");
+  if (!timeTag) {
+    throw new Error("No time tag found");
+  }
+  timeTag.innerHTML = new Date(nextThursday).toLocaleString("en-US", {
+    timeZone: "US/Pacific",
+    dateStyle: "full",
+    timeStyle: "short",
+  });
+
+  const dateTag = document.querySelector("date.recurring");
+  if (!dateTag) {
+    throw new Error("No date tag found");
+  }
+</script>
+
+<style>
+  time {
+    font-weight: bold;
+    font-size: 2.25rem;
+  }
+  .time-toggle label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  local-time {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  local-time[timezone="local"] .global-time {
+    display: none;
+  }
+  local-time[timezone="original"] .local-time {
+    display: none;
+  }
+</style>
+
+<script>
+  const component = document.querySelector(".time-toggle");
+
+  component!.querySelector(".timezone")!.innerHTML = `(${
+    Intl.DateTimeFormat().resolvedOptions().timeZone
+  })`;
+
+  const toggle = component?.querySelector("input");
+  toggle?.addEventListener("change", () => {
+    const localTime = document.querySelectorAll("local-time");
+    localTime!.forEach((time) =>
+      time.setAttribute("timezone", toggle.checked ? "local" : "original")
+    );
+  });
+</script>
