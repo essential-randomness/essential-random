@@ -5,7 +5,7 @@ import {
   rehypeAddAltText,
   rehypeCustomEmoji,
   ownLineFootnote,
-} from "/src/utils/mdx-utils.ts";
+} from "./src/utils/mdx-utils.ts";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeSlug from "rehype-slug";
 import rehypeToc from "rehype-toc";
@@ -13,13 +13,14 @@ import vercel from "@astrojs/vercel";
 import expressiveCode from "astro-expressive-code";
 import metaTags from "astro-meta-tags";
 import icon from "astro-icon";
+import type { Element, Parents } from "hast";
 
 // https://astro.build/config
 export default defineConfig({
   // ...
   integrations: [
     expressiveCode({
-      theme: ["dracula-soft"],
+      themes: ["dracula-soft"],
     }),
     mdx(),
     react(),
@@ -29,6 +30,7 @@ export default defineConfig({
   markdown: {
     remarkPlugins: [],
     rehypePlugins: [
+      ownLineFootnote,
       rehypeSlug,
       [
         rehypeAutolinkHeadings,
@@ -36,20 +38,23 @@ export default defineConfig({
           behavior: "wrap",
         },
       ],
-      ownLineFootnote,
+      // @ts-expect-error - TODO: fix this
       [
         rehypeToc,
         {
-          customizeTOC: (toc) => {
-            if (toc.children[0].children?.length > 0) {
+          customizeTOC: (toc: Element) => {
+            if ((toc.children[0] as Parents).children?.length > 0) {
               return toc;
             }
             return false;
           },
-          customizeTOCItem: (toc, heading) => {
-            const headingContent = heading.children?.[0];
+          customizeTOCItem: (toc: Element, heading: Element) => {
+            const headingContent = heading.children?.[0] as Element;
             if (headingContent.children.length > 1) {
-              toc.children[0].children = headingContent.children;
+              (toc.children[0] as Element).children =
+                headingContent.children.filter(
+                  (node) => node.type !== "element" || node.tagName !== "sup"
+                );
             }
             return toc;
           },

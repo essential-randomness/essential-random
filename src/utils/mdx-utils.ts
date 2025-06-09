@@ -8,7 +8,8 @@ import { remove } from "unist-util-remove";
 import { select } from "unist-util-select";
 import { visit } from "unist-util-visit";
 
-import type { Root } from "hast";
+import type { Parents, Root } from "hast";
+import { isElement } from "hast-util-is-element";
 import { h } from "hastscript";
 import type { Plugin } from "unified";
 import { findAndReplace } from "hast-util-find-and-replace";
@@ -112,9 +113,12 @@ export const rehypeCustomEmoji: Plugin<[RehypeEmojiOptions], Root> = (
 // Allows to put a footnote on its own line to have it merged with the previous element
 // Workaround for "wrap" behavior of heading links fucking up inner footnotes
 export const ownLineFootnote = () => {
-  return (tree) => {
+  return (tree: Root) => {
     visitParents(tree, "element", (node, ancestors) => {
       const directParent = ancestors[ancestors.length - 1];
+      if (!isElement(directParent)) {
+        return;
+      }
       if (
         node.tagName == "sup" &&
         // The parent is a paragraph and there is only one node in itdirectParent
@@ -130,7 +134,7 @@ export const ownLineFootnote = () => {
         const siblingIndex = Array.from(grandpa.children).findLastIndex(
           (node, index) => index < pIndex && node.type == "element"
         );
-        const sibling = grandpa.children[siblingIndex];
+        const sibling = grandpa.children[siblingIndex] as Parents;
         sibling.children = [...Array.from(sibling.children), node];
         grandpa.children = Array.from(grandpa.children).toSpliced(
           siblingIndex + 1,

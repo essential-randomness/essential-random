@@ -98,6 +98,23 @@ sup {
   }
 }
 
+:where(h1, h2, h3, h4, h5) [data-footnote-ref] {
+  background: white;
+  border-radius: 8px;
+  padding-inline: 6px;
+  font-size: 18px;
+  line-height: normal;
+  display: inline-block;
+  margin-inline: 3px;
+  margin-block-start: -4px;
+  border: 2px solid black;
+  box-shadow: var(--box-shadow-shallow);
+
+  &::after {
+    content: none !important;
+  }
+}
+
 summary > p:first-child {
   display: inline-block;
   margin-top: 0;
