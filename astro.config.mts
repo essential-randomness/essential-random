@@ -1,17 +1,14 @@
 import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
 import react from "@astrojs/react";
-import {
-  rehypeAddAltText,
-  rehypeCustomEmoji,
-  ownLineFootnote,
-} from "./src/utils/mdx-utils.ts";
+import { rehypeCustomEmoji, ownLineFootnote } from "./src/utils/mdx-utils.ts";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeSlug from "rehype-slug";
 import rehypeToc from "rehype-toc";
 import vercel from "@astrojs/vercel";
 import expressiveCode from "astro-expressive-code";
 import metaTags from "astro-meta-tags";
+import remarkAltTextFiles from "@fujocoded/remark-alt-text-files";
 import icon from "astro-icon";
 import type { Element, Parents } from "hast";
 
@@ -28,7 +25,7 @@ export default defineConfig({
     icon(),
   ],
   markdown: {
-    remarkPlugins: [],
+    remarkPlugins: [remarkAltTextFiles],
     rehypePlugins: [
       ownLineFootnote,
       rehypeSlug,
@@ -71,7 +68,6 @@ export default defineConfig({
           className: "custom-emoji",
         },
       ],
-      rehypeAddAltText,
     ],
   },
   redirects: {

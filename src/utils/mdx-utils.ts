@@ -36,30 +36,6 @@ export const rehypeRemoveTitle = () => {
   };
 };
 
-export const rehypeAddAltText = () => {
-  return async (tree: any, vfile: any) => {
-    const attributesToProcess: any[] = [];
-    visit(tree, { name: "astro-image" }, function (node) {
-      const alt = node.attributes.find(
-        (attribute: any) => attribute.name === "alt"
-      );
-      if (alt && alt.value.startsWith("file:")) {
-        attributesToProcess.push(alt);
-      }
-    });
-    await Promise.all(
-      attributesToProcess.map(async (alt) => {
-        const fileContent = await fs.readFile(
-          join(dirname(vfile.history[0]), alt.value.replace("file:", "")),
-          "utf8"
-        );
-        alt.value = fileContent;
-      })
-    );
-    return tree;
-  };
-};
-
 export type RehypeEmojiOptions = {
   emojis: Record<string, string>;
   className?: string;
