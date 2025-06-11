@@ -10,14 +10,20 @@ import LocalTimeslot from "../../../components/streams/LocalTimeslot.astro";
 import TimeToggle from "../../../components/streams/TimeToggle.astro";
 
 The current schedule is simple: every Thursday, around 3PM Pacific, we stream the work
-on our [ATproto Guestbook]()! Simple. Clean. Perfect for a woman that's way too busy width
+on our [ATproto Guestbook](https://github.com/FujoWebDev/lexicon-guestbook)! Simple. Clean. Perfect for a woman that's way too busy with
 work!
 
 ## Next Stream will be on....
 
 <LocalTimeslot />
 
-Double-check on socials, and see you on <a href="https://twitch.tv/essentialrandomness">Twitch</a>!
+Make sure to double-check [on my socials](/#socials), and see you on <a href="https://twitch.tv/essentialrandomness">Twitch</a>!
+
+## Want to catch up?
+
+Check out the recordings 👇
+
+<div id="twitch-embed"></div>
 
 <style>{`
     .toc, #table-of-contents {
@@ -27,3 +33,21 @@ Double-check on socials, and see you on <a href="https://twitch.tv/essentialrand
       padding: 0!important;
     }
 `}</style>
+
+<script src="https://embed.twitch.tv/embed/v1.js"></script>
+
+<script type="text/javascript">
+  {`
+const player = new Twitch.Embed("twitch-embed", {
+    width: 854,
+    height: 480,
+    collection: "OdaSBo9XORgtPQ",
+});
+
+player.addEventListener(Twitch.Player.READY, () => {
+  player.setVolume(0);
+  player.pause();
+});
+    
+`}
+</script>
