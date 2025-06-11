@@ -52,6 +52,7 @@ h5 {
 
 strong {
   font-family: var(--font-family-title);
+  font-weight: 800;
 }
 
 a {
