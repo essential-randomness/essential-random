@@ -1,21 +1,37 @@
 ---
 ---
-It's (finally) time! A whole year after my CitrusCon talk, and 10 days before my NEXT one, part 1 of "Rebuilding Community on the (fujo)Web" is on my blog!
+It's (finally) time! A year after my CitrusCon24 talk & 10 days before my next, Part 1 of my "Rebuilding Community" series is on my blog.
 
-This talk explores how indie social software projects are set up to fail, and what to do about it.
+This part explores why many indie social projects are caught in a "Downward Spiral" of disillusionment and burnout.
 
 https://www.essentialrandomness.com/posts/rebuilding-community-on-the-web/part-1
 
 +++
 
-In the first part of this 4 parts talk, I explore what I called the "Downward Spiral", which traps project runners (and users) in a cycle of burnout, disillusionment, and outsized expectations, which then leads to even more burnout, disillusionment, and outsized expectations.
+What's the "Downward Spiral"?
+
+It's the vicious cycle where project runner burnout, user disillusionment, and impossible expectations feed each other. This makes it harder for the next project to get off the ground, and breeds resentment even within aligned communities. On\&on...
 
 +++
 
-"Real solutions" will have to wait for the next parts! In the meantime, this part talks about the solutions people want to desperately believe will fix this: doing less, raising more funds, and reducing costs via volunteers recruitment (spoiler: they don't)
+In this first part, I also look at the common "solutions" we desperately want to believe would work, but that are anything but straightforward:
+
+\- Reducing scope (doing less)
+
+\- Raising more funds
+
+\- Relying on volunteers
+
+Featuring: one of my favorite charts 👇as they say, "ouch"
 
 +++
 
-If you're tired of seeing good projects fail and want to understand the systemic forces at play, this talk is for you. You can catch it all on YouTube (), or you can read the rest as I publish over the next few days!
+In the next part, we'll explore THE core issue we must fix, one that (once you see it) explains so much of... everything: our relationship to power.
 
-See you at CitrusCon with its spiritual successor, one year later!
+You can watch the full original talk on YouTube (https://www.youtube.com/watch?v=tFx4XAOnFVE) or follow along as I post the rest in the next days!
+
++++
+
+See you soon at @CitrusCon for my new talk (and spiritual successor): "Working Together in a Dying World".
+
+In the meantime, if this presentation convinced you I know what I'm doing (I do), support my work to fix this whole mess on Patreon: https://www.patreon.com/c/fujocoded
