@@ -81,6 +81,10 @@ export default defineConfig({
     //   destination: "https://patreon.com/fujocoded",
     //   status: 307,
     // },
+    "/hire-me": {
+      destination: "/resume",
+      status: 307,
+    },
   },
   output: "server",
   adapter: vercel(),
