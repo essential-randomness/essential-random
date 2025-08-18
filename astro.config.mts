@@ -73,16 +73,21 @@ export default defineConfig({
   redirects: {
     // TODO: Reactivate these and delete the pages when
     // the vercel adapter bug is fixed
-    // "/subscribe": {
-    //   destination: "https://patreon.com/fujocoded",
-    //   status: 307,
-    // },
-    // "/support-me": {
-    //   destination: "https://patreon.com/fujocoded",
-    //   status: 307,
-    // },
+    "/subscribe": {
+      destination: "https://patreon.com/fujocoded",
+      status: 307,
+    },
+    "/support-me": {
+      destination: "https://patreon.com/fujocoded",
+      status: 307,
+    },
     "/hire-me": {
       destination: "/resume",
+      status: 307,
+    },
+    "/working-together": {
+      destination:
+        "https://docs.google.com/presentation/d/1p60oTpYtqVx8rtmR6naZvcWAo-PjELp1CMHFkrRAXMo/edit?slide=id.g36a4013e27d_0_576",
       status: 307,
     },
   },
