@@ -8,6 +8,7 @@ import { SocialLinks } from "../../components/SocialLinks";
 import { fromCollection } from "../../utils/social-utils";
 import OutsideBlogPosts from "../../components/OutsideBlogPosts.astro";
 import { loadPosts } from "../../utils/posts-utils";
+import { getPostSlug } from "./[...blogId].astro";
 
 const socials = fromCollection(await getCollection("socials"));
 
@@ -17,12 +18,12 @@ const currentUrl = new URL(Astro.request.url);
 const requestedTags = currentUrl.searchParams.getAll("tag");
 const displayPosts = requestedTags.length
   ? posts.filter((post) =>
-      post.data.tags.some((tag) => requestedTags.includes(tag)),
+      post.data.tags.some((tag) => requestedTags.includes(tag))
     )
   : posts.filter((post) => !post.data.tags.includes("streaming schedule"));
 
 const latestSchedulePost = posts.find((post) =>
-  post.data.tags.includes("streaming schedule"),
+  post.data.tags.includes("streaming schedule")
 )!;
 ---
 
@@ -48,7 +49,7 @@ const latestSchedulePost = posts.find((post) =>
             title={latestSchedulePost.data.title!}
             createdAt={latestSchedulePost.data.created_at}
             tagline={latestSchedulePost.data.tagline}
-            url={`/posts/${latestSchedulePost.slug}`}
+            url={`/posts/${getPostSlug(latestSchedulePost)}`}
             tags={latestSchedulePost.data.tags}
           />
         </li>
@@ -60,7 +61,7 @@ const latestSchedulePost = posts.find((post) =>
                   title={post.data.title!}
                   createdAt={post.data.created_at}
                   tagline={post.data.tagline}
-                  url={`/posts/${post.slug}`}
+                  url={`/posts/${getPostSlug(post)}`}
                   tags={post.data.tags}
                 />
               </li>

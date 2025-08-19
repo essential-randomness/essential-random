@@ -4,19 +4,33 @@ export const prerender = true;
 import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import PostStatus from "../../components/PostStatus.astro";
+import path from "node:path";
+
+export const getPostSlug = ({ slug, id }: { slug: string; id: string }) => {
+  const idSegments = id.split(path.sep);
+  const slugSegments = slug.split(path.sep);
+  // If the id starts and ends with "(" and ")", remove that folder
+  const validSlug = slugSegments.filter(
+    (_, index) =>
+      !idSegments[index].startsWith("(") && !idSegments[index].endsWith(")")
+  );
+  return validSlug.join(path.sep);
+};
 
 export async function getStaticPaths() {
   const posts = await getCollection("posts");
   return Promise.all(
-    posts.map(async (post) => ({
-      params: {
-        blogId: post.slug,
-      },
-      props: {
-        Content: (await post.render()).Content,
-        data: post.data,
-      },
-    }))
+    posts.map(async (post) => {
+      return {
+        params: {
+          blogId: getPostSlug(post),
+        },
+        props: {
+          Content: (await post.render()).Content,
+          data: post.data,
+        },
+      };
+    })
   );
 }
 
