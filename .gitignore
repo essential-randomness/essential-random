@@ -29,3 +29,5 @@ next-env.d.ts
 .next
 .vercel
 .tokens
+.yalc
+yalc.lock
