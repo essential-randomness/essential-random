@@ -1,9 +1,23 @@
 ---
 // Could check if user is logged in and me here and then throw
-import {Login} from "@fujocoded/authproto/components"
+import { Login } from "@fujocoded/authproto/components";
+import { actions } from "astro:actions";
+
+const result = Astro.getActionResult(actions.postToBluesky);
+
 ---
+
 <Login />
 
-<textarea>
-    Hello
-</textarea>
+<form action={actions.postToBluesky} method="POST">
+  <textarea name="content">Hello from my blog!</textarea>
+  <button type="submit">Post</button>
+</form>
+{JSON.stringify(result)}
+
+<style>
+textarea {
+  field-sizing: content; 
+  max-width: 500px;
+}
+</style>

@@ -11,7 +11,7 @@ import metaTags from "astro-meta-tags";
 import remarkAltTextFiles from "@fujocoded/remark-alt-text-files";
 import icon from "astro-icon";
 import type { Element, Parents } from "hast";
-import fujocodedAuthproto, { LOGGED_IN_DID_TEMPLATE } from "@fujocoded/authproto";
+import fujocodedAuthproto from "@fujocoded/authproto";
 
 // https://astro.build/config
 export default defineConfig({
@@ -25,6 +25,10 @@ export default defineConfig({
     metaTags(),
     icon(),
     fujocodedAuthproto({
+      defaultDevUser: "essentialrandom.bsky.social",
+      scopes: {
+        genericData: true,
+      },
       redirects: {
         afterLogin: `/connect/post`,
         afterLogout: `/`,
