@@ -1,5 +1,4 @@
 import { defineMiddleware } from "astro:middleware";
-import { AtpBaseClient } from "@atproto/api";
 import { getActionContext } from "astro:actions";
 import type { APIContext } from "astro";
 
@@ -59,7 +58,7 @@ export const onRequest = defineMiddleware(async (context, next) => {
     if (result.error) {
       const referer = context.request.headers.get("Referer");
       if (!referer) {
-        throw new Error("Action submission went wrong")
+        throw new Error("Action submission went wrong");
       }
       return context.redirect(referer);
     }
