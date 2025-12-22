@@ -1,15 +1,19 @@
 ---
+export const prerender = true;
+
 import { getCollection } from "astro:content";
+import { getPostSlug } from "./posts/[...blogId].astro";
 
-const latestStreamPost = (
-  await getCollection("posts", (post) => {
-    return post.slug.endsWith("stream-schedule");
-  })
-).sort(
-  (a, b) =>
-    new Date(b.data.created_at).getTime() -
-    new Date(a.data.created_at).getTime()
-)[0];
+const posts = await getCollection("posts");
+const streamingPosts = posts
+  .filter((post) => post.data.tags.includes("streaming schedule"))
+  .sort((a, b) => b.data.created_at.getTime() - a.data.created_at.getTime());
 
-return Astro.redirect(`/posts/${latestStreamPost.slug}`);
+const latestPost = streamingPosts[0];
+if (!latestPost) {
+  return Astro.redirect("/posts", 302);
+}
+
+const slug = getPostSlug(latestPost);
+return Astro.redirect(`/posts/${slug}`, 301);
 ---
