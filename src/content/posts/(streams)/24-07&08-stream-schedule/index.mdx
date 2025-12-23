@@ -13,6 +13,7 @@ import StreamingSchedule from "../../../../components/streams/StreamingSchedule.
 import CancelledStreams from "../../../../components/streams/CancelledStreams.astro";
 import NextStream from "../../../../components/streams/NextStream.astro";
 import TimeToggle from "../../../../components/streams/TimeToggle.astro";
+import DetailsToggle from "../../../../components/streams/DetailsToggle.astro";
 import Schedule from "./schedule.svg";
 
 Once again the next two months, will be a bit different (that is, the same as
@@ -40,7 +41,10 @@ See you on <a href="https://twitch.tv/essentialrandomness">Twitch</a>!
 
 ### Full Schedule
 
+<div class="toggles">
 <TimeToggle />
+<DetailsToggle />
+</div>
 <StreamingSchedule
   startAt={new Date(frontmatter.start_at)}
   endAt={new Date(frontmatter.end_at)}

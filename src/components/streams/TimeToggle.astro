@@ -2,55 +2,46 @@
 
 ---
 
-<div class="toggles">
-  <div class="time-toggle">
-    <label
-      ><input type="checkbox" />Show times in my local time<div
-        class="timezone"
-      >
-      </div></label
-    >
-  </div>
-
-  <div class="details-toggle">
-    <button>Open descriptions</button>
-  </div>
+<div class="time-toggle">
+  <label
+    ><input type="checkbox" /><span class="label-text"
+      >Show times in my local time</span
+    ><div class="timezone"></div></label
+  >
 </div>
 
 <script>
   const component = document.querySelector(".time-toggle");
+  const userTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+  const isPacific =
+    userTimezone === "America/Los_Angeles" || userTimezone === "US/Pacific";
 
-  component!.querySelector(".timezone")!.innerHTML = `(${
-    Intl.DateTimeFormat().resolvedOptions().timeZone
-  })`;
+  const toggle = component?.querySelector("input") as HTMLInputElement;
+  const labelText = component?.querySelector(".label-text");
+  const timezone = component?.querySelector(".timezone");
 
-  const toggle = component?.querySelector("input");
-  toggle?.addEventListener("change", () => {
-    const localTime = document.querySelectorAll("local-time");
-    localTime!.forEach((time) =>
-      time.setAttribute("timezone", toggle.checked ? "local" : "original")
-    );
-  });
-</script>
+  timezone!.innerHTML = `(${userTimezone})`;
 
-<script>
-  const component = document.querySelector(".details-toggle");
-  const toggle = component?.querySelector("button");
-  toggle?.addEventListener("click", () => {
-    const detailsToggle =
-      document.querySelector<HTMLElement>("details-toggle")!;
-    const result = detailsToggle.toggleAttribute("open");
-    toggle.innerHTML = result ? "Close descriptions" : "Open descriptions";
-  });
+  if (isPacific) {
+    toggle.disabled = true;
+    toggle.checked = true;
+    labelText!.textContent = "Times already shown in your local timezone";
+    component!.classList.add("disabled");
+    document
+      .querySelectorAll("local-time")
+      .forEach((time) => time.setAttribute("timezone", "local"));
+  } else {
+    toggle?.addEventListener("change", () => {
+      const localTime = document.querySelectorAll("local-time");
+      localTime!.forEach((time) =>
+        time.setAttribute("timezone", toggle.checked ? "local" : "original")
+      );
+    });
+  }
 </script>
 
 <style>
-  .toggles {
-    display: flex;
-    justify-content: space-between;
-  }
-  .time-toggle,
-  .details-toggle {
+  .time-toggle {
     border: 1px solid #e3e3e3;
     width: max-content;
     border-radius: 4px;
@@ -61,25 +52,18 @@
     cursor: pointer;
     display: block;
   }
+  .time-toggle.disabled {
+    opacity: 0.6;
+  }
+  .time-toggle.disabled label {
+    cursor: default;
+  }
   input {
     margin-right: 8px;
-  }
-  button {
-    all: unset;
-    outline: revert;
-    padding: 6px 12px 6px 8px;
-    cursor: pointer;
-    display: block;
   }
   .timezone {
     margin-left: 12px;
     display: inline-block;
     opacity: 0.6;
-  }
-
-  @media screen and (max-width: 700px) {
-    .toggles {
-      flex-direction: column;
-    }
   }
 </style>

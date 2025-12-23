@@ -1,67 +1,80 @@
 ---
-
+import TimeToggle from "./TimeToggle.astro";
 ---
 
 <local-time timezone="original">
-  <time class="recurring">Thursdays, 3PM Pacific</time>
+  <div class="live-now">...live now (maybe)</div>
+  <time class="recurring">Mondays & Thursdays, 3PM Pacific</time>
   <div class="local-time">(Your time)</div>
   <div class="global-time">(Pacific time)</div>
 </local-time>
 
-<div class="time-toggle">
-  <label
-    ><input type="checkbox" />Show times in my local time<div class="timezone">
-    </div></label
-  >
-</div>
+<TimeToggle />
 
 <script>
-  function getNextThursday3PM() {
+  const MONDAY = 1;
+  const THURSDAY = 4;
+  const STREAM_START_TIME = 15;
+  const STREAM_END_TIME = 18;
+  function getNextDayAt3PM(targetDay: number, fromDate: Date = new Date()) {
+    const next = new Date(fromDate);
+    const daysUntil = (targetDay - fromDate.getDay() + 7) % 7;
+    next.setDate(fromDate.getDate() + (daysUntil === 0 ? 7 : daysUntil));
+    next.setHours(15, 0, 0, 0);
+    return next;
+  }
+
+  function isLiveNow() {
     const now = new Date();
-    const nextThursday = new Date(now);
-    const daysUntilThursday = (4 - now.getDay() + 7) % 7;
-    nextThursday.setDate(
-      now.getDate() + (daysUntilThursday === 0 ? 7 : daysUntilThursday)
+    const day = now.getDay();
+    const hour = now.getHours();
+    return (
+      (day === MONDAY || day === THURSDAY) &&
+      hour >= STREAM_START_TIME &&
+      hour < STREAM_END_TIME
     );
-    nextThursday.setHours(15, 0, 0, 0);
-    return nextThursday;
   }
 
-  function isThursdayBefore3PM() {
+  function getClosestStreamDay() {
     const now = new Date();
-    const nextThursday = getNextThursday3PM();
-    return now.getHours() >= 15 && now.getDay() === 4;
+    const day = now.getDay();
+    const hour = now.getHours();
+    // If stream day after 6PM, search from tomorrow
+    const searchFrom =
+      (day === MONDAY || day === THURSDAY) && hour >= STREAM_END_TIME
+        ? new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1)
+        : now;
+    const nextMonday = getNextDayAt3PM(MONDAY, searchFrom);
+    const nextThursday = getNextDayAt3PM(THURSDAY, searchFrom);
+    return nextMonday < nextThursday ? nextMonday : nextThursday;
   }
-
-  const nextThursday = isThursdayBefore3PM()
-    ? new Date()
-    : getNextThursday3PM();
 
   const timeTag = document.querySelector("time.recurring");
   if (!timeTag) {
     throw new Error("No time tag found");
   }
-  timeTag.innerHTML = new Date(nextThursday).toLocaleString("en-US", {
+
+  function getTodayAt3PM() {
+    const now = new Date();
+    return new Date(now.getFullYear(), now.getMonth(), now.getDate(), 15, 0, 0);
+  }
+
+  const localTime = document.querySelector("local-time");
+  const nextStream = isLiveNow() ? getTodayAt3PM() : getClosestStreamDay();
+
+  localTime?.classList.toggle("live", isLiveNow());
+
+  timeTag.innerHTML = new Date(nextStream).toLocaleString("en-US", {
     timeZone: "US/Pacific",
     dateStyle: "full",
     timeStyle: "short",
   });
-
-  const dateTag = document.querySelector("date.recurring");
-  if (!dateTag) {
-    throw new Error("No date tag found");
-  }
 </script>
 
 <style>
   time {
     font-weight: bold;
     font-size: 2.25rem;
-  }
-  .time-toggle label {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
   }
   local-time {
     display: flex;
@@ -74,20 +87,17 @@
   local-time[timezone="original"] .local-time {
     display: none;
   }
+  local-time .live-now {
+    display: none;
+    font-weight: bold;
+    font-size: 4.25rem;
+  }
+  local-time.live .live-now {
+    display: block;
+  }
+  local-time.live :not(.live-now),
+  local-time.live + .toggles {
+    display: none;
+  }
 </style>
 
-<script>
-  const component = document.querySelector(".time-toggle");
-
-  component!.querySelector(".timezone")!.innerHTML = `(${
-    Intl.DateTimeFormat().resolvedOptions().timeZone
-  })`;
-
-  const toggle = component?.querySelector("input");
-  toggle?.addEventListener("change", () => {
-    const localTime = document.querySelectorAll("local-time");
-    localTime!.forEach((time) =>
-      time.setAttribute("timezone", toggle.checked ? "local" : "original")
-    );
-  });
-</script>

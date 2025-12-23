@@ -12,6 +12,7 @@ import StreamingSchedule from "../../../../components/streams/StreamingSchedule.
 import CancelledStreams from "../../../../components/streams/CancelledStreams.astro";
 import NextStream from "../../../../components/streams/NextStream.astro";
 import TimeToggle from "../../../../components/streams/TimeToggle.astro";
+import DetailsToggle from "../../../../components/streams/DetailsToggle.astro";
 
 For the first time ever, welcome to **the official February streaming
 schedule announcement**:
@@ -29,7 +30,10 @@ See you on <a href="https://twitch.tv/essentialrandomness">Twitch</a>!
 
 ### Full Schedule
 
+<div class="toggles">
 <TimeToggle />
+<DetailsToggle />
+</div>
 <StreamingSchedule
   startAt={new Date("2024-02-01 00:00:00")}
   endAt={new Date("2024-02-29 23:59:59")}
