@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "my-blog",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -14,10 +14,16 @@
     "@astrojs/react": "^4.3.0",
     "@astrojs/rss": "^4.0.12",
     "@astrojs/vercel": "^8.2.6",
+    "@fujocoded/astdapters-bluesky-starter": "file:.yalc/@fujocoded/astdapters-bluesky-starter",
+    "@fujocoded/astdapters-mdast-starter": "file:.yalc/@fujocoded/astdapters-mdast-starter",
+    "@fujocoded/authproto": "^0.1.2",
     "@fujocoded/remark-alt-text-files": "^0.0.2",
     "@iconify-json/si": "^1.2.3",
     "@iconify-json/simple-icons": "^1.2.26",
     "@paypal/paypal-js": "^7.0.0",
+    "@tiptap/core": "^3.7.2",
+    "@tiptap/react": "^3.7.2",
+    "@tiptap/starter-kit": "^3.7.2",
     "@types/react": "^18.0.21",
     "@types/react-dom": "^18.0.6",
     "astro": "^5.13.2",
@@ -40,7 +46,8 @@
     "temporal-polyfill": "^0.2.0",
     "typescript": "^5.6.3",
     "unist-util-remove": "^4.0.0",
-    "unist-util-select": "^5.1.0"
+    "unist-util-select": "^5.1.0",
+    "unstorage": "^1.17.1"
   },
   "devDependencies": {
     "hast-util-from-html-isomorphic": "^2.0.0",
