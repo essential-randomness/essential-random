@@ -1,0 +1,91 @@
+---
+import { getCollection } from "astro:content";
+import { fromCollection } from "../utils/social-utils";
+import Layout from "../layouts/Layout.astro";
+import ProfileCard from "../components/ProfileCard.astro";
+import Working from "../images/working.png";
+
+const socials = fromCollection(await getCollection("socials"));
+---
+
+<Layout title="Essential Randomness — Ms Boba's Emporium of Weirdness">
+  <main class="home">
+    <section class="about">
+      <ProfileCard />
+    </section>
+    <section>
+      <h1>Mozilla application links</h1>
+      <p>Without too much description, as not to cheat 🤫</p>
+      <h2>Talks</h2>
+      <ul>
+        <li>
+          <div>
+            <h3>Yearning for the Open Protocols</h3>
+            <a
+              href="https://essential-random-lbmv-git-yearning-essentialrandomness-projects.vercel.app/posts/yearning-for-the-open-protocols"
+              ><img
+                src="https://essential-random-lbmv-git-yearning-essentialrandomness-projects.vercel.app/_astro/slide-52.C9FDOVpf_ZtE0GP.webp"
+              /></a
+            >
+            <a
+              href="https://essential-random-lbmv-git-yearning-essentialrandomness-projects.vercel.app/posts/yearning-for-the-open-protocols#slide-19"
+              >Slides</a
+            > ・ <a href="https://www.youtube.com/watch?v=RbnRWKjYVn0">Video</a>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3>Rebuilding Community on the (fujo)Web</h3>
+            <a href=""
+              ><img
+                src="https://www.essentialrandomness.com/_astro/slide_10.CRbK5ye4_Zr3sfh.webp"
+              /></a
+            >
+            <a
+              href="https://www.essentialrandomness.com/posts/rebuilding-community-on-the-web/part-1"
+              >Slides</a
+            > ・ <a href="https://www.youtube.com/watch?v=tFx4XAOnFVE">Video</a>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3>Working Together in a Dying World</h3>
+            <a href=""><img src={Working.src} /></a>
+            <a
+              href="https://docs.google.com/presentation/d/1p60oTpYtqVx8rtmR6naZvcWAo-PjELp1CMHFkrRAXMo/edit?slide=id.g36a4013e27d_0_576#slide=id.g36a4013e27d_0_576"
+              >Slides (must read author notes)</a
+            > ・ <a href="https://www.youtube.com/watch?v=Pr3A_Xk8wfw">Video</a>
+          </div>
+        </li>
+        <h2>Education</h2>
+        <ul>
+          <li>
+            <a href="https://fujoweb.dev/">FujoGuide:</a> Learn Git...with catboys
+            and dress up games!
+          </li>
+          <li>
+            <a
+              href="https://drive.google.com/file/d/1lLDmvN-4ZLqGnpsjcL9RxWU_lF-0DLxD/view?usp=sharing"
+              >FujoGuide Sample:</a
+            > A preview to see it in action!
+          </li>
+          <li>
+            <a href="https://learn.fujoweb.dev/">Learn@fujoweb.dev:</a> our companion
+            site in action. Free guides that speak to hobbyists! <a
+              href="https://community.fujocoded.com/fujowebdev/style-guide/"
+              >Read the teaching philosophy here.</a
+            >
+          </li>
+        </ul>
+      </ul>
+    </section>
+  </main>
+</Layout>
+<style>
+  img {
+    max-width: 400px;
+    height: auto;
+    border: 1px solid black;
+    display: block;
+  }
+</style>
