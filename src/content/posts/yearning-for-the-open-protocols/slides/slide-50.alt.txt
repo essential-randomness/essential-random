@@ -1,1 +1,17 @@
-TODO
+The title says “A journey of a thousand steps” and the substance of the slide is a screenshot of a Github issue requesting that Bluesky increase its labeler subscription limit. Transcription follows.
+
+Increase Labeler Subscription Limit
+
+Github user Nayelianne:
+
+Describe the Feature
+
+With the popularity of self-assigned labels for identification (eg. pronouns, professions and hobbies, game dev related labels, time zones, countries, zodiac, etc), many people are now subscribing to a bigger amount of them than before, to the point that the limitation of 20, when combined to the real moderation ones, might not be enough for some users anymore.
+
+I understand that limit was already raised from 9 to 20, but it would be nice if it could be increased a little further so people can still have fun while still having space for the legit moderation ones.
+
+Specially since many of the "fun" labelers, like the yardcrow and game dev ones, can be quite useful when browsing the feed and conversations, as they allow people to quickly recognize others that work in the same field, or fields they may be interested in.
+
+I imagine as the service grows, many other useful labelers will also arise, putting more people in the position of having to decide which ones they'll have to sacrifice.
+
+End transcript. The issue has forty-seven thumbs-up reacts and one heart react at the time of the screenshot.
