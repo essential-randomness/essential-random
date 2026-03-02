@@ -1,1 +1,5 @@
-TODO
+This slide is just a quote attributed to “the pinboard guy, again”.
+
+“Fans are an example of real people using machines to talk to one another, rather than a manufactured and engineered attempt to graft social life onto a single website.”
+
+The portion of the quote before the first comma is in bold.
