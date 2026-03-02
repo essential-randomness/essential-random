@@ -1,1 +1,7 @@
-TODO
+This slide is a collection of text-heavy screenshots. It is titled “…so we can do this!” with text underneath reading “(i’m so sorry) (we’ll do it again) (this time, as an official member)”
+
+The first screenshot is of “Lexicon Community, a working group to create community ATProtocol Lexicons.” It has a link, https://lexicon.community and a Bluesky, lexicon.community. It has 52 followers. “Lexicon” is underlined and there is a note added: “refresher: Lexicons are used to coordinate: How data is shaped, What actions are available”
+
+The other screenshots seem to be Ms Boba discussing lexicons at length. They do not appear to be intended for readers of these slides to actually read them, as they have a very small and blurry font size and the images are overlapping.
+
+At the bottom, there are links to a social graph lexicon discussion, a profile lexicon discussion, and a recording.
