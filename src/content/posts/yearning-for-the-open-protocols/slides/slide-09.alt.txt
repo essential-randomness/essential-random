@@ -1,1 +1,32 @@
-TODO
+This slide is the previous slide, but with several screenshots of text placed over everything. The writers in the screenshots are collaborating on code and features. Transcripts follow.
+
+In huge red all-caps: Please read through everything before adding duplicates. 
+
+There’s no need to add a feature you requested to the table of contents below—don’t trouble yourself, leave that to us OCD-types :)
+
+Click on ‘# other viewers’ (top right corner to enter chat! We don’t bite!
+
+Note: Please be in the chat if you’re doing anything besides adding your own comment/making a new thread!suggestion, just so the general collective doesn’t freak out should you make any changes that impact the document as a whole. We’re all in this together, etc.
+
+[TOC is up to date! Summary list needs to be updated]
+
+Reference Key:
+Bold: Most Popular Discussions.
+Two exclamation points: Requests Maciej’s responded to.
+userfixed: Self-explanatory.
+Gray text: Retired, Off-topic.
+OK: Maciej has indicated that he is going to implement this.
+
+Second screenshot:
+
+I could do with vertical scrolling in the bookmarklet “pop-up with tags”. (Userfix below)
+
+With only a couple hundreds tags, I already can’t access the bottom of the list, so I can’t imagine people with thousands of tags.
+
+Comments:
+
+Seconded so hard.
+
+Plus one
+
+I modified the javascript and it seems to work: here is the modified code: (a long paragraph of code)
