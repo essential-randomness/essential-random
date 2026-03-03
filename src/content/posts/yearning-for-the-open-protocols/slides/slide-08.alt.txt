@@ -1,1 +1,20 @@
-TODO
+This slide is titled “I’m in Your Software, Improving your Tools” and there are several groups of text explaining how fans have come up with ways to mark and filter for tags. Transcripts follow. Camel case has been added to one of the tags for readability, and some prefix symbols have been written out.
+
+pairing:chekhov/sulu
+
+When you get into fanfic, you learn that there are people who focus on certain shows, and within those shows people have favored pairings. […] The pairing: prefix let you filter by that.
+
+‘research
+*artemis
++dylan/posey
+@anonymous
+^AllTheFeels
+]<10k
+
+Users began to prefix their tags in order to group them, in a kind of Hungarian notation. In this user’s prefixing convention, for example, apostrophe marks a general category, asterisk indicates a character name, plus is for pairings, at symbol is the author of a fic, wedge is the tagger’s own commentary, and end bracket indicates approximate word count. 
+
+kidnapped!snape
+
+The exclamation point infix signals that there’s a canonical character but something happens to them that’s not really in the story. Here Snape has been kidnapped, for example. I wonder they’re going to do with him.
+
+The slide ends with “(…and more)”
