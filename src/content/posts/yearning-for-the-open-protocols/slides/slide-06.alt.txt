@@ -1,1 +1,13 @@
-TODO
+PLEASE ADD THE TITLE OF THE ANIME(?)
+
+This slide is titled “(Fanworks) Fandom’s Contributions to Online Culture” and “online” is crossed out. It is a collection of images: a screenshot of Kirk and Spock from Star Trek, a screenshot of old black and white Doctor Who, an anime title, art of FujoCoded’s mascots (Git, GitHub, Terminal, CSS, HTML, and ARIA as hot fictional men), an image reading “Archive of our Own, 2019 Hugo Award Winner, Best Related Work,” Giphy’s logo, and a screenshot of a Dreamwidth post about challenging bad Internet laws. Full transcript of the Dreamwidth post follows; this is the end of the main description of this slide.
+
+Sticky: The current list of cases! 
+September 17th, 2024 7:25am
+Denise
+
+Here’s a list of all the cases we’ve contributed to challenging terrible and unconstitutional internet law (so far): 
+
+Netchoice, LLC v Bonta (5:22-vc-08861) N.D. California
+and its appeal, NetChoice, LLC v Bonta (23-2969), 9th Circuit (affirmed and remanded)
+Netchoice, LLC v Yost (2:24-cv-00047) S.D. Ohio
