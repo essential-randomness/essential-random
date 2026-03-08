@@ -1,1 +1,1 @@
-TODO
+Incomplete alt text: This slide is titled “A Simplified View of ATProto”. It is a busy diagram of how data goes from users, through the system (like relays and PDS’s), then to other users.
