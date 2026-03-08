@@ -1,1 +1,5 @@
-TODO
+This slide is titled “This is You on AtProto: Personal Data Servers (PDS)”
+
+It has a screenshot of a bunch of Bluesky data from Ms Boba’s account (essentialrandom.bsky.social), like which host she’s on and her Bluesky ID.
+
+To the side of this screenshot, there is some text: “explore yours at PDSls.dev! An awesome project by Juliet! (or see mine here) it’s cool! and free! (can’t beat cool and free)”
