@@ -1,1 +1,3 @@
-TODO
+This slide is titled “AtProto: A Social Web Protocol” with parentheses and extra letters added so that “A” can also be read as “Another”, thus “Another Social Web Protocol”
+
+The slide is a logo for “The AT Protocol, social networking technology created by Bluesky” with an at symbol made out of an image of a cloudy blue sky.
