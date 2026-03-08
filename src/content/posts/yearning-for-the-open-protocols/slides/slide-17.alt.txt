@@ -1,1 +1,18 @@
-TODO
+This slide is titled “The Fujin Labeler” with some bullet points:
+
+Simplest labeler possible
+one set of labels
+one user (arrows) one label (or none)
+Built using starter kit
+
+The starter kit is shown in a screenshot. It is a Github page by “alice is just playing” and it says “Use this repository to get started with your own  Bluesky Labeler.”
+
+The finished labeler is also shown, with a note reading “1. Subscribe to labeler 2. Like post 3. (question marks) 4. Get Label”
+
+The labeler’s display name is “Which Fujin Animal are You?” and there is a thread that is also shown in a screenshot:
+
+“Like the replies to this post to choose what kind of fujin you are!”
+
+“Slug: A x B and only A x B (has a fixed OTP: a favorite ship, with no switching and no multishipping)”
+
+“Snake: anyone x B (has a fixed uke: multiships, but their favorite can only bottom)”
