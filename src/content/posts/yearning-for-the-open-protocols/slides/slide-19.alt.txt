@@ -1,1 +1,1 @@
-TODO
+This slide is labeled “What are Protocols?” and it is an edited meme. A man is reading a book titled “How to make software work with other software”. He is shown pointing at a page that says “get people to agree on how to shape and communicate data and actions”. Then he is crying.
