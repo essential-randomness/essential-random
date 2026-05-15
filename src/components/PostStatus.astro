@@ -8,11 +8,24 @@ const { status } = Astro.props;
 
 {
   status && (
-    <div class:list={["post-status", status]}>
-      {status == "rough-draft" && <h3>Warning: Roughness Ahead~</h3>}
-      {status == "pre-beta" && <h3>Warning: Almost There but Not Quite</h3>}
+    <aside
+      class:list={["post-status", status, "callout", `callout-${status}`]}
+      role="note"
+      aria-labelledby={`post-status-${status}-title`}
+      data-callout={status}
+    >
       {status == "rough-draft" && (
-        <div>
+        <p id={`post-status-${status}-title`} class="callout-title">
+          Warning: Roughness Ahead~
+        </p>
+      )}
+      {status == "pre-beta" && (
+        <p id={`post-status-${status}-title`} class="callout-title">
+          Warning: Almost There but Not Quite
+        </p>
+      )}
+      {status == "rough-draft" && (
+        <div class="callout-content">
           <p>
             <span>
               The post you're about to read is marked as a
@@ -28,7 +41,7 @@ const { status } = Astro.props;
         </div>
       )}
       {status == "pre-beta" && (
-        <div>
+        <div class="callout-content">
           <p>
             <span>
               The post you're about to read is marked as{" "}
@@ -43,33 +56,44 @@ const { status } = Astro.props;
           </p>
         </div>
       )}
-    </div>
+    </aside>
   )
 }
 
 <script>
   import { annotate } from "rough-notation";
+  import { redrawOnLayoutChange } from "../utils/redraw-on-layout-change";
 
-  const container = document.querySelector<HTMLDivElement>(`.post-status`);
-  const title = container?.querySelector<HTMLDivElement>("span");
+  const container = document.querySelector<HTMLElement>(".post-status");
   if (container) {
-    const annotation = annotate(container, {
-      type: "box",
-      animate: false,
-      padding: -4,
+    const isRoughDraft = container.classList.contains("rough-draft");
+    const title = container.querySelector<HTMLElement>("span");
+
+    const annotations = [
+      annotate(container, {
+        type: "box",
+        animate: false,
+        padding: -4,
+      }),
+    ];
+
+    if (title) {
+      annotations.push(
+        annotate(title, {
+          type: "highlight",
+          animate: false,
+          color: isRoughDraft ? "lightgray" : "lightskyblue",
+          padding: -4,
+          multiline: true,
+        })
+      );
+    }
+
+    redrawOnLayoutChange(title ? [container, title] : [container], () => {
+      for (const annotation of annotations) {
+        annotation.show();
+      }
     });
-    annotation.show();
-  }
-  if (title) {
-    const isRoughDraft = !!container?.classList.contains("rough-draft");
-    const annotation = annotate(title, {
-      type: "highlight",
-      animate: false,
-      color: isRoughDraft ? "lightgray" : "lightskyblue",
-      padding: -4,
-      multiline: true,
-    });
-    annotation.show();
   }
 </script>
 

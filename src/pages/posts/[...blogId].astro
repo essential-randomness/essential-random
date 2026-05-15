@@ -196,31 +196,6 @@ const { Content, data } = Astro.props;
   </style>
 
   <script>
-    import { annotate } from "rough-notation";
-
-    const container = document.querySelector<HTMLDivElement>(".rough-draft");
-    const title = container?.querySelector<HTMLDivElement>("span");
-    if (container) {
-      const annotation = annotate(container, {
-        type: "box",
-        animate: false,
-        padding: -4,
-      });
-      annotation.show();
-    }
-    if (title) {
-      const annotation = annotate(title, {
-        type: "highlight",
-        animate: false,
-        color: "lightgray",
-        padding: -4,
-        multiline: true,
-      });
-      annotation.show();
-    }
-  </script>
-
-  <script>
     const footnoteLinks = document.querySelectorAll<HTMLAnchorElement>(
       "a[data-footnote-ref]"
     );
