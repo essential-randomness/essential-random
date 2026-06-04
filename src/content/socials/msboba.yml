@@ -1,15 +1,14 @@
 socials:
   - https://essential-randomness.tumblr.com
   - https://twitter.com/essentialrandom
-  - type: mastodon
-    name: the Fediverse™
-    url: https://indiepocalypse.social/@essentialrandom
+  - https://indiepocalypse.social/@essentialrandom
   - https://bsky.app/profile/essentialrandom.bsky.social
   - https://www.twitch.tv/essentialrandomness
   - https://github.com/essential-randomness
-  # - name: cohost
+  # - username: cohost
   #   url: https://cohost.org/essential-random
-  - https://essential-randomness.dreamwidth.org/
+  - platform: dreamwidth
+    url: https://essential-randomness.dreamwidth.org/
   - https://www.youtube.com/channel/UCI_NX0PeoiWiMsHIFH0TBsw
   - https://www.patreon.com/essentialrandomness
   - https://ko-fi.com/essentialrandomness

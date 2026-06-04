@@ -1,0 +1,29 @@
+---
+import "./SocialLinks.css";
+
+import { Icon } from "astro-icon/components";
+import type { Social, SocialsData } from "../content/socials/_config";
+
+interface Props {
+  links: SocialsData;
+}
+
+const iconName = (social: Social) => social.icon ?? "lucide:globe";
+---
+
+<ul class="social-links">
+  {
+    Astro.props.links.map((social) => {
+      const name = social.label;
+      return (
+        <li data-website={name} aria-label={name}>
+          <a href={social.url}>
+            <Icon name={iconName(social)} />
+            <div class="name">{name}</div>
+            <div class="url">{social.url}</div>
+          </a>
+        </li>
+      );
+    })
+  }
+</ul>

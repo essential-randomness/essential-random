@@ -1,33 +1,15 @@
 ---
 import { Icon } from "astro-icon/components";
-import { getCollection } from "astro:content";
-import { extractWebsiteName, fromCollection } from "../utils/social-utils";
-import type { Social } from "../components/SocialLinks.tsx";
+import { getSocials } from "../utils/socials";
 
 const currentPath = Astro.url.pathname;
 
-const socials = fromCollection(await getCollection("socials"));
+const socials = await getSocials();
 
-const extractWebsiteData = (social: Social) => {
-  const url = typeof social == "string" ? social : social.url;
-  const type =
-    typeof social !== "string" && "type" in social
-      ? social.type
-      : extractWebsiteName(url);
-  const name =
-    typeof social !== "string" && "name" in social
-      ? social.name
-      : extractWebsiteName(url);
-  return {
-    url,
-    name,
-    type,
-  };
-};
 const urlByType = (type: string) => {
-  const social = socials.find((s) => extractWebsiteData(s).type == type);
+  const social = socials.find((s) => s.platform == type);
   if (!social) throw new Error(`Social link not found for type: ${type}`);
-  return typeof social == "object" ? social.url : social;
+  return social.url;
 };
 ---
 
@@ -56,8 +38,8 @@ const urlByType = (type: string) => {
   </nav>
   <ul>
     <li>
-      <a href={urlByType("twitter")}>
-        <Icon name="simple-icons:twitter" />
+      <a href={urlByType("bsky")}>
+        <Icon name="simple-icons:bluesky" />
       </a>
     </li>
     <li>
@@ -68,11 +50,6 @@ const urlByType = (type: string) => {
     <li>
       <a href={urlByType("mastodon")}>
         <Icon name="simple-icons:mastodon" />
-      </a>
-    </li>
-    <li>
-      <a href={urlByType("bsky")}>
-        <Icon name="simple-icons:bluesky" />
       </a>
     </li>
     <li>

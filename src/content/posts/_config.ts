@@ -21,6 +21,6 @@ export const posts = defineCollection({
         .transform((text) => text?.replaceAll("\n", " ").trim()),
       og_title: z.string().optional(),
       status: z.enum(["rough-draft", "pre-beta"]).optional(),
-      socials: z.array(SocialsSchema).default([]),
+      socials: SocialsSchema.default([]),
     }),
 });

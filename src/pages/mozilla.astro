@@ -1,11 +1,7 @@
 ---
-import { getCollection } from "astro:content";
-import { fromCollection } from "../utils/social-utils";
 import Layout from "../layouts/Layout.astro";
 import ProfileCard from "../components/ProfileCard.astro";
 import Working from "../images/working.png";
-
-const socials = fromCollection(await getCollection("socials"));
 ---
 
 <Layout title="Essential Randomness — Ms Boba's Emporium of Weirdness">

@@ -1,0 +1,8 @@
+---
+import SocialLinks from "./SocialLinks.astro";
+import { getSocials } from "../utils/socials";
+
+const socials = await getSocials();
+---
+
+<SocialLinks links={socials} />

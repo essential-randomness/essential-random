@@ -1,24 +1,13 @@
 ---
-import { ProjectCard } from "../../components/ProjectCard";
+import ProjectCard from "../../components/ProjectCard.astro";
 
 import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 const projects = await getCollection("projects");
-import { parseInline } from "marked";
 
-const projectsWithMarkdown = projects
-  .map((project) => {
-    const markdownDescription = parseInline(project.data.description);
-    const projectCopy = {
-      ...project,
-      data: {
-        ...project.data,
-        description: markdownDescription as string,
-      },
-    };
-    return projectCopy;
-  })
-  .toSorted((a, b) => a.data.position - b.data.position);
+const projectsByPosition = projects.toSorted(
+  (a, b) => a.data.position - b.data.position
+);
 ---
 
 <Layout title="Essential Randomness — Ms Boba's Eclectic Pile of Projects">
@@ -48,7 +37,7 @@ const projectsWithMarkdown = projects
     as part of these organizations.
     <ul class="projects">
       {
-        projectsWithMarkdown
+        projectsByPosition
           .filter((project) => !project.data.tags.includes("category: extra"))
           .map((project) => (
             <li
@@ -72,7 +61,7 @@ const projectsWithMarkdown = projects
     them all the same!
     <ul class="projects">
       {
-        projectsWithMarkdown
+        projectsByPosition
           .filter((project) => project.data.tags.includes("category: extra"))
           .map((project) => (
             <li

@@ -1,0 +1,72 @@
+---
+import "./ProjectCard.css";
+
+import type { Project } from "../content/projects/_config";
+import SocialLinks from "./SocialLinks.astro";
+import { Tag } from "./Tag";
+
+type Props = Project & { body: string; url: string };
+
+const props = Astro.props;
+const hasBody = props.body?.length > 0;
+---
+
+<article
+  class="card project"
+  data-has-body={hasBody}
+  data-project-name={props.name.toLowerCase()}
+>
+  {
+    props.preview &&
+      (hasBody ? (
+        <a href={props.url}>
+          <picture class="banner">
+            <img
+              src={props.preview.src}
+              alt={`${props.name}'s project preview image`}
+            />
+          </picture>
+        </a>
+      ) : (
+        <picture class="banner">
+          <img
+            src={props.preview.src}
+            alt={`${props.name}'s project preview image`}
+          />
+        </picture>
+      ))
+  }
+  <header>
+    <h2 class="name">
+      {
+        hasBody ? (
+          <a href={props.url}>{props.name}</a>
+        ) : (
+          <Fragment>{props.name}</Fragment>
+        )
+      }
+    </h2>
+    <SocialLinks links={props.links} />
+  </header>
+  <p class="description">
+    <span set:html={props.description} />
+    {
+      hasBody && (
+        <a class="read-more" href={props.url}>
+          Read more
+        </a>
+      )
+    }
+  </p>
+  <footer>
+    <ul class="tags">
+      {
+        props.tags.map((tag) => (
+          <li>
+            <Tag tag={tag} />
+          </li>
+        ))
+      }
+    </ul>
+  </footer>
+</article>

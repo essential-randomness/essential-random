@@ -3,7 +3,7 @@ export const prerender = true;
 
 import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
-import { SocialLinks } from "../../components/SocialLinks";
+import SocialLinks from "../../components/SocialLinks.astro";
 const projects = await getCollection("projects");
 
 export async function getStaticPaths() {

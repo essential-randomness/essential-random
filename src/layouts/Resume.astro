@@ -13,8 +13,10 @@ interface Props {
 const {
   title,
   description = "Ms Boba's experimental website. Open for business while construction is ongoing.",
-  preview = "/og-image.png",
+  preview,
 } = Astro.props;
+
+const previewUrl = new URL(preview ?? "/og-image.png", Astro.site).toString();
 ---
 
 <!doctype html>
@@ -26,8 +28,8 @@ const {
     <meta property="og:title" content={title} />
     <meta name="description" content={description} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={preview} />
-    <meta name="twitter:image" content={preview} />
+    <meta property="og:image" content={previewUrl} />
+    <meta name="twitter:image" content={previewUrl} />
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:title" content={title} />
     <meta property="twitter:site" content="@EssentialRandom" />

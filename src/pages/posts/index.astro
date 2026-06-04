@@ -1,19 +1,13 @@
 ---
-import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import ProfileCard from "../../components/ProfileCard.astro";
 import PostPreview from "../../components/posts/PostPreview.astro";
-import TagsFilter from "../../components/posts/TagsFilter.astro";
-import { SocialLinks } from "../../components/SocialLinks";
-import { fromCollection } from "../../utils/social-utils";
+import SiteSocialLinks from "../../components/SiteSocialLinks.astro";
 import OutsideBlogPosts from "../../components/OutsideBlogPosts.astro";
 import { loadPosts } from "../../utils/posts-utils";
 import { getPostSlug } from "./[...blogId].astro";
 
-const socials = fromCollection(await getCollection("socials"));
-
 const posts = await loadPosts();
-const tags = [...new Set(posts.flatMap((post) => post.data.tags))];
 const currentUrl = new URL(Astro.request.url);
 const requestedTags = currentUrl.searchParams.getAll("tag");
 const displayPosts = requestedTags.length
@@ -33,7 +27,6 @@ const latestSchedulePost = posts.find((post) =>
       <ProfileCard />
     </aside>
     <div>
-      {/* <TagsFilter tags={tags} requestedTags={requestedTags} />*/}
       <h1>My writing</h1>
       <div class="intro">
         <p>
@@ -71,7 +64,7 @@ const latestSchedulePost = posts.find((post) =>
       </ol>
       <div id="socials">
         ...plus dozens of rants scattered all around the internet!
-        <SocialLinks links={socials} />
+        <SiteSocialLinks />
       </div>
     </div>
   </main>
