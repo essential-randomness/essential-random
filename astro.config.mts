@@ -11,6 +11,7 @@ import metaTags from "astro-meta-tags";
 import remarkAltTextFiles from "@fujocoded/remark-alt-text-files";
 import icon from "astro-icon";
 import type { Element, Parents } from "hast";
+import fujocodedAuthproto from "@fujocoded/authproto";
 
 // https://astro.build/config
 export default defineConfig({
@@ -23,6 +24,16 @@ export default defineConfig({
     react(),
     metaTags(),
     icon(),
+    fujocodedAuthproto({
+      defaultDevUser: "essentialrandom.bsky.social",
+      scopes: {
+        genericData: true,
+      },
+      redirects: {
+        afterLogin: `/connect/post`,
+        afterLogout: `/`,
+      },
+    }),
   ],
   markdown: {
     remarkPlugins: [remarkAltTextFiles],
@@ -71,8 +82,8 @@ export default defineConfig({
     ],
   },
   redirects: {
-    // TODO: Reactivate these and delete the pages when
-    // the vercel adapter bug is fixed
+    // TODO: Reactivate these and delete the pages when the vercel adapter bug
+    // is fixed
     "/subscribe": {
       destination: "https://patreon.com/fujocoded",
       status: 307,
@@ -92,6 +103,9 @@ export default defineConfig({
     },
   },
   output: "server",
+  session: {
+    driver: "memory",
+  },
   adapter: vercel(),
   site: "https://www.essentialrandomness.com/",
 });

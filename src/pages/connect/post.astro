@@ -1,0 +1,30 @@
+---
+// Could check if user is logged in and me here and then throw
+import { Login } from "@fujocoded/authproto/components";
+import { actions } from "astro:actions";
+import { AstrolabeEditor } from "../../components/Editor";
+import Layout from "../../layouts/Layout.astro";
+
+const result = Astro.getActionResult(actions.postToBluesky);
+---
+
+<Layout title="Secret posting lair">
+  <Login />
+
+  <form action={actions.postToBluesky} method="POST">
+    <AstrolabeEditor client:load />
+    <!-- <textarea name="content">Hello from my blog!</textarea> -->
+    <button type="submit">Post</button>
+  </form>
+  {JSON.stringify(result)}
+</Layout>
+<style is:global>
+  textarea {
+    field-sizing: content;
+    max-width: 500px;
+  }
+  .astrolabe-editor .tiptap {
+    border: 1px solid black;
+    padding: 10px 5px;
+  }
+</style>
