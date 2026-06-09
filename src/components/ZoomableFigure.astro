@@ -1,0 +1,579 @@
+---
+interface Props {
+  class?: string;
+  id?: string;
+  linkLabel?: string;
+  previewToggleLabel?: string;
+}
+
+const {
+  id,
+  linkLabel = "Link to figure",
+  previewToggleLabel = "Expand figure",
+} = Astro.props;
+const className = ["zoomable-figure", Astro.props.class].filter(Boolean).join(" ");
+const hasAnchor = Boolean(id);
+const zoomOptions = [1, 2, 4] as const;
+---
+
+<div id={id} class={className} data-has-anchor={String(hasAnchor)} data-zoomable-figure>
+  <div class="zoomable-figure__controls">
+    {
+      hasAnchor && (
+        <a href={`#${id}`} aria-label={linkLabel}>
+          <img src="/link.svg" alt="" aria-hidden="true" />
+        </a>
+      )
+    }
+    <button type="button" aria-pressed="false" data-zoomable-page-toggle>Full page</button>
+    <div class="zoomable-figure__zoom" role="group" aria-label="Image zoom">
+      {
+        zoomOptions.map((zoom) => (
+          <button
+            type="button"
+            aria-pressed={String(zoom === 1)}
+            data-zoomable-zoom={String(zoom)}
+          >
+            {zoom}x
+          </button>
+        ))
+      }
+    </div>
+  </div>
+
+  <div class="zoomable-figure__viewport" data-zoomable-viewport>
+    <div class="zoomable-figure__stage" data-zoomable-stage>
+      <slot />
+    </div>
+    <button
+      type="button"
+      class="zoomable-figure__preview-toggle"
+      data-zoomable-preview-toggle
+    >
+      {previewToggleLabel}
+    </button>
+  </div>
+</div>
+
+<style>
+  .zoomable-figure {
+    margin-block: 2rem;
+    max-height: none;
+    --zoomable-figure-zoom: 1;
+    --zoomable-figure-stage-width: 100%;
+    --zoomable-figure-controls-width: 100%;
+  }
+
+  .zoomable-figure__controls {
+    display: grid;
+    gap: 0.75rem;
+    grid-template-columns: 2.75rem minmax(6.75rem, 1fr) max-content;
+    justify-content: stretch;
+    margin-block-end: 0.75rem;
+    width: var(--zoomable-figure-controls-width);
+  }
+
+  .zoomable-figure[data-has-anchor="false"] .zoomable-figure__controls {
+    grid-template-columns: minmax(6.75rem, 1fr) max-content;
+  }
+
+  .zoomable-figure__zoom {
+    display: inline-flex;
+  }
+
+  .zoomable-figure__controls button,
+  .zoomable-figure__controls a {
+    align-items: center;
+    background: white;
+    border: 2px solid black;
+    box-shadow: var(--box-shadow);
+    color: black;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: var(--font-family-title);
+    font-weight: 800;
+    justify-content: center;
+    min-height: 2.5rem;
+    padding: 0.25rem 0.75rem;
+    text-decoration: none;
+  }
+
+  .zoomable-figure__controls > [data-zoomable-page-toggle] {
+    justify-self: end;
+    min-width: 6.75rem;
+  }
+
+  .zoomable-figure__controls > a {
+    min-width: 2.75rem;
+  }
+
+  .zoomable-figure__controls > a img {
+    display: block;
+    height: 1.15rem;
+    margin: 0;
+    max-height: none;
+    max-width: none;
+    padding: 0;
+    width: 1.15rem;
+  }
+
+  .zoomable-figure__zoom button {
+    min-width: 2.75rem;
+  }
+
+  .zoomable-figure__zoom button {
+    box-shadow: none;
+  }
+
+  .zoomable-figure__zoom button + button {
+    border-left: 0;
+  }
+
+  .zoomable-figure__zoom button[aria-pressed="true"] {
+    background: black;
+    color: white;
+  }
+
+  .zoomable-figure__controls button:hover,
+  .zoomable-figure__controls button:focus-visible,
+  .zoomable-figure__controls a:hover,
+  .zoomable-figure__controls a:focus-visible {
+    box-shadow: var(--box-shadow-hover);
+    transform: translate(-2px, -2px);
+  }
+
+  .zoomable-figure__viewport {
+    width: 100%;
+  }
+
+  .zoomable-figure.is-zoomed .zoomable-figure__viewport {
+    border: 2px solid black;
+    contain: paint;
+    cursor: grab;
+    max-height: min(80dvh, 900px);
+    overflow: auto;
+  }
+
+  .zoomable-figure.is-collapsed-preview .zoomable-figure__viewport {
+    border: 2px solid black;
+    contain: paint;
+    position: relative;
+  }
+
+  .zoomable-figure.is-collapsed-preview:not(.is-preview-expanded)
+    .zoomable-figure__viewport {
+    cursor: default;
+    max-height: min(42dvh, 24rem);
+    overflow: hidden;
+  }
+
+  .zoomable-figure.is-collapsed-preview:not(.is-preview-expanded)
+    .zoomable-figure__viewport::after {
+    background: linear-gradient(
+      to bottom,
+      rgb(255 255 255 / 0),
+      rgb(255 255 255 / 0.94) 62%,
+      white
+    );
+    bottom: 0;
+    content: "";
+    height: 7rem;
+    left: 0;
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+  }
+
+  .zoomable-figure__preview-toggle {
+    display: none;
+  }
+
+  .zoomable-figure.is-collapsed-preview:not(.is-preview-expanded)
+    .zoomable-figure__preview-toggle {
+    align-items: center;
+    background: white;
+    border: 2px solid black;
+    bottom: 1rem;
+    box-shadow: var(--box-shadow);
+    color: black;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: var(--font-family-title);
+    font-weight: 800;
+    justify-content: center;
+    left: 50%;
+    min-width: 7.25rem;
+    min-height: 2.5rem;
+    padding: 0.25rem 0.9rem;
+    position: absolute;
+    transform: translateX(-50%);
+    z-index: 1;
+  }
+
+  .zoomable-figure.is-collapsed-preview:not(.is-preview-expanded)
+    .zoomable-figure__preview-toggle:hover,
+  .zoomable-figure.is-collapsed-preview:not(.is-preview-expanded)
+    .zoomable-figure__preview-toggle:focus-visible {
+    box-shadow: var(--box-shadow-hover);
+    transform: translate(calc(-50% - 2px), -2px);
+  }
+
+  .zoomable-figure.is-collapsed-preview.is-preview-expanded
+    .zoomable-figure__viewport {
+    cursor: grab;
+    max-height: min(80dvh, 900px);
+    overflow: auto;
+  }
+
+  .zoomable-figure.is-panning .zoomable-figure__viewport {
+    cursor: grabbing;
+    user-select: none;
+  }
+
+  .zoomable-figure__viewport :global(text) {
+    cursor: text;
+    user-select: text;
+  }
+
+  :global(
+    html[data-zoomable-figure-space-pan]
+      .zoomable-figure.is-zoomed
+      .zoomable-figure__viewport
+  ),
+  :global(
+    html[data-zoomable-figure-space-pan] .zoomable-figure__viewport text
+  ) {
+    cursor: grab !important;
+    user-select: none !important;
+  }
+
+  .zoomable-figure__stage {
+    width: var(--zoomable-figure-stage-width);
+  }
+
+  .zoomable-figure__stage :global(svg),
+  .zoomable-figure__stage :global(img),
+  .zoomable-figure__stage :global(picture),
+  .zoomable-figure__stage :global(video),
+  .zoomable-figure__stage :global(canvas) {
+    display: block;
+    height: auto;
+    width: 100%;
+  }
+
+  .zoomable-figure.is-page-wide {
+    --zoomable-figure-page-width: calc(100vw - 40px);
+    margin-inline: 0;
+    max-height: none;
+    max-width: none;
+    width: var(--zoomable-figure-page-width);
+  }
+
+  @media (max-width: 650px) {
+    .zoomable-figure.is-collapsed-preview
+      .zoomable-figure__preview-toggle {
+      bottom: 0.75rem;
+      max-width: calc(100% - 1.5rem);
+    }
+
+    .zoomable-figure.is-page-wide {
+      --zoomable-figure-page-width: 100%;
+    }
+
+    .zoomable-figure.is-page-wide .zoomable-figure__viewport {
+      border: 2px solid black;
+      height: calc(100dvh - 9rem);
+      max-height: none;
+      min-height: 22rem;
+      overflow: auto;
+    }
+  }
+</style>
+
+<script>
+  const zoomableFigureMobileQuery = window.matchMedia("(max-width: 650px)");
+  let isZoomableFigureSpacePanPressed = false;
+
+  function getZoomableFigureZoom(figure) {
+    const activeZoom = figure.querySelector("[data-zoomable-zoom][aria-pressed='true']");
+    const zoom = Number(activeZoom?.getAttribute("data-zoomable-zoom") || "1");
+    return Number.isFinite(zoom) && zoom > 0 ? zoom : 1;
+  }
+
+  function getZoomableFigureMedia(figure) {
+    return figure.querySelector("svg, img, picture img, video, canvas");
+  }
+
+  function getZoomableFigureAspectRatio(figure) {
+    const media = getZoomableFigureMedia(figure);
+
+    if (media instanceof SVGSVGElement) {
+      const viewBox = media.viewBox?.baseVal;
+      if (viewBox?.width && viewBox?.height) {
+        return viewBox.width / viewBox.height;
+      }
+    }
+
+    if (media instanceof HTMLImageElement && media.naturalWidth && media.naturalHeight) {
+      return media.naturalWidth / media.naturalHeight;
+    }
+
+    if (media instanceof HTMLVideoElement && media.videoWidth && media.videoHeight) {
+      return media.videoWidth / media.videoHeight;
+    }
+
+    const box = media?.getBoundingClientRect();
+    return box?.width && box?.height ? box.width / box.height : 1;
+  }
+
+  function syncZoomableFigureSize(figure) {
+    const viewport = figure.querySelector("[data-zoomable-viewport]");
+    const zoom = getZoomableFigureZoom(figure);
+    const fitsMobileHeight =
+      figure.classList.contains("is-page-wide") &&
+      zoomableFigureMobileQuery.matches &&
+      window.innerHeight >= window.innerWidth &&
+      viewport;
+
+    if (fitsMobileHeight) {
+      const aspectRatio = getZoomableFigureAspectRatio(figure);
+      const heightFitWidth = Math.floor(viewport.clientHeight * aspectRatio);
+      const stageWidth = Math.max(viewport.clientWidth, heightFitWidth) * zoom;
+      figure.style.setProperty("--zoomable-figure-stage-width", stageWidth + "px");
+    } else {
+      figure.style.setProperty("--zoomable-figure-stage-width", zoom * 100 + "%");
+    }
+
+    figure.classList.toggle("is-zoomed", zoom !== 1);
+  }
+
+  function captureZoomableFigureControlsWidth(figure) {
+    if (figure.style.getPropertyValue("--zoomable-figure-controls-width")) return;
+
+    const controls = figure.querySelector(".zoomable-figure__controls");
+    const width = controls?.getBoundingClientRect().width;
+    if (width) {
+      figure.style.setProperty("--zoomable-figure-controls-width", width + "px");
+    }
+  }
+
+  function isMobilePortraitFullPageZoomableFigure(figure) {
+    return (
+      figure.classList.contains("is-page-wide") &&
+      zoomableFigureMobileQuery.matches &&
+      window.innerHeight >= window.innerWidth
+    );
+  }
+
+  function scrollZoomableFigureViewportToEmbeddedImage(figure) {
+    const viewport = figure.querySelector("[data-zoomable-viewport]");
+    const image = figure.querySelector("svg image");
+    if (!viewport || !image || !isMobilePortraitFullPageZoomableFigure(figure)) return;
+
+    requestAnimationFrame(() => {
+      const viewportBox = viewport.getBoundingClientRect();
+      const imageBox = image.getBoundingClientRect();
+      const imageCenterX =
+        viewport.scrollLeft + imageBox.left - viewportBox.left + imageBox.width / 2;
+      const imageCenterY =
+        viewport.scrollTop + imageBox.top - viewportBox.top + imageBox.height / 2;
+
+      viewport.scrollTo({
+        left: Math.max(0, imageCenterX - viewport.clientWidth / 2),
+        top: Math.max(0, imageCenterY - viewport.clientHeight / 2),
+        behavior: "smooth",
+      });
+    });
+  }
+
+  function canPanZoomableFigureViewport(viewport) {
+    return (
+      viewport.scrollWidth > viewport.clientWidth ||
+      viewport.scrollHeight > viewport.clientHeight
+    );
+  }
+
+  function isCollapsedZoomableFigurePreviewClosed(figure) {
+    return (
+      figure.classList.contains("is-collapsed-preview") &&
+      !figure.classList.contains("is-preview-expanded")
+    );
+  }
+
+  function isZoomableFigureControlTarget(target) {
+    return (
+      target instanceof Element &&
+      Boolean(target.closest("a, button, input, select, textarea, [contenteditable='true']"))
+    );
+  }
+
+  function isZoomableFigureTextTarget(target) {
+    return target instanceof Element && Boolean(target.closest("text"));
+  }
+
+  function isZoomableFigureKeyboardControlTarget(target) {
+    return isZoomableFigureControlTarget(target);
+  }
+
+  function setZoomableFigureSpacePanPressed(pressed) {
+    isZoomableFigureSpacePanPressed = pressed;
+    document.documentElement.toggleAttribute(
+      "data-zoomable-figure-space-pan",
+      pressed
+    );
+  }
+
+  function setupZoomableFigureViewportPanning(figure) {
+    const viewport = figure.querySelector("[data-zoomable-viewport]");
+    if (!viewport) return;
+
+    let panStart = null;
+
+    viewport.addEventListener("pointerdown", (event) => {
+      if (event.button !== 0 || event.pointerType !== "mouse") return;
+      if (isCollapsedZoomableFigurePreviewClosed(figure)) return;
+      if (isZoomableFigureControlTarget(event.target)) return;
+      if (
+        isZoomableFigureTextTarget(event.target) &&
+        !isZoomableFigureSpacePanPressed
+      ) {
+        return;
+      }
+      if (!canPanZoomableFigureViewport(viewport)) return;
+
+      if (isZoomableFigureSpacePanPressed) {
+        event.preventDefault();
+      }
+
+      panStart = {
+        left: viewport.scrollLeft,
+        top: viewport.scrollTop,
+        x: event.clientX,
+        y: event.clientY,
+      };
+      figure.classList.add("is-panning");
+      viewport.setPointerCapture(event.pointerId);
+    });
+
+    viewport.addEventListener("pointermove", (event) => {
+      if (!panStart) return;
+
+      event.preventDefault();
+      viewport.scrollLeft = panStart.left - (event.clientX - panStart.x);
+      viewport.scrollTop = panStart.top - (event.clientY - panStart.y);
+    });
+
+    function stopPanning(event) {
+      if (!panStart) return;
+
+      panStart = null;
+      figure.classList.remove("is-panning");
+      if (viewport.hasPointerCapture(event.pointerId)) {
+        viewport.releasePointerCapture(event.pointerId);
+      }
+    }
+
+    viewport.addEventListener("pointerup", stopPanning);
+    viewport.addEventListener("pointercancel", stopPanning);
+  }
+
+  function setupZoomableFigure(figure) {
+    if (figure.dataset.zoomableReady === "true") return;
+
+    figure.dataset.zoomableReady = "true";
+    setupZoomableFigureViewportPanning(figure);
+    syncZoomableFigureSize(figure);
+  }
+
+  for (const button of document.querySelectorAll("[data-zoomable-page-toggle]")) {
+    if (button.dataset.zoomableReady === "true") continue;
+    button.dataset.zoomableReady = "true";
+
+    button.addEventListener("click", () => {
+      const figure = button.closest("[data-zoomable-figure]");
+      if (!figure) return;
+
+      captureZoomableFigureControlsWidth(figure);
+      const expanded = figure.classList.toggle("is-page-wide");
+      button.setAttribute("aria-pressed", String(expanded));
+      button.textContent = expanded ? "Fit post" : "Full page";
+      syncZoomableFigureSize(figure);
+      if (expanded) {
+        scrollZoomableFigureViewportToEmbeddedImage(figure);
+      }
+    });
+  }
+
+  for (const button of document.querySelectorAll("[data-zoomable-preview-toggle]")) {
+    if (button.dataset.zoomableReady === "true") continue;
+    button.dataset.zoomableReady = "true";
+
+    button.addEventListener("click", () => {
+      const figure = button.closest("[data-zoomable-figure]");
+      if (!figure) return;
+
+      figure.classList.add("is-preview-expanded");
+      syncZoomableFigureSize(figure);
+    });
+  }
+
+  for (const button of document.querySelectorAll("[data-zoomable-zoom]")) {
+    if (button.dataset.zoomableReady === "true") continue;
+    button.dataset.zoomableReady = "true";
+
+    button.addEventListener("click", () => {
+      const figure = button.closest("[data-zoomable-figure]");
+      if (!figure) return;
+
+      const zoom = button.getAttribute("data-zoomable-zoom") || "1";
+      figure.style.setProperty("--zoomable-figure-zoom", zoom);
+
+      for (const zoomButton of figure.querySelectorAll("[data-zoomable-zoom]")) {
+        zoomButton.setAttribute(
+          "aria-pressed",
+          String(zoomButton.getAttribute("data-zoomable-zoom") === zoom)
+        );
+      }
+
+      syncZoomableFigureSize(figure);
+    });
+  }
+
+  if (document.documentElement.dataset.zoomableFigureResizeReady !== "true") {
+    document.documentElement.dataset.zoomableFigureResizeReady = "true";
+
+    window.addEventListener("resize", () => {
+      for (const figure of document.querySelectorAll("[data-zoomable-figure]")) {
+        syncZoomableFigureSize(figure);
+      }
+    });
+  }
+
+  if (document.documentElement.dataset.zoomableFigureSpacePanReady !== "true") {
+    document.documentElement.dataset.zoomableFigureSpacePanReady = "true";
+
+    window.addEventListener("keydown", (event) => {
+      if (event.code !== "Space") return;
+      if (isZoomableFigureKeyboardControlTarget(event.target)) return;
+
+      event.preventDefault();
+      setZoomableFigureSpacePanPressed(true);
+    });
+
+    window.addEventListener("keyup", (event) => {
+      if (event.code !== "Space") return;
+      if (!isZoomableFigureSpacePanPressed) return;
+
+      event.preventDefault();
+      setZoomableFigureSpacePanPressed(false);
+    });
+
+    window.addEventListener("blur", () => {
+      setZoomableFigureSpacePanPressed(false);
+    });
+  }
+
+  for (const figure of document.querySelectorAll("[data-zoomable-figure]")) {
+    setupZoomableFigure(figure);
+  }
+</script>

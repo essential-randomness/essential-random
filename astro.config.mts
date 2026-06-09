@@ -9,12 +9,18 @@ import vercel from "@astrojs/vercel";
 import expressiveCode from "astro-expressive-code";
 import metaTags from "astro-meta-tags";
 import remarkAltTextFiles from "@fujocoded/remark-alt-text-files";
+import remarkExcalidraw from "@fujocoded/remark-excalidraw";
 import icon from "astro-icon";
 import type { Element, Parents } from "hast";
 
 // https://astro.build/config
 export default defineConfig({
   // ...
+  vite: {
+    server: {
+      allowedHosts: ["essentials-macbook-pro-3.tail78245.ts.net"],
+    },
+  },
   integrations: [
     expressiveCode({
       themes: ["dracula-soft"],
@@ -25,7 +31,7 @@ export default defineConfig({
     icon(),
   ],
   markdown: {
-    remarkPlugins: [remarkAltTextFiles],
+    remarkPlugins: [remarkAltTextFiles, remarkExcalidraw],
     rehypePlugins: [
       ownLineFootnote,
       rehypeSlug,

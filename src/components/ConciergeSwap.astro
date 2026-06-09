@@ -1,0 +1,472 @@
+<span class="concierge-swap-caption" data-concierge-swap>
+  <span>
+    <em>If you are that kind of Fandom person, you can also picture</em>
+    <button
+      class="concierge-swap-link"
+      type="button"
+      aria-pressed="false"
+      data-concierge-sebastian
+    >
+      <em>Sebastian from Black Butler</em>
+    </button>
+    <em>. Or, you know, just</em>
+    <button
+      class="concierge-swap-link"
+      type="button"
+      data-concierge-chooser-open
+    >
+      <em>choose your most thirst-worthy "Concierge"-adjacent fave</em>
+    </button>
+    <em
+      >. It's a long article, and we all deserve a small treat along the way.</em
+    >
+  </span>
+</span>
+
+<dialog class="concierge-chooser" data-concierge-chooser>
+  <form class="concierge-chooser-panel" method="dialog" data-concierge-form>
+    <div class="concierge-chooser-header">
+      <h2>Choose a Concierge</h2>
+      <button
+        class="concierge-icon-button"
+        type="button"
+        aria-label="Close"
+        data-concierge-chooser-close
+      >
+        x
+      </button>
+    </div>
+
+    <label class="concierge-dropzone" tabindex="0" data-concierge-dropzone>
+      <span>Paste or drop image</span>
+      <input type="file" accept="image/*" data-concierge-file />
+    </label>
+
+    <p class="concierge-error" role="status" data-concierge-error></p>
+  </form>
+</dialog>
+
+<style>
+  .concierge-swap-caption {
+    display: block;
+    font-size: smaller;
+    margin: 0;
+    padding-inline: min(3rem, 5%);
+    text-align: center;
+  }
+
+  .concierge-swap-link {
+    appearance: none;
+    background: transparent;
+    border: 0;
+    color: -webkit-link;
+    cursor: pointer;
+    display: inline;
+    font: inherit;
+    margin: 0;
+    padding: 0;
+    text-decoration: underline;
+    text-decoration-thickness: 0.08em;
+    text-underline-offset: 0.16em;
+  }
+
+  .concierge-swap-link:hover,
+  .concierge-swap-link:focus-visible {
+    text-decoration-thickness: 0.14em;
+  }
+
+  .concierge-chooser {
+    border: 2px solid black;
+    box-shadow: var(--box-shadow-deep);
+    max-width: min(92vw, 430px);
+    padding: 0;
+  }
+
+  .concierge-chooser::backdrop {
+    background-color: rgba(0, 0, 0, 0.65);
+  }
+
+  .concierge-chooser-panel {
+    display: grid;
+    gap: 1rem;
+    margin: 0;
+    padding: 1rem;
+  }
+
+  .concierge-chooser-header {
+    align-items: start;
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+  }
+
+  .concierge-chooser h2 {
+    font-size: var(--font-size-title);
+    line-height: 1.1;
+    margin: 0;
+  }
+
+  .concierge-icon-button {
+    background: white;
+    border: 2px solid black;
+    box-shadow: var(--box-shadow);
+    color: black;
+    cursor: pointer;
+    font: inherit;
+    font-weight: 800;
+  }
+
+  .concierge-icon-button {
+    height: 2rem;
+    line-height: 1;
+    padding: 0;
+    width: 2rem;
+  }
+
+  .concierge-dropzone {
+    align-items: center;
+    border: 2px dashed black;
+    cursor: pointer;
+    display: flex;
+    font-weight: 800;
+    justify-content: center;
+    min-height: 4.5rem;
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .concierge-dropzone.is-dragging,
+  .concierge-dropzone:focus-visible {
+    outline: 3px solid black;
+    outline-offset: 2px;
+  }
+
+  .concierge-dropzone input {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+
+  .concierge-error {
+    color: #b00020;
+    font-weight: 800;
+    margin: 0;
+    min-height: 1.7em;
+  }
+
+  @media (max-width: 460px) {
+    .concierge-dropzone {
+      min-height: 4rem;
+    }
+  }
+</style>
+
+<script>
+  const conciergeRoot = document.querySelector("[data-concierge-swap]");
+  const sebastianConciergeSrc =
+    "/posts/the-concierge-and-the-vault/sebastian-concierge.png";
+  const sebastianButton = conciergeRoot?.querySelector(
+    "[data-concierge-sebastian]",
+  );
+  const chooser = document.querySelector("[data-concierge-chooser]");
+  const chooserOpenButton = conciergeRoot?.querySelector(
+    "[data-concierge-chooser-open]",
+  );
+  const chooserCloseButton = chooser?.querySelector(
+    "[data-concierge-chooser-close]",
+  );
+  const chooserForm = chooser?.querySelector("[data-concierge-form]");
+  const fileInput = chooser?.querySelector("[data-concierge-file]");
+  const dropzone = chooser?.querySelector("[data-concierge-dropzone]");
+  const errorMessage = chooser?.querySelector("[data-concierge-error]");
+  const conciergeImageAlt =
+    "Charon from John Wick standing at a hotel front desk";
+  const conciergeDrawingIds = ["concierge-read", "concierge-write"];
+  let conciergeSwapActive = false;
+  let activeConciergeSrc = sebastianConciergeSrc;
+  let activeObjectUrl = "";
+
+  function rememberAttribute(element, name) {
+    const dataName = `original${name[0].toUpperCase()}${name.slice(1)}`;
+    if (element.dataset[dataName] !== undefined) return;
+
+    element.dataset[dataName] = element.getAttribute(name) || "";
+  }
+
+  function restoreAttribute(element, name) {
+    const dataName = `original${name[0].toUpperCase()}${name.slice(1)}`;
+    const value = element.dataset[dataName];
+
+    if (value) {
+      element.setAttribute(name, value);
+    } else {
+      element.removeAttribute(name);
+    }
+  }
+
+  function setError(message) {
+    if (errorMessage) {
+      errorMessage.textContent = message;
+    }
+  }
+
+  function closeChooser() {
+    if (chooser instanceof HTMLDialogElement) {
+      chooser.close();
+    }
+  }
+
+  function setActiveConciergeSrc(src, isObjectUrl = false) {
+    if (activeObjectUrl && activeObjectUrl !== src) {
+      URL.revokeObjectURL(activeObjectUrl);
+    }
+
+    activeConciergeSrc = src;
+    activeObjectUrl = isObjectUrl ? src : "";
+    conciergeSwapActive = true;
+    syncConciergeSwap();
+    closeChooser();
+  }
+
+  function getImageFile(fileList) {
+    return Array.from(fileList || []).find((file) =>
+      file.type.startsWith("image/"),
+    );
+  }
+
+  function useFile(file) {
+    if (!file) {
+      setError("That does not look like an image file.");
+      return;
+    }
+
+    setError("");
+    setActiveConciergeSrc(URL.createObjectURL(file), true);
+  }
+
+  function getImageUrlFromText(text) {
+    const url = text.trim();
+    if (!url) return "";
+
+    try {
+      const parsedUrl = new URL(url, window.location.href);
+      if (!["http:", "https:", "data:", "blob:"].includes(parsedUrl.protocol)) {
+        return "";
+      }
+
+      return parsedUrl.toString();
+    } catch {
+      return "";
+    }
+  }
+
+  function useImageUrl(url) {
+    if (!url) {
+      setError("Paste an image or image URL.");
+      return;
+    }
+
+    const image = new Image();
+    image.onload = () => {
+      setError("");
+      setActiveConciergeSrc(url);
+    };
+    image.onerror = () => {
+      setError("That link does not look like an image.");
+    };
+    image.src = url;
+  }
+
+  function useFileOrUrl(fileList, text = "") {
+    const file = getImageFile(fileList);
+    if (file) {
+      useFile(file);
+      return;
+    }
+
+    useImageUrl(getImageUrlFromText(text));
+  }
+
+  function syncConciergeArticleImage() {
+    const image = document.querySelector(`img[alt="${conciergeImageAlt}"]`);
+    if (!(image instanceof HTMLImageElement)) return;
+    const frame = image.parentElement;
+
+    for (const name of ["src", "srcset", "sizes", "width", "height", "style"]) {
+      rememberAttribute(image, name);
+    }
+    if (frame) {
+      rememberAttribute(frame, "style");
+    }
+
+    if (conciergeSwapActive) {
+      const imageBox = image.getBoundingClientRect();
+      const frameWidth = imageBox.width || image.width;
+      const frameHeight = imageBox.height || image.height;
+
+      if (frame && frameWidth > 0 && frameHeight > 0) {
+        frame.style.alignItems = "center";
+        frame.style.display = "flex";
+        frame.style.height = `${frameHeight}px`;
+        frame.style.justifyContent = "center";
+        frame.style.marginInline = "auto";
+        frame.style.maxWidth = "100%";
+        frame.style.width = `${frameWidth}px`;
+      }
+
+      image.removeAttribute("srcset");
+      image.removeAttribute("sizes");
+      image.style.height = "100%";
+      image.style.objectFit = "cover";
+      image.style.objectPosition = "center center";
+      image.style.width = "100%";
+      image.src = activeConciergeSrc;
+    } else {
+      for (const name of [
+        "src",
+        "srcset",
+        "sizes",
+        "width",
+        "height",
+        "style",
+      ]) {
+        restoreAttribute(image, name);
+      }
+      if (frame) {
+        restoreAttribute(frame, "style");
+      }
+    }
+  }
+
+  function syncConciergeDrawingImages() {
+    for (const id of conciergeDrawingIds) {
+      const figure = document.getElementById(id);
+      if (!figure) continue;
+
+      for (const image of figure.querySelectorAll("svg image")) {
+        rememberAttribute(image, "href");
+        rememberAttribute(image, "preserveAspectRatio");
+
+        if (conciergeSwapActive) {
+          image.setAttribute("href", activeConciergeSrc);
+          image.setAttribute("preserveAspectRatio", "xMidYMid slice");
+          image.setAttributeNS(
+            "http://www.w3.org/1999/xlink",
+            "xlink:href",
+            activeConciergeSrc,
+          );
+        } else {
+          restoreAttribute(image, "href");
+          restoreAttribute(image, "preserveAspectRatio");
+          image.setAttributeNS(
+            "http://www.w3.org/1999/xlink",
+            "xlink:href",
+            image.getAttribute("href") || "",
+          );
+        }
+      }
+    }
+  }
+
+  function syncConciergeSwap() {
+    sebastianButton?.setAttribute(
+      "aria-pressed",
+      String(
+        conciergeSwapActive && activeConciergeSrc === sebastianConciergeSrc,
+      ),
+    );
+    syncConciergeArticleImage();
+    syncConciergeDrawingImages();
+  }
+
+  sebastianButton?.addEventListener("click", () => {
+    if (conciergeSwapActive && activeConciergeSrc === sebastianConciergeSrc) {
+      conciergeSwapActive = false;
+      syncConciergeSwap();
+      return;
+    }
+
+    setActiveConciergeSrc(sebastianConciergeSrc);
+  });
+
+  chooserOpenButton?.addEventListener("click", () => {
+    setError("");
+    if (chooser instanceof HTMLDialogElement) {
+      chooser.showModal();
+      if (dropzone instanceof HTMLElement) {
+        dropzone.focus();
+      }
+    }
+  });
+
+  chooserCloseButton?.addEventListener("click", closeChooser);
+
+  chooserForm?.addEventListener("submit", (event) => {
+    event.preventDefault();
+  });
+
+  fileInput?.addEventListener("change", () => {
+    if (!(fileInput instanceof HTMLInputElement)) return;
+    useFile(getImageFile(fileInput.files));
+    fileInput.value = "";
+  });
+
+  dropzone?.addEventListener("keydown", (event) => {
+    if (!(event instanceof KeyboardEvent)) return;
+    if (event.key !== "Enter" && event.key !== " ") return;
+
+    event.preventDefault();
+    if (fileInput instanceof HTMLInputElement) {
+      fileInput.click();
+    }
+  });
+
+  dropzone?.addEventListener("dragenter", () => {
+    dropzone.classList.add("is-dragging");
+  });
+
+  dropzone?.addEventListener("dragover", (event) => {
+    event.preventDefault();
+    dropzone.classList.add("is-dragging");
+  });
+
+  dropzone?.addEventListener("dragleave", () => {
+    dropzone.classList.remove("is-dragging");
+  });
+
+  dropzone?.addEventListener("drop", (event) => {
+    event.preventDefault();
+    dropzone.classList.remove("is-dragging");
+    useFileOrUrl(
+      event.dataTransfer?.files,
+      event.dataTransfer?.getData("text/uri-list") ||
+        event.dataTransfer?.getData("text/plain") ||
+        "",
+    );
+  });
+
+  dropzone?.addEventListener("paste", (event) => {
+    event.preventDefault();
+    useFileOrUrl(
+      event.clipboardData?.files,
+      event.clipboardData?.getData("text/plain") || "",
+    );
+  });
+
+  chooser?.addEventListener("click", (event) => {
+    if (event.target === chooser) {
+      closeChooser();
+    }
+  });
+
+  const conciergeSwapObserver = new MutationObserver(syncConciergeSwap);
+  conciergeSwapObserver.observe(document.body, {
+    childList: true,
+    subtree: true,
+  });
+  window.addEventListener("resize", syncConciergeSwap);
+</script>

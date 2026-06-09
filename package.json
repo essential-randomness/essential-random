@@ -15,6 +15,7 @@
     "@astrojs/rss": "^4.0.12",
     "@astrojs/vercel": "^8.2.6",
     "@fujocoded/remark-alt-text-files": "^0.0.2",
+    "@fujocoded/remark-excalidraw": "^0.0.2",
     "@fujocoded/zod-transform-socials": "^0.1.0",
     "@iconify-json/lucide": "^1.2.107",
     "@iconify-json/si": "^1.2.3",
