@@ -184,11 +184,13 @@
   const dropzone = chooser?.querySelector("[data-concierge-dropzone]");
   const errorMessage = chooser?.querySelector("[data-concierge-error]");
   const conciergeImageAlt =
-    "Charon from John Wick standing at a hotel front desk";
+    "Charon from John Wick standing at the hotel front desk";
   const conciergeDrawingIds = ["concierge-read", "concierge-write"];
   let conciergeSwapActive = false;
   let activeConciergeSrc = sebastianConciergeSrc;
   let activeObjectUrl = "";
+  let conciergeSwapSyncQueued = false;
+  let conciergeSwapSyncing = false;
 
   function rememberAttribute(element, name) {
     const dataName = `original${name[0].toUpperCase()}${name.slice(1)}`;
@@ -228,7 +230,7 @@
     activeConciergeSrc = src;
     activeObjectUrl = isObjectUrl ? src : "";
     conciergeSwapActive = true;
-    syncConciergeSwap();
+    syncConciergeSwapNow();
     closeChooser();
   }
 
@@ -305,8 +307,20 @@
 
     if (conciergeSwapActive) {
       const imageBox = image.getBoundingClientRect();
-      const frameWidth = imageBox.width || image.width;
-      const frameHeight = imageBox.height || image.height;
+      const intrinsicWidth = Number(image.getAttribute("width")) || image.width;
+      const intrinsicHeight =
+        Number(image.getAttribute("height")) || image.height;
+      const fallbackWidth = Math.min(
+        intrinsicWidth || window.innerWidth,
+        image.closest("main")?.clientWidth || window.innerWidth,
+      );
+      const fallbackHeight =
+        intrinsicWidth && intrinsicHeight
+          ? fallbackWidth * (intrinsicHeight / intrinsicWidth)
+          : intrinsicHeight;
+      const frameWidth = imageBox.width > 20 ? imageBox.width : fallbackWidth;
+      const frameHeight =
+        imageBox.height > 20 ? imageBox.height : fallbackHeight;
 
       if (frame && frameWidth > 0 && frameHeight > 0) {
         frame.style.alignItems = "center";
@@ -372,21 +386,38 @@
     }
   }
 
-  function syncConciergeSwap() {
+  function syncConciergeSwapNow() {
+    if (conciergeSwapSyncing) return;
+
+    conciergeSwapSyncing = true;
     sebastianButton?.setAttribute(
       "aria-pressed",
       String(
         conciergeSwapActive && activeConciergeSrc === sebastianConciergeSrc,
       ),
     );
-    syncConciergeArticleImage();
-    syncConciergeDrawingImages();
+    try {
+      syncConciergeArticleImage();
+      syncConciergeDrawingImages();
+    } finally {
+      conciergeSwapSyncing = false;
+    }
+  }
+
+  function queueConciergeSwapSync() {
+    if (conciergeSwapSyncing || conciergeSwapSyncQueued) return;
+
+    conciergeSwapSyncQueued = true;
+    requestAnimationFrame(() => {
+      conciergeSwapSyncQueued = false;
+      syncConciergeSwapNow();
+    });
   }
 
   sebastianButton?.addEventListener("click", () => {
     if (conciergeSwapActive && activeConciergeSrc === sebastianConciergeSrc) {
       conciergeSwapActive = false;
-      syncConciergeSwap();
+      syncConciergeSwapNow();
       return;
     }
 
@@ -463,10 +494,10 @@
     }
   });
 
-  const conciergeSwapObserver = new MutationObserver(syncConciergeSwap);
+  const conciergeSwapObserver = new MutationObserver(queueConciergeSwapSync);
   conciergeSwapObserver.observe(document.body, {
     childList: true,
     subtree: true,
   });
-  window.addEventListener("resize", syncConciergeSwap);
+  window.addEventListener("resize", queueConciergeSwapSync);
 </script>
