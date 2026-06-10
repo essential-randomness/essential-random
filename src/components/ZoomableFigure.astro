@@ -269,6 +269,11 @@ const zoomOptions = [1, 2, 4] as const;
     width: var(--zoomable-figure-page-width);
   }
 
+  :global(figure.zoomable-figure-parent-wide) {
+    max-width: none !important;
+    width: calc(100vw - 40px);
+  }
+
   @media (max-width: 650px) {
     .zoomable-figure.is-collapsed-preview
       .zoomable-figure__preview-toggle {
@@ -278,6 +283,10 @@ const zoomOptions = [1, 2, 4] as const;
 
     .zoomable-figure.is-page-wide {
       --zoomable-figure-page-width: 100%;
+    }
+
+    :global(figure.zoomable-figure-parent-wide) {
+      width: 100%;
     }
 
     .zoomable-figure.is-page-wide .zoomable-figure__viewport {
@@ -384,6 +393,16 @@ const zoomOptions = [1, 2, 4] as const;
         behavior: "smooth",
       });
     });
+  }
+
+  function syncZoomableFigureParentWidth(figure) {
+    const parent = figure.parentElement;
+    if (parent instanceof HTMLElement && parent.tagName === "FIGURE") {
+      parent.classList.toggle(
+        "zoomable-figure-parent-wide",
+        figure.classList.contains("is-page-wide")
+      );
+    }
   }
 
   function canPanZoomableFigureViewport(viewport) {
@@ -495,6 +514,7 @@ const zoomOptions = [1, 2, 4] as const;
 
       captureZoomableFigureControlsWidth(figure);
       const expanded = figure.classList.toggle("is-page-wide");
+      syncZoomableFigureParentWidth(figure);
       button.setAttribute("aria-pressed", String(expanded));
       button.textContent = expanded ? "Fit post" : "Full page";
       syncZoomableFigureSize(figure);
