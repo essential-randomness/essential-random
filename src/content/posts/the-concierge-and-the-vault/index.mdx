@@ -1,9 +1,9 @@
 ---
-title: "Communities on AT: the Concierge, the Vault, and the Fuck-ass Astro Website"
+title: "AT-Communities #1: the Concierge, the Vault, and the Fuck-ass Astro Website"
 tagline: In which I try to make sense of communities on ATproto.
 created_at: 2026-06-04 12:00:00
 tags:
-  - +testing
+  - +ATproto
 ---
 
 import ZoomableFigure from "../../../components/ZoomableFigure.astro";
@@ -469,13 +469,17 @@ the community's data on its own. It cannot be manufactured out of thin air!
 <ZoomableFigure
 id="concierge-pds"
 linkLabel="Link to Concierge PDS drawing"
-previewHeight="half"
 >
 
 ![](./concierge-pds.excalidraw)
 
 </ZoomableFigure>
+<figcaption>
 
+_"He's\* making a list/and checking it twice/gonna find out if you got access or no dice 🎵"_
+(\*or another service he knows about)
+
+</figcaption>
 </figure>
 
 But there's a fundamental difference:
@@ -530,16 +534,16 @@ So, where should a Community's data live? Well, it depends[^14]:
 ...and that's that! A community can own all its data, QED. Next up, _reassigning
 the Conc—_
 
-_AH!_ As if I'd keep it _that short_[^15]!
-
 ### "Fully-private" Community Data
+
+_AH! Got you!_ As if I'd keep it that short[^15].
 
 There's _one more type of community data_, often forgotten or shoehorned into
 the previous two: **the "fully-private" Community data that no Community Member
-should _freely_ access at all—not the Admin, not the most trusted Mod, not
-_anyone_.** This is all data that belongs to a community, but that in many
-Communities today _almost no one (if anyone at all)_ can read or write directly
-and in its entirety—nor, for the most part, wants to.
+should _freely_ and _fully_ access at all—not the Admin, not the most trusted
+Mod, not _anyone_.** This is all data that belongs to a community, but that in
+many Communities _almost no one (if anyone at all)_ can read or write
+directly and in its entirety—nor, for the most part, wants to.
 
 It may include things like:
 
@@ -548,25 +552,63 @@ It may include things like:
 - PII of Community members (or anything that could be used to identify them)
 - Detailed access logs
 
-...and many more. This category of data often varies between community and
-community. Sometimes even across the same one at different ages and stages
-of growth.
+...and many more. This category of data often varies across community and
+community. Sometimes, data a community kept semi-public may become more (or less)
+sensitive as it changes and grows.
 
-In the current ATproto world, similar data often ends up stored within
-individual App(View)s. And while Permissioned Spaces will "bring some back into
-the light", it won't fully eliminate the need for it—for every piece of data
-you bring, I can think of a community that may want to get it private.
+In the current ATproto world, where data is all either public or private,
+similar data often ends up stored within individual App(View)s. And while
+Permissioned Spaces will "bring some back into the light", it won't fully
+eliminate the need for it. After all, **for every piece of data you bring, I can
+think of a community that may want to it to be private and not directly
+accessible to its members.**
 
-In the future AT-Communities world, unless a solution for Fully Private Data is
-found, it will end up stored within individual Arbiters (or Concierges) instead.
+> "_Objection!_" A voice rises from the crowd. "What about membership? In every
+> community someone needs to know who its members are!"
+>
+> _"Do they though?"_ I ask, with the smugness of one who wrote community
+> software where no one knew who the Members were, _except for the database[^15a]._
 
-### Enter the Vault
+Made-up conversations where I win imaginary arguments aside, what
+I'm stressing here is the difference between:
 
-I call this place "the Vault": a community-owned store of records whose shape is
-defined by Lexicons, with actions taken via a specific set of XRPC requests, not
-meant to be directly accessible to members—a back*room* of sensitive or private
-_community_ data, locked behind a counter, with a "professional" in charge of
-retrieving and storing information on a need-to-know basis.
+- Information someone must have access to read and write in its _entirety_
+- Information someone must be able to access _smaller slices_ of, in _very
+  specific cases_
+
+**"Some Community Member (or Service) needs to _know_" is not the same as "some
+Community Member (or Service) needs to read and write that data _directly_".**
+After all, in traditional software applications, not having a direct connection
+to the database doesn't prevent people from asking questions about its data:
+they just go through a server—an intermediary that mediates their access. And
+_incidentally_, that mediation, self-hosted software shows us[^16], doesn't have to
+mean that the data is not in the community's hands.
+
+Because in the future AT-Communities world, **unless a solution for
+Fully-Private Community Data is available, the need for this data won't stop
+exisiting: it will just end up within individual Arbiters (or Concierges)
+instead.**
+
+### Enter the _Vault_-verse
+
+Let's dive into our current predicament, then! **How should Communities deal with
+their Fully-Private Data?** Ideally, this data would be:
+
+1. As much under their control as a PDS is
+2. Not a PITA to use
+3. Accessible to individual Users or Services according to their credentials, but
+   with fine-grained access _up to the individual record_
+
+...which is actually not that hard of a problem to solve! After all, **ATproto
+developers already create stores of data that are not a PITA to use (problem #2)
+and can return fine-grained data to Users or Services (problem #3)—we just
+implement them over and over _in every single AppView_.**
+
+So let's create one single data store! Even better: **let's put that single data
+store under a DID's "control" exactly like we do with PDSes**—which means we're now
+_also_ solving problem #1, in the same way we already know how.
+
+**I call this Community-owned Fully-Private data store "the Vault".**
 
 <figure style="max-width: clamp(20rem, 90%, 35rem);">
 
@@ -581,50 +623,229 @@ linkLabel="Link to Concierge Vault drawing"
 
 </figure>
 
-Instead of free access, granular permissions are assigned (even at the level of
-individual records), and data is fetched or written—once again!—on behalf of
-the entity making the request. Who may grant that access is itself a
-high-clearance, granular decision.
+_The Vault_ is a data store where:
 
-In a way, you can think of "the Vault" as the community's own internal SQLite
+- Is available as a service named `#atproto_vault` under a DID, which keeps its
+  content movable across hosts
+- Doesn't provide direct write OR read access to anyone but the owner of the DID
+  (if at all), which keeps its data private, _only accessible through a
+  Concierge_
+- Can be queried through specific XRPC endpoints using Lexicons—almost like a
+  PDS can be—but with granular permissions that can get down to the level of
+  individual records
+
+Once again, you can think of "the Vault" as the community's own internal SQLite
 database, like the one many AppViews build: just a standardized one with no
-access rights directly granted. ATproto applications read and write its content
-through the same affordances we already use—Lexicons and XRPC—which keeps its
-content interoperable across delegated services. And—even better!—we can also
-leverage other affordances that already exist in the protocol to keep the
-vault's _content_ movable across hosts: simply changing the `#vault` service
-endpoint a community DID document points to, just like one would with a PDS.
+access rights directly granted, and a "Concierge"[^17] in front to mediate access.
+**Data that AppViews currently hold internally can either be mirrored into the
+Vault or placed there to start**—either way, the data travels with the DID, not
+with whoever's running the AppView at the moment.
 
-> **_Necessary Disclaimer_:** yes, whoever holds the raw infrastructure can read
-> anything in the Vault. And someone _must_ be able to, whether that's the
-> Vault's owner or whoever's charged with auditing it. That's not the threat the
-> Vault defends against: the Vault hides data from _everyone else_ (the mod, the
-> admin, the volunteer...) whose access should come from doing a _job_, not from
-> holding a _key_.
-
-There's a _load-bearing part_ here worth repeating: the data in the Vault is
-not owned by the _Concierge_, nor by whoever mediates access to it. It's a
-place _owned by a DID_, the same way a PDS is owned by the community and
-surfaced as a specific data-storing service. Data that AppViews currently hold
-internally can either be mirrored into the Vault or placed there to
-start—either way, the data travels with the DID, not with whoever's running the
-AppView at the moment.
-
-In short: the Vault is _where the off-protocol state goes so the AppView
-doesn't have to hold it_—an on-protocol way to keep off-network (but still
-shareable!) data associated with a specific DID. A data store that "speaks"
-ATproto-language, but is _not_ necessarily ATproto-shaped. Not today, at
-least.
+The Vault is _where the off-protocol state goes so the AppView doesn't have to
+hold it_—a data store that "speaks" ATproto-language, but is _not_ necessarily
+ATproto-shaped. Not today, at least.
 
 ## New Concierge, Who Dis~?
 
-TODO
+And here we are, facing our final requirement:
+
+<div class="concierge-list">
+
+> 1. ~~The Concierge holds _scoped, revocable permission_ to act on behalf of
+>    the Community and fullfil its needs and its members'~~
+> 2. ~~Community data lives somewhere _the community_ owns~~
+> 3. **The job of Concierge can be easily _reassigned_ to "whoever" comes next**
+
+</div>
+
+How do we enable a community to chooose a different concierge should their current
+one prove less trustworthy (or less _featureful_) than they'd like?
+
+<figure>
+
+![](./concierge-jeeves.png)
+
+<figcaption>
+
+_Concierge Service #2_ here represented by famous internet darling and
+gay icon the Ask Jeeves butler
+
+</figcaption>
+</figure>
+
+While this may seem like a hard question, its solution is already in front
+of us. And the journey we've been on until now has helped make it possible. After all:
+
+1. The new Concierge can be granted credentials by the Community Account to do
+   its job, **which makes it again possible for third-party Apps to act on
+   behalf of Community Members**
+2. The new Concierge can act on the same data as the previous one, including the
+   _private data in the Community's Vault_ **which removed the need to hold
+   Community state in the Old Concierge Service itself**
+
+But there is one last issue, one we've until now overlooked...
+
+### New Concierge, _Where_ It~?
+
+The final hurdle: **how does that random Service carrying the User request—_our
+fuck-ass Astro Website_—know it should now go _somewhere else_ to ask it be
+fulfilled?**
+
+The same way it knows how to go find the Community's PDS or the Community's
+Vault: **by looking up the `#concierge` service in the Community's DID
+document.**
+
+<figure style="max-width: clamp(20rem, 90%, 35rem);">
+
+<ZoomableFigure id="concierge-assembled" linkLabel="Link to Concierge Read drawing">
+
+![Concierge Assembled](./concierge-assembled.excalidraw)
+
+</ZoomableFigure>
+
+</figure>
+
+When a Community writes a Concierge into its DID document, **it promotes the
+Concierge as an official part of the Community, even as it remains an external
+Service not directly run by it.**
+
+Then all third-party Services need is:
+
+1. A standardized Lexicon to talk to Concierges (or other Services), even as
+   implementations change
+2. A standardized way for Concierges to forward requests to other Services whose
+   endpoints it doesn't directly implement, as chosen by the Community rather than
+   by the requester
+
+This second a bit may seem more involved than what we have today, but honestly?
+Not by much.
+
+After all, the PDS already has a standardized way to proxy requests to other
+services, just one that doesn't let it do _almost anything_ on its own. In a
+way, **the PDS is already acting as a Concierge—it just _abdicates_ the
+responsibility of knowing about a DID's _preferred services_[^18] and places it
+squarely on third parties.**
+
+## What Makes a "User Account" a "Community Account"?
+
+Once the Concierge is an official part of the Community DID, we get one final,
+_crucial property_: **we can use the presence of a `#concierge` DID entry as the
+indication that the account is a Community account.**
+
+If this seems far-fetched... Well, it's really not! Because **this is exactly
+what ATproto does with labelers account _today_.**
+
+<figure>
+
+![](./labeler-slides.png)
+
+<figcaption>
+  Slides from my ATmosphereConf talk, showing the presence of a Labeler Services
+  in a User DID turns its Account into a Labeler Account on Bluesky and signals
+  the presence of specific Labeler endpoints.
+</figcaption>
+
+</figure>
+
+Once we do that, we have the pieces of the puzzle we need to:
+
+1. Let its members act according to their privileges and permissions
+2. Let the Community itself own _its own data_
+3. Identify and interact with a Community Account through ATproto, no matter who
+   implements the endpoints that make it _a Community_
+
+And through this we can achieve _exactly_ what we asked for at the very beginning:
+
+> **ATproto communities can live on this protocol the way a user does—owning
+> their identity, their data, and their freedom to fire any service that stops
+> meeting their needs.**
+
+We _just need to build it._
 
 ## — Intermission: Members Management in Practice —
 
-TODO
+SO! This article took a long time to write...and there's a whole other part
+below it (yes, again, I'm so sorry, I swear it's worth it). I'm going to publish
+the rest in a few days, but I wanted to show how this might look like in
+practice.
 
-## _Sleight of Hand:_ It was Everyone All Along!
+I'd probably need another day to polish it up where I want it to be, but as they
+say "`¯\_(ツ)_/¯`". **I'm not going to pretend I have all the answers. Still
+there's A Vision™ here which I believe is roughly, _directionally_ a correct
+shape to solve the issue**—one that I've seen everyone involved hover around
+_without exactly pinning down its parts_.
+
+Here's my examples, in both read and write edition, using the `community.lexicon`
+and `com.atproto` namespaces cause... well, I need some.
+
+Have at it:
+
+### The Concierge — List Community Members Edition
+
+<figure>
+
+<ZoomableFigure id="concierge-read" linkLabel="Link to Concierge Read drawing">
+
+![Concierge Read](./concierge-read.excalidraw)
+
+</ZoomableFigure>
+
+<figcaption>
+  — You either die a hero or live long enough to see yourself reinvent
+  microservices
+</figcaption>
+
+</figure>
+
+Here's how it works, using the request to add a new member to a community:
+
+1. Some Requesting Entity (App, service, member, member-asking-through-App,
+   _whatever_) asks the Concierge to
+   "`community.lexicon.communities.listMembers`"
+2. The Concierge, consulting data it has access to (whether from the Vault, or
+   from the DID document, or however else) determines this community has elected
+   a service that can answer `community.lexicon.communities.listMembers` on its
+   behalf—maybe even the concierge itself!
+3. The Concierge, having determined Requesting Entity is authorized by the
+   community to know that answers forwards it to the appropriate Responding
+   Entity—or again, takes it on itself.
+4. The Responding Entity, upon receiving
+   `community.lexicon.communities.listMembers`, goes to whoever is in charge of
+   the Vault (the `#atproto_vault` service) and asks for everything it needs to
+   answer that question. For example:
+   `com.atproto.vault.listRecords(["community.lexicon.communities.member",
+"community.lexicon.communities.communityRoles",
+"community.lexicon.communities.rolePermissions"])`.
+5. The Vault's manager returns the list of data the Responding Entity has access
+   to—which may _or may not be_ the full list of
+   `community.lexicon.communities.member` records.
+6. The Responding Entity sends it back to the Concierge
+7. The Concierge sends it back to the Requesting Entity
+
+...and that's it! Simple, isn't it?
+
+Ok, that's a lot of jumps...but that's not the point! Jumps and paths can be
+optimized, shapes can be changed, and caches can be written. You know what
+they say: "Make it work, make it right, make it fast".
+
+### The Concierge — Add Community Member Edition
+
+<figure>
+
+<ZoomableFigure id="concierge-write" linkLabel="Link to Concierge Write drawing">
+
+![Concierge Write](./concierge-write.excalidraw)
+
+</ZoomableFigure>
+
+</figure>
+
+This is left as an exercise for readers. Or for me, after I haven't gone to bed
+at 5AM for a week to write this article—not to mention, _the whole rest of it._
+
+Thanks for reading!
+
+## _Sleight of Hand:_ It was ~~Communities~~ Users All Along!
 
 TODO
 
@@ -701,11 +922,42 @@ TODO
 
 [^12]: Astro not required
 
-[^13]: ((Studio Audience Laugh-track plays)) <small>...sorry.</small>
+[^13]: [[Studio Audience Laugh-track plays]] <small>...im sorry.</small>
 
 [^14]: ![](./it-depends.png)
 
-[^15]: ((Studio Audience Laugh-track plays again)) <small>...i'm so sorry.</small>
+[^15]: [[Studio Audience Laugh-track plays again]] <small>...again, im so sorry.</small>
+
+[^15a]:
+    That software [is called BobaBoard](https://bobaboard.com/) and it's where
+    my username comes _from_.<br /><br />
+    There is a special type of irony in creating
+    Community software that doesn't center any specific member _including
+    yourself_, ending up being called "Ms Boba" (as in _"the person who made
+    BobaBoard"_) because you don't have a username, and then—after _years pass_—**have people
+    _understandably_ assume you're the type of developer who'd name their software after
+    themselves.**<br /><br />
+    100/10, _Absolute Auteur Cinema about a woman and her hubris_, would ~~watch~~ not make
+    the same mistake again.
+
+[^16]:
+    "But most Communities are never going to self-host their—"
+    ![](./hades-knows.png)
+    **tl;dr:** most Users don't host their PDSes, but that doesn't mean they don't "own" their data.
+    As we'll see in the next section, I'm not asking Communities to take on anything more involved
+    than what ATproto already asks them.
+
+[^17]:
+    I say "Concierge" here because it continues carrying the point and the
+    metaphor at the core of the article. But just like (as Zicklag pointed out)
+    the Arbiter doesn't have to all be the same service, the "Concierge" doesn't
+    have to all be the same service. It just needs to know how to reach other
+    services as needed.
+
+[^18]:
+    Well, _almost all_ preferred services.
+    ![](./mic-drop.png)
+    (affectionate)
 
 <style>{`
   figure:not(:has(> p > img)) svg {
