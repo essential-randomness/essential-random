@@ -1,0 +1,1 @@
+An OAuth screen asking for permission to access user data from their account

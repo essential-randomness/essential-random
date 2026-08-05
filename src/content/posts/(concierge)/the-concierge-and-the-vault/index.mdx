@@ -206,7 +206,7 @@ every record of the Community. But:
 
 When a request comes in, the Concierge handles it by _getting the right things
 done_: reading data where it can, writing where it should, coordinating with
-other services (internal or external) where needed. And if:
+other services (internal or external) where needed. **And if:**
 
 1. The Concierge holds _scoped, revocable permission_ to act on behalf of
    the Community and fullfil its needs and its Members'
@@ -221,7 +221,13 @@ it did each time—through sign up, configuration, and continued usage. Give it
 access to the data, ask it to route requests appropriately, and let it take care
 of whatever needs to be done.
 
+<figure>
 ![](./like-its-hard.gif)
+<figcaption>
+Sometimes things that are hard are worth doing; other times they aren't, but some fool (me) needs to
+prove they're possible; and sometimes, like this one, it's both.
+</figcaption>
+</figure>
 
 **That is not to say electing a new Concierge is not a UX challenge—but _so is a
 PDS_.** It may not be easy _(to start!)_, it may be slightly confusing _(to
@@ -263,7 +269,12 @@ for permission to write data or take action on their behalf. The User may accept
 the proposal by logging in and tapping "Allow", or leave the would-be suitor
 stranded at the redirect URI by cancelling the process[^7].
 
-TODO: get a picture of the permission screen.
+<figure style="max-width: clamp(20rem, 90%, 35rem);">
+![file:](./oauth-screen.png)
+<figcaption>
+  So many tears shed over such simple screens.
+</figcaption>
+</figure>
 
 But while the dance is the same for every user and service, there is a fundamental
 distinction between a "User" logging in to a service, and a "Community Member"
@@ -742,7 +753,8 @@ what ATproto does with labeler accounts _today_.**
 ![](./labeler-slides.png)
 
 <figcaption>
-  Slides from my ATmosphereConf talk, showing the presence of a Labeler Service
+  Slides from <a href="https://atprotocommunity.leaflet.pub/3mbhlzkuhd22vmy">my ATmosphereConf talk</a>, 
+  showing the presence of a Labeler Service
   in a User DID turns its Account into a Labeler Account on Bluesky and signals
   the presence of specific Labeler endpoints.
 </figcaption>
