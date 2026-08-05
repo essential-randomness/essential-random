@@ -6,13 +6,14 @@ tags:
   - +ATproto
 ---
 
-import ZoomableFigure from "../../../components/ZoomableFigure.astro";
-import ConciergeSwap from "../../../components/ConciergeSwap.astro";
+import ZoomableFigure from "../../../../components/ZoomableFigure.astro";
+import ConciergeSwap from "../../../../components/ConciergeSwap.astro";
 import { ExcalidrawComponent } from "@fujocoded/remark-excalidraw/component";
 
 This article comes after reading [Daniel's thoughts on Bluesky's move towards
-Community](https://dholms.leaflet.pub/3mndhk7ihsc2g), when Boris ~~torpedoed my
-week~~ wisely suggested I say something on the topic of ATproto Communities.
+Community](https://dholms.leaflet.pub/3mndhk7ihsc2g), when
+[Boris](https://bmann.ca/) ~~torpedoed my week~~ wisely suggested I say
+something on the topic of ATproto Communities.
 
 If you haven't heard much about them yet, the shallower end of my feelings is
 best summed up by what I told Boris right as I closed off Daniel's article:
@@ -28,13 +29,13 @@ If you balk at this, consider I have solid reasons for not moving off my cozy de
 
 1. I'm lazy ~~and busy~~ ~~and lazy~~
 2. **For any reason I want, whenever the urge eventually hits, I can swap out
-   the service hosting my data[^1a] and ditch Bluesky forever**—so I feel no
+   the service hosting my data[^1a] and ditch Bluesky forever**—which means I feel no
    particular pressure to do so _right now_.
 
 Similarly, if I'm ever to kick off my shoes, relax, and trust Bluesky—_any
-service, really!_—with hosting a community I "own"[^2], then everything
+service!_—with hosting a community I "own"[^2], then everything
 surrounding the community's _identity_ and _function_ needs at least as much
-"credible exit" as a PDS does.
+credible exit[^2a] as an individual user does.
 
 Put plainly:
 
@@ -47,9 +48,9 @@ have been building and writing essays about[^3]! So this article is not me
 barging in, shining armor on, rectifying something that's about to go wrong.
 **This is just me**—who's been prodding the protocol, building [a prototype of
 an ATproto Community](https://atmosphere.community), and spending a few years
-looking at "how the fuck do we community"—**finally getting off my ass and
-writing down what I know, believe, and _have been taught_ about how we should do
-community on ATproto.**
+looking at the "how the fuck do we online community" issue—**finally getting off
+my ass and writing down what I know, believe, and _have been taught_ about how
+we should do community on ATproto.**
 
 And to start, I'm going straight to the million dollars question...
 
@@ -73,10 +74,10 @@ vibes are ~~bulletproof~~ unknowable".
 </figure>
 
 What's very much knowable, however, is that once you build a technology that
-connects people across the web—like ATproto does—people will soon yearn for more
+connects people across the web (like ATproto does) people will soon yearn for more
 than just ~~sharing porn~~ expressing themselves. They will seek to build "group
 spaces" to ~~share porn~~ find belonging in a larger whole. And now that the
-moment has come for us, folks are racking their brains _(together!)_ so
+moment has come for us, folks are racking their brains—_all together!_—so
 **ATproto Communities can live on this protocol the way a user does—owning their
 identity, their data, and their freedom to fire any service that stops meeting
 their needs.**
@@ -87,9 +88,9 @@ around similar ideas, no matter what shape the concept holds in their brain.
 
 Thus, a Community on ATproto will likely have:
 
-- Its own DID—that is, its own independent identity in the larger ATmosphere
-- Its own PDS—that is, its own place to hold its own data
-- Some "entity" that can read and write data on its behalf—often referred to as
+- **Its own DID**—that is, its own independent identity in the larger ATmosphere
+- **Its own PDS**—that is, its own place to hold its own data
+- **Some "entity" that can read and write data on its behalf**—often referred to as
   "the Arbiter", after Zicklag's conceptualization of it
 
 This is accepted enough that we may as well consider it settled—or _"almost
@@ -100,10 +101,11 @@ sharp corner...
 
 ## The Thankless Job(s) of the Arbiter
 
-Last week, Zicklag generously lent me some time to walk through the Arbiter's
-design together. My plan was to learn its more practical ins and outs, so I
-could jump on stream myself and walk less-technical "AT-izens" through the shape
-of ATproto Communities—something now postponed (not replaced) by this article.
+Last week, [Zicklag](https://bsky.app/profile/zicklag.dev) generously lent me
+some time to walk through the Arbiter's design together. My plan was to learn
+its more practical ins and outs, so I could jump on stream myself and walk
+less-technical "AT-izens" through the shape of ATproto Communities—something now
+postponed (not replaced) by this article.
 
 For the curious (and only the curious), here's the resulting diagram[^5]. It was
 never meant as anything more than notes to myself, and it's not required to read
@@ -183,9 +185,9 @@ that you picture it as Charon from John Wick.
 </figure>
 
 In my conception of the Concierge (_"I need it to look like a distinguished,
-hypercompetent, and kinda-threatening, hot fictional man"_ aside) what matters
-most is that **the Concierge is not the Community itself.** It's a Community
-delegate\_: a service the Community has hired to handle matters on its behalf,
+hypercompetent, and kinda-threatening hot fictional man"_ aside) what matters
+most is that **the Concierge is not the Community itself.** It's a _Community
+delegate_: a service the Community has hired to handle matters on its behalf,
 neither part of it, nor inseparable.
 
 **To have the same credible exit as regular users, a Community must be able to
@@ -841,33 +843,10 @@ they say: "Make it work, make it right, make it fast".
 </figure>
 
 This is left as an exercise for readers. Or for me, after I haven't gone to bed
-at 5AM for a week to write this article—not to mention, _the whole rest of it._
+at 5AM for a week to write this article—not to mention, _the whole rest of it
+(coming soon?)._
 
 Thanks for reading!
-
-## _Sleight of Hand:_ It was ~~Communities~~ Users All Along! **[Coming Soon]**
-
-TODO
-
-### Issue/Solution 1: (Anonymous) AskBox Vault **[Coming Soon]**
-
-TODO
-
-### Issue/Solution 2: AskBox Concierge **[Coming Soon]**
-
-TODO
-
-## It's Not Over Yet (but I swear it'll be soon): Enter Notifications **[Coming Soon]**
-
-TODO
-
-### Let People ~~Enjoy~~ Solve Things **[Coming Soon]**
-
-TODO
-
-## Epilogue: App-Centric Networks, User-Centric Networks **[Coming Soon]**
-
-TODO
 
 [^1]:
     **P**ersonal **D**ata **S**erver: your personal folder of data in the
@@ -881,6 +860,10 @@ TODO
 [^2]:
     Philosophical debates over the meaning of community ownership
     notwithstanding.
+
+[^2a]:
+    "A credible exit means a realistic, well-supported, and achievable plan to
+    leave a situation, investment, or **platform** without major loss or failure."
 
 [^3]:
     ![](./every-day-rfcs.png)
