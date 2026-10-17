@@ -7,7 +7,8 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "test": "vitest run"
   },
   "dependencies": {
     "@astrojs/mdx": "^4.3.4",
@@ -29,6 +30,7 @@
     "astro-meta-tags": "^0.3.1",
     "clsx": "^2.0.0",
     "hastscript": "^9.0.0",
+    "hls.js": "^1.7.3",
     "marked": "^7.0.4",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
@@ -45,10 +47,12 @@
     "unist-util-select": "^5.1.0"
   },
   "devDependencies": {
+    "@astrojs/check": "^0.9.10",
     "hast-util-from-html-isomorphic": "^2.0.0",
     "postcss-nesting": "^12.0.1",
     "prettier": "^3.0.1",
     "prettier-plugin-astro": "^0.12.0",
-    "unist-util-visit-parents": "^6.0.1"
+    "unist-util-visit-parents": "^6.0.1",
+    "vitest": "^3.2.7"
   }
 }

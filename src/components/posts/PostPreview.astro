@@ -1,4 +1,6 @@
 ---
+import { parseInline } from "marked";
+
 interface Props {
   title: string;
   createdAt: Date;
@@ -18,12 +20,13 @@ const { title, createdAt, tagline, url, tags } = Astro.props;
       year: "numeric",
       month: "long",
       day: "numeric",
+      timeZone: "UTC",
     })
   }
   <div class="tags">
     {tags.map((tag) => <div data-tag={tag}>{tag}</div>)}
   </div>
-  {tagline && <div class="tagline">{tagline}</div>}
+  {tagline && <div class="tagline" set:html={parseInline(tagline)} />}
 </article>
 
 <style>

@@ -1,0 +1,189 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { formatTimestamp } from "./timestamp.ts";
+
+interface Props {
+  chapters: CollectionEntry<"streamRecordings">["data"]["chapters"];
+}
+
+const { chapters } = Astro.props;
+---
+
+<recording-chapter-list>
+  <nav aria-label="Chapters">
+    <details class="chapter-list">
+      <summary>All chapters</summary>
+      <ol>
+        {chapters.map((chapter, index) => (
+          <li>
+            <button
+              class="chapter-link"
+              type="button"
+              data-seek-time={chapter.start}
+              aria-current={index === 0 ? "true" : undefined}
+            >
+              <span class="chapter-time">{formatTimestamp(chapter.start)}</span>
+              <span>{chapter.title}</span>
+            </button>
+          </li>
+        ))}
+      </ol>
+    </details>
+  </nav>
+</recording-chapter-list>
+
+<script>
+  import { ChapterEvent, RecordingElement, SeekEvent } from "./events.ts";
+
+  class RecordingChapterList extends RecordingElement {
+    connect(signal: AbortSignal) {
+      const links = Array.from(
+        this.querySelectorAll<HTMLButtonElement>(".chapter-link"),
+      );
+
+      this.listen({
+        event: ChapterEvent,
+        handler: ({ index }) => {
+          links.forEach((link, linkIndex) => {
+            if (linkIndex === index) {
+              link.setAttribute("aria-current", "true");
+            } else {
+              link.removeAttribute("aria-current");
+            }
+          });
+        },
+      });
+
+      const details = this.querySelector("details");
+      const close = () => {
+        if (details?.open) {
+          details.open = false;
+          details.querySelector("summary")?.focus();
+        }
+      };
+
+      links.forEach((link) =>
+        link.addEventListener(
+          "click",
+          () => {
+            this.send(new SeekEvent(Number(link.dataset.seekTime)));
+            close();
+          },
+          { signal },
+        ),
+      );
+
+      this.addEventListener(
+        "keydown",
+        (event) => {
+          if (event.key === "Escape") {
+            close();
+          }
+        },
+        { signal },
+      );
+      document.addEventListener(
+        "click",
+        (event) => {
+          const outside =
+            event.target instanceof Node && !this.contains(event.target);
+          if (details?.open && outside) {
+            details.open = false;
+          }
+        },
+        { signal },
+      );
+    }
+  }
+
+  customElements.define("recording-chapter-list", RecordingChapterList);
+</script>
+
+<style>
+  recording-chapter-list {
+    display: block;
+  }
+
+  .chapter-list {
+    margin: 0;
+  }
+
+  .chapter-list summary {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    min-height: 2rem;
+    color: var(--recording-accent);
+    font-size: 0.9rem;
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .chapter-list summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .chapter-list summary::before {
+    content: "▸";
+  }
+
+  .chapter-list[open] summary::before {
+    content: "▾";
+  }
+
+  .chapter-list ol {
+    position: absolute;
+    z-index: 5;
+    inset-inline-start: 0;
+    top: calc(100% + 0.25rem);
+    display: grid;
+    gap: 0.1rem;
+    width: min(26rem, 100%);
+    max-height: min(28rem, 60vh);
+    box-sizing: border-box;
+    overflow: auto;
+    margin: 0;
+    padding: 0.35rem;
+    border: var(--recording-card-border);
+    border-radius: var(--recording-card-radius);
+    background: #fff;
+    box-shadow: var(--box-shadow);
+    list-style: none;
+  }
+
+  .chapter-link {
+    display: grid;
+    grid-template-columns: var(--chapter-label-width) 1fr;
+    align-items: baseline;
+    column-gap: 0.6rem;
+    width: 100%;
+    min-height: 2.5rem;
+    padding: 0.35rem var(--chapter-inset);
+    border: 0;
+    border-radius: 6px;
+    background: transparent;
+    color: #211432;
+    font: inherit;
+    text-align: start;
+    cursor: pointer;
+  }
+
+  .chapter-link[aria-current="true"] {
+    background: #efe5ff;
+    box-shadow: inset 3px 0 0 var(--recording-accent);
+    font-weight: 600;
+  }
+
+  @media (hover: hover) {
+    .chapter-link:hover {
+      background: #f2eaff;
+    }
+  }
+
+  :is(.chapter-link, .chapter-list summary):focus-visible {
+    outline: 2px solid var(--recording-focus-color);
+    outline-offset: 2px;
+  }
+</style>

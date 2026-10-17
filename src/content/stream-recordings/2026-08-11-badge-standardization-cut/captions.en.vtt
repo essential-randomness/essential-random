@@ -1,0 +1,5779 @@
+WEBVTT
+
+00:00:00.400 --> 00:00:00.800
+Okay,
+
+00:00:02.341 --> 00:00:03.081
+where were we?
+
+00:00:04.102 --> 00:00:07.963
+We were at the lexicon community because that's where the badges design
+
+00:00:08.203 --> 00:00:08.523
+is.
+
+00:00:10.564 --> 00:00:14.566
+I, oh, yeah, look at all of these things that I wanted to
+
+00:00:15.586 --> 00:00:16.287
+reply.
+
+00:00:18.408 --> 00:00:19.528
+Oh, look at it.
+
+00:00:19.648 --> 00:00:21.449
+I even looked at so many things.
+
+00:00:21.449 --> 00:00:23.449
+Okay, where was it? Badge
+
+00:00:28.672 --> 00:00:29.732
+definitions and awards.
+
+00:00:29.772 --> 00:00:33.694
+We are not looking at how long it's been since I was supposed to reply
+
+00:00:33.734 --> 00:00:34.054
+to this.
+
+00:00:34.694 --> 00:00:36.694
+We
+
+00:00:38.516 --> 00:00:39.776
+are just going with the flow.
+
+00:00:41.477 --> 00:00:43.718
+Okay, so let's see where I was at.
+
+00:00:44.698 --> 00:00:45.519
+I had like
+
+00:00:48.120 --> 00:00:48.920
+a whole things.
+
+00:00:51.101 --> 00:00:54.102
+Here's a more formal proposal for badges appearance.
+
+00:00:54.282 --> 00:00:56.843
+So, here is what we're trying to do.
+
+00:01:00.365 --> 00:01:05.826
+These, see how there is like a attendee, gaggle gatherer, and also this
+
+00:01:05.907 --> 00:01:07.427
+beautiful Git badge.
+
+00:01:07.807 --> 00:01:10.768
+We're trying to do this, but we're trying to do it so that
+
+00:01:11.949 --> 00:01:12.869
+anyone can
+
+00:01:13.909 --> 00:01:15.370
+come and,
+
+00:01:19.131 --> 00:01:19.631
+how do you call it?
+
+00:01:21.312 --> 00:01:25.573
+Like anyone, you assign it to someone, you give it to someone, you
+
+00:01:25.593 --> 00:01:30.215
+define a badge, you give it to folks, and then people can display them.
+
+00:01:30.515 --> 00:01:35.477
+They are, they're standardized, you know, what is there, what fields
+
+00:01:35.537 --> 00:01:38.258
+they have, what everything they have,
+
+00:01:40.239 --> 00:01:40.779
+and
+
+00:01:42.379 --> 00:01:47.281
+this means people can display them on any site or anything.
+
+00:01:47.581 --> 00:01:51.803
+You can have your collection of badges, and anyone can give them to you,
+
+00:01:52.543 --> 00:01:55.524
+or like try to give them to you, and you can accept them or not.
+
+00:01:56.724 --> 00:02:00.105
+And you can put them wherever badges in whatever
+
+00:02:02.105 --> 00:02:07.186
+social app or website or whatever badges are displayable.
+
+00:02:08.507 --> 00:02:13.808
+So this is what we're trying to do, and I, we have one
+
+00:02:14.448 --> 00:02:14.928
+current
+
+00:02:18.849 --> 00:02:21.969
+implementation, and I was trying to make it better because we need to do
+
+00:02:22.069 --> 00:02:23.410
+another implementation.
+
+00:02:24.770 --> 00:02:29.251
+Let's see, actually, I can do, no, Atmos, Atmosphere Conf.
+
+00:02:30.271 --> 00:02:33.212
+I can show these also on live.
+
+00:02:33.952 --> 00:02:35.392
+I'm gonna sign in,
+
+00:02:37.052 --> 00:02:38.333
+and I'm gonna do
+
+00:02:39.693 --> 00:02:45.374
+crossing fingers that I do not accidentally put my password on stream.
+
+00:02:45.554 --> 00:02:45.814
+Oh, no.
+
+00:02:46.534 --> 00:02:49.095
+Yes, yes, yes, look at this.
+
+00:02:50.155 --> 00:02:51.175
+And crossing, see?
+
+00:02:51.575 --> 00:02:53.376
+So this is the actual page.
+
+00:02:56.496 --> 00:02:57.617
+These are in my PDS.
+
+00:02:57.857 --> 00:02:58.697
+You can click on them.
+
+00:02:59.337 --> 00:03:00.677
+You can see the certificate.
+
+00:03:01.797 --> 00:03:04.158
+You can see, you can click on verify badge.
+
+00:03:04.418 --> 00:03:06.258
+I hate that I've done it in,
+
+00:03:08.599 --> 00:03:11.499
+how do you call it, that I've kinda done it all in sync.
+
+00:03:12.920 --> 00:03:15.360
+But yeah, if you click on here,
+
+00:03:16.400 --> 00:03:19.381
+you can verify your badge, and so this is going to,
+
+00:03:20.841 --> 00:03:25.502
+the someone's PDS, sorry, this is going to your PDS and then going to
+
+00:03:25.622 --> 00:03:27.983
+the Atmosphere Conference PDS.
+
+00:03:28.163 --> 00:03:32.204
+It's verifying that the badge is quote unquote real,
+
+00:03:33.684 --> 00:03:37.365
+and then it's making it sparkle.
+
+00:03:37.405 --> 00:03:38.265
+Isn't that great?
+
+00:03:39.025 --> 00:03:41.205
+Yeah, so this is what it's all about.
+
+00:03:45.766 --> 00:03:47.147
+And yep,
+
+00:03:51.167 --> 00:03:53.868
+that's what I want to bring everywhere in the atmosphere.
+
+00:03:54.448 --> 00:03:58.449
+This actually, looking back at this, is kinda giving me a couple of
+
+00:03:58.569 --> 00:04:00.469
+ideas in term of,
+
+00:04:03.549 --> 00:04:04.509
+one big...
+
+00:04:04.509 --> 00:04:07.750
+I'm kinda getting ahead of myself, but just a thought I'm putting out
+
+00:04:07.890 --> 00:04:08.170
+there.
+
+00:04:08.670 --> 00:04:09.870
+In terms of
+
+00:04:12.731 --> 00:04:15.311
+what, why I kinda like,
+
+00:04:17.911 --> 00:04:19.432
+I don't wanna say stalled, but like
+
+00:04:22.092 --> 00:04:24.792
+where it wasn't a clear, oh, let's just do this.
+
+00:04:25.853 --> 00:04:28.113
+The issue was defining the
+
+00:04:31.793 --> 00:04:33.214
+appearance of badges.
+
+00:04:34.074 --> 00:04:37.354
+So, because that's the more, most complicated one, right?
+
+00:04:37.394 --> 00:04:40.035
+How do you standardize what badges look like
+
+00:04:42.155 --> 00:04:43.255
+across the board?
+
+00:04:43.355 --> 00:04:46.375
+Cause it matters to folks what badges look like.
+
+00:04:47.616 --> 00:04:49.916
+I think it makes sense that it does matter.
+
+00:04:51.316 --> 00:04:54.668
+And, but how do you coordinate with it, especially when you want to
+
+00:04:55.218 --> 00:04:57.999
+display them at many different sizes,
+
+00:04:59.319 --> 00:04:59.939
+and so on?
+
+00:05:00.059 --> 00:05:03.160
+So I had some thought about that, but putting it
+
+00:05:04.521 --> 00:05:04.741
+in
+
+00:05:06.462 --> 00:05:06.942
+more,
+
+00:05:09.903 --> 00:05:13.594
+trying to put it in a generic way, like took me more time, and then I
+
+00:05:13.604 --> 00:05:13.884
+got
+
+00:05:16.305 --> 00:05:17.485
+dragged into things.
+
+00:05:17.725 --> 00:05:18.866
+So this is what we're doing.
+
+00:05:19.326 --> 00:05:23.587
+And my thoughts that I just got was, well, this is an interesting way to
+
+00:05:23.647 --> 00:05:27.429
+define this badge could just be a raised badge
+
+00:05:28.469 --> 00:05:30.590
+for this kind of sort of 3D effect.
+
+00:05:30.650 --> 00:05:35.051
+And yes, it may look different on different sides, but maybe
+
+00:05:37.012 --> 00:05:39.813
+that's a, we could define some styles,
+
+00:05:41.593 --> 00:05:43.534
+like raised, I don't know,
+
+00:05:45.054 --> 00:05:45.475
+peel.
+
+00:05:45.595 --> 00:05:48.516
+That, that's one option.
+
+00:05:48.876 --> 00:05:49.476
+That's one option.
+
+00:05:49.756 --> 00:05:50.996
+I am just saying, that's one option.
+
+00:05:53.757 --> 00:05:54.937
+So let's do this.
+
+00:05:55.957 --> 00:06:00.698
+Let's get to remembering what we were doing, and then let's get to
+
+00:06:00.778 --> 00:06:03.958
+remember, to seeing, and remembering what everyone said.
+
+00:06:06.478 --> 00:06:07.039
+Okay, so
+
+00:06:10.859 --> 00:06:12.039
+I'll get to it by end of the week.
+
+00:06:12.579 --> 00:06:15.600
+This is, I, this is my mistake that I keep not learning.
+
+00:06:16.040 --> 00:06:17.320
+I don't do that.
+
+00:06:18.320 --> 00:06:19.540
+I should stop saying it.
+
+00:06:20.821 --> 00:06:24.801
+Well, I do that, but I do that with a fraction of the things I sh— I'm
+
+00:06:24.841 --> 00:06:25.901
+supposed to do it with.
+
+00:06:26.241 --> 00:06:29.122
+Okay, so, appearance lexicon for badges.
+
+00:06:29.982 --> 00:06:30.622
+What I said:
+
+00:06:31.982 --> 00:06:36.263
+the community badge definition currently flattens the name field for
+
+00:06:36.523 --> 00:06:40.123
+badge identification and badge display name.
+
+00:06:40.803 --> 00:06:41.063
+Yes,
+
+00:06:42.524 --> 00:06:44.384
+my, I will die to the— on this hill.
+
+00:06:45.364 --> 00:06:48.605
+This makes it impossible to edit the display name of a badge without
+
+00:06:48.685 --> 00:06:52.546
+mutating the definition itself, causing all records to point to an older
+
+00:06:52.606 --> 00:06:56.626
+badge definition that no longer exists on the PDS, and whose content
+
+00:06:56.687 --> 00:06:57.807
+cannot be verified.
+
+00:06:58.127 --> 00:06:59.087
+So true, bestie.
+
+00:07:00.207 --> 00:07:01.588
+And by bestie, I mean me.
+
+00:07:01.968 --> 00:07:04.888
+While badges definitions shouldn't change, there are many valid reasons
+
+00:07:04.908 --> 00:07:08.809
+for updating their appearance, like typos, new discriminant, like
+
+00:07:08.869 --> 00:07:13.510
+conference entity 2026 conference entity, should it gain a surprise
+
+00:07:13.590 --> 00:07:15.651
+second edition, which it did, yay!
+
+00:07:16.631 --> 00:07:19.551
+Getting money to commission someone a better badge, that's me.
+
+00:07:20.392 --> 00:07:23.352
+A kind soul offers to improve your alt text, I thought of a funnier
+
+00:07:23.372 --> 00:07:26.093
+display name description, and now I'm mad.
+
+00:07:26.653 --> 00:07:27.413
+Also happened to me.
+
+00:07:28.313 --> 00:07:31.374
+I may have invalidated a bunch of people's badges because of that.
+
+00:07:31.934 --> 00:07:36.275
+So this gets further compounded if we add necessary fields like color,
+
+00:07:36.455 --> 00:07:40.116
+icon, image. Solution: an appearance lexicon for badges.
+
+00:07:41.816 --> 00:07:43.817
+Okay, so this is it.
+
+00:07:44.417 --> 00:07:48.578
+community.lexicon.badge.appearance defines the user-facing presentation
+
+00:07:48.678 --> 00:07:49.398
+for a badge.
+
+00:07:50.038 --> 00:07:53.599
+A badge definition represents the stable badge being awarded.
+
+00:07:53.799 --> 00:07:56.239
+It has a unique name and unchangeable description.
+
+00:07:57.819 --> 00:08:00.260
+Recipients can trust
+
+00:08:06.161 --> 00:08:09.382
+that the meaning of the badge they hold will not change under them.
+
+00:08:10.282 --> 00:08:10.662
+Okay, so
+
+00:08:12.943 --> 00:08:13.403
+this is
+
+00:08:15.163 --> 00:08:15.923
+the definition.
+
+00:08:15.963 --> 00:08:17.804
+There's two parts: the definition and appearance.
+
+00:08:18.624 --> 00:08:21.084
+Recipients can trust that the meaning of the badge they hold will not
+
+00:08:21.144 --> 00:08:21.984
+change under them.
+
+00:08:22.305 --> 00:08:25.345
+Badge appearance represent how that badge should be displayed, visual,
+
+00:08:25.405 --> 00:08:26.805
+scoping, and link to learn more.
+
+00:08:27.326 --> 00:08:30.666
+This separates two concerns that are currently conflated, stable
+
+00:08:30.746 --> 00:08:34.647
+identity and mutable presentation, what the badge is versus what the
+
+00:08:34.747 --> 00:08:38.728
+badge looks like, allows for progressive enhancement and extensibility.
+
+00:08:40.228 --> 00:08:44.190
+While this badge conflation has been a recurring issue, this is actually
+
+00:08:44.410 --> 00:08:49.112
+a recurring issue, I think, everywhere, and I should write about it
+
+00:08:49.212 --> 00:08:51.553
+because I would like people to think.
+
+00:08:54.614 --> 00:08:56.554
+Like, I just think it's something that
+
+00:08:57.875 --> 00:09:02.037
+there should be a, hey, pay attention to this when designing lexicons.
+
+00:09:04.157 --> 00:09:08.059
+To trying to map some open source and some of fandom's way online life.
+
+00:09:08.959 --> 00:09:11.180
+Yeah, I, having tried that as,
+
+00:09:12.500 --> 00:09:13.421
+people aren't mean.
+
+00:09:13.601 --> 00:09:18.403
+It's just that— it's just they don't think about that part of the
+
+00:09:18.443 --> 00:09:19.043
+difficulties.
+
+00:09:21.024 --> 00:09:23.144
+Okay, so proposal.
+
+00:09:24.085 --> 00:09:26.545
+Update community.lexicon.badge.definition.
+
+00:09:28.566 --> 00:09:30.827
+Badge definition is stable for the lifetime of the badge.
+
+00:09:30.927 --> 00:09:33.028
+This exists today, except it's not stable.
+
+00:09:33.948 --> 00:09:37.649
+Proposed change adds an optional reference to a community appearance
+
+00:09:37.729 --> 00:09:39.869
+record describing how this badge looks.
+
+00:09:40.789 --> 00:09:44.130
+If a CID is present, the badge is only valid for the specific version of
+
+00:09:44.170 --> 00:09:45.270
+the appearance record.
+
+00:09:47.570 --> 00:09:49.830
+Useful for when you want to avoid any tampering.
+
+00:09:50.170 --> 00:09:54.091
+If no appearance is present, name and description can be a display
+
+00:09:54.291 --> 00:09:54.871
+fallback.
+
+00:09:55.791 --> 00:09:57.191
+So this is where it is.
+
+00:09:57.511 --> 00:10:02.952
+You have your badge type, this as a name, it's created at a certain
+
+00:10:03.032 --> 00:10:03.452
+date,
+
+00:10:04.692 --> 00:10:08.453
+and then here is the description of the badge, and then you have this
+
+00:10:08.513 --> 00:10:09.133
+appearance.
+
+00:10:11.673 --> 00:10:17.474
+And then this get hashed into a badge grant when you go and give
+
+00:10:17.554 --> 00:10:18.494
+this to someone.
+
+00:10:19.014 --> 00:10:20.955
+So here is the
+
+00:10:23.075 --> 00:10:24.355
+sorta like separation.
+
+00:10:33.196 --> 00:10:36.497
+You have— you put out a badge definition,
+
+00:10:37.657 --> 00:10:41.438
+and it's like, here is how badge look like, and then when you go give it
+
+00:10:41.478 --> 00:10:45.678
+to someone, you kinda like hash it out and sign it with your unique
+
+00:10:46.939 --> 00:10:51.899
+key, and that says, oh, the person that has that access to that key
+
+00:10:53.160 --> 00:10:54.840
+signed my thing, so it must be them.
+
+00:10:58.240 --> 00:10:58.640
+That's it.
+
+00:10:59.460 --> 00:10:59.560
+So,
+
+00:11:02.781 --> 00:11:04.501
+yeah, so this is kinda how it looks.
+
+00:11:05.281 --> 00:11:08.322
+Side proposal: doing the renaming of name ID in the same change.
+
+00:11:08.362 --> 00:11:12.202
+The current name does double duty as a stable identifying and display
+
+00:11:12.262 --> 00:11:15.943
+string, and id for the identifier would make its purpose clearer.
+
+00:11:19.664 --> 00:11:20.724
+I so want to rename it ID.
+
+00:11:21.504 --> 00:11:24.825
+I will Survive, but I still want to rename it ID.
+
+00:11:25.845 --> 00:11:27.006
+And then create the appearance.
+
+00:11:27.086 --> 00:11:29.827
+A badge appearance describes how a badge should be displayed.
+
+00:11:30.747 --> 00:11:33.368
+Challenge: we want to support both types of badges.
+
+00:11:33.549 --> 00:11:37.750
+Just one of it is just icon plus color, easy to create for people who
+
+00:11:37.870 --> 00:11:40.872
+just want to put a badge out without thinking too hard about it.
+
+00:11:41.132 --> 00:11:42.212
+I'm told they exist.
+
+00:11:42.712 --> 00:11:42.952
+Yes.
+
+00:11:43.132 --> 00:11:46.274
+Image badges for the rest of us who miss the GeoCities era.
+
+00:11:46.834 --> 00:11:48.915
+Let's take one of ours, like the Git one.
+
+00:11:49.775 --> 00:11:49.875
+So
+
+00:11:50.876 --> 00:11:54.517
+title, displayDescription optional, can be longer than original badge
+
+00:11:54.577 --> 00:11:57.458
+description but falls back to the one in the definition.
+
+00:11:58.259 --> 00:12:00.359
+Image optional, visual representation.
+
+00:12:03.881 --> 00:12:07.722
+Icon optional, an emoji, character or small images that represent the
+
+00:12:07.803 --> 00:12:08.223
+badge.
+
+00:12:08.983 --> 00:12:11.624
+Not defined, falls back to the first letter of the title.
+
+00:12:11.804 --> 00:12:15.125
+Personally, I love, allow two or three graphemes with the understanding
+
+00:12:15.146 --> 00:12:16.486
+that it may be cut to one.
+
+00:12:17.166 --> 00:12:19.307
+accentColor, optional.
+
+00:12:19.667 --> 00:12:20.728
+URL optional.
+
+00:12:22.068 --> 00:12:22.328
+Okay?
+
+00:12:24.349 --> 00:12:28.850
+Important: image and icon accentColor are not mutually exclusive.
+
+00:12:29.410 --> 00:12:33.511
+Icon can be used to represent the image in spaces, in space-constrained
+
+00:12:33.551 --> 00:12:37.052
+environment, but when possible, implementers should prefer image and
+
+00:12:37.092 --> 00:12:40.073
+consider icon accentColor a fallback.
+
+00:12:40.353 --> 00:12:44.434
+So for example, here we have the grand goose ambassador.
+
+00:12:44.714 --> 00:12:50.376
+It's— it has the icon is a goose, and it has the accentColor of
+
+00:12:50.516 --> 00:12:52.517
+yellow, and this is what it links to.
+
+00:12:54.877 --> 00:12:57.538
+Oh, URLs should probably have more
+
+00:12:59.799 --> 00:13:00.939
+of a semantic name.
+
+00:13:03.720 --> 00:13:06.900
+Description is absent, so it falls back to the one in the original
+
+00:13:06.940 --> 00:13:07.281
+badge.
+
+00:13:08.161 --> 00:13:12.242
+Title Code Gitter, displayDescription, so people will do anything for
+
+00:13:12.322 --> 00:13:14.262
+cat boys, even learn version control.
+
+00:13:15.043 --> 00:13:17.263
+I really need to do it to make this one.
+
+00:13:17.583 --> 00:13:18.384
+Icon, the cat
+
+00:13:20.444 --> 00:13:20.644
+With
+
+00:13:23.925 --> 00:13:24.665
+the computer.
+
+00:13:24.785 --> 00:13:28.586
+Accent colors, Git signature peach color, and then we have the image,
+
+00:13:29.486 --> 00:13:30.406
+which is that
+
+00:13:31.546 --> 00:13:32.327
+image there.
+
+00:13:33.307 --> 00:13:37.568
+FujoGuide's Git, but he's Nyan Cat, creating a rainbow as it dashes
+
+00:13:37.608 --> 00:13:38.208
+through the sky.
+
+00:13:38.288 --> 00:13:41.889
+Let's git coding is written to its right, and then the aspectRatio.
+
+00:13:42.029 --> 00:13:42.309
+Okay.
+
+00:13:46.470 --> 00:13:51.731
+And this is how the— how it looks together with the appearance.
+
+00:13:51.931 --> 00:13:56.012
+So you have the definition, and that one is just like the name is, you
+
+00:13:56.052 --> 00:14:00.352
+are a FujoGuide issue one buyer, and the description is awarded to folks
+
+00:14:00.412 --> 00:14:05.353
+who bought FujoGuide issue one, and then the appearance links to that.
+
+00:14:05.974 --> 00:14:07.354
+Things I like input on.
+
+00:14:09.194 --> 00:14:10.014
+Do pick and choose.
+
+00:14:10.194 --> 00:14:11.055
+ID versus name.
+
+00:14:13.115 --> 00:14:13.375
+Yes.
+
+00:14:13.995 --> 00:14:16.516
+Badge appearance, tagline, or displayDescription.
+
+00:14:18.776 --> 00:14:21.818
+A sanctioned way to leave space for each text description.
+
+00:14:22.678 --> 00:14:27.340
+Should image always win over icon, or is it more an alternate renderings
+
+00:14:27.360 --> 00:14:28.800
+according to context?
+
+00:14:31.201 --> 00:14:34.742
+Would people be open to colors as an object instead of a single value?
+
+00:14:36.283 --> 00:14:39.364
+May I interest you in a richer definition of colors than just hex?
+
+00:14:40.024 --> 00:14:43.265
+How are people supposed to extend it with their special display metadata
+
+00:14:43.345 --> 00:14:44.286
+because they want to?
+
+00:14:44.886 --> 00:14:45.606
+Okay, let's see.
+
+00:14:48.007 --> 00:14:50.688
+One of the things that could happen is fake certificates that report
+
+00:14:50.828 --> 00:14:52.749
+verified falsely.
+
+00:14:53.129 --> 00:14:55.290
+Given implementation of that could be built from anyone.
+
+00:14:55.310 --> 00:14:58.321
+We want a trusted certificate verifying authority, wouldn't you, like a
+
+00:14:58.391 --> 00:14:59.631
+web browser company does?
+
+00:14:59.931 --> 00:15:01.272
+Yes, that makes sense.
+
+00:15:02.132 --> 00:15:05.173
+I like the idea of using a field to create limited edition if that's not
+
+00:15:05.233 --> 00:15:08.615
+beyond consideration, for example, by numbering against a total one of
+
+00:15:08.715 --> 00:15:08.875
+ten.
+
+00:15:09.875 --> 00:15:11.936
+You, we should discuss.
+
+00:15:12.956 --> 00:15:15.817
+This goes back to the— we should discuss patterns
+
+00:15:16.998 --> 00:15:17.538
+for this.
+
+00:15:17.918 --> 00:15:20.019
+I think that's a really good one.
+
+00:15:20.980 --> 00:15:24.561
+But it sits a layer below, above this.
+
+00:15:24.841 --> 00:15:28.062
+So if you want to do something like that, you can do a new lexicon,
+
+00:15:28.122 --> 00:15:31.284
+which is a badge collection lexicon, and that one can have
+
+00:15:32.464 --> 00:15:33.645
+limited edition stuff.
+
+00:15:34.965 --> 00:15:38.327
+So it's kind of similar to what I'm doing here right now with badge
+
+00:15:38.367 --> 00:15:39.027
+appearance.
+
+00:15:43.189 --> 00:15:46.850
+So this is like slightly different.
+
+00:15:46.930 --> 00:15:49.451
+Any party can verify, that's a different one.
+
+00:15:50.371 --> 00:15:51.432
+Caveat, Zicklag.
+
+00:15:53.333 --> 00:15:56.494
+Oh, shoot, I should tell people that I am doing this
+
+00:15:59.355 --> 00:16:00.576
+on the Roomy forum.
+
+00:16:02.576 --> 00:16:03.897
+I'm gonna do it quickly, sorry.
+
+00:16:29.505 --> 00:16:35.026
+To the badge proposal I had made some time ago, so
+
+00:16:35.546 --> 00:16:41.208
+I can get a final version out,
+
+00:16:43.929 --> 00:16:44.489
+and I'm gonna
+
+00:16:47.430 --> 00:16:48.290
+link to this.
+
+00:16:48.910 --> 00:16:51.991
+That's what Zicklag is working on, so,
+
+00:16:53.431 --> 00:16:56.392
+first of all, I, you know, I should—
+
+00:17:34.640 --> 00:17:34.820
+Okay.
+
+00:17:35.340 --> 00:17:36.801
+So, no big deal.
+
+00:17:37.581 --> 00:17:40.341
+I just wanted people to know that this is happening
+
+00:17:43.122 --> 00:17:45.002
+in case they want to have comments live.
+
+00:17:45.423 --> 00:17:45.623
+Okay.
+
+00:17:46.203 --> 00:17:48.583
+Zicklag said: caveat, I'm not someone with a lot of experience with
+
+00:17:48.643 --> 00:17:50.764
+badges, but wanted to leave my thoughts in case they're helpful.
+
+00:17:50.844 --> 00:17:51.244
+They are.
+
+00:17:52.824 --> 00:17:56.245
+I had read— I know because I had read it at the time, but also just
+
+00:17:56.325 --> 00:18:00.766
+generally, I think, thoughts from people who will work with this are
+
+00:18:00.786 --> 00:18:01.307
+always great.
+
+00:18:02.127 --> 00:18:04.988
+It makes a lot of sense to me to have the badge ID separate from display
+
+00:18:05.048 --> 00:18:05.228
+name.
+
+00:18:05.248 --> 00:18:06.428
+Maybe we can call it slug.
+
+00:18:06.528 --> 00:18:09.609
+To me, as someone familiar with the web, slug instantly gets the idea
+
+00:18:09.669 --> 00:18:11.449
+across as to what it is for.
+
+00:18:11.529 --> 00:18:15.531
+It is a machine ID that is not the primary key, and it is partially
+
+00:18:15.571 --> 00:18:17.871
+exposed to user, but it is not a display name.
+
+00:18:18.151 --> 00:18:19.051
+You are so right.
+
+00:18:19.232 --> 00:18:20.132
+I like the name slug.
+
+00:18:26.694 --> 00:18:31.895
+Yeah, so now using the rkey is not right because you can change, yes,
+
+00:18:31.995 --> 00:18:32.695
+makes sense.
+
+00:18:33.335 --> 00:18:35.916
+Display description feels better than tagline since tagline does
+
+00:18:35.956 --> 00:18:36.416
+imply...
+
+00:18:37.397 --> 00:18:39.237
+we could do something like flavor text.
+
+00:18:40.317 --> 00:18:42.398
+Oh, I liked flavor text.
+
+00:18:42.778 --> 00:18:44.098
+I like flavor text.
+
+00:18:45.699 --> 00:18:46.079
+Oh man.
+
+00:18:46.859 --> 00:18:48.099
+Oh, that's a good name.
+
+00:18:50.380 --> 00:18:52.940
+Because it is a flavor text, right?
+
+00:18:53.120 --> 00:18:54.981
+Like the description, we can keep it.
+
+00:18:55.361 --> 00:18:56.761
+There is a description field
+
+00:18:59.281 --> 00:19:04.682
+in the actual badge, but the flavor text is a whole other thing.
+
+00:19:04.822 --> 00:19:08.463
+It's the— because you, when you hover on it, you want the funny text.
+
+00:19:08.583 --> 00:19:10.183
+You don't want to like tell people
+
+00:19:11.403 --> 00:19:12.883
+what they are looking at.
+
+00:19:13.323 --> 00:19:15.924
+Like, you don't want to give people useful information.
+
+00:19:17.184 --> 00:19:18.064
+You want them
+
+00:19:20.524 --> 00:19:21.844
+to like laugh.
+
+00:19:22.764 --> 00:19:26.005
+Oh, now I'm sad that there isn't a popover here, but like a gaggle
+
+00:19:26.085 --> 00:19:26.665
+gatherer.
+
+00:19:31.146 --> 00:19:33.906
+Like you, I would put something like,
+
+00:19:35.826 --> 00:19:36.166
+I came,
+
+00:19:37.586 --> 00:19:40.187
+I don't know, I'm like, the thing that comes to mind is I came to this
+
+00:19:40.267 --> 00:19:43.807
+conference to watch, talk, and meet with people, and I'm all out of
+
+00:19:43.907 --> 00:19:45.668
+talks or something.
+
+00:19:48.528 --> 00:19:49.788
+But, you know.
+
+00:19:59.491 --> 00:20:02.232
+So like that's— it is a flavor text.
+
+00:20:08.013 --> 00:20:08.434
+I think.
+
+00:20:10.094 --> 00:20:13.395
+I mean, you could argue that flavor text and description and longer and
+
+00:20:13.415 --> 00:20:16.416
+displayDescription are slightly different.
+
+00:20:28.219 --> 00:20:29.360
+So maybe they're different.
+
+00:20:29.460 --> 00:20:32.801
+Like displayDescription is the very long— like it's a longer description
+
+00:20:32.861 --> 00:20:37.962
+that you put on the badge, but flavor text to me would be the
+
+00:20:39.722 --> 00:20:40.903
+kind of the tagline.
+
+00:20:41.243 --> 00:20:42.883
+Like they're two separate things.
+
+00:20:47.144 --> 00:20:47.505
+Oh god.
+
+00:20:48.045 --> 00:20:49.085
+See, that's the problem.
+
+00:20:50.025 --> 00:20:52.766
+People are gonna be like, do not overcomplicate it, but I'm like,
+
+00:20:54.366 --> 00:20:55.306
+but I want both.
+
+00:20:56.406 --> 00:20:59.147
+Should image always win over an emoji-based icon.
+
+00:20:59.207 --> 00:21:02.688
+Would be, I feel like this should maybe an extension, which lead us to
+
+00:21:02.808 --> 00:21:05.108
+lexicon do allow extension by adding extra fields.
+
+00:21:05.168 --> 00:21:08.669
+But my big problem with that is that it's not namespaced, might have
+
+00:21:08.709 --> 00:21:11.730
+other people adding the same field name with different schemas, and
+
+00:21:11.790 --> 00:21:15.470
+could end up with bad records if there's official schema adds a field
+
+00:21:15.530 --> 00:21:16.351
+with the same name.
+
+00:21:17.011 --> 00:21:21.472
+A solution that I feel is kind of nice, but I haven't seen anyone do is
+
+00:21:21.512 --> 00:21:24.552
+to add an extensions field with an array of open unions.
+
+00:21:24.912 --> 00:21:28.733
+That means anybody can provide a list of custom extension that different
+
+00:21:28.793 --> 00:21:32.814
+apps may or may not support, and each one has an NSID field
+
+00:21:34.034 --> 00:21:37.015
+type field so that there aren't schema overlap issues.
+
+00:21:37.075 --> 00:21:38.655
+If certain extension lexicon
+
+00:21:40.916 --> 00:21:43.296
+becomes commonly supported, Targeted,
+
+00:21:44.436 --> 00:21:46.176
+then maybe to a good candidate.
+
+00:21:46.196 --> 00:21:48.257
+I'm curious if there are any other thoughts on this.
+
+00:21:49.217 --> 00:21:50.257
+Yes, that makes sense.
+
+00:21:50.297 --> 00:21:51.177
+I would actually like,
+
+00:21:52.397 --> 00:21:57.038
+maybe a good thing to do would be, I don't know if we have a thread in
+
+00:21:57.098 --> 00:22:02.439
+this forum to discuss lexicon ex-extensions to lexicon.
+
+00:22:03.139 --> 00:22:07.079
+I'm going to put a sticker here, sticky notes, to say
+
+00:22:09.600 --> 00:22:14.320
+check about how to extend lexicons.
+
+00:22:15.340 --> 00:22:19.021
+Cause there's at the very least also the sidecar pattern, but I don't
+
+00:22:19.061 --> 00:22:24.902
+know, I don't effectively know if that is like,
+
+00:22:26.262 --> 00:22:26.542
+you know,
+
+00:22:29.702 --> 00:22:31.603
+I don't know how much of that is—
+
+00:22:32.763 --> 00:22:33.503
+how do you say it?
+
+00:22:37.623 --> 00:22:40.204
+Like, I don't know how many people know about that.
+
+00:22:41.264 --> 00:22:41.404
+Blah.
+
+00:22:56.648 --> 00:23:00.529
+Including com.example.badges.extraData can be added as extra data.
+
+00:23:00.849 --> 00:23:04.650
+I'm saying we can provide an extension field that allows people to put
+
+00:23:04.670 --> 00:23:07.281
+their own extras on the badge that may or may not be intended to
+
+00:23:07.311 --> 00:23:08.431
+converge with other app.
+
+00:23:08.551 --> 00:23:11.432
+Having the extensions as an open union means that they can add data to
+
+00:23:11.472 --> 00:23:14.973
+the lexicon distinguished by my own NSID, so that I know it won't
+
+00:23:15.033 --> 00:23:17.934
+conflict with anybody else's definition on the same field.
+
+00:23:18.414 --> 00:23:19.194
+I actually agree.
+
+00:23:20.815 --> 00:23:21.515
+I agree with this.
+
+00:23:22.735 --> 00:23:24.656
+It's not even an extensions.
+
+00:23:25.276 --> 00:23:29.577
+I am kinda like, I feel like there should be multiple
+
+00:23:30.477 --> 00:23:32.678
+displays of these.
+
+00:23:33.538 --> 00:23:37.219
+And sure, you can say something like do a sidecar lexicon, but that's
+
+00:23:37.279 --> 00:23:38.680
+not the same thing.
+
+00:23:48.003 --> 00:23:50.684
+Can be added as extra data today.
+
+00:23:57.127 --> 00:23:58.527
+Extra data records.
+
+00:23:58.908 --> 00:24:01.269
+So this is a sidecar record, right?
+
+00:24:02.349 --> 00:24:02.649
+Okay.
+
+00:24:07.991 --> 00:24:10.973
+Actively managing an extension space is the whole reason stable
+
+00:24:10.993 --> 00:24:14.374
+extension, a pre-definitional lexicon by any other name, is just stuffed
+
+00:24:14.414 --> 00:24:15.634
+in an extension object.
+
+00:24:15.714 --> 00:24:19.396
+Additional data was an object that is stuffed, got put into for events,
+
+00:24:19.476 --> 00:24:20.496
+didn't need managing.
+
+00:24:20.616 --> 00:24:23.358
+Doesn't, in fact, shouldn't be managed, and once you start talking about
+
+00:24:23.398 --> 00:24:26.859
+managing it, you should either put it in a shared lexicon directly, the
+
+00:24:26.959 --> 00:24:28.820
+one it is extending, or its own lexicon.
+
+00:24:34.162 --> 00:24:37.343
+Okay, okay.
+
+00:24:37.523 --> 00:24:37.904
+I don't—
+
+00:24:40.024 --> 00:24:40.584
+Oh God.
+
+00:24:40.724 --> 00:24:40.944
+Okay.
+
+00:24:41.964 --> 00:24:42.404
+We can do it.
+
+00:24:43.885 --> 00:24:46.105
+Let's get ourselves a new definition.
+
+00:24:47.045 --> 00:24:49.506
+I'm not gonna yet start with apologies.
+
+00:24:52.906 --> 00:24:53.626
+I just wanna get
+
+00:25:06.148 --> 00:25:07.708
+some kind of thing going.
+
+00:25:07.788 --> 00:25:08.068
+Okay.
+
+00:25:08.268 --> 00:25:08.388
+So
+
+00:25:15.469 --> 00:25:18.130
+this is the one I had, and I kinda wanna go and
+
+00:25:19.210 --> 00:25:20.130
+go with this.
+
+00:25:21.190 --> 00:25:25.191
+Title Code Gitter, then we said, actually there's two parts.
+
+00:25:26.311 --> 00:25:26.591
+Okay.
+
+00:25:26.831 --> 00:25:28.851
+Badge appearance,
+
+00:25:32.392 --> 00:25:34.072
+and then we have badge
+
+00:25:35.332 --> 00:25:36.333
+Definition.
+
+00:25:38.234 --> 00:25:40.234
+Okay.
+
+00:25:43.336 --> 00:25:43.696
+Where are you?
+
+00:25:43.957 --> 00:25:44.737
+Badge definition.
+
+00:25:46.318 --> 00:25:46.678
+Ta-ta.
+
+00:25:48.018 --> 00:25:49.599
+Oh, I'd put it under there.
+
+00:25:50.119 --> 00:25:51.720
+FujoGuide issue one buyer.
+
+00:25:56.843 --> 00:25:58.163
+So let's see.
+
+00:25:58.403 --> 00:25:59.184
+What had we...
+
+00:26:11.630 --> 00:26:12.610
+Okay, here is the true.
+
+00:26:13.070 --> 00:26:17.433
+So what we were saying was name slug.
+
+00:26:20.294 --> 00:26:21.074
+Hey, Trezy.
+
+00:26:22.435 --> 00:26:22.615
+Your...
+
+00:26:23.095 --> 00:26:24.396
+Trezy's awake as well.
+
+00:26:24.716 --> 00:26:26.376
+I'm so sorry I made you wait so long.
+
+00:26:27.036 --> 00:26:32.678
+I only mildly should talk to you when I was starting for me, forcing me
+
+00:26:32.738 --> 00:26:33.738
+to do it that early.
+
+00:26:33.858 --> 00:26:36.338
+But no, I'm glad you're awake and I'm glad you're here.
+
+00:26:38.239 --> 00:26:40.999
+It's all in good faith and you arrived at the right time, because
+
+00:26:44.120 --> 00:26:48.401
+we were just getting started with trying to incorporate more feedback.
+
+00:26:50.501 --> 00:26:51.802
+So long, I know.
+
+00:26:55.302 --> 00:26:58.943
+Okay, so I don't know how much you remember about this.
+
+00:27:00.263 --> 00:27:04.524
+I can give you a quick catch-up on what the points of contention were.
+
+00:27:06.064 --> 00:27:06.625
+And
+
+00:27:10.265 --> 00:27:14.826
+I kind of want to call— I thought I wanted the slug, but now I kind of
+
+00:27:14.866 --> 00:27:16.166
+want to call it ID again.
+
+00:27:17.687 --> 00:27:21.207
+But yeah, I can give you a quick— okay, that would be awesome.
+
+00:27:21.628 --> 00:27:22.188
+Okay, so,
+
+00:27:23.328 --> 00:27:27.429
+quick restart for people that weren't here, not from the beginning.
+
+00:27:29.410 --> 00:27:32.031
+So I don't have to explain you the whole idea.
+
+00:27:32.991 --> 00:27:35.632
+The things, here is the things I wanted to change.
+
+00:27:35.752 --> 00:27:38.373
+In the original one, my proposal was
+
+00:27:40.274 --> 00:27:42.474
+to add this appearance lexicon,
+
+00:27:44.215 --> 00:27:45.215
+because
+
+00:27:47.376 --> 00:27:50.717
+I— yeah, because basically we want appearance.
+
+00:27:50.897 --> 00:27:53.458
+So this is the thing that keeps happening with lexicon.
+
+00:27:53.538 --> 00:27:58.780
+People kind of mix the concerns together that shouldn't be together and
+
+00:27:58.800 --> 00:27:59.720
+then creates a mess.
+
+00:28:00.180 --> 00:28:03.221
+So here, because this definition has to be static, because you have to
+
+00:28:03.341 --> 00:28:03.882
+sign it,
+
+00:28:05.422 --> 00:28:07.223
+my proposal was
+
+00:28:09.844 --> 00:28:10.424
+not to
+
+00:28:11.444 --> 00:28:14.205
+have also the information here that should change.
+
+00:28:19.247 --> 00:28:21.528
+So the point here was we
+
+00:28:23.428 --> 00:28:28.749
+keep the minimal information in the declaration itself, but we also link
+
+00:28:28.869 --> 00:28:30.989
+out to what the appearance of this badge is,
+
+00:28:32.209 --> 00:28:36.770
+so that this can change without the signature needing to be redone.
+
+00:28:38.150 --> 00:28:38.270
+So
+
+00:28:39.751 --> 00:28:41.791
+the things I was gonna keep here is the
+
+00:28:43.411 --> 00:28:45.211
+createdAt and description,
+
+00:28:46.772 --> 00:28:47.332
+and then
+
+00:28:49.152 --> 00:28:52.392
+I have a very strong opinion that we should have
+
+00:28:53.393 --> 00:28:54.613
+both name and ID,
+
+00:28:56.633 --> 00:28:58.793
+because the ID is
+
+00:29:00.834 --> 00:29:05.814
+how you uniquely identify the badge and how you want it kinda like
+
+00:29:08.455 --> 00:29:10.075
+connected to other badges.
+
+00:29:10.255 --> 00:29:13.775
+So here, for example, see the atconf-2025-connection-rank-a,
+
+00:29:15.076 --> 00:29:15.476
+this is—
+
+00:29:17.496 --> 00:29:23.318
+this put, if you order by ID, that kind of puts them together in line,
+
+00:29:23.799 --> 00:29:28.360
+it can be used as a slug and can have all those properties that can be
+
+00:29:28.560 --> 00:29:30.601
+useful in a decentralized environment,
+
+00:29:31.962 --> 00:29:36.823
+while the name can be the user facing name
+
+00:29:39.404 --> 00:29:40.665
+and a display fallback.
+
+00:29:40.965 --> 00:29:46.227
+And then like the description here being the very tiny smallest
+
+00:29:48.968 --> 00:29:50.228
+quick, what is this?
+
+00:29:52.109 --> 00:29:54.910
+If that whole description changes, the CID changes, the signature
+
+00:29:54.970 --> 00:29:56.690
+becomes invalid, right?
+
+00:29:57.131 --> 00:30:01.232
+So here is what I was— so what I was thinking about that is,
+
+00:30:05.634 --> 00:30:08.375
+the other side is the users don't really own the badge if they don't
+
+00:30:08.375 --> 00:30:11.016
+have the useful data, like what the fuck is this badge?
+
+00:30:12.096 --> 00:30:12.196
+Yeah.
+
+00:30:12.356 --> 00:30:13.436
+So here is my thought.
+
+00:30:13.536 --> 00:30:14.497
+My thought was,
+
+00:30:18.198 --> 00:30:19.118
+if we create,
+
+00:30:20.659 --> 00:30:24.560
+we leave the title, name, and description here, but that— but we
+
+00:30:24.700 --> 00:30:26.760
+separate those from
+
+00:30:29.141 --> 00:30:29.761
+the display.
+
+00:30:30.101 --> 00:30:31.602
+So we have two, actually.
+
+00:30:31.942 --> 00:30:36.223
+These remain as fallback so that you can only just define this if you
+
+00:30:36.283 --> 00:30:38.404
+want, you can also remove the appearance.
+
+00:30:39.764 --> 00:30:39.984
+But
+
+00:30:44.246 --> 00:30:49.627
+the official kind of like functionality of that name and description
+
+00:30:49.747 --> 00:30:55.669
+here is that it's not necessarily— I don't want to say
+
+00:30:55.689 --> 00:30:57.770
+it's not user-facing, but
+
+00:30:59.810 --> 00:31:00.050
+it's
+
+00:31:01.271 --> 00:31:03.972
+serious and what you would remember,
+
+00:31:05.272 --> 00:31:09.573
+what would inform people about the purpose of the badge, as opposed to
+
+00:31:10.233 --> 00:31:14.534
+what I have done here, where I've called this badge Gaggle Gatherer,
+
+00:31:14.975 --> 00:31:17.655
+because that is the— like, because this is...
+
+00:31:18.556 --> 00:31:21.596
+The name of the badge is about having fun, like the one that you
+
+00:31:21.596 --> 00:31:22.217
+display.
+
+00:31:23.097 --> 00:31:23.957
+It's not about
+
+00:31:26.878 --> 00:31:28.238
+being like...
+
+00:31:28.778 --> 00:31:30.119
+It's about being funny.
+
+00:31:30.699 --> 00:31:32.439
+It's not about being accurate.
+
+00:31:34.980 --> 00:31:35.380
+And so
+
+00:31:37.501 --> 00:31:42.202
+that's kinda my point here, that I would want to—
+
+00:31:44.723 --> 00:31:48.544
+that the name here be something that people can understand.
+
+00:31:48.624 --> 00:31:50.644
+I think I've put it more down.
+
+00:31:50.764 --> 00:31:51.504
+So here would be,
+
+00:31:52.865 --> 00:31:56.186
+well, this one doesn't actually have a grand goose ambassador, but like
+
+00:31:56.226 --> 00:31:58.086
+something understandable, like attendee.
+
+00:31:58.446 --> 00:32:01.287
+Even if you wanna call at your attendees, like,
+
+00:32:02.307 --> 00:32:02.647
+I don't know,
+
+00:32:06.529 --> 00:32:08.790
+confirmed buddy, buddies.
+
+00:32:09.490 --> 00:32:09.770
+I don't know.
+
+00:32:09.850 --> 00:32:14.312
+Like, whatever you want to name that, that one is what it actually does.
+
+00:32:15.552 --> 00:32:16.713
+Like what it actually is.
+
+00:32:18.233 --> 00:32:22.135
+And the description is similarly, you know, awarded for making
+
+00:32:22.175 --> 00:32:24.616
+at least a hundred connections in the atmosphere conf,
+
+00:32:30.118 --> 00:32:33.240
+as opposed to like, maybe your description is like,
+
+00:32:39.682 --> 00:32:39.982
+I— sorry.
+
+00:32:40.462 --> 00:32:40.723
+Now
+
+00:32:41.843 --> 00:32:46.925
+the down to fuck is like going to be a thing for me, for my streams,
+
+00:32:46.985 --> 00:32:52.247
+cause I'm like, that's what came out of me, like another down to fuck
+
+00:32:52.407 --> 00:32:52.727
+joke.
+
+00:32:53.148 --> 00:32:55.048
+And like, no, no, no, no, no, stop with that.
+
+00:32:56.449 --> 00:33:00.250
+Making at least one hundred connection in atmosphere conf, that this is
+
+00:33:00.370 --> 00:33:01.151
+not appropriate.
+
+00:33:02.511 --> 00:33:03.072
+We don't—
+
+00:33:04.672 --> 00:33:08.973
+that's the intrusive thought, that's intrusive thought gremlin speaking
+
+00:33:09.013 --> 00:33:10.593
+directly to my subconscious.
+
+00:33:11.473 --> 00:33:12.233
+We don't need that.
+
+00:33:12.613 --> 00:33:17.134
+But you know, like something funny and normal that you're not gonna like
+
+00:33:17.314 --> 00:33:17.654
+get,
+
+00:33:19.394 --> 00:33:23.315
+code of conducted out of a community or a conference for.
+
+00:33:23.435 --> 00:33:23.995
+Something, yeah.
+
+00:33:24.235 --> 00:33:26.195
+So like, you know, something like that.
+
+00:33:29.235 --> 00:33:33.316
+I had this conflict, as you can imagine, like while doing anything where
+
+00:33:33.376 --> 00:33:36.476
+people are like, oh, this should be informative.
+
+00:33:36.556 --> 00:33:38.197
+And I'm like, no, this should be funny.
+
+00:33:40.297 --> 00:33:40.717
+So yes,
+
+00:33:43.417 --> 00:33:46.998
+I am trying to allow for both ways of being.
+
+00:33:50.018 --> 00:33:51.678
+Oh, this was actually the appearance one.
+
+00:33:51.718 --> 00:33:52.338
+Okay, it's done.
+
+00:33:53.479 --> 00:33:55.139
+So that was the— this is the idea.
+
+00:33:55.399 --> 00:33:58.999
+And then the other part being this appearance thing points to the
+
+00:33:59.079 --> 00:34:02.060
+official appearance of the badge.
+
+00:34:03.100 --> 00:34:09.072
+And if you want this never to change, because you are like, I
+
+00:34:09.122 --> 00:34:13.024
+promise you this badge appearance is not gonna change from under you,
+
+00:34:13.764 --> 00:34:15.825
+like, you know, I'm not gonna suddenly put—
+
+00:34:17.966 --> 00:34:23.008
+I'm not gonna turn your goose into a duck, and then you're mad because
+
+00:34:23.028 --> 00:34:25.029
+that was supposed to be a goose and not a duck.
+
+00:34:27.690 --> 00:34:31.712
+Yeah, you know it, you can determine that the appearance of the badge
+
+00:34:31.712 --> 00:34:33.913
+has been tampered with, or you cannot put it.
+
+00:34:35.394 --> 00:34:38.515
+So that's the first part of the changes I wanted to make.
+
+00:34:38.995 --> 00:34:44.838
+And then the other, like the actual bigger part of the appearance,
+
+00:34:44.978 --> 00:34:45.758
+this was,
+
+00:34:50.120 --> 00:34:55.042
+so this would have the title, which is what you get displayed, the
+
+00:34:55.102 --> 00:34:56.223
+displayDescription.
+
+00:34:57.343 --> 00:34:58.204
+See here I put
+
+00:34:59.584 --> 00:35:05.265
+in this one, my description was awarded to folks with FujoGuide Issue
+
+00:35:05.405 --> 00:35:05.665
+One,
+
+00:35:06.845 --> 00:35:09.245
+which is a description of what the badge does,
+
+00:35:10.326 --> 00:35:14.146
+and instead the displayDescription here is some people would do anything
+
+00:35:14.206 --> 00:35:16.846
+for catboys, even learn version control,
+
+00:35:21.127 --> 00:35:22.127
+which is funny.
+
+00:35:28.068 --> 00:35:29.928
+Which is what they want on my badge.
+
+00:35:30.208 --> 00:35:34.269
+I don't— like I awarded to folks who bought FujoGuide Issue One, yes,
+
+00:35:34.389 --> 00:35:36.109
+fine, okay, super great,
+
+00:35:37.449 --> 00:35:38.789
+that's like,
+
+00:35:41.350 --> 00:35:42.430
+that's informative.
+
+00:35:42.650 --> 00:35:44.530
+No one needs your informative text.
+
+00:35:47.210 --> 00:35:47.311
+So,
+
+00:35:48.831 --> 00:35:49.171
+yes.
+
+00:35:54.431 --> 00:36:00.293
+Okay, so we have that, and then I was gonna have URL, which I'm now
+
+00:36:00.393 --> 00:36:05.935
+feeling not great about, cause I wanna— I want to specify better what
+
+00:36:05.955 --> 00:36:07.095
+this URL should be.
+
+00:36:08.316 --> 00:36:08.776
+Like,
+
+00:36:11.077 --> 00:36:13.058
+see, this is something I hate about
+
+00:36:14.538 --> 00:36:15.879
+just generally.
+
+00:36:19.460 --> 00:36:22.662
+Trezy says: so the fallback flow is something like check for appearance
+
+00:36:22.682 --> 00:36:25.243
+sidecar, check for the title description and definition, title
+
+00:36:25.283 --> 00:36:26.923
+description from root definition.
+
+00:36:27.003 --> 00:36:28.164
+Yes, that's the fallback.
+
+00:36:30.025 --> 00:36:33.806
+There's, like, you know, if not everything else fail and there's no
+
+00:36:33.886 --> 00:36:36.287
+description, there's not appearance record,
+
+00:36:38.848 --> 00:36:39.609
+then fail it.
+
+00:36:40.789 --> 00:36:44.991
+But okay, so you're talking about the sidecar, and here is—
+
+00:36:46.051 --> 00:36:51.343
+okay, let me get there, because I have not really a spicy opinion, but I
+
+00:36:51.433 --> 00:36:55.215
+have a thought on about that, because the sidecar has been brought
+
+00:36:55.975 --> 00:36:56.535
+forward.
+
+00:36:58.936 --> 00:36:59.116
+And
+
+00:37:02.158 --> 00:37:04.359
+I understand the concept of a sidecar,
+
+00:37:05.819 --> 00:37:08.840
+and a supporting gives several levels of agency, which is a good thing.
+
+00:37:08.900 --> 00:37:09.221
+Thank you.
+
+00:37:10.981 --> 00:37:11.522
+I do think
+
+00:37:12.782 --> 00:37:13.042
+it's—
+
+00:37:15.363 --> 00:37:17.664
+yeah, I— this is what I want in a badge.
+
+00:37:17.764 --> 00:37:18.565
+I want to be able
+
+00:37:20.825 --> 00:37:22.086
+to, like,
+
+00:37:23.467 --> 00:37:27.948
+support many different ways of being, and that requires extensibility.
+
+00:37:28.649 --> 00:37:30.089
+Oh, Captain Calliope at the
+
+00:37:31.090 --> 00:37:34.071
+Streamplace chat says: do they have HR where you live?
+
+00:37:36.932 --> 00:37:40.884
+I started my own company, so I can be my own HR.
+
+00:37:42.515 --> 00:37:46.946
+And as long as no one complains to the Department of Labor, I'm fine, I
+
+00:37:46.976 --> 00:37:47.317
+think.
+
+00:37:47.537 --> 00:37:47.857
+I don't know.
+
+00:37:47.877 --> 00:37:49.537
+Do not take this as legal advice.
+
+00:37:49.598 --> 00:37:50.598
+I may not be fine.
+
+00:37:52.799 --> 00:37:54.139
+Now I'm curious, actually.
+
+00:37:56.680 --> 00:37:57.120
+When do...
+
+00:37:57.521 --> 00:37:58.061
+I think there's...
+
+00:37:58.701 --> 00:37:58.921
+Okay.
+
+00:37:59.101 --> 00:38:01.642
+No, no, we're not discussing whether
+
+00:38:03.222 --> 00:38:05.423
+I can make it workplace appropriate,
+
+00:38:06.623 --> 00:38:08.443
+but to like
+
+00:38:10.044 --> 00:38:11.484
+say down to fuck, I guess.
+
+00:38:14.285 --> 00:38:17.486
+Claim the down to fuckness of your community.
+
+00:38:18.886 --> 00:38:19.847
+Oh, Trezy moved there.
+
+00:38:19.887 --> 00:38:20.187
+Okay.
+
+00:38:20.767 --> 00:38:21.027
+Okay.
+
+00:38:21.947 --> 00:38:22.067
+So,
+
+00:38:26.208 --> 00:38:26.828
+let's continue.
+
+00:38:26.828 --> 00:38:29.029
+Let's not— do not involve HR.
+
+00:38:29.549 --> 00:38:30.589
+Do not involve HR.
+
+00:38:34.991 --> 00:38:35.251
+Okay.
+
+00:38:36.091 --> 00:38:36.731
+So yeah,
+
+00:38:38.091 --> 00:38:39.232
+that was my general idea.
+
+00:38:39.292 --> 00:38:42.993
+And you can see here that you have, again, title, displayDescription.
+
+00:38:43.193 --> 00:38:44.513
+Then I was putting an icon,
+
+00:38:45.834 --> 00:38:49.234
+which is kinda like, again, it can be an emoji, can be
+
+00:38:51.355 --> 00:38:53.336
+an actual URL to an image.
+
+00:38:55.596 --> 00:38:59.197
+That is meant to be the compact version of it,
+
+00:39:00.417 --> 00:39:01.397
+or the...
+
+00:39:05.118 --> 00:39:06.278
+Let me show you.
+
+00:39:07.099 --> 00:39:11.219
+So, this would like kind of be like, if you want a compact thing, you
+
+00:39:11.259 --> 00:39:12.300
+have the,
+
+00:39:13.920 --> 00:39:16.640
+like, the symbol here plus the name plus a color.
+
+00:39:17.101 --> 00:39:17.701
+That was
+
+00:39:21.181 --> 00:39:21.582
+the idea.
+
+00:39:21.782 --> 00:39:26.222
+And then you have an image, which is actually the longer thing.
+
+00:39:26.302 --> 00:39:30.383
+So for example here, cause I wanted to support both those and something
+
+00:39:30.403 --> 00:39:31.964
+like this Let's Git Coding.
+
+00:39:35.744 --> 00:39:38.805
+New Lexicon gets Boba to say Jim Ray, that is DTF.
+
+00:39:41.326 --> 00:39:41.686
+Okay.
+
+00:39:41.966 --> 00:39:42.226
+Okay.
+
+00:39:44.066 --> 00:39:44.326
+Okay.
+
+00:39:44.906 --> 00:39:45.486
+We can do it.
+
+00:39:45.927 --> 00:39:46.747
+We should tell Jim.
+
+00:39:49.087 --> 00:39:52.948
+I, I'm also thinking I'm DTF, down to formalize.
+
+00:39:53.428 --> 00:39:55.408
+But I don't know if there is a better one.
+
+00:39:58.809 --> 00:40:01.749
+Maybe we should do that sticker for, like,
+
+00:40:03.429 --> 00:40:04.910
+for lexicon community.
+
+00:40:12.171 --> 00:40:12.951
+Like, hey, Boris,
+
+00:40:14.831 --> 00:40:15.111
+you know,
+
+00:40:17.551 --> 00:40:21.472
+Boris, Nick, what do you say, think of my, I'm down to...
+
+00:40:22.032 --> 00:40:22.612
+no, sorry.
+
+00:40:23.672 --> 00:40:28.033
+Yes, I'm DTF sticker for lexicon community.
+
+00:40:29.093 --> 00:40:30.013
+Great marketing.
+
+00:40:30.793 --> 00:40:33.194
+Down to formalize is the perfect lexicon trojan horse.
+
+00:40:33.254 --> 00:40:33.574
+Yes.
+
+00:40:38.994 --> 00:40:40.775
+IETF DTF stickers.
+
+00:40:41.395 --> 00:40:41.715
+Yes.
+
+00:40:43.475 --> 00:40:43.775
+Yes.
+
+00:40:47.376 --> 00:40:47.596
+Okay.
+
+00:40:48.076 --> 00:40:48.316
+Okay.
+
+00:40:49.196 --> 00:40:49.416
+All right.
+
+00:40:49.876 --> 00:40:49.956
+Like,
+
+00:40:55.638 --> 00:40:58.219
+back at the actual lexicon making,
+
+00:41:01.240 --> 00:41:01.940
+we were saying.
+
+00:41:02.100 --> 00:41:06.502
+And then this is kind of the idea I had, and then I want to go to the,
+
+00:41:07.242 --> 00:41:10.464
+to both what I was mumbling on,
+
+00:41:11.504 --> 00:41:14.605
+and I kept mumbling on, and some of the discussion that there was
+
+00:41:14.885 --> 00:41:15.505
+underneath.
+
+00:41:15.505 --> 00:41:18.747
+Because I think this is a good start, but
+
+00:41:19.767 --> 00:41:24.469
+I don't, like, I think I'm going to regret some parts of this.
+
+00:41:26.750 --> 00:41:30.551
+And this is what, to me, this is what lexicons making is all about: how
+
+00:41:30.571 --> 00:41:34.792
+much am I going to regret things in a few years?
+
+00:41:35.993 --> 00:41:38.374
+And there's an interesting tension there, right?
+
+00:41:41.095 --> 00:41:41.595
+Because
+
+00:41:46.937 --> 00:41:47.377
+you have,
+
+00:41:53.598 --> 00:41:56.939
+like, you know, this has been part of the tension, because people are
+
+00:41:56.939 --> 00:41:59.759
+like, oh, you just get it out and iterate, and I'm like, yes.
+
+00:42:00.119 --> 00:42:02.000
+Also, maybe let's think about it.
+
+00:42:02.360 --> 00:42:04.420
+I'm not saying a lot, but like ten minutes more.
+
+00:42:05.741 --> 00:42:09.782
+And so I'm trying to find the right balance between these, and some of
+
+00:42:09.822 --> 00:42:12.182
+it comes from having more people doing it,
+
+00:42:13.242 --> 00:42:15.563
+that I, like, you know, that, that
+
+00:42:16.963 --> 00:42:18.023
+we can trust to
+
+00:42:19.024 --> 00:42:22.624
+maybe take up some patterns, like let's not mix presentation
+
+00:42:23.745 --> 00:42:25.505
+and like, you know,
+
+00:42:27.386 --> 00:42:30.526
+formal data that shouldn't, that cannot change in the same badge
+
+00:42:30.626 --> 00:42:31.106
+lexicon.
+
+00:42:34.487 --> 00:42:35.227
+Trezy says,
+
+00:42:37.728 --> 00:42:38.148
+I'm gonna
+
+00:42:39.728 --> 00:42:42.128
+read the rest, but Trezy said, it's one of the toughest thing with
+
+00:42:42.188 --> 00:42:44.949
+building directly into formalized namespaces I've found out.
+
+00:42:45.589 --> 00:42:45.909
+Yes.
+
+00:42:47.509 --> 00:42:49.509
+And it, and it's a weird tension, right?
+
+00:42:49.589 --> 00:42:50.210
+Cause like,
+
+00:42:51.330 --> 00:42:55.510
+as less you go on community, especially, I find it's a weird tension
+
+00:42:55.650 --> 00:42:56.870
+cause you are bought—
+
+00:42:58.231 --> 00:42:58.281
+oh,
+
+00:42:59.651 --> 00:42:59.901
+I have a
+
+00:43:03.351 --> 00:43:04.731
+whole other set of thoughts here.
+
+00:43:05.232 --> 00:43:05.592
+But
+
+00:43:07.892 --> 00:43:12.653
+yeah, like, you know, it, it's like people are gonna see what you do as
+
+00:43:14.393 --> 00:43:16.473
+a, like, sort of more official.
+
+00:43:16.933 --> 00:43:22.234
+And so if you're calling something lexicon community, which gives people
+
+00:43:22.334 --> 00:43:28.215
+the pa— the impression of legitimacy, then do you have a responsibility
+
+00:43:28.695 --> 00:43:30.395
+of putting in more work?
+
+00:43:32.475 --> 00:43:37.916
+How much responsibility do you have, especially when it comes with...
+
+00:43:39.196 --> 00:43:42.197
+When it intersects the ability to, like, experiment.
+
+00:43:44.018 --> 00:43:45.258
+I have thoughts about this,
+
+00:43:46.378 --> 00:43:48.659
+but we are trying to get things done.
+
+00:43:50.679 --> 00:43:54.000
+We are DTF, down to formalize here.
+
+00:43:56.341 --> 00:44:00.282
+Fre- oh, Trezy showed me the badges definitions for trezy.pet.
+
+00:44:00.342 --> 00:44:02.062
+I'm gonna look at it.
+
+00:44:02.603 --> 00:44:05.163
+And Calliope says, and Ballor, I mean, making enterprise
+
+00:44:05.203 --> 00:44:08.144
+ATProto untenable to PR and legal departments.
+
+00:44:08.784 --> 00:44:09.464
+I agree.
+
+00:44:10.145 --> 00:44:10.585
+I agree.
+
+00:44:10.685 --> 00:44:13.005
+That is, this is what it is, this is what this is.
+
+00:44:13.125 --> 00:44:13.505
+This is
+
+00:44:15.946 --> 00:44:17.427
+the, like, you know,
+
+00:44:18.507 --> 00:44:23.168
+gunshotting the neigh— like, shooting your gunshots in the neighborhood
+
+00:44:23.248 --> 00:44:24.368
+to keep rent down.
+
+00:44:31.910 --> 00:44:34.331
+Trezy says, I think the answer is one thousand percent, there's a lot of
+
+00:44:34.371 --> 00:44:37.052
+responsibility when adding anything to lexicon.community.
+
+00:44:38.272 --> 00:44:38.652
+I agree.
+
+00:44:39.613 --> 00:44:39.793
+Well,
+
+00:44:41.233 --> 00:44:41.283
+I...
+
+00:44:41.653 --> 00:44:47.254
+Oh, God, we shouldn't go in this discussion right now, but we...
+
+00:44:47.455 --> 00:44:49.856
+I want to have this discussion at some point because I think the
+
+00:44:49.916 --> 00:44:51.056
+discussion is important.
+
+00:44:51.196 --> 00:44:51.556
+I think...
+
+00:44:55.578 --> 00:44:56.758
+Okay, put it this way.
+
+00:44:57.238 --> 00:44:59.619
+As where, this is gonna be a summarization.
+
+00:45:02.900 --> 00:45:05.861
+People need to understand specifically
+
+00:45:07.702 --> 00:45:08.122
+what
+
+00:45:09.982 --> 00:45:13.583
+something is for and what it is promising.
+
+00:45:14.244 --> 00:45:16.784
+There is nothing wrong with
+
+00:45:18.645 --> 00:45:23.387
+promising something that's slightly different from people's expectations
+
+00:45:23.827 --> 00:45:27.388
+as long as you are clear about what the promise is.
+
+00:45:28.928 --> 00:45:34.631
+And so this is something that I would like to do with lexicon community,
+
+00:45:35.191 --> 00:45:38.432
+because what is exactly the promise here?
+
+00:45:38.912 --> 00:45:42.854
+I think it's a good discussion, and I think
+
+00:45:44.775 --> 00:45:48.996
+spelling that out as clearly as possible to everyone is gonna be better
+
+00:45:49.116 --> 00:45:54.818
+for both the people working in it and for the broader community to know.
+
+00:45:55.259 --> 00:46:00.401
+Because if not, you get like this conflict where everyone puts their own
+
+00:46:00.421 --> 00:46:04.842
+expectation on it, and you can't help but break them, because
+
+00:46:06.863 --> 00:46:09.904
+you— those expectations, you have no power over them.
+
+00:46:10.525 --> 00:46:13.826
+You stop having power over the expectation, which means there's always
+
+00:46:13.886 --> 00:46:16.947
+someone that's gonna have more expectations than you have planned for.
+
+00:46:20.749 --> 00:46:22.089
+So that's the thing.
+
+00:46:22.149 --> 00:46:24.530
+Lexicon community is going to need a lot more governance at some point,
+
+00:46:24.550 --> 00:46:26.251
+so you have a big bag of fish later.
+
+00:46:26.411 --> 00:46:26.631
+Yes.
+
+00:46:27.611 --> 00:46:29.912
+Come talk to me, because I'm in the technical steering committee.
+
+00:46:29.972 --> 00:46:31.753
+I don't know like how many people here know.
+
+00:46:32.213 --> 00:46:37.295
+So that's part of where I see the tension, and there is like everywhere
+
+00:46:37.335 --> 00:46:39.056
+it needs hell and more governance.
+
+00:46:39.176 --> 00:46:44.278
+The problem is making more governance happen, and making more governance
+
+00:46:44.318 --> 00:46:44.718
+happen
+
+00:46:46.819 --> 00:46:49.220
+when there is just like the people
+
+00:46:51.241 --> 00:46:55.763
+doing governance and the people— like the people are doing fifteen
+
+00:46:55.783 --> 00:46:57.023
+different roles right now.
+
+00:46:57.363 --> 00:46:58.684
+So we need to work on that.
+
+00:46:58.984 --> 00:47:02.105
+Oh, speaking of which, oh God, we keep getting distracted.
+
+00:47:02.446 --> 00:47:02.626
+Sorry.
+
+00:47:02.686 --> 00:47:06.987
+Speaking of which, Calliope, I just found out about, I forgot the name,
+
+00:47:07.187 --> 00:47:07.968
+but like
+
+00:47:09.208 --> 00:47:13.290
+Ecosystem Coalition something, and that you are part of it.
+
+00:47:14.771 --> 00:47:16.771
+We should talk about
+
+00:47:18.692 --> 00:47:18.852
+that.
+
+00:47:18.952 --> 00:47:19.432
+I didn't know.
+
+00:47:20.033 --> 00:47:23.534
+I just found out about it today, and by all means, let's have that
+
+00:47:23.574 --> 00:47:24.034
+discussion.
+
+00:47:24.474 --> 00:47:24.675
+Okay.
+
+00:47:27.896 --> 00:47:30.567
+Trezy says, an excellent time space, but I think it's also worthwhile to
+
+00:47:30.617 --> 00:47:31.717
+experiment and iterate.
+
+00:47:31.737 --> 00:47:32.068
+Yes, I
+
+00:47:33.898 --> 00:47:34.619
+agree.
+
+00:47:34.659 --> 00:47:35.099
+I actually...
+
+00:47:35.519 --> 00:47:36.279
+No, no, no, no.
+
+00:47:37.220 --> 00:47:37.780
+Miss Boba.
+
+00:47:37.780 --> 00:47:38.220
+Bad Miss Boba.
+
+00:47:39.421 --> 00:47:40.341
+What we were saying, yes,
+
+00:47:42.522 --> 00:47:43.262
+the ATProto badge.
+
+00:47:43.322 --> 00:47:45.383
+Oh my God, people, I am so bad at this.
+
+00:47:47.804 --> 00:47:51.165
+Miss Boba, keep a stream on track: challenge level impossible.
+
+00:47:55.627 --> 00:47:58.028
+This is the sad reality.
+
+00:48:07.272 --> 00:48:07.552
+Also
+
+00:48:09.993 --> 00:48:11.974
+my cat is crying.
+
+00:48:12.174 --> 00:48:13.314
+I will give her food.
+
+00:48:15.275 --> 00:48:16.496
+trezy.pet.
+
+00:48:17.596 --> 00:48:19.517
+Volume type, credit, and description name.
+
+00:48:19.797 --> 00:48:24.838
+Yeah, see, you also put name as like, kinda like the slug,
+
+00:48:27.338 --> 00:48:27.798
+and
+
+00:48:28.979 --> 00:48:31.579
+like kinda the ID, and I agree, that makes sense.
+
+00:48:31.619 --> 00:48:34.900
+It's just, I think name and ID are both good to have.
+
+00:48:36.040 --> 00:48:41.241
+And it frees up this sorta like permanent default
+
+00:48:41.822 --> 00:48:43.082
+meaning of the badge
+
+00:48:44.382 --> 00:48:44.582
+as
+
+00:48:45.622 --> 00:48:46.062
+a thing.
+
+00:48:46.803 --> 00:48:48.983
+So yeah.
+
+00:48:52.344 --> 00:48:54.344
+Badge definitions and awards.
+
+00:48:54.684 --> 00:48:54.984
+Okay.
+
+00:48:57.965 --> 00:48:58.745
+Ecosystem action.
+
+00:48:58.805 --> 00:48:59.746
+Yes, that one.
+
+00:49:01.686 --> 00:49:05.247
+What's the actual topic so I can do my part to not derail?
+
+00:49:05.787 --> 00:49:07.447
+The actual topic is...
+
+00:49:09.988 --> 00:49:10.148
+I, I've
+
+00:49:11.288 --> 00:49:15.629
+Been dragged into the community standards working group, and I have let
+
+00:49:15.729 --> 00:49:19.250
+this badge definition and awards proposal kinda sorta fizzle.
+
+00:49:19.690 --> 00:49:24.652
+And no, I need this, Trezy, this, I, we got to get badge passed it, but
+
+00:49:27.213 --> 00:49:28.333
+I do wanna make some changes.
+
+00:49:28.393 --> 00:49:32.774
+So we're making a final, finalish proposal, and this is where we're
+
+00:49:32.874 --> 00:49:33.414
+defining it.
+
+00:49:35.515 --> 00:49:38.656
+I agree, I like name plus ID, alternative title plus ID.
+
+00:49:39.076 --> 00:49:39.276
+Yeah,
+
+00:49:40.976 --> 00:49:42.697
+I would suggest reuse name, but
+
+00:49:43.817 --> 00:49:46.478
+for my badge definitions, name is equal rkey.
+
+00:49:47.278 --> 00:49:47.998
+Makes sense.
+
+00:49:48.218 --> 00:49:54.120
+I just would not— like, I asked about this, and there was some concern
+
+00:49:54.200 --> 00:50:00.122
+about the rkey may change, and I'm like, yeah, let's, you know, it's
+
+00:50:00.162 --> 00:50:00.482
+fine.
+
+00:50:01.222 --> 00:50:05.043
+Let's not use the R— let's not impose using the rkey for this.
+
+00:50:05.723 --> 00:50:08.044
+I'm gonna give my cat some food.
+
+00:50:09.224 --> 00:50:10.405
+Very quick, and I'll be back.
+
+00:50:51.482 --> 00:50:51.782
+Okay.
+
+00:50:52.082 --> 00:50:55.864
+So that was the ... she has been fed.
+
+00:50:56.364 --> 00:50:58.585
+Okay, so this was the thing, and then from the...
+
+00:50:58.965 --> 00:51:00.406
+I had a bunch of questions.
+
+00:51:00.926 --> 00:51:02.467
+I can bring it up again.
+
+00:51:03.407 --> 00:51:06.729
+So this was discussion about something different.
+
+00:51:06.849 --> 00:51:08.510
+There was some discussion about
+
+00:51:09.590 --> 00:51:14.833
+numbering against a total, and I think that's where a sidecar lexicon
+
+00:51:15.053 --> 00:51:19.955
+makes a lot of sense, or at the very least, kinda like a group of badges
+
+00:51:20.095 --> 00:51:20.635
+lexicon.
+
+00:51:23.857 --> 00:51:25.318
+Yeah, so there's that.
+
+00:51:29.380 --> 00:51:31.481
+Okay, and then there were some other comments.
+
+00:51:38.604 --> 00:51:42.526
+So what's the benefit of a ID field over rkey, because you can't index
+
+00:51:42.666 --> 00:51:45.167
+across ATProto on a field value?
+
+00:51:49.149 --> 00:51:53.250
+I think somewhere someone said, oh, tempting to do the rkey, but I can't
+
+00:51:53.250 --> 00:51:56.821
+imagine wanting to change the slug, even if it's rare, so having a
+
+00:51:56.871 --> 00:52:00.072
+global unique ID assigned, the creation of the badge can never change
+
+00:52:00.152 --> 00:52:00.873
+fields right.
+
+00:52:01.653 --> 00:52:04.774
+So that's basically my thinking, to...
+
+00:52:05.354 --> 00:52:08.435
+you can always have the badge name equals to the ID,
+
+00:52:10.096 --> 00:52:12.817
+sorry, the badge ID equals to the rkey.
+
+00:52:13.317 --> 00:52:14.117
+I'm just kinda...
+
+00:52:14.257 --> 00:52:16.598
+and maybe that is the fallback if there isn't...
+
+00:52:16.758 --> 00:52:17.819
+I'm just kinda like,
+
+00:52:19.319 --> 00:52:20.139
+why not have it?
+
+00:52:22.240 --> 00:52:25.441
+Like you can index across ATProto on a field value.
+
+00:52:26.522 --> 00:52:28.802
+Yeah, that's, again, that makes sense.
+
+00:52:28.862 --> 00:52:29.102
+And so
+
+00:52:32.204 --> 00:52:33.044
+I'm kinda like,
+
+00:52:34.164 --> 00:52:36.205
+well, we could have both.
+
+00:52:42.667 --> 00:52:42.887
+And yeah,
+
+00:52:45.588 --> 00:52:46.729
+that's my thinking, because
+
+00:52:48.609 --> 00:52:51.290
+for example, if you— well, I guess if you change the ID,
+
+00:52:52.530 --> 00:52:55.411
+the signature becomes invalid anyway.
+
+00:52:57.332 --> 00:53:00.053
+I just would prefer the AT URI to be stable.
+
+00:53:03.514 --> 00:53:06.795
+Yeah, but changing the rkey is going to be problematic regardless of
+
+00:53:06.835 --> 00:53:07.855
+whether it's human readable or not.
+
+00:53:08.075 --> 00:53:12.037
+That's why I'm saying, right, like you don't really change the rkey.
+
+00:53:12.157 --> 00:53:17.298
+Your ID field, any, for any reason you need to change the ID field, that
+
+00:53:17.378 --> 00:53:20.399
+is a lot less of an issue, even if the—
+
+00:53:21.820 --> 00:53:23.740
+for like all the AT URI out there.
+
+00:53:23.800 --> 00:53:25.441
+That's kind of my thinking.
+
+00:53:26.701 --> 00:53:32.043
+And you know, the ID, you maybe, one example that I was coming from was
+
+00:53:32.123 --> 00:53:32.243
+the
+
+00:53:33.304 --> 00:53:34.484
+AtmosphereConf.
+
+00:53:35.184 --> 00:53:38.286
+We don't know if— we didn't know the first time if there was going to be
+
+00:53:38.706 --> 00:53:39.546
+a second one.
+
+00:53:39.806 --> 00:53:43.648
+So like, you know, maybe we did the ID Atmosphere Conf, and now we want
+
+00:53:43.668 --> 00:53:46.469
+to be Atmosphere Conf dash 2025.
+
+00:53:46.489 --> 00:53:48.310
+It's not particularly—
+
+00:53:49.991 --> 00:53:52.872
+like, it's— there's always an issue because you're kind of invalidating
+
+00:53:52.972 --> 00:53:53.352
+things.
+
+00:53:55.333 --> 00:53:57.714
+But, you know, that's,
+
+00:54:04.277 --> 00:54:06.698
+like, I still feel more comfortable, put it that way.
+
+00:54:09.899 --> 00:54:12.381
+This is the whole thing I went through with the game records, like
+
+00:54:12.501 --> 00:54:14.662
+having to name the...
+
+00:54:15.002 --> 00:54:16.362
+re-change the IDs,
+
+00:54:18.283 --> 00:54:21.084
+just completely after the slug feels out of the record because it's not
+
+00:54:21.204 --> 00:54:21.805
+indexable.
+
+00:54:22.805 --> 00:54:25.026
+No, but these are great things to capture.
+
+00:54:30.368 --> 00:54:34.390
+I wish we had— maybe someone should do it— the lexicon design
+
+00:54:34.490 --> 00:54:35.730
+frustration thread,
+
+00:54:37.671 --> 00:54:38.531
+where you just go
+
+00:54:39.812 --> 00:54:41.532
+and put your frustration.
+
+00:54:42.212 --> 00:54:45.954
+It reminds me of this thing, which is really funny, which I don't know—
+
+00:54:46.314 --> 00:54:48.555
+well, I mean, I don't know how many people have heard of it.
+
+00:54:48.615 --> 00:54:50.275
+I really like reading tech Twitter.
+
+00:54:51.536 --> 00:54:52.076
+That's my
+
+00:54:53.336 --> 00:54:55.657
+endearing character flaw, is how I call it.
+
+00:54:57.578 --> 00:55:00.199
+And someone was talking about giving
+
+00:55:02.159 --> 00:55:03.380
+AI agents
+
+00:55:04.860 --> 00:55:08.461
+skill— actually, a command line tool called Papercut.
+
+00:55:09.482 --> 00:55:14.384
+And every time an AI agent would encounter an issue,
+
+00:55:16.004 --> 00:55:21.326
+they had told it, use Papercut and write down what the issue was.
+
+00:55:21.586 --> 00:55:26.468
+And so you basically had this whole thing with the AI agents would just
+
+00:55:26.568 --> 00:55:29.349
+like continuously file,
+
+00:55:30.409 --> 00:55:34.711
+like just file, oh, this went mildly wrong as they were doing things,
+
+00:55:34.751 --> 00:55:37.793
+and apparently everyone that has tried it is like, this is the most
+
+00:55:37.893 --> 00:55:38.773
+useful thing ever.
+
+00:55:41.134 --> 00:55:43.935
+And so I'm thinking kinda like that, but for humans.
+
+00:55:44.576 --> 00:55:45.396
+That's smart, right?
+
+00:55:45.476 --> 00:55:46.176
+I thought it was.
+
+00:55:47.477 --> 00:55:51.779
+And people have been finding it really interest— like really useful, and
+
+00:55:51.819 --> 00:55:52.459
+so I'm like, maybe
+
+00:55:53.499 --> 00:55:54.380
+that is what we need.
+
+00:55:57.421 --> 00:55:57.641
+Here we go.
+
+00:55:57.761 --> 00:55:58.322
+Now, okay.
+
+00:56:00.583 --> 00:56:01.383
+I'm gonna do this.
+
+00:56:02.083 --> 00:56:06.145
+Gonna do lexicon paper cuts thread.
+
+00:56:07.205 --> 00:56:08.166
+I'm gonna open this.
+
+00:56:08.246 --> 00:56:10.627
+We're gonna open the lexicon paper cuts threads.
+
+00:56:11.747 --> 00:56:15.249
+Cause it also gives us a good signal about what does the ecosystem need
+
+00:56:15.289 --> 00:56:18.590
+in terms of education on how to write these, or like
+
+00:56:19.691 --> 00:56:21.452
+what do we want to ask people to...
+
+00:56:22.652 --> 00:56:26.094
+Please, for the love of God, stop— no, no, stop doing this, but like,
+
+00:56:26.114 --> 00:56:28.235
+here is the solution to all your woes.
+
+00:56:32.257 --> 00:56:33.637
+So yeah, I think that's useful.
+
+00:56:38.860 --> 00:56:41.441
+Anyway, so the first part here was...
+
+00:56:41.701 --> 00:56:47.263
+I w- I was kinda like going through this, and the first part of it was
+
+00:56:47.764 --> 00:56:48.184
+here,
+
+00:56:51.165 --> 00:56:55.287
+going: so we have ID, name, description, and appearance.
+
+00:56:55.387 --> 00:56:57.988
+This is how I put this one.
+
+00:56:59.549 --> 00:57:00.710
+Okay, here is
+
+00:57:01.930 --> 00:57:02.410
+the thing.
+
+00:57:03.011 --> 00:57:07.533
+Appearance, you could argue that it should be a sidecar
+
+00:57:08.633 --> 00:57:09.233
+record.
+
+00:57:11.595 --> 00:57:13.495
+I don't love sidecars, though.
+
+00:57:17.177 --> 00:57:20.918
+Like my— one of my issues with sidecars is that they're hard to
+
+00:57:20.978 --> 00:57:21.618
+discover.
+
+00:57:23.658 --> 00:57:29.230
+So like, for example, imagine someone else does a
+
+00:57:29.380 --> 00:57:32.241
+different appearance lexicon.
+
+00:57:36.042 --> 00:57:38.022
+You would need to know
+
+00:57:39.483 --> 00:57:39.663
+that
+
+00:57:41.483 --> 00:57:41.943
+that's fine.
+
+00:57:42.123 --> 00:57:42.344
+No, no.
+
+00:57:42.724 --> 00:57:42.944
+Okay.
+
+00:57:43.264 --> 00:57:47.725
+First of all, I want to say, I think sidecars are great for certain
+
+00:57:47.885 --> 00:57:48.265
+uses.
+
+00:57:49.786 --> 00:57:52.706
+This— we are not discussing the fact that sidecars are useful.
+
+00:57:54.007 --> 00:57:56.427
+Wanna say, I think it's a very cool pattern.
+
+00:57:57.108 --> 00:58:02.929
+I am just saying in this case, it makes me, like, I wanna discuss
+
+00:58:02.969 --> 00:58:04.690
+what can go wrong, put it that way.
+
+00:58:07.830 --> 00:58:10.031
+Because as I was saying, like,
+
+00:58:11.391 --> 00:58:16.053
+if you have appearance here and someone wants to use a different lexicon
+
+00:58:16.113 --> 00:58:16.233
+for
+
+00:58:17.874 --> 00:58:20.034
+appearance, and I think this should be an open union,
+
+00:58:23.535 --> 00:58:23.936
+then,
+
+00:58:27.997 --> 00:58:28.297
+you know,
+
+00:58:30.178 --> 00:58:34.419
+if you have a sidecar, if only we had a protocol for discovering things,
+
+00:58:34.699 --> 00:58:38.801
+well, but you don't have it for like saying, here is a sidecar lexicon
+
+00:58:38.861 --> 00:58:40.401
+for this other lexicon, right?
+
+00:58:41.722 --> 00:58:42.582
+We don't have that.
+
+00:58:43.862 --> 00:58:46.083
+We could consider adding a, like,
+
+00:58:47.704 --> 00:58:52.165
+this is a sidecar for this field to lexicons, but that is a whole other
+
+00:58:52.265 --> 00:58:53.285
+type of proposal.
+
+00:58:55.426 --> 00:58:57.847
+So that, that's kind of like where I'm at.
+
+00:58:58.027 --> 00:59:03.129
+So if I wanted to do sidecar lexicon, yeah, yeah, you know, how, let's
+
+00:59:03.149 --> 00:59:05.269
+see, how deep can this rabbit hole go?
+
+00:59:05.369 --> 00:59:07.030
+It can go so deep.
+
+00:59:07.410 --> 00:59:11.452
+But like, if I wanted to be like, fuck lexicon community, I think their
+
+00:59:11.552 --> 00:59:16.874
+choices suck, and I wanted to do like the did:web
+
+00:59:16.974 --> 00:59:20.175
+slash FujoCoded dot com
+
+00:59:21.335 --> 00:59:22.056
+slash
+
+00:59:23.196 --> 00:59:25.297
+community com dot
+
+00:59:26.618 --> 00:59:29.139
+FujoCoded dot badge dot appearance.
+
+00:59:30.739 --> 00:59:31.019
+Like,
+
+00:59:32.400 --> 00:59:32.900
+I could do it.
+
+00:59:33.500 --> 00:59:34.381
+And the thing is,
+
+00:59:37.962 --> 00:59:39.543
+the infralex concern of interest.
+
+00:59:39.623 --> 00:59:42.404
+Yeah, I mean, that's kind of like where we were going.
+
+00:59:43.224 --> 00:59:44.505
+And I, and I'm not against it.
+
+00:59:44.545 --> 00:59:47.566
+I'm mostly just like, I want to go through it.
+
+00:59:47.686 --> 00:59:49.407
+That's kind of why I'm doing it right now.
+
+00:59:51.488 --> 00:59:52.748
+So that's the thing, right?
+
+00:59:52.848 --> 00:59:56.930
+So if I have the appearance here, someone can say,
+
+00:59:57.990 --> 01:00:00.992
+okay, this is, I see how this is.
+
+01:00:01.072 --> 01:00:02.512
+Like, I can discover this.
+
+01:00:04.573 --> 01:00:08.495
+I want to put all the API dot JSON and OpenAPI definitions into lexicon
+
+01:00:08.535 --> 01:00:09.015
+at some point.
+
+01:00:09.215 --> 01:00:09.955
+Oh, oh.
+
+01:00:11.896 --> 01:00:12.236
+It's like,
+
+01:00:13.977 --> 01:00:14.897
+that's perverse.
+
+01:00:15.077 --> 01:00:15.557
+I love it.
+
+01:00:16.217 --> 01:00:16.577
+I love it.
+
+01:00:19.718 --> 01:00:24.740
+You scientists were so worried about, Trezy says, right, but that's an
+
+01:00:24.780 --> 01:00:26.000
+application developer concern.
+
+01:00:26.040 --> 01:00:28.801
+You need to plan for its content, which means you need to know about its
+
+01:00:28.861 --> 01:00:32.542
+context, which means you need to come from it, from a real entry point,
+
+01:00:32.682 --> 01:00:35.442
+not just I found this thing on accident.
+
+01:00:37.923 --> 01:00:38.703
+Not wrong.
+
+01:00:39.283 --> 01:00:39.924
+Don't disagree.
+
+01:00:41.084 --> 01:00:45.165
+We can talk, actually, this goes to another thing that I was thinking.
+
+01:00:57.949 --> 01:01:03.390
+I don't, okay, so some people have talked also about the idea of having,
+
+01:01:05.010 --> 01:01:05.671
+how do you call it?
+
+01:01:07.551 --> 01:01:07.791
+Okay.
+
+01:01:12.152 --> 01:01:17.013
+I may be using the word wrong, but lexicon mixins,
+
+01:01:18.093 --> 01:01:22.794
+by which I mean, if you have this, like, if you get this URI and you're
+
+01:01:22.854 --> 01:01:28.796
+like, well, let's go see if this URI has like the same fields, you could
+
+01:01:28.836 --> 01:01:30.036
+in theory fall back.
+
+01:01:35.317 --> 01:01:36.677
+But you can't really go...
+
+01:01:36.797 --> 01:01:38.797
+Like,
+
+01:01:41.018 --> 01:01:45.519
+I'm trying to, what I'm trying to do, and I'll, I can give you the other
+
+01:01:45.619 --> 01:01:48.680
+thought I have, that maybe makes this different.
+
+01:01:53.381 --> 01:01:56.501
+But the other thought I have is,
+
+01:02:04.303 --> 01:02:10.004
+sorry, what I'm trying to do is I'm trying to basically create a Create,
+
+01:02:11.425 --> 01:02:14.966
+way for people to discover
+
+01:02:16.707 --> 01:02:20.069
+that there is more to do and implement and look at.
+
+01:02:22.410 --> 01:02:28.372
+I have some ideas, like, for example, something where
+
+01:02:30.213 --> 01:02:31.974
+I would like to,
+
+01:02:33.534 --> 01:02:39.457
+something I would like to do is making it easier to have standardized
+
+01:02:39.537 --> 01:02:41.638
+renderers for different lexicons.
+
+01:02:42.198 --> 01:02:46.020
+And so if you're doing that, you do not actually need to care about
+
+01:02:46.140 --> 01:02:49.581
+what's in here because you would have like a libraries, then that's all
+
+01:02:49.621 --> 01:02:54.023
+the type of badges that are possible, which you just giving it the badge
+
+01:02:54.063 --> 01:02:54.703
+appearance.
+
+01:02:54.983 --> 01:02:59.505
+But now if you are not, don't have this easily in the lexicon, now you
+
+01:02:59.645 --> 01:03:03.627
+don't have a way to easily get this information altogether.
+
+01:03:03.727 --> 01:03:05.108
+Like, you have to kind of go
+
+01:03:06.728 --> 01:03:08.169
+Through multiple steps.
+
+01:03:08.289 --> 01:03:08.669
+I don't know.
+
+01:03:08.949 --> 01:03:09.029
+I'm,
+
+01:03:10.530 --> 01:03:13.591
+but let me tell, shouldn't discovery come from the documentation for the
+
+01:03:13.631 --> 01:03:13.971
+lexicon?
+
+01:03:14.031 --> 01:03:15.311
+But people don't read.
+
+01:03:17.332 --> 01:03:22.994
+Like, I know, like, yes, and at the same time, I feel like
+
+01:03:24.334 --> 01:03:29.676
+the more you reduce the friction for people to have to discover
+
+01:03:29.936 --> 01:03:32.997
+something, the more that will be adopted.
+
+01:03:34.978 --> 01:03:40.800
+So again, sidecar lexicon, some of my fear is if we don't allow
+
+01:03:40.960 --> 01:03:43.801
+some sort of pointer from here to the appearance,
+
+01:03:44.901 --> 01:03:49.843
+everyone is just gonna implement lexicon communities version of it, and
+
+01:03:49.883 --> 01:03:54.444
+it's gonna be harder for new appearances to exist in the,
+
+01:03:55.905 --> 01:03:57.586
+to come up in the protocol.
+
+01:03:57.906 --> 01:04:01.647
+Cause for example, if you're logging all your requests,
+
+01:04:03.107 --> 01:04:07.669
+like think about this, if you are A developer logging all the requests,
+
+01:04:07.829 --> 01:04:09.250
+all the badges that you get,
+
+01:04:10.371 --> 01:04:15.833
+and you don't see a lot of badges without a corresponding
+
+01:04:15.953 --> 01:04:17.214
+sidecar lexicon
+
+01:04:19.074 --> 01:04:20.475
+for a badge definition.
+
+01:04:23.216 --> 01:04:28.959
+Now you are just like, well, this lexicon badges have no definition,
+
+01:04:29.279 --> 01:04:31.140
+have no appearance associated with that.
+
+01:04:31.660 --> 01:04:35.462
+But if you're logging and you see this appearance field, and you're
+
+01:04:35.522 --> 01:04:39.804
+like, well, I don't know about this appearance field, I'm seeing fifteen
+
+01:04:39.864 --> 01:04:43.685
+different lexicons in which the appearance field is a lexicon I don't
+
+01:04:43.705 --> 01:04:43.905
+know.
+
+01:04:44.226 --> 01:04:48.377
+Well, now you're motivated to go and be like, what is this and how can I
+
+01:04:48.387 --> 01:04:49.068
+display it?
+
+01:04:51.108 --> 01:04:55.530
+You actually make visible that more things are possible here, and you're
+
+01:04:55.550 --> 01:04:59.591
+not relying on people advocating and understanding for the things to be
+
+01:04:59.711 --> 01:04:59.971
+there.
+
+01:05:00.411 --> 01:05:03.212
+And so the, and you always have the name and description.
+
+01:05:03.312 --> 01:05:06.853
+So here, appearance, if we make it an open union, we can say
+
+01:05:07.893 --> 01:05:12.494
+we support the, we have provided a basic appearance from lexicon
+
+01:05:12.554 --> 01:05:15.715
+community, but you can make another one.
+
+01:05:18.636 --> 01:05:21.937
+But it can be another one, so like, you know, fallback if you don't know
+
+01:05:22.037 --> 01:05:22.177
+it.
+
+01:05:23.697 --> 01:05:26.218
+So yes, and there is a limit to how much friction reasonable to remove.
+
+01:05:26.538 --> 01:05:30.449
+Yeah, for sure, like, for sure, but I,
+
+01:05:31.500 --> 01:05:33.700
+that's true, and that's also like,
+
+01:05:38.061 --> 01:05:39.042
+and that's like,
+
+01:05:40.442 --> 01:05:41.062
+how do you do it?
+
+01:05:44.623 --> 01:05:45.343
+That's not true,
+
+01:05:46.464 --> 01:05:50.805
+and Depends how much it costs someone to remove that friction.
+
+01:05:53.765 --> 01:05:56.846
+You know, it's a balance, and that, that's part of like the discussions
+
+01:05:56.926 --> 01:05:57.446
+that we have.
+
+01:05:57.786 --> 01:06:00.687
+If I find a new lexicon, the first thing I do is reverse the NSID and
+
+01:06:00.687 --> 01:06:01.847
+start looking for more info.
+
+01:06:02.027 --> 01:06:04.348
+I feel like that's the bare minimum supporting discovery.
+
+01:06:04.728 --> 01:06:08.348
+But you, okay, but you wouldn't find a new lexicon, is my point.
+
+01:06:08.729 --> 01:06:13.130
+My point is this URI having this appearance here means you find a new
+
+01:06:13.190 --> 01:06:13.710
+lexicon.
+
+01:06:15.490 --> 01:06:17.170
+Not having that appearance there
+
+01:06:18.371 --> 01:06:22.792
+means you need to figure out that there is a sidecar for this, even
+
+01:06:22.892 --> 01:06:25.992
+though we don't have a standardized way to look for sidecars.
+
+01:06:27.993 --> 01:06:32.694
+So you rely a lot more on your knowledge of the ecosystem and on the
+
+01:06:32.774 --> 01:06:33.414
+ability
+
+01:06:36.074 --> 01:06:40.135
+to like, the willingness of someone of doing the jump of figuring out
+
+01:06:40.175 --> 01:06:41.976
+what a sidecar is and learning.
+
+01:06:43.756 --> 01:06:45.757
+I'm like, that's mostly what I'm saying.
+
+01:06:45.817 --> 01:06:48.477
+And I don't know, I think having the appearance here is,
+
+01:06:51.378 --> 01:06:56.060
+I, I'm gonna do the forgiveness, not permission, unless you really,
+
+01:06:56.140 --> 01:06:59.101
+really hate it, and it's optional, so you can do a sidecar,
+
+01:07:00.161 --> 01:07:01.801
+that sort of, like, I would keep it.
+
+01:07:07.803 --> 01:07:11.224
+But anyway, I do like sidecars and we can still use them.
+
+01:07:11.564 --> 01:07:15.465
+So that's also like, you can still have a sidecar for more information
+
+01:07:15.525 --> 01:07:16.125
+on the badge.
+
+01:07:16.245 --> 01:07:17.146
+So for example,
+
+01:07:19.646 --> 01:07:22.927
+well, let's go discuss the appearance, because I think the appearance
+
+01:07:23.808 --> 01:07:24.428
+makes sense.
+
+01:07:24.488 --> 01:07:24.688
+Also,
+
+01:07:25.708 --> 01:07:27.948
+I'm gonna,
+
+01:07:31.830 --> 01:07:34.811
+wait a second, I'm gonna order DoorDash because it's so late.
+
+01:07:35.851 --> 01:07:37.171
+What am I gonna order?
+
+01:07:38.012 --> 01:07:39.952
+I want Taxi burrito.
+
+01:07:40.092 --> 01:07:41.793
+No, burrito taxi, help me.
+
+01:07:46.114 --> 01:07:47.334
+Okay, not fried chicken.
+
+01:07:50.195 --> 01:07:51.375
+We're not doing fried chicken.
+
+01:07:51.455 --> 01:07:52.596
+I kind of want ramen, though.
+
+01:07:55.737 --> 01:07:58.938
+My partner isn't here, which means no one is cooking for me
+
+01:08:00.278 --> 01:08:02.879
+while I spend too much time thinking about protocols.
+
+01:08:05.579 --> 01:08:09.361
+I am blessed with a partner that has, like, seen my ADHD,
+
+01:08:11.621 --> 01:08:15.902
+struggling to ever get stuff cooked on time, and has been like, okay,
+
+01:08:15.942 --> 01:08:16.643
+you know what?
+
+01:08:16.903 --> 01:08:18.183
+I'm gonna try to lead this.
+
+01:08:20.744 --> 01:08:24.325
+Well, even cooking together is just kind of like, I'll try to do it when
+
+01:08:24.345 --> 01:08:25.265
+you're really, really busy.
+
+01:08:26.065 --> 01:08:28.246
+So right now he isn't here and I'm like,
+
+01:08:29.426 --> 01:08:30.687
+oh my god, it's nine ten.
+
+01:08:31.267 --> 01:08:32.387
+I am supposed to eat.
+
+01:08:33.007 --> 01:08:34.368
+That is a thing that people do.
+
+01:08:37.548 --> 01:08:37.888
+Mm-mm-mm.
+
+01:08:42.649 --> 01:08:44.409
+No fried chicken blasphemy, I know.
+
+01:08:46.369 --> 01:08:46.649
+I know.
+
+01:08:47.150 --> 01:08:48.290
+Okay, okay.
+
+01:08:50.830 --> 01:08:51.370
+Let me see.
+
+01:08:53.150 --> 01:08:54.871
+God, are these things expensive?
+
+01:08:58.671 --> 01:09:03.072
+I'm like, I can't believe that ordering a whole bunch of ramen coming
+
+01:09:03.152 --> 01:09:04.672
+straight up to my house
+
+01:09:05.792 --> 01:09:08.152
+from one of Oakland's many
+
+01:09:10.873 --> 01:09:13.193
+world-famous ramen place would be,
+
+01:09:15.473 --> 01:09:16.394
+would cost money.
+
+01:09:18.454 --> 01:09:19.154
+Okay.
+
+01:09:30.936 --> 01:09:33.136
+I am, uh-uh-uh.
+
+01:09:36.977 --> 01:09:38.798
+Looking at my options.
+
+01:09:42.519 --> 01:09:45.911
+But yeah, also talking while I do this, since it's gonna take me a
+
+01:09:45.961 --> 01:09:46.961
+second to decide.
+
+01:09:48.862 --> 01:09:54.024
+But yeah, so I, the other thing I have here is how to
+
+01:09:54.144 --> 01:09:54.884
+support
+
+01:09:55.885 --> 01:09:58.766
+multiple appearance in general.
+
+01:09:59.446 --> 01:09:59.546
+So
+
+01:10:01.087 --> 01:10:05.569
+I would like there to be a standardized thing for the,
+
+01:10:07.429 --> 01:10:10.631
+like, I do think there needs to be a community lexicon badge appearance,
+
+01:10:11.231 --> 01:10:13.972
+but I would like to think about extensions.
+
+01:10:14.032 --> 01:10:18.594
+And this was something that Zicklag was bringing up, like spoilers, but
+
+01:10:21.375 --> 01:10:26.977
+this is a bit more of the, like, Zicklag was mentioning extensions here.
+
+01:10:28.498 --> 01:10:33.500
+I don't know that extensions is the right thing, but I kind of I wanna
+
+01:10:33.500 --> 01:10:33.620
+have,
+
+01:10:37.221 --> 01:10:39.702
+I feel like I am being, I'm gonna be
+
+01:10:40.802 --> 01:10:43.063
+like, stop it, stop overcomplicating this.
+
+01:10:44.643 --> 01:10:47.684
+I kind of wanna add alternate appearances,
+
+01:10:50.285 --> 01:10:51.205
+because
+
+01:10:54.126 --> 01:10:54.266
+you,
+
+01:10:55.666 --> 01:10:58.207
+like, actually a badge has
+
+01:10:59.907 --> 01:11:03.528
+potentially multiple ones that people can,
+
+01:11:04.629 --> 01:11:07.469
+like, get different groups can support.
+
+01:11:07.629 --> 01:11:08.870
+So for example,
+
+01:11:10.770 --> 01:11:12.411
+different sizes, right?
+
+01:11:12.531 --> 01:11:15.532
+You can have a badge that, okay, if you have,
+
+01:11:17.252 --> 01:11:21.914
+If you're displaying it at five hundred times a million,
+
+01:11:23.694 --> 01:11:25.855
+like appearance of different format environments, yes.
+
+01:11:26.255 --> 01:11:30.117
+Like, if you're displaying it in a place where you need a square, or in
+
+01:11:30.157 --> 01:11:33.118
+a place where there's a lot of space, or in a simple
+
+01:11:34.498 --> 01:11:39.480
+row that has to be just like, you know, the eighty-eight by thirty-three
+
+01:11:39.600 --> 01:11:44.162
+things, those are different appearances for the same thing.
+
+01:11:46.062 --> 01:11:46.162
+And
+
+01:11:48.443 --> 01:11:49.544
+I think it matters.
+
+01:11:50.444 --> 01:11:53.165
+Like, that's a very, very common thing
+
+01:11:54.185 --> 01:11:58.187
+to want, a normal and reasonable thing to want for once.
+
+01:12:04.429 --> 01:12:06.330
+And I'm kinda like, you know,
+
+01:12:07.530 --> 01:12:10.291
+I can already feel the forum being like, Ms.
+
+01:12:10.391 --> 01:12:12.512
+Boba, stop overcomplicating this.
+
+01:12:14.112 --> 01:12:14.452
+No, Ms.
+
+01:12:14.532 --> 01:12:15.292
+Boba, bad Ms.
+
+01:12:15.352 --> 01:12:15.572
+Boba.
+
+01:12:15.632 --> 01:12:19.473
+But also I feel like, yeah, different formats, different environments.
+
+01:12:21.594 --> 01:12:22.914
+I already want them.
+
+01:12:23.174 --> 01:12:23.954
+I want this.
+
+01:12:24.354 --> 01:12:27.515
+I hate, like, so I have thoughts on this.
+
+01:12:27.575 --> 01:12:30.336
+I like the idea of creating that for the format, then everything else is
+
+01:12:30.376 --> 01:12:31.496
+an array, in an array.
+
+01:12:31.776 --> 01:12:33.216
+Yeah, that's what I was thinking.
+
+01:12:33.516 --> 01:12:35.557
+Like, I was thinking about an appearances,
+
+01:12:36.817 --> 01:12:38.217
+like, alternates
+
+01:12:39.477 --> 01:12:39.838
+array.
+
+01:12:43.778 --> 01:12:46.719
+Because you cannot put it in here, you cannot put it in the original
+
+01:12:46.759 --> 01:12:47.679
+definition, right?
+
+01:12:47.739 --> 01:12:49.279
+Like, so here is like,
+
+01:12:51.180 --> 01:12:54.000
+alternates, I don't know what,
+
+01:12:55.801 --> 01:12:57.821
+and this could be where the,
+
+01:13:02.802 --> 01:13:08.664
+It just makes particular strong sense for me to have these
+
+01:13:09.304 --> 01:13:10.464
+for badges.
+
+01:13:10.884 --> 01:13:13.665
+Cause we, you know, if you have,
+
+01:13:14.926 --> 01:13:18.767
+like, we all know about different appearances for badges, right?
+
+01:13:19.988 --> 01:13:21.728
+But you can also think about,
+
+01:13:23.409 --> 01:13:23.929
+how is it?
+
+01:13:24.329 --> 01:13:24.990
+Games,
+
+01:13:26.150 --> 01:13:26.350
+dot
+
+01:13:28.771 --> 01:13:29.431
+games.
+
+01:13:30.912 --> 01:13:32.413
+No, wait, we would have to be,
+
+01:13:34.734 --> 01:13:36.754
+I'm gonna do the did:web, I'm so sorry.
+
+01:13:37.795 --> 01:13:41.256
+I forget, I don't remember all the seconds are done, sorry.
+
+01:13:43.437 --> 01:13:44.918
+And then you add this,
+
+01:13:48.639 --> 01:13:48.999
+like,
+
+01:13:52.421 --> 01:13:52.981
+and this is,
+
+01:13:54.862 --> 01:13:55.362
+Steam,
+
+01:13:56.883 --> 01:13:57.563
+for example,
+
+01:13:58.943 --> 01:13:59.784
+Steam badge,
+
+01:14:01.865 --> 01:14:02.625
+G5.
+
+01:14:02.625 --> 01:14:04.346
+Oh God, it's, do I need another one?
+
+01:14:07.867 --> 01:14:07.927
+Do
+
+01:14:09.047 --> 01:14:11.969
+I apologize for having...
+
+01:14:12.469 --> 01:14:14.169
+Oops, I also got this one.
+
+01:14:17.991 --> 01:14:22.632
+This is badges.appearance, like Steam, you know?
+
+01:14:25.533 --> 01:14:26.013
+Oh, oh God,
+
+01:14:28.054 --> 01:14:29.615
+sorry, I can't get this one.
+
+01:14:31.215 --> 01:14:35.877
+Appearance, maybe we can do Steam badges, like, kinda like Steam-like,
+
+01:14:36.957 --> 01:14:37.858
+and then you have...
+
+01:14:38.178 --> 01:14:39.378
+Oh, this also needs,
+
+01:14:41.239 --> 01:14:43.620
+further, you have games, feature gamesgamesgamesgames.games, yes.
+
+01:14:54.543 --> 01:14:57.844
+So, like, you can have these, and then you can have, yeah, you can have
+
+01:14:57.904 --> 01:15:03.006
+Steam-like, PS5 style, I don't know, but like,
+
+01:15:04.167 --> 01:15:07.148
+and here we can have fujocoded.com.
+
+01:15:09.428 --> 01:15:10.308
+And then
+
+01:15:11.348 --> 01:15:13.348
+com.fujocoded.badges.appearance,
+
+01:15:16.629 --> 01:15:18.489
+and we are gonna have like,
+
+01:15:20.290 --> 01:15:20.870
+what do we do?
+
+01:15:25.850 --> 01:15:27.850
+I'm
+
+01:15:29.011 --> 01:15:33.851
+trying to think what's the, how do I want to create problems here?
+
+01:15:33.891 --> 01:15:34.352
+What can I do?
+
+01:15:41.793 --> 01:15:42.093
+I don't know.
+
+01:15:46.013 --> 01:15:46.293
+I don't know.
+
+01:15:50.594 --> 01:15:51.974
+AO3, whatever.
+
+01:15:52.034 --> 01:15:54.754
+You can't really put badges on AO3, but like, you know,
+
+01:15:58.795 --> 01:15:59.995
+actually we can do this
+
+01:16:01.535 --> 01:16:05.676
+overcomplicated badge lexicon.
+
+01:16:05.996 --> 01:16:06.456
+That's it.
+
+01:16:10.257 --> 01:16:11.237
+This is how we're gonna do it.
+
+01:16:13.878 --> 01:16:15.158
+Badge appearance.
+
+01:16:18.619 --> 01:16:18.779
+What?
+
+01:16:18.819 --> 01:16:20.800
+This is like, I refuse to, the...
+
+01:16:23.441 --> 01:16:24.341
+Where did my...
+
+01:16:28.962 --> 01:16:32.703
+Okay, okay, overcomplicated look.
+
+01:16:36.264 --> 01:16:40.686
+All 9,000 says, hi, who goes the code?
+
+01:16:42.606 --> 01:16:43.907
+We keep getting distracted.
+
+01:16:45.267 --> 01:16:46.127
+And I get the pedantic.
+
+01:16:46.187 --> 01:16:48.988
+If it's a generic badge type, do we know what's alternate versus
+
+01:16:49.048 --> 01:16:49.428
+primary?
+
+01:16:49.488 --> 01:16:52.629
+Why not have all items listed in an array without being prescriptive
+
+01:16:52.669 --> 01:16:53.889
+about what the default is?
+
+01:16:55.170 --> 01:16:55.550
+I agree.
+
+01:16:55.770 --> 01:16:57.411
+I was thinking about that, actually.
+
+01:17:00.531 --> 01:17:03.112
+I would see, put it this way, I Could see the
+
+01:17:04.893 --> 01:17:06.673
+lexicon community appearance one
+
+01:17:07.974 --> 01:17:09.234
+as a fallback,
+
+01:17:10.354 --> 01:17:10.834
+but
+
+01:17:11.915 --> 01:17:12.275
+like,
+
+01:17:13.375 --> 01:17:18.177
+you know, you could see these as being even more
+
+01:17:18.497 --> 01:17:19.437
+important.
+
+01:17:21.758 --> 01:17:26.099
+We need some, we need, first of all, we need some,
+
+01:17:34.301 --> 01:17:34.882
+how do you call it?
+
+01:17:37.102 --> 01:17:41.404
+We need to be precise about what this means, and I support being
+
+01:17:41.464 --> 01:17:42.084
+precise.
+
+01:17:42.284 --> 01:17:43.684
+Like, I support saying
+
+01:17:45.665 --> 01:17:48.666
+this is how you define a primary, this is like, you know,
+
+01:17:50.686 --> 01:17:54.868
+this is not more important than others, and we just got to be precise,
+
+01:17:54.948 --> 01:17:57.729
+and I support us Over-engineering this.
+
+01:17:58.069 --> 01:18:01.870
+It's not over-engineering, but it's my thing, but like also I support us
+
+01:18:01.930 --> 01:18:02.410
+doing it.
+
+01:18:09.053 --> 01:18:09.913
+We could,
+
+01:18:12.334 --> 01:18:16.795
+the issue of why I didn't do it immediately as an array is because of,
+
+01:18:18.496 --> 01:18:20.056
+you cannot change this, right?
+
+01:18:22.097 --> 01:18:22.757
+You cannot change it.
+
+01:18:23.738 --> 01:18:27.819
+So you can't keep adding without got getting back to the problem.
+
+01:18:29.220 --> 01:18:32.140
+And you're like,
+
+01:18:39.523 --> 01:18:42.264
+for what it worth, this is another thing I ran into with the game
+
+01:18:42.304 --> 01:18:42.804
+lexicon.
+
+01:18:42.964 --> 01:18:46.866
+I ended up giving games a media array with all the media items for
+
+01:18:46.946 --> 01:18:49.667
+cartridge, box artists, the primary media, but other application like
+
+01:18:49.687 --> 01:18:51.768
+Steamplace can and will choose different primaries.
+
+01:18:52.408 --> 01:18:52.688
+Yes.
+
+01:18:53.228 --> 01:18:58.069
+Yes, thank you for having done something and validating my pet peeves,
+
+01:18:58.790 --> 01:19:03.031
+that I haven't done like anything really where I can be like, oh, you
+
+01:19:03.051 --> 01:19:06.872
+know, like, I ran into this, but I have been thinking a lot about all of
+
+01:19:06.952 --> 01:19:09.292
+this, and I know that this is gonna be a problem.
+
+01:19:09.933 --> 01:19:11.633
+So yes, yes, I agree.
+
+01:19:12.613 --> 01:19:14.934
+I think that we need some of that.
+
+01:19:15.654 --> 01:19:19.055
+And this is a— one of the places where we'll encounter it.
+
+01:19:27.277 --> 01:19:30.198
+Like this is really one of the places where we encounter it.
+
+01:19:30.238 --> 01:19:31.078
+Like you have already.
+
+01:19:32.379 --> 01:19:37.040
+So first of all, the fact that you have already gives us ammunition,
+
+01:19:37.340 --> 01:19:38.300
+because I think,
+
+01:19:40.021 --> 01:19:44.802
+yeah, I don't know if you ever hear this, I love Boris and I love Nick,
+
+01:19:45.342 --> 01:19:48.603
+and I understand why they're like, try to push things through.
+
+01:19:49.223 --> 01:19:53.604
+I'm also like, you could stand to ...complicate things like ten minutes
+
+01:19:53.724 --> 01:19:54.004
+more.
+
+01:19:54.324 --> 01:19:56.985
+So I feel like I have to keep pushing
+
+01:19:58.205 --> 01:20:02.066
+to get some of these further out, and so I need your support, because
+
+01:20:02.106 --> 01:20:03.766
+again, I can already smell the Ms.
+
+01:20:03.866 --> 01:20:05.926
+Boba, we do not need an alternate.
+
+01:20:08.467 --> 01:20:10.067
+But I do think we do.
+
+01:20:10.707 --> 01:20:14.668
+There's like a hundred plus schema in G5 now, in fact, with so many
+
+01:20:14.708 --> 01:20:17.228
+lexicon design and more general data modeling issues.
+
+01:20:17.568 --> 01:20:19.828
+Oh, oh yeah, no, I mean, I can imagine.
+
+01:20:20.228 --> 01:20:22.669
+I really do think that, like,
+
+01:20:24.089 --> 01:20:25.129
+you know, I'll—
+
+01:20:26.309 --> 01:20:31.330
+one of the things that got me into ATProto was lexicons, because
+
+01:20:32.310 --> 01:20:32.360
+I
+
+01:20:34.010 --> 01:20:34.610
+always,
+
+01:20:37.011 --> 01:20:41.952
+like, it was lexicons, because as soon as I saw it, again, it validated
+
+01:20:42.092 --> 01:20:45.552
+my rant against— I'm sorry.
+
+01:20:46.913 --> 01:20:50.735
+You know, like, I was just like, everything is data modeling.
+
+01:20:50.775 --> 01:20:52.635
+We need to model data better.
+
+01:20:55.497 --> 01:21:01.399
+And it's so important to get, like, people to agree on data, and
+
+01:21:01.419 --> 01:21:02.460
+that is really hard.
+
+01:21:02.500 --> 01:21:04.180
+And then I saw this, and I was like, thank you.
+
+01:21:05.021 --> 01:21:08.642
+Got data with a shape that is, like,
+
+01:21:10.023 --> 01:21:11.103
+formalized
+
+01:21:12.644 --> 01:21:13.684
+in a new protocol.
+
+01:21:14.305 --> 01:21:17.186
+Now we have someone is coming, is gonna come here, like, what about the
+
+01:21:17.246 --> 01:21:18.567
+other 15,000 ways?
+
+01:21:18.927 --> 01:21:19.387
+Yes, I know.
+
+01:21:19.927 --> 01:21:20.107
+I know.
+
+01:21:20.767 --> 01:21:22.288
+But this is an ATProto ecosystem.
+
+01:21:28.111 --> 01:21:30.632
+So we can do it right this time.
+
+01:21:31.112 --> 01:21:35.074
+I am sure we are never gonna do anything that we're gonna regret in the
+
+01:21:35.154 --> 01:21:35.554
+future.
+
+01:21:44.658 --> 01:21:46.378
+There is a meme that's something like,
+
+01:21:47.519 --> 01:21:49.320
+I want to do X, which is
+
+01:21:51.741 --> 01:21:53.521
+a normal and healthy thing to aspire to.
+
+01:21:53.742 --> 01:21:55.282
+That's me with I want to do
+
+01:21:56.663 --> 01:21:57.723
+correct lexicon,
+
+01:22:06.927 --> 01:22:09.048
+which is a normal thing to want and aspire to.
+
+01:22:10.248 --> 01:22:11.989
+So, okay, I'm gonna get my ramen.
+
+01:22:12.509 --> 01:22:13.050
+One second.
+
+01:22:32.537 --> 01:22:32.897
+Dun.
+
+01:22:41.940 --> 01:22:46.321
+I'm like, you have to pay two dollars fifty to add corn to this ramen.
+
+01:22:46.401 --> 01:22:48.762
+I'm like, okay, I'll go cornless.
+
+01:22:50.562 --> 01:22:54.243
+There's already the soft-boiled egg in it,
+
+01:22:56.964 --> 01:22:59.085
+so we are in business.
+
+01:23:01.305 --> 01:23:03.106
+I'm getting a spicy tantan.
+
+01:23:08.967 --> 01:23:10.328
+And I'm also getting
+
+01:23:15.709 --> 01:23:15.759
+a—
+
+01:23:18.410 --> 01:23:20.130
+oh, they have matzo soup now.
+
+01:23:24.652 --> 01:23:25.812
+Oh, that looks so good.
+
+01:23:26.512 --> 01:23:27.893
+Soupless mixing ramen.
+
+01:23:27.993 --> 01:23:29.033
+I want soup tonight.
+
+01:23:39.557 --> 01:23:43.038
+And then I'm getting fried shishito because I need
+
+01:23:44.339 --> 01:23:45.159
+vegetables.
+
+01:23:45.900 --> 01:23:47.520
+I need to make my boyfriend proud.
+
+01:23:53.422 --> 01:23:56.524
+Boyfriend was like, you're gonna eat vegetables while I'm not there.
+
+01:23:56.584 --> 01:23:59.465
+I was like, yes, yes, I am a good girl.
+
+01:23:59.545 --> 01:24:00.665
+I eat my vegetables.
+
+01:24:14.971 --> 01:24:15.431
+Okay.
+
+01:24:15.651 --> 01:24:16.231
+Got it.
+
+01:24:16.371 --> 01:24:16.972
+Got it.
+
+01:24:18.732 --> 01:24:20.273
+Right, not even too bad.
+
+01:24:20.713 --> 01:24:21.633
+Oh, this is before.
+
+01:24:21.713 --> 01:24:23.374
+Oh, no, this is with the delivery fee.
+
+01:24:23.434 --> 01:24:23.674
+Okay.
+
+01:24:23.974 --> 01:24:24.214
+Okay.
+
+01:24:24.234 --> 01:24:25.034
+I can live with this.
+
+01:24:55.544 --> 01:24:57.225
+Wait, sorry, just one second.
+
+01:25:00.206 --> 01:25:01.366
+Oh, yes, that makes sense.
+
+01:25:05.408 --> 01:25:09.589
+I was like, I'm going to be a terrible person and add a Coke to it.
+
+01:25:09.949 --> 01:25:13.620
+I don't drink it often, but I was kind of like, yeah, I'm feeling like a
+
+01:25:13.630 --> 01:25:14.751
+terrible person today.
+
+01:25:14.891 --> 01:25:17.752
+And there was a— if you get a Coke, you get $4 off.
+
+01:25:18.772 --> 01:25:18.912
+But
+
+01:25:20.353 --> 01:25:25.515
+it came to the same total, and I was like, wait, but it didn't apply the
+
+01:25:25.575 --> 01:25:25.855
+deal.
+
+01:25:25.995 --> 01:25:27.135
+No, it did apply the deal.
+
+01:25:27.195 --> 01:25:29.216
+It's just that the Coke costs four dollars.
+
+01:25:29.656 --> 01:25:34.038
+So overall, it— I just came to the same place.
+
+01:25:46.342 --> 01:25:46.702
+Okay.
+
+01:25:48.363 --> 01:25:50.543
+I am placing the order.
+
+01:25:51.564 --> 01:25:52.044
+That's it.
+
+01:25:53.985 --> 01:25:55.225
+Arrives in thirteen minutes.
+
+01:25:55.305 --> 01:25:55.405
+You
+
+01:25:56.766 --> 01:25:59.327
+just— come on, give me some time.
+
+01:26:08.210 --> 01:26:11.151
+Love giggles is a motivation of faction— factor.
+
+01:26:11.291 --> 01:26:12.171
+I love it too.
+
+01:26:16.673 --> 01:26:17.893
+I guess you could call it giggle.
+
+01:26:18.013 --> 01:26:18.634
+I was thinking
+
+01:26:21.094 --> 01:26:25.076
+there's two main ways of doing things, and one is because of spite, and
+
+01:26:25.096 --> 01:26:26.937
+the second one is because it was funny.
+
+01:26:31.959 --> 01:26:35.500
+But also you should make even spite things done in spite because it was
+
+01:26:35.600 --> 01:26:35.900
+funny,
+
+01:26:37.921 --> 01:26:38.621
+because you can.
+
+01:26:40.422 --> 01:26:43.363
+And one other thing about doing this as an array without a prescriptive
+
+01:26:43.403 --> 01:26:45.924
+primary makes it more sensible in the future.
+
+01:26:47.204 --> 01:26:49.705
+The community appearance ends up being primary by default because there
+
+01:26:49.725 --> 01:26:52.386
+are no other appearance lexicon, but there absolutely will be,
+
+01:26:52.466 --> 01:26:55.568
+especially for games, I'd like immediately define an appearance lexicon
+
+01:26:55.608 --> 01:26:59.469
+specifically for trezy.pet to cover details that aren't in the core
+
+01:26:59.489 --> 01:27:02.860
+description or appearance, like unlock requirements for a
+
+01:27:04.091 --> 01:27:04.391
+chip.
+
+01:27:06.012 --> 01:27:07.952
+Yeah, no, I agree.
+
+01:27:08.652 --> 01:27:09.093
+I agree.
+
+01:27:09.233 --> 01:27:10.213
+And I think this is why
+
+01:27:12.153 --> 01:27:17.655
+you're particularly like well-suited to sort of figure out
+
+01:27:22.116 --> 01:27:22.416
+what,
+
+01:27:25.137 --> 01:27:31.018
+like, what to do here, because, okay, so for example, this
+
+01:27:31.078 --> 01:27:32.519
+appearance thing, right?
+
+01:27:32.979 --> 01:27:35.760
+We could say that the appearance lexicon—
+
+01:27:38.000 --> 01:27:41.161
+so first of all, I don't want to do a lexicon that is just the array,
+
+01:27:41.401 --> 01:27:41.721
+right?
+
+01:27:41.821 --> 01:27:43.702
+I don't want to do the f-sequence that is just the array.
+
+01:27:43.822 --> 01:27:44.162
+I think
+
+01:27:45.442 --> 01:27:45.872
+that's a—
+
+01:27:48.903 --> 01:27:49.463
+how do you call it?
+
+01:27:49.563 --> 01:27:50.254
+I think that's a,
+
+01:27:54.225 --> 01:27:55.225
+that— that's asking for trouble.
+
+01:27:55.745 --> 01:28:01.187
+But you could, if we said something like all lexicons, we ask that your
+
+01:28:01.247 --> 01:28:04.968
+appearance lexicon as an alternate, sorta kinda.
+
+01:28:06.568 --> 01:28:08.228
+Sort of kinda arraign it.
+
+01:28:08.648 --> 01:28:10.159
+Then even if you do a—
+
+01:28:16.989 --> 01:28:22.790
+so, so we can always do a— okay, we are asked pretty please people to
+
+01:28:22.830 --> 01:28:24.831
+provide an alternate here.
+
+01:28:26.171 --> 01:28:29.231
+So even if I don't know the lexicon, I can at least go look at the
+
+01:28:29.311 --> 01:28:30.071
+alternates.
+
+01:28:31.472 --> 01:28:35.112
+And maybe there is something there which is
+
+01:28:37.412 --> 01:28:40.293
+a lexicon community appearance, which I know how to render.
+
+01:28:42.673 --> 01:28:45.373
+Or we just, like, you put it in your alternates.
+
+01:28:45.453 --> 01:28:48.614
+I think there's also a difference between an alternate and an
+
+01:28:48.674 --> 01:28:51.534
+extensible, like an extension of the metadata.
+
+01:28:53.235 --> 01:28:57.595
+And don't kill me now, but I'm like, maybe if there's more metadata,
+
+01:28:57.695 --> 01:29:01.916
+like a more metadata extension that doesn't change the appearance
+
+01:29:01.956 --> 01:29:02.456
+itself.
+
+01:29:04.336 --> 01:29:05.377
+That is
+
+01:29:07.718 --> 01:29:10.839
+a more— that's potentially a sidecar lexicon.
+
+01:29:11.879 --> 01:29:13.820
+If not— okay, okay, look,
+
+01:29:16.421 --> 01:29:17.602
+what if we did this?
+
+01:29:19.462 --> 01:29:20.663
+We keep all of this.
+
+01:29:22.223 --> 01:29:24.284
+I also wanted to change URL cause I think
+
+01:29:25.565 --> 01:29:26.005
+this is
+
+01:29:31.707 --> 01:29:35.589
+way too— you say URL, people are gonna put two thousand different things
+
+01:29:35.809 --> 01:29:39.490
+in there, and they're all gonna— and like, and then you're gonna— not
+
+01:29:39.530 --> 01:29:40.451
+gonna be able to
+
+01:29:42.111 --> 01:29:43.892
+figure out what that is.
+
+01:29:45.313 --> 01:29:46.653
+So something like link,
+
+01:29:49.294 --> 01:29:52.676
+I kinda wanna be linked to— I don't know,
+
+01:29:54.636 --> 01:29:58.858
+it's not— cause it's not— if it's a link to the author of the badge,
+
+01:29:58.958 --> 01:29:59.538
+then it's author
+
+01:30:00.819 --> 01:30:01.019
+link.
+
+01:30:01.699 --> 01:30:02.480
+It's not URL.
+
+01:30:02.780 --> 01:30:04.060
+Like, you know,
+
+01:30:05.321 --> 01:30:05.781
+links to—
+
+01:30:07.102 --> 01:30:08.842
+or something, like on click.
+
+01:30:10.803 --> 01:30:12.044
+I— on click, you know?
+
+01:30:15.005 --> 01:30:18.907
+I just want to avoid name that don'ts that don't say
+
+01:30:20.827 --> 01:30:23.148
+anything or say too much.
+
+01:30:28.031 --> 01:30:30.672
+Also I'm a big fan of the— huh, I wonder what happens if I poke this
+
+01:30:30.732 --> 01:30:31.112
+approach.
+
+01:30:31.192 --> 01:30:33.153
+Yeah, no, definitely, that's a great approach.
+
+01:30:33.313 --> 01:30:36.334
+And maybe I am— I just feel we're passing the discourse because I feel
+
+01:30:36.374 --> 01:30:39.315
+like everybody's five thousand percent smarter than me.
+
+01:30:42.877 --> 01:30:43.737
+No, no,
+
+01:30:45.178 --> 01:30:47.799
+I think everyone feels like that is kind of the trick.
+
+01:30:49.480 --> 01:30:50.360
+It's kind of the trick.
+
+01:30:51.221 --> 01:30:51.271
+I
+
+01:30:52.841 --> 01:30:56.963
+also— come on, Trezy, with everything you've done and are doing, like,
+
+01:30:58.083 --> 01:30:59.024
+yeah, yeah.
+
+01:30:59.824 --> 01:31:00.925
+Like, shh.
+
+01:31:02.745 --> 01:31:04.246
+You've learned the whole AppView thing.
+
+01:31:08.347 --> 01:31:08.747
+Why are you...
+
+01:31:10.028 --> 01:31:14.670
+This is me realizing I haven't finished my coffee from this morning, so
+
+01:31:14.810 --> 01:31:15.930
+I'm drinking my coffee.
+
+01:31:16.770 --> 01:31:17.291
+How are you
+
+01:31:18.871 --> 01:31:19.351
+saying that?
+
+01:31:23.013 --> 01:31:27.054
+I know you put wine it, and so like, you know,
+
+01:31:28.355 --> 01:31:28.755
+yes,
+
+01:31:30.295 --> 01:31:35.737
+there's, you know, there's things, but regardless.
+
+01:31:37.378 --> 01:31:38.378
+I'll say it's WebLink.
+
+01:31:38.859 --> 01:31:43.920
+See, the WebLink has kind of the same issue where it's like a lot of
+
+01:31:44.000 --> 01:31:45.241
+things can be one.
+
+01:31:45.541 --> 01:31:49.342
+So this is kind of like, what I'm trying to do here is
+
+01:31:51.463 --> 01:31:56.665
+I'm trying to do a— When I look at this, I automatically know
+
+01:31:57.205 --> 01:31:58.586
+that is
+
+01:32:00.046 --> 01:32:05.028
+maybe displayLink, if we want to counter the description and link.
+
+01:32:06.809 --> 01:32:09.450
+Trezy, you're so smart, but you use Lua, so less smart.
+
+01:32:12.071 --> 01:32:17.412
+Only smart people, like, it's like the galaxy brain meme.
+
+01:32:18.433 --> 01:32:20.593
+It's okay, but it's not TypeScript.
+
+01:32:26.336 --> 01:32:26.556
+So, okay,
+
+01:32:34.478 --> 01:32:35.099
+hear me out.
+
+01:32:35.739 --> 01:32:36.279
+Hear me out.
+
+01:32:41.561 --> 01:32:42.801
+We do this, and then we do—
+
+01:32:55.885 --> 01:32:58.805
+You, you're not like the almost most powerful person inside Bluesky on
+
+01:32:58.845 --> 01:33:00.005
+the future of the protocol.
+
+01:33:00.005 --> 01:33:00.105
+Trezy.
+
+01:33:00.165 --> 01:33:05.626
+Okay, I don't want to call this appearance, but
+
+01:33:13.267 --> 01:33:13.607
+looks.
+
+01:33:13.867 --> 01:33:14.887
+Okay, I'm going to call it look.
+
+01:33:15.027 --> 01:33:18.088
+This is a name to be,
+
+01:33:22.688 --> 01:33:28.229
+but somewhat like appearance, but not appearance.
+
+01:33:28.909 --> 01:33:32.150
+Oh God, am I misspelling appearance again?
+
+01:33:32.250 --> 01:33:34.070
+Cause I was mis— yes, I am.
+
+01:33:35.010 --> 01:33:35.950
+Appearance.
+
+01:33:37.190 --> 01:33:38.710
+I had to correct it.
+
+01:33:38.851 --> 01:33:39.351
+This is,
+
+01:33:41.971 --> 01:33:44.411
+yes, cause the Italian word is
+
+01:33:45.551 --> 01:33:49.102
+apparenze, so it's like A P A.
+
+01:33:50.272 --> 01:33:52.953
+R E, and so that keeps fucking me over.
+
+01:33:55.814 --> 01:33:56.274
+Yeah, Trezy.
+
+01:33:56.574 --> 01:33:57.114
+Yeah, right?
+
+01:33:57.294 --> 01:33:58.535
+Like, come on, Trezy.
+
+01:34:04.297 --> 01:34:09.999
+But no, I— again, the trick is kinda like— the trick is that it feels
+
+01:34:10.979 --> 01:34:12.019
+always like that.
+
+01:34:12.680 --> 01:34:13.920
+Like,
+
+01:34:20.062 --> 01:34:22.183
+no one feels like they are
+
+01:34:23.943 --> 01:34:28.465
+as influen- not as influential, as powerful as they are.
+
+01:34:28.985 --> 01:34:31.806
+Like it's the thing I keep saying.
+
+01:34:37.708 --> 01:34:39.169
+Hi Umbra, sorry, there's Umbra
+
+01:34:43.830 --> 01:34:44.850
+in the Twitch chat.
+
+01:34:48.532 --> 01:34:51.993
+Like the things I Keep telling people is that it's just people.
+
+01:34:52.413 --> 01:34:54.754
+Like, it really is just people all the way down.
+
+01:34:55.554 --> 01:35:00.156
+And like, even the people that one perceives as most powerful or like as
+
+01:35:00.276 --> 01:35:03.777
+most like having it together is like, no, no, no, they—
+
+01:35:05.418 --> 01:35:07.919
+they're just a dude, even,
+
+01:35:09.579 --> 01:35:11.180
+like, gender neutral.
+
+01:35:12.581 --> 01:35:16.522
+Everyone feels like just a dude, and some of the—
+
+01:35:18.143 --> 01:35:20.103
+and this is pros and cons.
+
+01:35:21.284 --> 01:35:25.185
+One is at some point you realize you're not just a dude and you're like,
+
+01:35:25.285 --> 01:35:25.785
+oh, fuck,
+
+01:35:26.846 --> 01:35:29.867
+I didn't ask not to be, and now I am not, and
+
+01:35:31.127 --> 01:35:32.068
+this uncomfortable.
+
+01:35:33.828 --> 01:35:36.950
+Does this come with strings attached, even though I didn't ask for it?
+
+01:35:37.770 --> 01:35:38.830
+But like in general,
+
+01:35:40.811 --> 01:35:42.171
+that's been a thing that
+
+01:35:44.092 --> 01:35:46.713
+I have realized the more and more I meet people.
+
+01:35:46.893 --> 01:35:51.494
+And I know people that have done things that I'm like, you know, but you
+
+01:35:51.514 --> 01:35:52.955
+have done that thing.
+
+01:35:54.455 --> 01:35:55.455
+You felt like
+
+01:35:57.216 --> 01:35:58.516
+such a mythical creature.
+
+01:35:58.917 --> 01:36:01.317
+And now I talk to you and you're like, human?
+
+01:36:01.817 --> 01:36:02.117
+What?
+
+01:36:05.799 --> 01:36:07.879
+Anyway, sidecars don't require auto-definition.
+
+01:36:07.899 --> 01:36:11.080
+I feel like the prescriptivism is nearly to Lex— Lexicon, which is more
+
+01:36:11.120 --> 01:36:13.561
+wrong than there are a bunch of random ass sidecars.
+
+01:36:18.922 --> 01:36:19.102
+Okay.
+
+01:36:19.122 --> 01:36:22.183
+I— I'm just going to say none of this is stopping sidecars.
+
+01:36:23.004 --> 01:36:23.144
+But
+
+01:36:24.324 --> 01:36:24.844
+we were saying.
+
+01:36:26.765 --> 01:36:32.286
+So what I was thinking is it could also be something like this, and then
+
+01:36:32.386 --> 01:36:33.447
+this is like—
+
+01:36:42.549 --> 01:36:45.730
+And then this is the thing, and this is just like...
+
+01:36:50.171 --> 01:36:50.631
+Oh God.
+
+01:36:51.791 --> 01:36:52.621
+Is there a...
+
+01:36:52.631 --> 01:36:54.352
+Let me get a JSON.
+
+01:36:56.372 --> 01:36:57.933
+JSON notepad.
+
+01:36:57.973 --> 01:36:58.913
+Is this a thing?
+
+01:36:59.193 --> 01:37:02.094
+JSON tools for viewing and editing?
+
+01:37:02.274 --> 01:37:03.494
+No, I want it...
+
+01:37:12.636 --> 01:37:13.396
+Yeah, humans.
+
+01:37:13.416 --> 01:37:15.437
+So yeah, and also, oh, it's just us.
+
+01:37:17.677 --> 01:37:18.317
+It's like the,
+
+01:37:20.458 --> 01:37:25.319
+you know the meme with the guy on the bus where it's like, oh, it's just
+
+01:37:25.399 --> 01:37:28.600
+humans, and one side is really happy, and yeah, and then it's...
+
+01:37:29.300 --> 01:37:31.361
+Oh, it's just human on the other side.
+
+01:37:32.481 --> 01:37:34.381
+It's the guy being in despair.
+
+01:37:35.341 --> 01:37:37.242
+That's the beauty and the terror of it.
+
+01:37:37.262 --> 01:37:38.622
+This is just humans.
+
+01:37:39.122 --> 01:37:40.803
+Okay, JSON editor online.
+
+01:37:41.743 --> 01:37:41.793
+I—
+
+01:37:43.703 --> 01:37:44.023
+my—
+
+01:37:54.366 --> 01:37:55.326
+the— how do you call it?
+
+01:37:55.486 --> 01:37:58.247
+The discourse editor is lexicon phobic.
+
+01:37:59.187 --> 01:38:00.647
+That's— I'm declaring it, so.
+
+01:38:02.088 --> 01:38:02.408
+Okay.
+
+01:38:03.188 --> 01:38:07.329
+Tell me, transform, I don't know what that is, text tree table quoted
+
+01:38:07.489 --> 01:38:07.929
+object.
+
+01:38:07.989 --> 01:38:10.870
+I can't believe this would be my problem.
+
+01:38:11.390 --> 01:38:11.790
+Whatever.
+
+01:38:11.930 --> 01:38:13.130
+Oh, two of these.
+
+01:38:14.030 --> 01:38:15.291
+Transform, nope.
+
+01:38:16.591 --> 01:38:18.491
+Bagot, whatever, done.
+
+01:38:18.831 --> 01:38:20.852
+Oh, there, the— you can have a link.
+
+01:38:21.812 --> 01:38:23.812
+Not stopping sidecar, but its goal was to support discovery. Sidecar,
+
+01:38:24.593 --> 01:38:27.334
+however, listing the sidecar in the record blesses those sidecars, so
+
+01:38:27.354 --> 01:38:31.256
+any sidecar not listed there are not blessed and thus feel inherently
+
+01:38:31.316 --> 01:38:32.376
+less trustworthy.
+
+01:38:35.678 --> 01:38:37.398
+But it's not listed in the...
+
+01:38:39.539 --> 01:38:43.801
+Well, but like, so non-blessed sidecar become less discoverable.
+
+01:38:44.041 --> 01:38:45.222
+Okay, I think this is a discussion
+
+01:38:47.102 --> 01:38:50.644
+we should have maybe also with other people.
+
+01:38:52.444 --> 01:38:54.065
+Let me try to get this while my—
+
+01:38:55.366 --> 01:38:58.467
+before my ramen arrives.
+
+01:38:59.007 --> 01:39:00.448
+I think it's a worthy discussion.
+
+01:39:04.229 --> 01:39:04.409
+Yeah,
+
+01:39:07.771 --> 01:39:09.911
+I am open to being wrong here.
+
+01:39:10.252 --> 01:39:11.332
+I'm open to being wrong.
+
+01:39:11.372 --> 01:39:14.353
+I just would like to have the discussion, put it that way.
+
+01:39:16.494 --> 01:39:17.334
+I think we should have it.
+
+01:39:18.435 --> 01:39:19.515
+The issue I have
+
+01:39:21.736 --> 01:39:23.936
+is, like, discovering—
+
+01:39:27.097 --> 01:39:28.777
+well, I mean, I told you, right?
+
+01:39:32.498 --> 01:39:34.198
+Prod, what the fuck did I do?
+
+01:39:35.998 --> 01:39:36.198
+Sorry.
+
+01:39:37.458 --> 01:39:38.238
+What have I done?
+
+01:39:38.378 --> 01:39:39.199
+Okay, no, no, no, no.
+
+01:39:39.359 --> 01:39:41.859
+Okay, okay, okay.
+
+01:39:43.079 --> 01:39:43.439
+Sorry.
+
+01:39:43.439 --> 01:39:44.359
+I can do it.
+
+01:39:44.599 --> 01:39:46.180
+I don't know what I did, but I can do it.
+
+01:39:47.520 --> 01:39:47.720
+Right?
+
+01:39:47.820 --> 01:39:48.680
+Okay, okay.
+
+01:40:03.402 --> 01:40:04.822
+Oh God, what have I done?
+
+01:40:05.922 --> 01:40:06.803
+Is this right?
+
+01:40:06.883 --> 01:40:07.683
+Why are you red?
+
+01:40:08.083 --> 01:40:08.923
+Why do you hate me?
+
+01:40:10.583 --> 01:40:13.203
+Ocosiant image.
+
+01:40:21.126 --> 01:40:21.626
+Okay.
+
+01:40:22.786 --> 01:40:23.747
+Is this enough?
+
+01:40:30.629 --> 01:40:32.550
+Oh, oh, come on, JSON.
+
+01:40:32.750 --> 01:40:33.591
+I hate you, JSON.
+
+01:40:33.691 --> 01:40:35.031
+Why are you like that, JSON?
+
+01:40:39.293 --> 01:40:41.434
+I hate— I should have looked.
+
+01:40:41.634 --> 01:40:46.436
+Is there a JSONC here or something that's like JSON without comments?
+
+01:40:48.077 --> 01:40:52.058
+It's like, and then Satan said, let there be JSON without— but let's not
+
+01:40:52.178 --> 01:40:53.239
+give it comments
+
+01:40:55.159 --> 01:40:58.101
+or like dangling commas at the end.
+
+01:41:00.422 --> 01:41:02.142
+This is Satan's doing.
+
+01:41:11.326 --> 01:41:13.547
+The JSON untangled tango, I love it.
+
+01:41:13.627 --> 01:41:15.688
+I'm going to call it that way from now on.
+
+01:41:20.129 --> 01:41:24.709
+W-w-transform, okay, I just— oh, there's two.
+
+01:41:26.449 --> 01:41:30.550
+I just wanted to have it displayed the same copy.
+
+01:41:30.750 --> 01:41:33.330
+Okay, okay, we're doing text, tree, table.
+
+01:41:35.051 --> 01:41:36.271
+Switch to tree mode.
+
+01:41:36.411 --> 01:41:37.151
+Okay, tree.
+
+01:41:37.511 --> 01:41:38.911
+Okay, okay, that's it.
+
+01:41:39.991 --> 01:41:45.332
+So I wasn't really— what I was trying to do here was something like,
+
+01:41:46.972 --> 01:41:47.712
+type,
+
+01:41:48.953 --> 01:41:53.453
+like having types for anything that's more than this very, very simple
+
+01:41:53.573 --> 01:41:54.013
+thing.
+
+01:41:55.114 --> 01:41:59.074
+And I know this is now again— oh, I'm gonna put a lexicon in your
+
+01:41:59.154 --> 01:42:02.135
+lexicon, like it's lexicons all the way down.
+
+01:42:03.055 --> 01:42:07.375
+But this is kinda like, you know, bear with me.
+
+01:42:13.056 --> 01:42:14.156
+Like sorta,
+
+01:42:16.897 --> 01:42:18.897
+like,
+
+01:42:23.878 --> 01:42:26.319
+and so you could have a lot of this, right?
+
+01:42:26.319 --> 01:42:29.400
+You could have as many you want as just image, and you could have
+
+01:42:29.460 --> 01:42:30.800
+external records.
+
+01:42:31.240 --> 01:42:32.240
+Do you even need this?
+
+01:42:32.560 --> 01:42:34.721
+I don't know if you need this, but like, you know what I'm saying?
+
+01:42:35.501 --> 01:42:37.801
+JSON5 supports both comments and dangling support.
+
+01:42:37.881 --> 01:42:39.082
+Yes, yes, thank you.
+
+01:42:40.362 --> 01:42:40.682
+Yes.
+
+01:42:41.862 --> 01:42:42.502
+I know JSONC,
+
+01:42:44.383 --> 01:42:47.483
+may have seen JSON5, but like see the,
+
+01:42:52.644 --> 01:42:53.084
+like
+
+01:42:56.485 --> 01:42:57.705
+having this sort of,
+
+01:42:58.986 --> 01:43:03.427
+you know, you can put as many images here as you want, so you can have—
+
+01:43:04.467 --> 01:43:08.148
+whoa, why didn't you copy my second image?
+
+01:43:08.948 --> 01:43:10.008
+Because it's the same.
+
+01:43:11.128 --> 01:43:13.909
+And this is like, you know,
+
+01:43:17.650 --> 01:43:23.391
+and this is maybe just like small icon with get,
+
+01:43:24.711 --> 01:43:26.231
+with FujoGuide Git,
+
+01:43:27.532 --> 01:43:32.473
+and this is for like with five height, five, like this is
+
+01:43:34.093 --> 01:43:37.034
+the aspectRatio is like one.
+
+01:43:37.094 --> 01:43:40.374
+That's not necessarily the size, but like the aspectRatio, right?
+
+01:43:48.536 --> 01:43:50.536
+And so that allows for more,
+
+01:43:53.157 --> 01:43:57.318
+as many images as you want up to two hundred fif-five, two five six.
+
+01:43:57.318 --> 01:43:57.858
+Does it have a limit?
+
+01:43:57.858 --> 01:43:58.438
+I didn't know that.
+
+01:44:03.339 --> 01:44:05.379
+So like this would allow for
+
+01:44:06.440 --> 01:44:07.600
+different types.
+
+01:44:09.120 --> 01:44:13.522
+I guess you could even just do, I guess you could even do this, right?
+
+01:44:13.642 --> 01:44:14.202
+You could do—
+
+01:44:17.843 --> 01:44:18.503
+oh, come on.
+
+01:44:19.464 --> 01:44:20.964
+Oh, cause you have to do it this way.
+
+01:44:21.745 --> 01:44:24.526
+Like you could do type this and just inline it,
+
+01:44:26.706 --> 01:44:28.687
+and here you inline the data, right?
+
+01:44:28.867 --> 01:44:29.447
+That's the,
+
+01:44:36.510 --> 01:44:38.890
+like, here you get
+
+01:44:40.671 --> 01:44:42.732
+more data.
+
+01:44:44.572 --> 01:44:46.113
+So much data.
+
+01:44:51.955 --> 01:44:53.195
+No, give me this too.
+
+01:44:58.377 --> 01:45:00.898
+And this would be actually the,
+
+01:45:02.378 --> 01:45:04.659
+somewhere we had a FujoCoded lexicon there.
+
+01:45:10.041 --> 01:45:10.601
+I don't know that.
+
+01:45:10.661 --> 01:45:13.962
+No, the type is not the app, but it's like this.
+
+01:45:14.503 --> 01:45:15.563
+Oh my God, I'm so sorry.
+
+01:45:17.644 --> 01:45:19.164
+It should be like this, right?
+
+01:45:20.225 --> 01:45:21.065
+Should be like this.
+
+01:45:21.585 --> 01:45:23.206
+I forgot how this works.
+
+01:45:28.027 --> 01:45:31.509
+And you can still have like a URL, I guess, if you wanted.
+
+01:45:37.511 --> 01:45:39.091
+Does this make sense?
+
+01:45:39.131 --> 01:45:39.401
+Am I...
+
+01:45:41.512 --> 01:45:44.213
+Any consideration to define specific aspect ratio?
+
+01:45:45.374 --> 01:45:48.615
+Yeah, that's another thing I have like a whole treatise on,
+
+01:45:50.195 --> 01:45:54.937
+cause I feel like, cause I've, oh, I have this problem with like,
+
+01:45:59.279 --> 01:46:02.260
+I have this problem with profile banners, cause it's...
+
+01:46:04.500 --> 01:46:09.661
+You end up with a blessed quote-unquote profile banner size,
+
+01:46:10.601 --> 01:46:14.261
+and then everyone has to do it that way because everyone has only their
+
+01:46:14.421 --> 01:46:16.942
+profile, like their Bluesky profile banner.
+
+01:46:17.122 --> 01:46:22.043
+And if you're like, I want mine to be square, well, tough luck, because
+
+01:46:22.083 --> 01:46:26.923
+everyone is just a Bluesky profile banner, and those have a very fixed
+
+01:46:27.823 --> 01:46:28.223
+thing.
+
+01:46:30.044 --> 01:46:35.174
+And again, I'm not saying, you know, we don't have to fix it now, but I
+
+01:46:35.244 --> 01:46:35.404
+am,
+
+01:46:37.225 --> 01:46:37.525
+but yeah,
+
+01:46:38.825 --> 01:46:41.385
+I am like, what is, like, I have opinions.
+
+01:46:43.445 --> 01:46:47.326
+Type can be an AT-URI as long as it resolves to a record type.
+
+01:46:47.746 --> 01:46:48.046
+Really?
+
+01:46:48.626 --> 01:46:49.606
+Today I learned.
+
+01:46:49.906 --> 01:46:50.786
+I didn't know that.
+
+01:46:52.227 --> 01:46:53.547
+I do think we, you know, like,
+
+01:46:57.527 --> 01:47:00.038
+I think there could be here more like a,
+
+01:47:01.148 --> 01:47:02.188
+you know, like,
+
+01:47:04.009 --> 01:47:09.111
+category, and then you can have something like web, like, you know,
+
+01:47:09.211 --> 01:47:13.232
+target websites, and this one as
+
+01:47:14.793 --> 01:47:15.754
+target,
+
+01:47:16.974 --> 01:47:17.374
+I don't know.
+
+01:47:17.454 --> 01:47:19.495
+Like, you can have a lot of different things.
+
+01:47:20.536 --> 01:47:22.997
+I'm not saying you can't, like, we could,
+
+01:47:24.217 --> 01:47:26.078
+and I think that's a separate discussion.
+
+01:47:26.378 --> 01:47:29.779
+I am going to be murdered for proposing this, is my feeling.
+
+01:47:30.720 --> 01:47:32.421
+But I also think it makes sense.
+
+01:47:36.542 --> 01:47:39.964
+Because this would keep this to the very minimum, right?
+
+01:47:40.024 --> 01:47:43.465
+You have accent, you have icon, and you have an accentColor, you have
+
+01:47:43.485 --> 01:47:44.426
+the displayLink,
+
+01:47:45.946 --> 01:47:47.167
+and you can have...
+
+01:47:54.830 --> 01:47:55.930
+maybe click-through.
+
+01:47:56.371 --> 01:47:58.532
+What about click-through URL?
+
+01:48:00.612 --> 01:48:02.753
+How are we feeling about click-through URL?
+
+01:48:02.833 --> 01:48:04.834
+I know it's a mouthful, but it explains.
+
+01:48:04.934 --> 01:48:06.494
+Oh, well, maybe we can just do click-through.
+
+01:48:08.655 --> 01:48:12.656
+So if you have one thing to click through, that, well, URL, why not?
+
+01:48:15.937 --> 01:48:18.218
+Like, so you have like the very, very basics.
+
+01:48:22.200 --> 01:48:24.160
+But then here you can have a lot.
+
+01:48:25.121 --> 01:48:27.801
+And I do think this is something I would like
+
+01:48:28.802 --> 01:48:33.663
+to kinda get more thoughts to about, like, this badge appearance.
+
+01:48:34.164 --> 01:48:36.564
+How do we define a lot of these alternates?
+
+01:48:36.584 --> 01:48:37.945
+Because we're gonna keep needing it.
+
+01:48:38.285 --> 01:48:40.506
+Like for profiles, we need it, right?
+
+01:48:42.086 --> 01:48:42.426
+But
+
+01:48:43.647 --> 01:48:44.927
+yeah, like,
+
+01:48:47.168 --> 01:48:48.348
+oh my, I wanna save this.
+
+01:48:51.149 --> 01:48:52.390
+But we can extend.
+
+01:48:52.930 --> 01:48:55.531
+I think this lets us extend a lot, right?
+
+01:48:55.611 --> 01:48:57.672
+Like something like this does let us,
+
+01:48:59.592 --> 01:49:00.472
+like,
+
+01:49:02.713 --> 01:49:04.773
+alternate displays,
+
+01:49:05.833 --> 01:49:10.814
+you can consider icon and accentColor to be like an accent,
+
+01:49:11.515 --> 01:49:11.875
+just
+
+01:49:14.215 --> 01:49:16.215
+accentColor.
+
+01:49:18.856 --> 01:49:24.267
+Okay, I'm gonna be also bold, apologies, but I'm gonna make this a
+
+01:49:24.777 --> 01:49:27.298
+lexicon cause I am gonna be pissed if not.
+
+01:49:28.818 --> 01:49:30.579
+And we can do color,
+
+01:49:31.659 --> 01:49:33.399
+and then this can be like,
+
+01:49:37.900 --> 01:49:42.901
+well, I kinda just wanna like RGB, you know, like I kinda wanna be able
+
+01:49:43.001 --> 01:49:43.481
+to say,
+
+01:49:45.342 --> 01:49:46.682
+to keep this a bit more open.
+
+01:49:46.822 --> 01:49:47.862
+I have to think about it.
+
+01:49:49.423 --> 01:49:53.443
+I don't know that I love just having the accentColor in that format
+
+01:49:53.503 --> 01:49:54.064
+always.
+
+01:49:55.844 --> 01:49:55.964
+It,
+
+01:49:57.364 --> 01:50:01.986
+I feel like everyone is restricting me from having a lot of potential,
+
+01:50:02.086 --> 01:50:03.666
+like, you know,
+
+01:50:04.706 --> 01:50:10.608
+oh, let's, sure, let's keep everyone to the simplest RGB when we are,
+
+01:50:10.688 --> 01:50:15.329
+like, finally fought for web development to get different color spaces,
+
+01:50:15.629 --> 01:50:15.869
+you know?
+
+01:50:18.810 --> 01:50:20.711
+sourceUrl and link URLs.
+
+01:50:21.711 --> 01:50:23.031
+That's actually not bad.
+
+01:50:23.632 --> 01:50:26.432
+sourceUrl, clickUrl.
+
+01:50:27.813 --> 01:50:30.353
+I think I actually really like it, because it tells you
+
+01:50:32.334 --> 01:50:37.976
+who is the creator of it, like who owns it, and where to go when you
+
+01:50:38.036 --> 01:50:38.536
+click it.
+
+01:50:39.136 --> 01:50:39.936
+I do actually think
+
+01:50:42.537 --> 01:50:44.017
+that's a really good separation.
+
+01:50:46.698 --> 01:50:49.879
+Okay, I'll see, F for the win, right?
+
+01:50:51.259 --> 01:50:52.159
+Okay, okay, I'm
+
+01:50:53.220 --> 01:50:53.660
+gonna do it.
+
+01:50:54.720 --> 01:50:55.060
+I'm like,
+
+01:50:56.141 --> 01:51:01.522
+I'm so sorry, Nick, and everyone else who thinks I am a pedantic person,
+
+01:51:02.382 --> 01:51:03.783
+but I am RGB.
+
+01:51:04.383 --> 01:51:07.584
+This is the color scheme for type.
+
+01:51:08.864 --> 01:51:10.144
+My ramen has arrived.
+
+01:51:12.745 --> 01:51:13.325
+I am so sorry.
+
+01:51:15.006 --> 01:51:16.846
+I'm like, how was it?
+
+01:51:18.487 --> 01:51:24.468
+Remember that old meme, which is, I am in your X, do some verb your
+
+01:51:24.869 --> 01:51:29.810
+Y, is like, I am in your community, in your forum, overcomplicating your
+
+01:51:29.890 --> 01:51:30.630
+lexicons.
+
+01:51:31.670 --> 01:51:34.251
+But yeah, like, you could do appearance RGB,
+
+01:51:37.252 --> 01:51:41.433
+and then you can have red and whatever, like, or you can have it, like,
+
+01:51:42.073 --> 01:51:43.954
+code or something.
+
+01:51:44.914 --> 01:51:45.054
+Yeah.
+
+01:51:45.554 --> 01:51:45.874
+Cause you,
+
+01:51:46.875 --> 01:51:49.495
+right, I want the OKLCH.
+
+01:51:51.776 --> 01:51:53.177
+The ability to have that too.
+
+01:51:54.197 --> 01:51:56.438
+I don't know if this could also be an array, like we can keep
+
+01:51:56.498 --> 01:51:58.079
+overcomplicating it, but,
+
+01:52:00.059 --> 01:52:01.560
+and I will if you don't stop me.
+
+01:52:02.640 --> 01:52:08.603
+But, or if not, the alternative to this, what we can do is we can do RGB
+
+01:52:09.423 --> 01:52:09.883
+color,
+
+01:52:11.644 --> 01:52:17.246
+and then we put an actual RGB, and then in the future we can do color as
+
+01:52:17.386 --> 01:52:18.547
+like a separate field.
+
+01:52:19.827 --> 01:52:22.928
+I am, like, again, I am
+
+01:52:25.209 --> 01:52:29.311
+kind of sold about the precision color, because, you know, if you do
+
+01:52:29.431 --> 01:52:34.173
+color and you put RGB colors, you are inadvertently restricting the
+
+01:52:34.233 --> 01:52:39.455
+whole ecosystem to only using RGB colors, but we finally got the OKLCH
+
+01:52:39.715 --> 01:52:40.495
+and all of that.
+
+01:52:41.055 --> 01:52:44.696
+So if you're like, well, but we want to Of an RGB because everyone
+
+01:52:44.736 --> 01:52:49.337
+supports, because RGB is supported everywhere, OKLC is not.
+
+01:52:49.697 --> 01:52:51.377
+Fine, but let's do,
+
+01:52:52.457 --> 01:52:54.918
+let's allow then multiple formats.
+
+01:52:57.458 --> 01:52:57.878
+Yes, so
+
+01:52:58.898 --> 01:53:00.318
+sorry, I have opinions.
+
+01:53:00.938 --> 01:53:03.459
+I feel like the accentColor icon should also go into the appearance
+
+01:53:03.479 --> 01:53:04.279
+arrays and other format.
+
+01:53:06.559 --> 01:53:07.699
+I was thinking about that.
+
+01:53:08.339 --> 01:53:13.900
+I feel like, you know, I feel like it makes sense to me to have
+
+01:53:14.520 --> 01:53:20.461
+like the really minimum thing that one could use to display something,
+
+01:53:20.501 --> 01:53:24.062
+like an icon, a col- one color, and
+
+01:53:25.262 --> 01:53:26.922
+that's, you know, that's okay.
+
+01:53:27.522 --> 01:53:30.152
+That's the bare minimum, because I'm afraid that then you're going to
+
+01:53:30.202 --> 01:53:33.943
+get no alternate display, you know, and then you have nothing.
+
+01:53:34.343 --> 01:53:36.143
+But with an icon, a color,
+
+01:53:39.164 --> 01:53:41.064
+and a title, you can do a lot.
+
+01:53:41.924 --> 01:53:42.964
+It's kind of my thing.
+
+01:53:45.325 --> 01:53:46.985
+Yeah, that's what I think.
+
+01:53:49.205 --> 01:53:52.406
+Alternatively add community.simple with the color hex and icon.
+
+01:53:52.766 --> 01:53:55.906
+Yeah, that's like, and you could do an extension of this.
+
+01:53:55.986 --> 01:54:00.147
+Like, I, one thing I would like, I was thinking here was for the ones
+
+01:54:00.227 --> 01:54:02.967
+like this to have like type raised,
+
+01:54:05.287 --> 01:54:09.628
+so that you could have like, see, so you could tell people that this is
+
+01:54:09.708 --> 01:54:14.789
+meant to be kind of like something that looks a bit raised and so on,
+
+01:54:16.329 --> 01:54:17.869
+and put it in the appearance array.
+
+01:54:18.229 --> 01:54:18.969
+Yeah, no, I mean,
+
+01:54:20.029 --> 01:54:21.310
+that's kind of what I'm saying.
+
+01:54:21.950 --> 01:54:22.750
+I agree.
+
+01:54:23.210 --> 01:54:23.910
+I'm just saying
+
+01:54:25.370 --> 01:54:26.070
+that having
+
+01:54:27.270 --> 01:54:31.951
+icon and color as like the full, these are, this is the fallback, right?
+
+01:54:31.991 --> 01:54:37.732
+You can put more here, but this is the very minimum fallback.
+
+01:54:38.932 --> 01:54:43.194
+And you could add like, you could also have a, maybe not target, but you
+
+01:54:43.254 --> 01:54:43.865
+could have a,
+
+01:54:46.376 --> 01:54:46.756
+I don't know,
+
+01:54:48.397 --> 01:54:51.278
+type: preferred, I don't know, something
+
+01:54:53.019 --> 01:54:55.700
+to indicate that this is the one you prefer.
+
+01:54:58.241 --> 01:54:59.622
+I think there should be that.
+
+01:55:01.983 --> 01:55:02.903
+And it would be,
+
+01:55:05.164 --> 01:55:06.245
+like, it would be nice.
+
+01:55:06.785 --> 01:55:10.306
+I, we can also consider this like in order, you're supposed to get to
+
+01:55:10.366 --> 01:55:11.927
+the first one that fits.
+
+01:55:12.567 --> 01:55:15.269
+I don't know, we can keep discussing this.
+
+01:55:15.549 --> 01:55:17.810
+I think it makes sense to keep discussing this.
+
+01:55:24.273 --> 01:55:24.333
+Yep.
+
+01:55:24.333 --> 01:55:26.253
+Arrays are better for the decentralized environment.
+
+01:55:26.273 --> 01:55:27.734
+I actually agree.
+
+01:55:28.054 --> 01:55:29.875
+I think the arrays are great.
+
+01:55:32.236 --> 01:55:33.276
+I'm going to propose this.
+
+01:55:34.076 --> 01:55:37.337
+I'm going to die for everyone's sins, and I'm going to go there and I'm
+
+01:55:37.377 --> 01:55:37.917
+going to say,
+
+01:55:39.998 --> 01:55:42.758
+we have this, we have Trezy's blessing.
+
+01:55:43.258 --> 01:55:47.639
+Trezy has been doing an app for games, and Trezy has witnessed
+
+01:55:50.080 --> 01:55:55.021
+the errors, and Trezy says that we can have a, we can have an array
+
+01:55:55.161 --> 01:55:55.441
+there.
+
+01:55:59.482 --> 01:56:02.662
+Oh, wait, you had said something about Steam somewhere.
+
+01:56:03.443 --> 01:56:05.143
+I like the way Steam does library banners.
+
+01:56:05.163 --> 01:56:07.823
+You define the background, the logo, and whether the logo should show up
+
+01:56:08.384 --> 01:56:10.284
+at the top left or bottom left.
+
+01:56:10.404 --> 01:56:13.085
+You can go way further than that, but it's still very flexible.
+
+01:56:13.525 --> 01:56:14.465
+Yeah, that's interesting.
+
+01:56:15.065 --> 01:56:19.086
+We should, I should look at it, or like if you ever remember to send it
+
+01:56:19.126 --> 01:56:19.306
+to me.
+
+01:56:20.426 --> 01:56:25.227
+I really think that this type of thing with different images is
+
+01:56:25.367 --> 01:56:29.228
+something that we should get to, like, have a really long discussion
+
+01:56:29.268 --> 01:56:29.668
+about.
+
+01:56:30.148 --> 01:56:34.310
+Because I think it's one of the ways that centralization sneaks back in,
+
+01:56:34.690 --> 01:56:37.111
+or like uniformity at the very least.
+
+01:56:38.391 --> 01:56:41.072
+So, yeah.
+
+01:56:41.092 --> 01:56:42.532
+I'm gonna go get my ramen.
+
+01:56:42.773 --> 01:56:44.273
+Trezy says it should all be an array.
+
+01:56:44.333 --> 01:56:45.453
+Yes, yes.
+
+01:56:47.794 --> 01:56:48.695
+Yes, yes.
+
+01:56:51.375 --> 01:56:51.436
+I'm...
+
+01:56:51.436 --> 01:56:52.536
+Okay, go grab some scripture.
+
+01:56:53.016 --> 01:56:53.256
+Do it.
+
+01:56:53.636 --> 01:56:55.717
+So anyway, I'm gonna type this up.
+
+01:56:56.337 --> 01:56:56.697
+I'm gonna
+
+01:56:58.078 --> 01:56:59.218
+put it in the...
+
+01:56:59.358 --> 01:57:01.919
+Maybe tomorrow I should do the actual type this up,
+
+01:57:03.080 --> 01:57:08.702
+because it's 10 PM and I need to eat my ramen, but also do a bunch of
+
+01:57:09.682 --> 01:57:13.163
+things I still need doing, because this is hell.
+
+01:57:16.904 --> 01:57:17.184
+But yeah.
+
+01:57:20.606 --> 01:57:23.507
+I'm going to die for everyone's sins and then threatens to take Trezy
+
+01:57:23.547 --> 01:57:23.827
+along.
+
+01:57:23.907 --> 01:57:25.787
+We really need clippable boards.
+
+01:57:28.128 --> 01:57:28.949
+I'm really, we,
+
+01:57:29.969 --> 01:57:33.210
+I have them on Tw— like this is also on Twitch, so I don't know if you
+
+01:57:33.250 --> 01:57:36.331
+can like, if you can expand it,
+
+01:57:44.134 --> 01:57:45.534
+but yeah.
+
+01:57:48.235 --> 01:57:48.735
+We need to,
+
+01:57:51.276 --> 01:57:56.658
+I don't know how our like clippable bots are gonna be for my reputation.
+
+01:58:00.700 --> 01:58:00.880
+I can
+
+01:58:02.360 --> 01:58:05.962
+shoot in, like fire shots in the neighborhood for you all.
+
+01:58:06.282 --> 01:58:06.742
+But also,
+
+01:58:09.403 --> 01:58:15.245
+yes, me, I'm going to die for everyone's sins and like get Trezy to die
+
+01:58:15.265 --> 01:58:15.545
+with me.
+
+01:58:15.705 --> 01:58:17.846
+Accidentally get Trezy murdered.
+
+01:58:19.906 --> 01:58:21.507
+It's more fun to be together.
+
+01:58:25.548 --> 01:58:29.409
+We're all in this together, she says, as everyone gets,
+
+01:58:30.549 --> 01:58:32.530
+you know, murdered by the mob
+
+01:58:33.650 --> 01:58:34.630
+alongside her.
+
+01:58:35.830 --> 01:58:38.531
+Anyway, gonna go get my ramen.
+
+01:58:38.631 --> 01:58:39.731
+Thank you all for coming.
+
+01:58:40.551 --> 01:58:44.012
+What happens on Streamplace stays on Streamplace.
+
+01:58:44.492 --> 01:58:44.992
+Yes.
+
+01:58:46.152 --> 01:58:46.472
+Yes.
+
+01:58:46.532 --> 01:58:47.793
+For now, at least.
+
+01:58:55.694 --> 01:58:55.874
+Okay.
+
+01:58:56.194 --> 01:58:58.115
+Gonna go, or my ramen is getting cold.
+
+01:58:58.795 --> 01:58:59.115
+Bye.
+
+01:58:59.655 --> 01:59:00.215
+Bye, folks.
+
+01:59:00.235 --> 01:59:01.115
+Thanks for coming.
+
+01:59:01.115 --> 01:59:01.975
+I'll see you around.
+
+01:59:04.576 --> 01:59:04.936
+Bye-bye.

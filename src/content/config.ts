@@ -4,6 +4,7 @@ import { posts } from "./posts/_config";
 import { projects } from "./projects/_config";
 import { socials } from "./socials/_config";
 import { streams } from "./streams/_config";
+import { streamRecordings } from "./stream-recordings/_config";
 
 const FaqSchema = z.object({
   title: z.string(),
@@ -29,4 +30,5 @@ export const collections = {
   posts,
   projects,
   streams,
+  streamRecordings,
 };

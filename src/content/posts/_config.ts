@@ -9,6 +9,7 @@ export const posts = defineCollection({
       title: z.string().transform((title) => parseInline(title) ?? ""),
       tagline: z.string().optional(),
       created_at: z.date(),
+      recorded_at: z.date().optional(),
       unlisted: z.boolean().optional().default(false),
       tags: z
         .array(z.string().transform((tag) => tag.substring(1)))

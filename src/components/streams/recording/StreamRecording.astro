@@ -1,0 +1,329 @@
+---
+import { getEntry } from "astro:content";
+import { recordingAssets } from "../../../content/stream-recordings/assets.ts";
+import ChapterList from "./ChapterList.astro";
+import ChapterNowBar from "./ChapterNowBar.astro";
+import ExternalLinkIcon from "./ExternalLinkIcon.astro";
+import InteractiveTranscript from "./InteractiveTranscript.astro";
+import StreamPlayer from "./StreamPlayer.astro";
+
+interface Props {
+  recording: string;
+}
+
+const PLAYBACK_URL =
+  "https://stream.place/xrpc/place.stream.playback.getVideoPlaylist";
+
+const entry = await getEntry("streamRecordings", Astro.props.recording);
+if (!entry) {
+  throw new Error(`No stream recording named "${Astro.props.recording}".`);
+}
+const { title, vodAtUri, sourceUrl, chapters, groups } = entry.data;
+const playlistUrl = `${PLAYBACK_URL}?uri=${encodeURIComponent(vodAtUri)}`;
+
+const { chaptersSrc, captionsSrc, posterSrc, screenshots } = recordingAssets(
+  entry.id,
+);
+---
+
+<stream-recording class="stream-recording">
+  <div class="player-dock">
+    <div class="player-card">
+      <button
+        class="reading-toggle reading-exit"
+        type="button"
+        data-reading="off"
+      >
+        Exit full page
+        <svg
+          class="reading-icon"
+          aria-hidden="true"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.5"
+            d="M14.23 17.995c-.01-.75-.526-3.234 0-3.76c.527-.527 3.01-.01 3.76 0M21 20.999l-6.385-6.383M9.77 17.994c.01-.75.525-3.233-.001-3.76c-.527-.526-3.01-.01-3.76.001M3 20.998l6.386-6.384M6.007 9.761c.75.01 3.234.522 3.76-.005s.006-3.01-.006-3.76m-.384 3.371L3.002 3.002m14.99 6.759c-.75.01-3.234.522-3.76-.005s-.006-3.01.006-3.76m.384 3.371l6.375-6.365"
+          ></path>
+        </svg>
+      </button>
+      <StreamPlayer
+        playlistUrl={playlistUrl}
+        title={title}
+        sourceUrl={sourceUrl}
+        captionsSrc={captionsSrc}
+        posterSrc={posterSrc}
+        chaptersSrc={chaptersSrc}
+      />
+      {
+        chapters.length > 0 ? (
+          <ChapterNowBar chapters={chapters} sourceUrl={sourceUrl} />
+        ) : (
+          <a
+            class="source-link"
+            href={sourceUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Open on Streamplace
+            <ExternalLinkIcon />
+          </a>
+        )
+      }
+    </div>
+  </div>
+
+  <InteractiveTranscript
+    recordingId={entry.id}
+    groups={groups}
+    screenshots={screenshots}
+  >
+    {
+      chapters.length > 0 && (
+        <ChapterList slot="title-actions" chapters={chapters} />
+      )
+    }
+    <button
+      slot="actions"
+      class="reading-toggle reading-header-toggle"
+      type="button"
+      data-reading="on"
+    >
+      <span class="reading-label">Read full page</span>
+      <svg
+        class="reading-icon reading-icon-expand"
+        aria-hidden="true"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M8 4H4m0 0v4m0-4l5 5m7-5h4m0 0v4m0-4l-5 5M8 20H4m0 0v-4m0 4l5-5m7 5h4m0 0v-4m0 4l-5-5"
+        ></path>
+      </svg>
+      <svg
+        class="reading-icon reading-icon-collapse"
+        aria-hidden="true"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.5"
+          d="M14.23 17.995c-.01-.75-.526-3.234 0-3.76c.527-.527 3.01-.01 3.76 0M21 20.999l-6.385-6.383M9.77 17.994c.01-.75.525-3.233-.001-3.76c-.527-.526-3.01-.01-3.76.001M3 20.998l6.386-6.384M6.007 9.761c.75.01 3.234.522 3.76-.005s.006-3.01-.006-3.76m-.384 3.371L3.002 3.002m14.99 6.759c-.75.01-3.234.522-3.76-.005s-.006-3.01.006-3.76m.384 3.371l6.375-6.365"
+        ></path>
+      </svg>
+    </button>
+  </InteractiveTranscript>
+</stream-recording>
+
+<script>
+  import { ReadingModeEvent, RecordingElement } from "./events.ts";
+
+  class StreamRecording extends RecordingElement {
+    connect(signal: AbortSignal) {
+      const dock = this.querySelector<HTMLElement>(".player-dock");
+      const headerToggle = this.querySelector<HTMLButtonElement>(
+        ".reading-header-toggle",
+      );
+      let readingMode = false;
+
+      const updateFloating = () => {
+        if (!dock) {
+          return;
+        }
+        const floating =
+          readingMode && dock.getBoundingClientRect().bottom <= 0;
+        if (floating === this.classList.contains("is-floating")) {
+          return;
+        }
+        dock.style.height = floating ? `${dock.offsetHeight}px` : "";
+        this.classList.toggle("is-floating", floating);
+      };
+
+      const scroller = this.querySelector<HTMLElement>(".transcript-scroll");
+      const fitTranscript = () => {
+        if (!dock || !scroller) {
+          return;
+        }
+        const above =
+          scroller.getBoundingClientRect().top -
+          dock.getBoundingClientRect().top;
+        this.style.setProperty(
+          "--transcript-max-height",
+          `${window.innerHeight - above - 16}px`,
+        );
+      };
+      const resizeObserver = new ResizeObserver(fitTranscript);
+      if (dock) {
+        resizeObserver.observe(dock);
+      }
+      window.addEventListener("resize", fitTranscript, { signal });
+      signal.addEventListener("abort", () => resizeObserver.disconnect());
+
+      window.addEventListener(
+        "scroll",
+        () => {
+          if (readingMode) {
+            updateFloating();
+          }
+        },
+        { passive: true, signal },
+      );
+
+      const setReadingMode = (enabled: boolean) => {
+        readingMode = enabled;
+        this.classList.toggle("is-reading", enabled);
+        updateFloating();
+        if (headerToggle) {
+          headerToggle.dataset.reading = enabled ? "off" : "on";
+          const label = headerToggle.querySelector(".reading-label");
+          if (label) {
+            label.textContent = enabled ? "Exit full page" : "Read full page";
+          }
+        }
+        if (!enabled) {
+          this.scrollIntoView();
+        }
+        this.send(new ReadingModeEvent(enabled));
+      };
+
+      this.querySelectorAll<HTMLButtonElement>(".reading-toggle").forEach(
+        (button) =>
+          button.addEventListener(
+            "click",
+            () => setReadingMode(button.dataset.reading === "on"),
+            { signal },
+          ),
+      );
+    }
+  }
+
+  customElements.define("stream-recording", StreamRecording);
+</script>
+
+<style>
+  .stream-recording {
+    --recording-accent: #4d2375;
+    --recording-focus-color: #32155f;
+    --recording-card-border: 2px solid #000;
+    --recording-card-radius: 14px;
+    --recording-mini-player-width: min(22rem, 55vw);
+    --chapter-inset: 0.75rem;
+    --chapter-label-width: 4.5rem;
+    display: grid;
+    gap: 1.5rem;
+    min-width: 0;
+    margin-block: 1.5rem;
+  }
+
+  @media (forced-colors: active) {
+    .stream-recording {
+      --recording-focus-color: Highlight;
+    }
+  }
+
+  .stream-recording :global(.chapter-time) {
+    color: var(--recording-accent);
+    font-variant-numeric: tabular-nums;
+    text-decoration: underline;
+  }
+
+  .player-card {
+    container: player-card / inline-size;
+    overflow: hidden;
+    border: var(--recording-card-border);
+    border-radius: var(--recording-card-radius);
+    box-shadow: var(--box-shadow);
+  }
+
+  .source-link {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.5rem var(--chapter-inset);
+  }
+
+  .reading-toggle {
+    min-height: 2rem;
+    padding: 0.15rem 0.7rem;
+    border: 1px solid #000;
+    border-radius: 999px;
+    background: #fff;
+    color: #211432;
+    font: inherit;
+    font-size: 0.85rem;
+    cursor: pointer;
+  }
+
+  .reading-header-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--recording-accent);
+    font-size: 0.9rem;
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+  }
+
+  .reading-icon {
+    flex: none;
+    width: 1em;
+    height: 1em;
+  }
+
+  .reading-header-toggle[data-reading="on"] .reading-icon-collapse,
+  .reading-header-toggle[data-reading="off"] .reading-icon-expand {
+    display: none;
+  }
+
+  .reading-exit {
+    display: none;
+  }
+
+  .is-floating .player-card {
+    position: fixed;
+    z-index: 10;
+    inset-inline-end: 1rem;
+    inset-block-end: 1rem;
+    width: var(--recording-mini-player-width);
+  }
+
+  .is-floating .reading-exit {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.3rem;
+    width: 100%;
+    min-height: 2.25rem;
+    padding: 0.25rem var(--chapter-inset);
+    border: 0;
+    border-bottom: 1px solid #ddd;
+    border-radius: 0;
+    font-size: 0.85rem;
+    text-align: end;
+  }
+
+  .is-floating .source-link {
+    display: none;
+  }
+
+  .reading-toggle:focus-visible {
+    outline: 2px solid var(--recording-focus-color);
+    outline-offset: 2px;
+  }
+</style>

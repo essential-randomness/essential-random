@@ -1,0 +1,295 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+type Recording = CollectionEntry<"streamRecordings">["data"];
+
+interface Props {
+  playlistUrl: string;
+  title: Recording["title"];
+  sourceUrl: Recording["sourceUrl"];
+  captionsSrc?: string;
+  posterSrc?: string;
+  chaptersSrc?: string;
+}
+
+const { playlistUrl, title, sourceUrl, captionsSrc, posterSrc, chaptersSrc } =
+  Astro.props;
+---
+
+<recording-player class="player-area" data-playlist-url={playlistUrl}>
+  <div class="video-frame">
+    <video
+      controls
+      playsinline
+      preload="none"
+      poster={posterSrc}
+      aria-label={title}
+    >
+      {
+        captionsSrc && (
+          <track
+            kind="captions"
+            src={captionsSrc}
+            srclang="en"
+            label="English"
+            default
+          />
+        )
+      }
+      {
+        chaptersSrc && (
+          <track
+            kind="chapters"
+            src={chaptersSrc}
+            srclang="en"
+            label="Chapters"
+          />
+        )
+      }
+    </video>
+    {posterSrc && <img class="error-poster" src={posterSrc} alt="" />}
+    <p class="player-error" role="status" hidden>
+      This browser could not load the recording. You can still open it on
+      <a href={sourceUrl} target="_blank" rel="noopener noreferrer">
+        Streamplace
+      </a>.
+      <span class="player-error-decoder" hidden>
+        Turning on hardware acceleration may help, though some browsers can't
+        play this format at all.
+      </span>
+      <code class="player-error-detail" hidden></code>
+    </p>
+  </div>
+</recording-player>
+
+<script>
+  import Hls, { ErrorTypes, Events } from "hls.js";
+  import {
+    ChapterEvent,
+    RecordingElement,
+    SeekEvent,
+    TimeEvent,
+  } from "./events.ts";
+
+  class RecordingPlayer extends RecordingElement {
+    connect(signal: AbortSignal) {
+      const { playlistUrl } = this.dataset;
+      const video = this.querySelector("video");
+      const videoFrame = this.querySelector<HTMLElement>(".video-frame");
+      const errorMessage = this.querySelector<HTMLElement>(".player-error");
+      const errorDetail = this.querySelector<HTMLElement>(
+        ".player-error-detail",
+      );
+      const decoderHint = this.querySelector<HTMLElement>(
+        ".player-error-decoder",
+      );
+      if (
+        !playlistUrl ||
+        !video ||
+        !videoFrame ||
+        !errorMessage ||
+        !errorDetail ||
+        !decoderHint
+      ) {
+        return;
+      }
+
+      const showPlaybackError = (detail?: string) => {
+        videoFrame.dataset.failed = "";
+        errorMessage.hidden = false;
+        if (detail) {
+          errorDetail.textContent = detail;
+          errorDetail.hidden = false;
+          decoderHint.hidden = !detail.includes("DECODER_ERROR_NOT_SUPPORTED");
+        }
+      };
+
+      const play = async () => {
+        try {
+          await video.play();
+        } catch {
+        }
+      };
+
+      const chaptersTrack = Array.from(video.textTracks).find(
+        (track) => track.kind === "chapters",
+      );
+      if (chaptersTrack) {
+        chaptersTrack.mode = "hidden";
+        chaptersTrack.addEventListener(
+          "cuechange",
+          () => {
+            const current = Array.from(chaptersTrack.activeCues ?? []).at(-1);
+            if (!current) {
+              return;
+            }
+            const index = Array.from(chaptersTrack.cues ?? []).indexOf(current);
+            this.send(new ChapterEvent(index));
+          },
+          { signal },
+        );
+      }
+
+      this.listen({
+        event: SeekEvent,
+        handler: ({ time }) => {
+          if (!Number.isFinite(time)) {
+            return;
+          }
+          video.currentTime = time;
+          void play();
+        },
+      });
+
+      const sendTime = () => this.send(new TimeEvent(video.currentTime));
+      video.addEventListener("timeupdate", sendTime, { signal });
+      video.addEventListener("seeked", sendTime, { signal });
+      let frame = 0;
+      const followFrames = () => {
+        sendTime();
+        frame = requestAnimationFrame(followFrames);
+      };
+      video.addEventListener(
+        "playing",
+        () => {
+          cancelAnimationFrame(frame);
+          frame = requestAnimationFrame(followFrames);
+        },
+        { signal },
+      );
+      for (const stop of ["pause", "waiting", "ended"]) {
+        video.addEventListener(stop, () => cancelAnimationFrame(frame), {
+          signal,
+        });
+      }
+      signal.addEventListener("abort", () => cancelAnimationFrame(frame));
+
+      // oxlint-disable-next-line import/no-named-as-default-member -- hls.js exports isSupported by name at runtime, but its types don't declare it
+      if (Hls.isSupported()) {
+        const hls = new Hls({ maxBufferLength: 1, maxMaxBufferLength: 1 });
+        signal.addEventListener("abort", () => hls.destroy());
+
+        let played = false;
+
+        let recovering = false;
+        hls.on(Events.FRAG_BUFFERED, () => {
+          recovering = false;
+        });
+        hls.on(Events.ERROR, (_event, data) => {
+          if (!data.fatal) {
+            return;
+          }
+          const recoverable =
+            data.type === ErrorTypes.MEDIA_ERROR ||
+            data.type === ErrorTypes.NETWORK_ERROR;
+          if (recovering || !recoverable) {
+            hls.destroy();
+            showPlaybackError(`${data.details}: ${data.error.message}`);
+            return;
+          }
+          recovering = true;
+          const time = video.currentTime;
+          if (data.type === ErrorTypes.MEDIA_ERROR) {
+            hls.recoverMediaError();
+            hls.startLoad(time);
+          } else {
+            hls.config.startPosition = time;
+            hls.loadSource(playlistUrl);
+          }
+          if (played) {
+            void play();
+          }
+        });
+
+        hls.loadSource(playlistUrl);
+        hls.attachMedia(video);
+
+        video.addEventListener(
+          "play",
+          () => {
+            played = true;
+            hls.config.maxBufferLength = 30;
+            hls.config.maxMaxBufferLength = 600;
+          },
+          { once: true, signal },
+        );
+      } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
+        video.src = playlistUrl;
+        video.addEventListener(
+          "error",
+          () =>
+            showPlaybackError(
+              video.error?.message || `Media error code ${video.error?.code}`,
+            ),
+          { once: true, signal },
+        );
+      } else {
+        showPlaybackError();
+      }
+    }
+  }
+
+  customElements.define("recording-player", RecordingPlayer);
+</script>
+
+<style>
+  .player-area {
+    display: block;
+  }
+
+  .video-frame {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #000;
+  }
+
+  .video-frame[data-failed]:not(:has(.error-poster)) {
+    aspect-ratio: auto;
+    background: none;
+  }
+
+  .video-frame[data-failed] video,
+  .error-poster {
+    display: none;
+  }
+
+  .video-frame[data-failed] .error-poster {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .video-frame video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    object-fit: contain;
+  }
+
+  .player-error {
+    margin: 0;
+    padding: 1rem var(--chapter-inset);
+    background: #f8f3ff;
+  }
+
+  .video-frame:has(.error-poster) .player-error {
+    position: absolute;
+    inset-inline: 0;
+    top: 50%;
+    translate: 0 -50%;
+  }
+
+  .player-error-detail {
+    display: block;
+    margin-block-start: 0.5rem;
+    font-size: 0.875em;
+    overflow-wrap: anywhere;
+  }
+
+  .player-error-detail[hidden] {
+    display: none;
+  }
+</style>
