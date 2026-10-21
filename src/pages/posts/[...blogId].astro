@@ -13,7 +13,7 @@ export const getPostSlug = ({ slug, id }: { slug: string; id: string }) => {
   // If the id starts and ends with "(" and ")", remove that folder
   const validSlug = slugSegments.filter(
     (_, index) =>
-      !idSegments[index].startsWith("(") && !idSegments[index].endsWith(")")
+      !idSegments[index].startsWith("(") && !idSegments[index].endsWith(")"),
   );
   return validSlug.join(path.sep);
 };
@@ -31,7 +31,7 @@ export async function getStaticPaths() {
           data: post.data,
         },
       };
-    })
+    }),
   );
 }
 
@@ -53,15 +53,19 @@ const formatDate = (date: Date) =>
 >
   <main class="post">
     <h1 set:html={data.title} />
-    {data.tagline && (
-      <h2 class="tagline" set:html={parseInline(data.tagline)} />
-    )}
+    {
+      data.tagline && (
+        <h2 class="tagline" set:html={parseInline(data.tagline)} />
+      )
+    }
     <div>
-      {data.recorded_at && (
-        <>
-          Recorded on <date>{formatDate(data.recorded_at)}</date> ·{" "}
-        </>
-      )}
+      {
+        data.recorded_at && (
+          <>
+            Recorded on <date>{formatDate(data.recorded_at)}</date> ·{" "}
+          </>
+        )
+      }
       Published on <date>{formatDate(data.created_at)}</date>
     </div>
     <PostStatus status={data.status} />
@@ -239,7 +243,7 @@ const formatDate = (date: Date) =>
 
   <script>
     const footnoteLinks = document.querySelectorAll<HTMLAnchorElement>(
-      "a[data-footnote-ref]"
+      "a[data-footnote-ref]",
     );
     for (let footnoteLink of footnoteLinks) {
       footnoteLink.addEventListener("click", (e) => {
@@ -249,12 +253,12 @@ const formatDate = (date: Date) =>
           ?.cloneNode(true);
         if (!footnote) {
           console.error(
-            `Why is there no footnote for hash ${footnoteLink.hash}???`
+            `Why is there no footnote for hash ${footnoteLink.hash}???`,
           );
           return;
         }
         const backLink = (footnote as HTMLParagraphElement).querySelector(
-          "a[data-footnote-backref]"
+          "a[data-footnote-backref]",
         );
         backLink && footnote.removeChild(backLink);
         const modal =
