@@ -22,6 +22,7 @@ export const posts = defineCollection({
         tagline: z.string().optional(),
         created_at: z.date(),
         recorded_at: z.date().optional(),
+        at_uri: z.union([z.string(), z.array(z.string())]).optional(),
         unlisted: z.boolean().optional().default(false),
         tags: z.array(z.string()).optional().default([]),
         status: z.enum(["rough-draft", "pre-beta"]).optional(),

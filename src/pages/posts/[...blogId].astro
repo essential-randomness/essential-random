@@ -36,6 +36,9 @@ export async function getStaticPaths() {
 }
 
 const { Content, data } = Astro.props;
+const atUris = Array.isArray(data.at_uri)
+  ? data.at_uri
+  : data.at_uri ? [data.at_uri] : [];
 
 const formatDate = (date: Date) =>
   date.toLocaleDateString("en-US", {
@@ -51,6 +54,9 @@ const formatDate = (date: Date) =>
   preview={data.og_image?.src}
   description={data.og_description || data.tagline}
 >
+  <Fragment slot="head">
+    {atUris.map((uri) => <meta name="at:canonical" content={uri} />)}
+  </Fragment>
   <main class="post">
     <h1 set:html={data.title} />
     {
